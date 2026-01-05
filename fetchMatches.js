@@ -1,68 +1,91 @@
-const puppeteer = require("puppeteer");
-const cheerio = require("cheerio");
-const Match = require("./models/Match");
+import axios from "axios";
+import cheerio from "cheerio";
+import mongoose from "mongoose";
+import Match from "./models/Match.js";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const URL = "https://onefootball.com/en/matches";
 
 async function fetchMatches() {
-  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox", "--disable-setuid-sandbox"] });
-  const page = await browser.newPage();
-  await page.setRequestInterception(true);
-  page.on("request", req => {
-    if (["font", "media"].includes(req.resourceType())) req.abort();
-    else req.continue();
-  });
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
 
-  await page.goto("https://onefootball.com/en/matches", { waitUntil: "domcontentloaded", timeout: 90000 });
-  await page.waitForSelector("div.SectionHeader_container__iVfZ9", { timeout: 90000 });
-  const html = await page.content();
-  const $ = cheerio.load(html);
+    const { data } = await axios.get(URL, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120",
+      },
+      timeout: 20000,
+    });
 
-  const matches = [];
+    const $ = cheerio.load(data);
+    const matches = [];
 
-  $("div.SectionHeader_container__iVfZ9").each((_, section) => {
-    const league = $(section).find("h2").text().trim();
-    const matchday = $(section).find("h3").text().trim();
-    let next = $(section).next();
+    $(".SectionHeader_container__iVfZ9").each((_, section) => {
+      const leagueName = $(section)
+        .find(".Title_leftAlign__mYh6r")
+        .text()
+        .trim();
 
-    while (next.length && !next.hasClass("SectionHeader_container__iVfZ9")) {
-      next.find("a.MatchCard_matchCard__iOv4G").each((__, card) => {
-        const teamNames = $(card).find(".SimpleMatchCardTeam_simpleMatchCardTeam__name__7Ud8D");
-        const scores = $(card).find(".SimpleMatchCardTeam_simpleMatchCardTeam__score__UYMc_");
-        const logos = $(card).find(".SimpleMatchCardTeam_simpleMatchCardTeam__logo__7Vzpw img");
+      const leagueLink =
+        "https://onefootball.com" +
+        $(section).find("a").attr("href");
 
-        const homeTeam = $(teamNames[0]).text().trim();
-        const awayTeam = $(teamNames[1]).text().trim();
-        const homeLogo = $(logos[0]).attr("src") || "";
-        const awayLogo = $(logos[1]).attr("src") || "";
-        const homeScore = $(scores[0]).text().trim();
-        const awayScore = $(scores[1]).text().trim();
+      const leagueLogo =
+        $(section).find("img").attr("src") || "";
 
-        let status = "Upcoming";
-        let time = "";
+      const container = $(section).next();
 
-        if ($(card).find(".SimpleMatchCard_simpleMatchCard__live__kg0bW").length) {
-          status = "Live";
-          time = $(card).find(".SimpleMatchCard_simpleMatchCard__live__kg0bW").text().trim();
-        }
+      container.find("a.MatchCard_matchCard__K36mC").each((__, match) => {
+        const matchLink =
+          "https://onefootball.com" + $(match).attr("href");
 
-        if ($(card).find(".SimpleMatchCard_simpleMatchCard__infoMessage___NJqW").text().includes("Full time")) {
-          status = "Finished";
-        }
+        const homeTeam = $(match)
+          .find(".MatchCardTeam_home__pui4c .MatchCardTeam_name__n8GJY")
+          .text()
+          .trim();
 
-        const timeTag = $(card).find("time");
-        if (timeTag.length && !time) time = timeTag.attr("datetime") || timeTag.text().trim();
+        const awayTeam = $(match)
+          .find(".MatchCardTeam_away__C0yA4 .MatchCardTeam_name__n8GJY")
+          .text()
+          .trim();
 
-        matches.push({ league, matchday, homeTeam, homeLogo, awayTeam, awayLogo, score: homeScore && awayScore ? `${homeScore} - ${awayScore}` : "", status, time });
+        const homeLogo =
+          $(match)
+            .find(".MatchCardTeam_home__pui4c img")
+            .attr("src") || "";
+
+        const awayLogo =
+          $(match)
+            .find(".MatchCardTeam_away__C0yA4 img")
+            .attr("src") || "";
+
+        if (!homeTeam || !awayTeam) return;
+
+        matches.push({
+          leagueName,
+          leagueLink,
+          leagueLogo,
+          matchLink,
+          homeTeam,
+          awayTeam,
+          homeLogo,
+          awayLogo,
+          updatedAt: new Date(),
+        });
       });
+    });
 
-      next = next.next();
-    }
-  });
+    await Match.deleteMany({});
+    await Match.insertMany(matches);
 
-  await Match.deleteMany({});
-  await Match.insertMany(matches);
-
-  await browser.close();
-  console.log(`✅ Updated ${matches.length} matches in DB`);
+    console.log(`✅ Saved ${matches.length} matches`);
+    mongoose.disconnect();
+  } catch (err) {
+    console.error("❌ Error:", err.message);
+  }
 }
 
-module.exports = fetchMatches;
+fetchMatches();

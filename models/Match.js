@@ -1,15 +1,19 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const matchSchema = new mongoose.Schema({
-  league: String,
-  matchday: String,
+const MatchSchema = new mongoose.Schema({
+  leagueName: String,
+  leagueLink: String,
+  leagueLogo: String,
+
+  matchLink: String,
+
   homeTeam: String,
-  homeLogo: String,
   awayTeam: String,
+
+  homeLogo: String,
   awayLogo: String,
-  score: String,
-  status: String,
-  time: String
+
+  updatedAt: Date,
 });
 
-module.exports = mongoose.model("Match", matchSchema);
+export default mongoose.model("Match", MatchSchema);
