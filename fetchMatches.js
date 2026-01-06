@@ -1,91 +1,51 @@
 import axios from "axios";
 import cheerio from "cheerio";
-import mongoose from "mongoose";
 import Match from "./models/Match.js";
-import dotenv from "dotenv";
 
-dotenv.config();
-
-const URL = "https://onefootball.com/en/matches";
+const ONEFOOTBALL_URL = "https://www.onefootball.com/en/football-matches";
 
 async function fetchMatches() {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
+  const { data } = await axios.get(ONEFOOTBALL_URL);
+  const $ = cheerio.load(data);
 
-    const { data } = await axios.get(URL, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120",
-      },
-      timeout: 20000,
+  const matches = [];
+
+  $(".MatchCard_matchCard__iOv4G").each((i, el) => {
+    const league = $(el).closest(".SectionHeader_container__iVfZ9").find(".SectionHeader_title__bD8pp h2").text().trim();
+    const matchLink = $(el).attr("href") ? "https://onefootball.com" + $(el).attr("href") : null;
+
+    const leagueLink = $(el).closest(".SectionHeader_container__iVfZ9").find(".SectionHeader_link__K8K1f").attr("href");
+    const leagueLogo = $(el).closest(".SectionHeader_container__iVfZ9").find("img.EntityLogo_entityLogoImage__4X0wF").attr("src");
+
+    const homeTeam = $(el).find(".SimpleMatchCardTeam_simpleMatchCardTeam__name__7Ud8D").first().text().trim();
+    const homeScore = $(el).find(".SimpleMatchCardTeam_simpleMatchCardTeam__score__UYMc_").first().text().trim();
+    const homeLogo = $(el).find(".SimpleMatchCardTeam_simpleMatchCardTeam__logo__7Vzpw img").first().attr("src");
+
+    const awayTeam = $(el).find(".SimpleMatchCardTeam_simpleMatchCardTeam__name__7Ud8D").last().text().trim();
+    const awayScore = $(el).find(".SimpleMatchCardTeam_simpleMatchCardTeam__score__UYMc_").last().text().trim();
+    const awayLogo = $(el).find(".SimpleMatchCardTeam_simpleMatchCardTeam__logo__7Vzpw img").last().attr("src");
+
+    const time = $(el).find(".SimpleMatchCard_simpleMatchCard__live__kg0bW, .SimpleMatchCard_simpleMatchCard__preMatch__BtjKV time").text().trim();
+
+    matches.push({
+      league,
+      leagueLink,
+      leagueLogo,
+      matchLink,
+      homeTeam,
+      homeScore,
+      homeLogo,
+      awayTeam,
+      awayScore,
+      awayLogo,
+      time
     });
+  });
 
-    const $ = cheerio.load(data);
-    const matches = [];
-
-    $(".SectionHeader_container__iVfZ9").each((_, section) => {
-      const leagueName = $(section)
-        .find(".Title_leftAlign__mYh6r")
-        .text()
-        .trim();
-
-      const leagueLink =
-        "https://onefootball.com" +
-        $(section).find("a").attr("href");
-
-      const leagueLogo =
-        $(section).find("img").attr("src") || "";
-
-      const container = $(section).next();
-
-      container.find("a.MatchCard_matchCard__K36mC").each((__, match) => {
-        const matchLink =
-          "https://onefootball.com" + $(match).attr("href");
-
-        const homeTeam = $(match)
-          .find(".MatchCardTeam_home__pui4c .MatchCardTeam_name__n8GJY")
-          .text()
-          .trim();
-
-        const awayTeam = $(match)
-          .find(".MatchCardTeam_away__C0yA4 .MatchCardTeam_name__n8GJY")
-          .text()
-          .trim();
-
-        const homeLogo =
-          $(match)
-            .find(".MatchCardTeam_home__pui4c img")
-            .attr("src") || "";
-
-        const awayLogo =
-          $(match)
-            .find(".MatchCardTeam_away__C0yA4 img")
-            .attr("src") || "";
-
-        if (!homeTeam || !awayTeam) return;
-
-        matches.push({
-          leagueName,
-          leagueLink,
-          leagueLogo,
-          matchLink,
-          homeTeam,
-          awayTeam,
-          homeLogo,
-          awayLogo,
-          updatedAt: new Date(),
-        });
-      });
-    });
-
-    await Match.deleteMany({});
-    await Match.insertMany(matches);
-
-    console.log(`✅ Saved ${matches.length} matches`);
-    mongoose.disconnect();
-  } catch (err) {
-    console.error("❌ Error:", err.message);
-  }
+  // حذف البيانات القديمة واستبدالها بالجديدة
+  await Match.deleteMany({});
+  await Match.insertMany(matches);
+  console.log("✅ Matches updated:", matches.length);
 }
 
-fetchMatches();
+export default fetchMatches;

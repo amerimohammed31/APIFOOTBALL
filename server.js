@@ -1,28 +1,40 @@
 import express from "express";
 import mongoose from "mongoose";
-import Match from "./models/Match.js";
 import dotenv from "dotenv";
-import cron from "node-cron";
-import { exec } from "child_process";
+import fetchMatches from "./fetchMatches.js";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGO_URI).then(() =>
-  console.log("✅ MongoDB connected")
-);
+app.use(express.json());
 
-cron.schedule("* * * * *", () => {
-  exec("node fetchMatches.js");
-});
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: process.env.DB_NAME,
+})
+.then(() => console.log("✅ Connected to MongoDB"))
+.catch((err) => console.error("❌ MongoDB connection error:", err));
+
+import Match from "./models/Match.js";
 
 app.get("/matches", async (req, res) => {
-  const data = await Match.find();
-  res.json(data);
+  try {
+    const matches = await Match.find({});
+    res.json(matches);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+// تحديث المباريات تلقائيًا كل دقيقة
+setInterval(async () => {
+  try {
+    console.log("⏱ Fetching matches...");
+    await fetchMatches();
+  } catch (err) {
+    console.error("Error fetching matches:", err);
+  }
+}, 60000); // 60 ثانية
+
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
