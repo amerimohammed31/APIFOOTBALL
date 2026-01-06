@@ -1,5 +1,5 @@
 import axios from "axios";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import Match from "./models/Match.js";
 
 const ONEFOOTBALL_URL = "https://www.onefootball.com/en/football-matches";
