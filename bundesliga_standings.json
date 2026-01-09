@@ -16,14 +16,14 @@
     "rank": 2,
     "team": "Dortmund",
     "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bv-borussia-09-dortmund.png",
-    "points": 32,
-    "played": 15,
+    "points": 33,
+    "played": 16,
     "goalDiff": "+14",
     "wins": 9,
-    "draws": 5,
+    "draws": 6,
     "losses": 1,
-    "goalsFor": 26,
-    "goalsAgainst": 12
+    "goalsFor": 29,
+    "goalsAgainst": 15
   },
   {
     "rank": 3,
@@ -81,14 +81,14 @@
     "rank": 7,
     "team": "Francfort",
     "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/eintracht-francfort.png",
-    "points": 25,
-    "played": 15,
+    "points": 26,
+    "played": 16,
     "goalDiff": "0",
     "wins": 7,
-    "draws": 4,
+    "draws": 5,
     "losses": 4,
-    "goalsFor": 30,
-    "goalsAgainst": 30
+    "goalsFor": 33,
+    "goalsAgainst": 33
   },
   {
     "rank": 8,

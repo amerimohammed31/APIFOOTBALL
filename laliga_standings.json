@@ -118,19 +118,32 @@
   },
   {
     "rank": 10,
-    "team": "Getafe",
-    "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/getafe.png",
+    "team": "Real Sociedad",
+    "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/real-sociedad.png",
     "points": 21,
-    "played": 18,
-    "goalDiff": "-9",
-    "wins": 6,
-    "draws": 3,
-    "losses": 9,
-    "goalsFor": 14,
-    "goalsAgainst": 23
+    "played": 19,
+    "goalDiff": "-3",
+    "wins": 5,
+    "draws": 6,
+    "losses": 8,
+    "goalsFor": 24,
+    "goalsAgainst": 27
   },
   {
     "rank": 11,
+    "team": "Getafe",
+    "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/getafe.png",
+    "points": 21,
+    "played": 19,
+    "goalDiff": "-10",
+    "wins": 6,
+    "draws": 3,
+    "losses": 10,
+    "goalsFor": 15,
+    "goalsAgainst": 25
+  },
+  {
+    "rank": 12,
     "team": "Séville",
     "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-seville.png",
     "points": 20,
@@ -143,7 +156,7 @@
     "goalsAgainst": 29
   },
   {
-    "rank": 12,
+    "rank": 13,
     "team": "Osasuna",
     "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/osasuna.png",
     "points": 19,
@@ -156,7 +169,7 @@
     "goalsAgainst": 21
   },
   {
-    "rank": 13,
+    "rank": 14,
     "team": "Alavés",
     "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/deportivo-alaves.png",
     "points": 19,
@@ -169,7 +182,7 @@
     "goalsAgainst": 21
   },
   {
-    "rank": 14,
+    "rank": 15,
     "team": "Vallecano",
     "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/rayo-vallecano.png",
     "points": 19,
@@ -180,19 +193,6 @@
     "losses": 7,
     "goalsFor": 14,
     "goalsAgainst": 21
-  },
-  {
-    "rank": 15,
-    "team": "Real Sociedad",
-    "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/real-sociedad.png",
-    "points": 18,
-    "played": 18,
-    "goalDiff": "-4",
-    "wins": 4,
-    "draws": 6,
-    "losses": 8,
-    "goalsFor": 22,
-    "goalsAgainst": 26
   },
   {
     "rank": 16,
