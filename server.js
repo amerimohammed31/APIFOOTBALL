@@ -1,37 +1,34 @@
 import express from "express";
 import fs from "fs";
 
-import fetchLaLigaStandings from "./fetchLaLigaStandings.js";
-import fetchPremierLeagueStandings from "./fetchPremierLeagueStandings.js";
-import fetchLigue1Standings from "./fetchLigue1Standings.js";
-import fetchSerieAStandings from "./fetchSerieAStandings.js";
-import fetchBundesligaStandings from "./fetchBundesligaStandings.js";
+// ===== IMPORT FUNCTIONS SAFELY =====
+// كل import يحاول استخدام default أو named export
+import * as LaLigaModule from "./fetchLaLigaStandings.js";
+import * as MatchTodayModule from "./fetchMatchToday.js";
+import * as PremierModule from "./fetchPremierLeagueStandings.js";
+import * as Ligue1Module from "./fetchLigue1Standings.js";
+import * as SerieAModule from "./fetchSerieAStandings.js";
+import * as BundesligaModule from "./fetchBundesligaStandings.js";
+
+// استخراج الدوال سواء كانت default أو named
+const fetchLaLigaStandings = LaLigaModule.default || LaLigaModule.fetchLaLigaStandings;
+const fetchMatchToday = MatchTodayModule.default || MatchTodayModule.fetchMatchToday;
+const fetchPremierLeagueStandings = PremierModule.default || PremierModule.fetchPremierLeagueStandings;
+const fetchLigue1Standings = Ligue1Module.default || Ligue1Module.fetchLigue1Standings;
+const fetchSerieAStandings = SerieAModule.default || SerieAModule.fetchSerieAStandings;
+const fetchBundesligaStandings = BundesligaModule.default || BundesligaModule.fetchBundesligaStandings;
 
 const app = express();
 const PORT = 3000;
 
 /* ===== CONFIG ===== */
 const LEAGUES = {
-  laliga: {
-    file: "./laliga_standings.json",
-    fetch: fetchLaLigaStandings,
-  },
-  premierleague: {
-    file: "./premierleague_standings.json",
-    fetch: fetchPremierLeagueStandings,
-  },
-  ligue1: {
-    file: "./ligue1_standings.json",
-    fetch: fetchLigue1Standings,
-  },
-  seriea: {
-    file: "./seriea_standings.json",
-    fetch: fetchSerieAStandings,
-  },
-  bundesliga: {
-    file: "./bundesliga_standings.json",
-    fetch: fetchBundesligaStandings,
-  },
+  matchtoday: { file: "./Match-Today.json", fetch: fetchMatchToday },
+  laliga: { file: "./laliga_standings.json", fetch: fetchLaLigaStandings },
+  premierleague: { file: "./premierleague_standings.json", fetch: fetchPremierLeagueStandings },
+  ligue1: { file: "./ligue1_standings.json", fetch: fetchLigue1Standings },
+  seriea: { file: "./seriea_standings.json", fetch: fetchSerieAStandings },
+  bundesliga: { file: "./bundesliga_standings.json", fetch: fetchBundesligaStandings },
 };
 
 /* ===== ROUTE UNIFIED ===== */
@@ -50,17 +47,18 @@ app.get("/standings/:league", (req, res) => {
     if (!fs.existsSync(config.file)) return res.json([]);
     const data = JSON.parse(fs.readFileSync(config.file, "utf-8"));
     res.json(data);
-  } catch {
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Invalid data file" });
   }
 });
 
 /* ===== INITIAL FETCH ===== */
-Object.values(LEAGUES).forEach((l) => l.fetch());
+Promise.all(Object.values(LEAGUES).map(l => l.fetch()));
 
-/* ===== UPDATE EVERY HOUR ===== */
+/* ===== UPDATE EVERY 30 MIN ===== */
 setInterval(() => {
-  Object.values(LEAGUES).forEach((l) => l.fetch());
+  Promise.all(Object.values(LEAGUES).map(l => l.fetch()));
 }, 30 * 60 * 1000);
 
 app.listen(PORT, () => {
