@@ -59,7 +59,7 @@ Promise.all(Object.values(LEAGUES).map(l => l.fetch()));
 /* ===== UPDATE EVERY 30 MIN ===== */
 setInterval(() => {
   Promise.all(Object.values(LEAGUES).map(l => l.fetch()));
-}, 30 * 60 * 1000);
+}, 10 * 60 * 1000);
 
 app.listen(PORT, () => {
   console.log("🚀 Server running on port " + PORT);
