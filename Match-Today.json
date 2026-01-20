@@ -60,11 +60,11 @@
           "name": "Man City",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/manchester-city-fc.png"
         },
-        "score": "2 - 0",
-        "status": "live",
-        "time": "31'",
-        "isLive": true,
-        "winner": null,
+        "score": "3 - 1",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png"
         ],
@@ -73,9 +73,18 @@
             {
               "player": "K. Høgh",
               "minute": "22', 24'"
+            },
+            {
+              "player": "J. Hauge",
+              "minute": "58'"
             }
           ],
-          "away": []
+          "away": [
+            {
+              "player": "Cherki",
+              "minute": "60'"
+            }
+          ]
         }
       },
       {
@@ -89,17 +98,31 @@
           "name": "Arsenal",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/arsenal-660.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "1 - 3",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "away",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-live-4.png"
         ],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "P. Sučić",
+              "minute": "18'"
+            }
+          ],
+          "away": [
+            {
+              "player": "Gabriel Jesus",
+              "minute": "10', 31'"
+            },
+            {
+              "player": "V. Gyökeres",
+              "minute": "84'"
+            }
+          ]
         }
       },
       {
@@ -113,17 +136,27 @@
           "name": "PSG",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/psg.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "2 - 1",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png"
         ],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "L. Suárez",
+              "minute": "74', 90'"
+            }
+          ],
+          "away": [
+            {
+              "player": "K. Kvaratskhelia",
+              "minute": "79'"
+            }
+          ]
         }
       },
       {
@@ -137,17 +170,43 @@
           "name": "Monaco",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/monaco.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "6 - 1",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-sport-671b94355dbc9.png"
         ],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "K. Mbappé",
+              "minute": "5', 26'"
+            },
+            {
+              "player": "F. Mastantuono",
+              "minute": "51'"
+            },
+            {
+              "player": "T. Kehrer",
+              "minute": "55' (csc)"
+            },
+            {
+              "player": "Vinícius Júnior",
+              "minute": "63'"
+            },
+            {
+              "player": "J. Bellingham",
+              "minute": "81'"
+            }
+          ],
+          "away": [
+            {
+              "player": "J. Teze",
+              "minute": "72'"
+            }
+          ]
         }
       },
       {
@@ -161,16 +220,25 @@
           "name": "Leverkusen",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bayer-04-leverkusen.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "2 - 0",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-live-7.png"
         ],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "Costinha",
+              "minute": "2'"
+            },
+            {
+              "player": "M. Taremi",
+              "minute": "45'+1"
+            }
+          ],
           "away": []
         }
       },
@@ -185,16 +253,25 @@
           "name": "Dortmund",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bv-borussia-09-dortmund.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "2 - 0",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-live-5.png"
         ],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "C. Romero",
+              "minute": "14'"
+            },
+            {
+              "player": "D. Solanke",
+              "minute": "37'"
+            }
+          ],
           "away": []
         }
       },
@@ -209,17 +286,31 @@
           "name": "Ajax",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/ajax.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "1 - 2",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "away",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-live-8.png"
         ],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "T. Oluwaseyi",
+              "minute": "49'"
+            }
+          ],
+          "away": [
+            {
+              "player": "O. Gloukh",
+              "minute": "61'"
+            },
+            {
+              "player": "O. Edvardsen",
+              "minute": "89'"
+            }
+          ]
         }
       },
       {
@@ -233,17 +324,27 @@
           "name": "Naples",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/naples-66a0fabf6784e.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "1 - 1",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "draw",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-live-6.png"
         ],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "J. Larsson",
+              "minute": "72'"
+            }
+          ],
+          "away": [
+            {
+              "player": "S. McTominay",
+              "minute": "39'"
+            }
+          ]
         }
       }
     ]
@@ -263,15 +364,33 @@
           "name": "Swindon",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/swindon-town.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "3 - 2",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "R. Graydon",
+              "minute": "11', 52'"
+            },
+            {
+              "player": "L. Garbutt",
+              "minute": "68'"
+            }
+          ],
+          "away": [
+            {
+              "player": "O. Palmer",
+              "minute": "55'"
+            },
+            {
+              "player": "J. Ball",
+              "minute": "60'"
+            }
+          ]
         }
       }
     ]
@@ -313,22 +432,39 @@
           "name": "Al Kholood",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/al-kholood.png"
         },
-        "score": "0 - 2",
-        "status": "live",
-        "time": "45+3'",
-        "isLive": true,
-        "winner": null,
+        "score": "2 - 5",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "Z. Youssouf",
+              "minute": "45'+3"
+            },
+            {
+              "player": "J. Buckley",
+              "minute": "57' (csc)"
+            }
+          ],
           "away": [
             {
               "player": "R. Enrique",
-              "minute": "12'"
+              "minute": "12', 81'"
             },
             {
               "player": "Muhammad Sawaan",
               "minute": "19'"
+            },
+            {
+              "player": "Hatan Bahbri",
+              "minute": "55'"
+            },
+            {
+              "player": "Abdulrahman Al Dosari",
+              "minute": "71'"
             }
           ]
         }
@@ -344,17 +480,26 @@
           "name": "Khaleej",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/al-khaleej.png"
         },
-        "score": "0 - 1",
-        "status": "live",
-        "time": "45+2'",
-        "isLive": true,
-        "winner": null,
+        "score": "4 - 1",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/dazn-671b98d475358.png",
           "https://assets-fr.imgfoot.com/media/cache/150x150/youtube-671bb471bdf82.png"
         ],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "I. Toney",
+              "minute": "59', 67', 77'"
+            },
+            {
+              "player": "Rayan Hamed",
+              "minute": "86'"
+            }
+          ],
           "away": [
             {
               "player": "G. Masouras",
@@ -380,15 +525,29 @@
           "name": "Millwall",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/millwall.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "2 - 1",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "R. Esse",
+              "minute": "11'"
+            },
+            {
+              "player": "H. Wright",
+              "minute": "78'"
+            }
+          ],
+          "away": [
+            {
+              "player": "M. Ivanović",
+              "minute": "29'"
+            }
+          ]
         }
       },
       {
@@ -402,15 +561,28 @@
           "name": "Hull",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/hull-city.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "0 - 3",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [],
-          "away": []
+          "away": [
+            {
+              "player": "L. Millar",
+              "minute": "33'"
+            },
+            {
+              "player": "A. Famewo",
+              "minute": "45'"
+            },
+            {
+              "player": "O. McBurnie",
+              "minute": "49'"
+            }
+          ]
         }
       },
       {
@@ -424,15 +596,29 @@
           "name": "Derby",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/derby-county.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "1 - 2",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "T. Campbell",
+              "minute": "67'"
+            }
+          ],
+          "away": [
+            {
+              "player": "M. Gillesphey",
+              "minute": "17' (csc)"
+            },
+            {
+              "player": "B. Clark",
+              "minute": "60'"
+            }
+          ]
         }
       },
       {
@@ -446,14 +632,19 @@
           "name": "Bristol City",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bristol-city.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "2 - 0",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "J. Clarke",
+              "minute": "8', 55'"
+            }
+          ],
           "away": []
         }
       },
@@ -468,11 +659,11 @@
           "name": "QPR",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/queens-park-rangers.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "0 - 0",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -490,15 +681,24 @@
           "name": "Birmingham",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/birmingham-city.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "0 - 2",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [],
-          "away": []
+          "away": [
+            {
+              "player": "M. Ducksch",
+              "minute": "83'"
+            },
+            {
+              "player": "K. Furuhashi",
+              "minute": "90'+2"
+            }
+          ]
         }
       },
       {
@@ -512,15 +712,36 @@
           "name": "Norwich",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/norwich-city.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "0 - 5",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [],
-          "away": []
+          "away": [
+            {
+              "player": "O. Schwartau",
+              "minute": "16'"
+            },
+            {
+              "player": "A. Ahmed",
+              "minute": "49'"
+            },
+            {
+              "player": "A. Ben Slimane",
+              "minute": "69'"
+            },
+            {
+              "player": "B. Chrisene",
+              "minute": "73'"
+            },
+            {
+              "player": "M. Kvistgaarden",
+              "minute": "89'"
+            }
+          ]
         }
       },
       {
@@ -534,15 +755,29 @@
           "name": "Blackburn",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/blackburn-rovers.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "3 - 1",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "Ž. Vipotnik",
+              "minute": "21', 63'"
+            },
+            {
+              "player": "C. O'Riordan",
+              "minute": "50' (csc)"
+            }
+          ],
+          "away": [
+            {
+              "player": "M. Jørgensen",
+              "minute": "35'"
+            }
+          ]
         }
       },
       {
@@ -556,15 +791,25 @@
           "name": "Leicester",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/leicester-city-fc.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T20:00:00+00:00",
+        "score": "1 - 1",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "L. O'Brien",
+              "minute": "63'"
+            }
+          ],
+          "away": [
+            {
+              "player": "J. Vestergaard",
+              "minute": "90'"
+            }
+          ]
         }
       }
     ]
@@ -617,11 +862,11 @@
           "name": "Bolton",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bolton-wanderers.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "score": "0 - 0",
+        "status": "finished",
+        "time": "terminé",
         "isLive": false,
-        "winner": null,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -647,7 +892,7 @@
         },
         "score": null,
         "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
+        "time": "",
         "isLive": false,
         "winner": null,
         "broadcasts": [],
@@ -673,15 +918,25 @@
           "name": "Queen's Park",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/queens-park.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:45:00+00:00",
-        "isLive": false,
+        "score": "1 - 1",
+        "status": "live",
+        "time": "90'",
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
-          "home": [],
-          "away": []
+          "home": [
+            {
+              "player": "D. Plank",
+              "minute": "90'+1"
+            }
+          ],
+          "away": [
+            {
+              "player": "A. Connolly",
+              "minute": "11'"
+            }
+          ]
         }
       }
     ]
@@ -701,11 +956,11 @@
           "name": "Puerto Cabello",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/academia-puerto-cabello.png"
         },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-19T23:00:00+00:00",
-        "isLive": true,
-        "winner": null,
+        "score": "1 - 2",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -889,6 +1144,72 @@
         }
       },
       {
+        "liveId": "6841010122372028900",
+        "matchLink": "https://www.footmercato.net/live/6841010122372028900-arka-gdynia-ssa-vs-spartak-subotica",
+        "homeTeam": {
+          "name": "Arka",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/arka-gdynia-ssa.png"
+        },
+        "awayTeam": {
+          "name": "Spartak",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/spartak-subotica.png"
+        },
+        "score": "4 - 1",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "4087320864879497245",
+        "matchLink": "https://www.footmercato.net/live/4087320864879497245-chelyabinsk-vs-mladost-lucani",
+        "homeTeam": {
+          "name": "Chelyabinsk",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chelyabinsk.png"
+        },
+        "awayTeam": {
+          "name": "Mladost Lučani",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/mladost-lucani.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T08:30:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "5267999733376633971",
+        "matchLink": "https://www.footmercato.net/live/5267999733376633971-septemvri-sofia-vs-neftchi",
+        "homeTeam": {
+          "name": "Septemvri",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/septemvri-sofia.png"
+        },
+        "awayTeam": {
+          "name": "Neftchi",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/neftchi.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T09:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
         "liveId": "4969022648308263077",
         "matchLink": "https://www.footmercato.net/live/4969022648308263077-trinec-vs-karvina-ii",
         "homeTeam": {
@@ -921,6 +1242,28 @@
           "name": "Banská Bystric",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/dukla-banska-bystrica.png"
         },
+        "score": "4 - 1",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "1294452799220411614",
+        "matchLink": "https://www.footmercato.net/live/1294452799220411614-fc-karpaty-lviv-vs-daejeon-hana-citizen",
+        "homeTeam": {
+          "name": "Karpaty Lviv",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-karpaty-lviv.png"
+        },
+        "awayTeam": {
+          "name": "Daejeon",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/daejeon-citizen.png"
+        },
         "score": null,
         "status": "live",
         "time": "2026-01-20T10:00:00+00:00",
@@ -946,6 +1289,28 @@
         "score": null,
         "status": "live",
         "time": "2026-01-20T11:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "547675175931963961",
+        "matchLink": "https://www.footmercato.net/live/547675175931963961-lks-lodz-vs-csakvari-tk",
+        "homeTeam": {
+          "name": "ŁKS Łódź",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/lks-lodz.png"
+        },
+        "awayTeam": {
+          "name": "Csákvári",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/csakvari-tk.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T12:00:00+00:00",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -1021,6 +1386,28 @@
         }
       },
       {
+        "liveId": "7481531636520049348",
+        "matchLink": "https://www.footmercato.net/live/7481531636520049348-kudrivka-vs-arda-kardzhali",
+        "homeTeam": {
+          "name": "Kudrivka",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "awayTeam": {
+          "name": "Arda",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/arda.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T12:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
         "liveId": "7605716058153967864",
         "matchLink": "https://www.footmercato.net/live/7605716058153967864-cherno-more-vs-fratria",
         "homeTeam": {
@@ -1035,6 +1422,94 @@
         "status": "scheduled",
         "time": "",
         "isLive": false,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "2602031368409297975",
+        "matchLink": "https://www.footmercato.net/live/2602031368409297975-wieczysta-krakow-vs-sloga-doboj",
+        "homeTeam": {
+          "name": "Wieczysta",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "awayTeam": {
+          "name": "Sloga Doboj",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T12:30:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "4256240631767523351",
+        "matchLink": "https://www.footmercato.net/live/4256240631767523351-tychy-71-vs-gjilani",
+        "homeTeam": {
+          "name": "Tychy",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/tychy-71.png"
+        },
+        "awayTeam": {
+          "name": "Gjilani",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/gjilani.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T12:30:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "2222158101561976071",
+        "matchLink": "https://www.footmercato.net/live/2222158101561976071-yelimay-vs-msk-zilina",
+        "homeTeam": {
+          "name": "Yelimay",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "awayTeam": {
+          "name": "Žilina",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/msk-zilina.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T13:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "2326212024173115309",
+        "matchLink": "https://www.footmercato.net/live/2326212024173115309-chayka-vs-ozgon",
+        "homeTeam": {
+          "name": "Chayka",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chayka.png"
+        },
+        "awayTeam": {
+          "name": "Ozgon",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T13:00:00+00:00",
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -1109,6 +1584,28 @@
         }
       },
       {
+        "liveId": "6554141589549538803",
+        "matchLink": "https://www.footmercato.net/live/6554141589549538803-spartak-subotica-vs-pelister",
+        "homeTeam": {
+          "name": "Spartak",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/spartak-subotica.png"
+        },
+        "awayTeam": {
+          "name": "Pelister",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/pelister.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T13:30:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
         "liveId": "8547757677916540407",
         "matchLink": "https://www.footmercato.net/live/8547757677916540407-mladost-dg-vs-rodange",
         "homeTeam": {
@@ -1122,6 +1619,50 @@
         "score": null,
         "status": "live",
         "time": "2026-01-20T13:30:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "426209241646106586",
+        "matchLink": "https://www.footmercato.net/live/426209241646106586-oleksandria-vs-shkendija-tetovo",
+        "homeTeam": {
+          "name": "Oleksandria",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/oleksandria.png"
+        },
+        "awayTeam": {
+          "name": "Shkendija",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/shkendija.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T14:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "2711517891135598384",
+        "matchLink": "https://www.footmercato.net/live/2711517891135598384-novi-pazar-vs-zeljeznicar",
+        "homeTeam": {
+          "name": "Novi Pazar",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/novi-pazar.png"
+        },
+        "awayTeam": {
+          "name": "Željezničar",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zeljeznicar.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T14:00:00+00:00",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -1185,9 +1726,31 @@
           "name": "Dynamo Kiev",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-dynamo-kiev.png"
         },
+        "score": "0 - 0",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "2492249146281877939",
+        "matchLink": "https://www.footmercato.net/live/2492249146281877939-arka-gdynia-ssa-vs-radnicki-nis",
+        "homeTeam": {
+          "name": "Arka",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/arka-gdynia-ssa.png"
+        },
+        "awayTeam": {
+          "name": "Radnički Niš",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/radnicki-nis.png"
+        },
         "score": null,
         "status": "live",
-        "time": "2026-01-20T14:00:00+00:00",
+        "time": "2026-01-20T14:30:00+00:00",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -1207,11 +1770,11 @@
           "name": "Kerry",
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-20T14:30:00+00:00",
-        "isLive": true,
-        "winner": null,
+        "score": "3 - 2",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -1229,9 +1792,31 @@
           "name": "Pardubice",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fk-pardubice.png"
         },
+        "score": "0 - 0",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "8184083039127820550",
+        "matchLink": "https://www.footmercato.net/live/8184083039127820550-gks-katowice-vs-tsc",
+        "homeTeam": {
+          "name": "GKS Katowice",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/gks-katowice.png"
+        },
+        "awayTeam": {
+          "name": "TSC",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/backa-topola.png"
+        },
         "score": null,
         "status": "live",
-        "time": "2026-01-20T14:30:00+00:00",
+        "time": "2026-01-20T15:30:00+00:00",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -1250,6 +1835,28 @@
         "awayTeam": {
           "name": "Donaufeld",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/donaufeld.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-20T16:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "3664282919886443463",
+        "matchLink": "https://www.footmercato.net/live/3664282919886443463-chemie-leipzig-vs-union-sandersdorf",
+        "homeTeam": {
+          "name": "Chemie L.",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chemie-leipzig.png"
+        },
+        "awayTeam": {
+          "name": "Sandersdorf",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/union-sandersdorf.png"
         },
         "score": null,
         "status": "live",
@@ -1329,28 +1936,6 @@
         }
       },
       {
-        "liveId": "3664282919886443463",
-        "matchLink": "https://www.footmercato.net/live/3664282919886443463-chemie-leipzig-vs-union-sandersdorf",
-        "homeTeam": {
-          "name": "Chemie L.",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chemie-leipzig.png"
-        },
-        "awayTeam": {
-          "name": "Sandersdorf",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/union-sandersdorf.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-20T17:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
         "liveId": "4606295006816424524",
         "matchLink": "https://www.footmercato.net/live/4606295006816424524-liptovsky-mikulas-vs-namestovo",
         "homeTeam": {
@@ -1404,28 +1989,6 @@
         "awayTeam": {
           "name": "Amstetten",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/amstetten.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-20T17:30:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "6344908331599045033",
-        "matchLink": "https://www.footmercato.net/live/6344908331599045033-eintracht-norderstedt-vs-harksheide",
-        "homeTeam": {
-          "name": "Norderstedt",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/eintracht-norderstedt.png"
-        },
-        "awayTeam": {
-          "name": "Harksheide",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
         "score": null,
         "status": "live",
@@ -1549,72 +2112,6 @@
         }
       },
       {
-        "liveId": "426209241646106586",
-        "matchLink": "https://www.footmercato.net/live/426209241646106586-oleksandria-vs-shkendija-tetovo",
-        "homeTeam": {
-          "name": "Oleksandria",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/oleksandria.png"
-        },
-        "awayTeam": {
-          "name": "Shkendija",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/shkendija.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "547675175931963961",
-        "matchLink": "https://www.footmercato.net/live/547675175931963961-lks-lodz-vs-csakvari-tk",
-        "homeTeam": {
-          "name": "ŁKS Łódź",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/lks-lodz.png"
-        },
-        "awayTeam": {
-          "name": "Csákvári",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/csakvari-tk.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "1294452799220411614",
-        "matchLink": "https://www.footmercato.net/live/1294452799220411614-fc-karpaty-lviv-vs-daejeon-hana-citizen",
-        "homeTeam": {
-          "name": "Karpaty Lviv",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-karpaty-lviv.png"
-        },
-        "awayTeam": {
-          "name": "Daejeon",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/daejeon-citizen.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
         "liveId": "2186802817962854827",
         "matchLink": "https://www.footmercato.net/live/2186802817962854827-ulsan-vs-shanghai-shenhua",
         "homeTeam": {
@@ -1626,185 +2123,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/shanghai-shenhua.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "2222158101561976071",
-        "matchLink": "https://www.footmercato.net/live/2222158101561976071-yelimay-vs-msk-zilina",
-        "homeTeam": {
-          "name": "Yelimay",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "awayTeam": {
-          "name": "Žilina",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/msk-zilina.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "2326212024173115309",
-        "matchLink": "https://www.footmercato.net/live/2326212024173115309-chayka-vs-ozgon",
-        "homeTeam": {
-          "name": "Chayka",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chayka.png"
-        },
-        "awayTeam": {
-          "name": "Ozgon",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "2492249146281877939",
-        "matchLink": "https://www.footmercato.net/live/2492249146281877939-arka-gdynia-ssa-vs-radnicki-nis",
-        "homeTeam": {
-          "name": "Arka",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/arka-gdynia-ssa.png"
-        },
-        "awayTeam": {
-          "name": "Radnički Niš",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/radnicki-nis.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "2602031368409297975",
-        "matchLink": "https://www.footmercato.net/live/2602031368409297975-wieczysta-krakow-vs-sloga-doboj",
-        "homeTeam": {
-          "name": "Wieczysta",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "awayTeam": {
-          "name": "Sloga Doboj",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "2711517891135598384",
-        "matchLink": "https://www.footmercato.net/live/2711517891135598384-novi-pazar-vs-zeljeznicar",
-        "homeTeam": {
-          "name": "Novi Pazar",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/novi-pazar.png"
-        },
-        "awayTeam": {
-          "name": "Željezničar",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zeljeznicar.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "4087320864879497245",
-        "matchLink": "https://www.footmercato.net/live/4087320864879497245-chelyabinsk-vs-mladost-lucani",
-        "homeTeam": {
-          "name": "Chelyabinsk",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chelyabinsk.png"
-        },
-        "awayTeam": {
-          "name": "Mladost Lučani",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/mladost-lucani.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "4256240631767523351",
-        "matchLink": "https://www.footmercato.net/live/4256240631767523351-tychy-71-vs-gjilani",
-        "homeTeam": {
-          "name": "Tychy",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/tychy-71.png"
-        },
-        "awayTeam": {
-          "name": "Gjilani",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/gjilani.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "5267999733376633971",
-        "matchLink": "https://www.footmercato.net/live/5267999733376633971-septemvri-sofia-vs-neftchi",
-        "homeTeam": {
-          "name": "Septemvri",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/septemvri-sofia.png"
-        },
-        "awayTeam": {
-          "name": "Neftchi",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/neftchi.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -1824,31 +2145,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/dundalk.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "6554141589549538803",
-        "matchLink": "https://www.footmercato.net/live/6554141589549538803-spartak-subotica-vs-pelister",
-        "homeTeam": {
-          "name": "Spartak",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/spartak-subotica.png"
-        },
-        "awayTeam": {
-          "name": "Pelister",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/pelister.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -1868,9 +2167,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bayern-munich.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -1890,75 +2189,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/melgar.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "6841010122372028900",
-        "matchLink": "https://www.footmercato.net/live/6841010122372028900-arka-gdynia-ssa-vs-spartak-subotica",
-        "homeTeam": {
-          "name": "Arka",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/arka-gdynia-ssa.png"
-        },
-        "awayTeam": {
-          "name": "Spartak",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/spartak-subotica.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "7481531636520049348",
-        "matchLink": "https://www.footmercato.net/live/7481531636520049348-kudrivka-vs-arda-kardzhali",
-        "homeTeam": {
-          "name": "Kudrivka",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "awayTeam": {
-          "name": "Arda",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/arda.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "8184083039127820550",
-        "matchLink": "https://www.footmercato.net/live/8184083039127820550-gks-katowice-vs-tsc",
-        "homeTeam": {
-          "name": "GKS Katowice",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/gks-katowice.png"
-        },
-        "awayTeam": {
-          "name": "TSC",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/backa-topola.png"
-        },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-20T19:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -1978,9 +2211,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/ucd.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-20T19:30:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -2001,7 +2234,7 @@
         },
         "score": null,
         "status": "scheduled",
-        "time": "2026-01-20T19:30:00+00:00",
+        "time": "",
         "isLive": false,
         "winner": null,
         "broadcasts": [],
@@ -2022,9 +2255,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/deportivo-la-guaira.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-20T20:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {

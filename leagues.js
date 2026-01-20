@@ -1,62 +1,77 @@
 const LEAGUES = [
-  { name: "england-premier-league", url: "https://www.footmercato.net/angleterre/premier-league/classement" },
-  { name: "spain-laliga", url: "https://www.footmercato.net/espagne/liga/classement" },
-  { name: "italy-serie-a", url: "https://www.footmercato.net/italie/serie-a/classement" },
-  { name: "germany-bundesliga", url: "https://www.footmercato.net/allemagne/bundesliga/classement" },
-  { name: "france-ligue-1", url: "https://www.footmercato.net/france/ligue-1/classement" },
-  { name: "portugal-primeira-liga", url: "https://www.footmercato.net/portugal/liga-portugal/classement" },
-  { name: "netherlands-eredivisie", url: "https://www.footmercato.net/pays-bas/eredivisie/classement" },
-  { name: "belgium-pro-league", url: "https://www.footmercato.net/belgique/pro-league/classement" },
-  { name: "turkey-super-lig", url: "https://www.footmercato.net/turquie/super-lig/classement" },
-  { name: "russia-premier-liga", url: "https://www.footmercato.net/russie/premier-liga/classement" },
-  { name: "usa-mls", url: "https://www.footmercato.net/etats-unis/mls/classement" },
-  { name: "mexico-liga-mx", url: "https://www.footmercato.net/mexique/liga-mx/classement" },
-  { name: "argentina-primera-division", url: "https://www.footmercato.net/argentine/primera-division/classement" },
-  { name: "brazil-serie-a", url: "https://www.footmercato.net/bresil/serie-a/classement" },
-  { name: "japan-j1-league", url: "https://www.footmercato.net/japon/j1-league/classement" },
-  { name: "south-korea-k-league-1", url: "https://www.footmercato.net/coree-du-sud/k-league-1/classement" },
-  { name: "saudi-pro-league", url: "https://www.footmercato.net/arabie-saoudite/pro-league/classement" },
-  { name: "qatar-stars-league", url: "https://www.footmercato.net/qatar/qsl/classement" },
-  { name: "egyptian-premier-league", url: "https://www.footmercato.net/egypte/premier-league/classement" },
-  { name: "morocco-botola-pro", url: "https://www.footmercato.net/maroc/botola-pro/classement" },
-  { name: "algeria-ligue-1", url: "https://www.footmercato.net/algerie/ligue-1/classement" },
-  { name: "tunisia-ligue-professionnelle-1", url: "https://www.footmercato.net/tunisie/ligue-professionnelle-1/classement" },
-  { name: "ghana-premier-league", url: "https://www.footmercato.net/ghana/premier-league/classement" },
-  { name: "senegal-ligue-1", url: "https://www.footmercato.net/senegal/ligue-1/classement" },
-  { name: "uganda-premier-league", url: "https://www.footmercato.net/uganda/premier-league/classement" },
-  { name: "zambia-super-league", url: "https://www.footmercato.net/zambie/super-league/classement" },
-  { name: "south-africa-premier-soccer-league", url: "https://www.footmercato.net/afrique-du-sud/premier-soccer-league/classement" },
-  { name: "sweden-allsvenskan", url: "https://www.footmercato.net/suede/allsvenskan/classement" },
-  { name: "denmark-superligaen", url: "https://www.footmercato.net/danemark/superliga/classement" },
-  { name: "norway-eliteserien", url: "https://www.footmercato.net/norvege/eliteserien/classement" },
-  { name: "austria-bundesliga", url: "https://www.footmercato.net/autriche/bundesliga/classement" },
-  { name: "switzerland-super-league", url: "https://www.footmercato.net/suisse/super-league/classement" },
-  { name: "greece-super-league", url: "https://www.footmercato.net/grece/super-league/classement" },
-  { name: "croatia-prva-hnl", url: "https://www.footmercato.net/croatie/prva-hnl/classement" },
-  { name: "poland-ekstraklasa", url: "https://www.footmercato.net/pologne/ekstraklasa/classement" },
-  { name: "czech-first-league", url: "https://www.footmercato.net/republique-tcheque/fortuna-liga/classement" },
-  { name: "hungary-otp-bank-liga", url: "https://www.footmercato.net/hongrie/otp-bank-liga/classement" },
-  { name: "romania-liga-i", url: "https://www.footmercato.net/roumanie/liga-i/classement" },
-  { name: "rwanda-premier-league", url: "https://www.footmercato.net/rwanda/premier-league/classement" },
-  { name: "ethiopia-premier-league", url: "https://www.footmercato.net/ethiopie/premier-league/classement" },
-  { name: "china-super-league", url: "https://www.footmercato.net/chine/csl/classement" },
-  { name: "india-isl", url: "https://www.footmercato.net/inde/isl/classement" },
-  { name: "australia-a-league", url: "https://www.footmercato.net/australie/a-league/classement" },
-  { name: "australia-w-league", url: "https://www.footmercato.net/australie/w-league/classement" },
-  { name: "scotland-premiership", url: "https://www.footmercato.net/ecosse/premiership/classement" },
-  { name: "scotland-championship", url: "https://www.footmercato.net/ecosse/championship/classement" },
-  { name: "england-championship", url: "https://www.footmercato.net/angleterre/championship/classement" },
-  { name: "england-league-one", url: "https://www.footmercato.net/angleterre/league-one/classement" },
-  { name: "england-league-two", url: "https://www.footmercato.net/angleterre/league-two/classement" },
-  { name: "germany-2-bundesliga", url: "https://www.footmercato.net/allemagne/2-bundesliga/classement" },
-  { name: "spain-segunda-division", url: "https://www.footmercato.net/espagne/segunda-division/classement" },
-  { name: "italy-serie-b", url: "https://www.footmercato.net/italie/serie-b/classement" },
-  { name: "france-ligue-2", url: "https://www.footmercato.net/france/ligue-2/classement" },
-  { name: "portugal-liga-portugal-2", url: "https://www.footmercato.net/portugal/liga-portugal-2/classement" },
-  { name: "belgium-challenger-pro-league", url: "https://www.footmercato.net/belgique/challenger-pro-league/classement" },
-  { name: "netherlands-eerste-divisie", url: "https://www.footmercato.net/pays-bas/eerste-divisie/classement" },
-  { name: "switzerland-challenge-league", url: "https://www.footmercato.net/suisse/challenge-league/classement" },
-  { name: "japan-j2-league", url: "https://www.footmercato.net/japon/j2-league/classement" }
+  // 🇬🇧 England
+  { name: "england-premier-league", url: "https://www.footmercato.net/classement/angleterre/premier-league" },
+  { name: "england-championship", url: "https://www.footmercato.net/classement/angleterre/championship" },
+  { name: "england-league-one", url: "https://www.footmercato.net/classement/angleterre/league-one" },
+  { name: "england-league-two", url: "https://www.footmercato.net/classement/angleterre/league-two" },
+
+  // 🇪🇸 Spain
+  { name: "spain-laliga", url: "https://www.footmercato.net/classement/espagne/liga" },
+  { name: "spain-segunda-division", url: "https://www.footmercato.net/classement/espagne/segunda-division" },
+
+  // 🇮🇹 Italy
+  { name: "italy-serie-a", url: "https://www.footmercato.net/classement/italie/serie-a" },
+  { name: "italy-serie-b", url: "https://www.footmercato.net/classement/italie/serie-b" },
+
+  // 🇩🇪 Germany
+  { name: "germany-bundesliga", url: "https://www.footmercato.net/classement/allemagne/bundesliga" },
+  { name: "germany-2-bundesliga", url: "https://www.footmercato.net/classement/allemagne/2-bundesliga" },
+
+  // 🇫🇷 France
+  { name: "france-ligue-1", url: "https://www.footmercato.net/classement/france/ligue-1" },
+  { name: "france-ligue-2", url: "https://www.footmercato.net/classement/france/ligue-2" },
+
+  // 🇵🇹 Portugal
+  { name: "portugal-primeira-liga", url: "https://www.footmercato.net/classement/portugal/primeira-liga" },
+  { name: "portugal-liga-2", url: "https://www.footmercato.net/classement/portugal/segunda-liga" },
+
+  // 🇳🇱 Netherlands
+  { name: "netherlands-eredivisie", url: "https://www.footmercato.net/classement/pays-bas/eredivisie" },
+  { name: "netherlands-eerste-divisie", url: "https://www.footmercato.net/classement/pays-bas/eerste-divisie" },
+
+  // 🇧🇪 Belgium
+  { name: "belgium-pro-league", url: "https://www.footmercato.net/classement/belgique/pro-league" },
+  { name: "belgium-challenger-pro-league", url: "https://www.footmercato.net/classement/belgique/challenger-pro-league" },
+
+  // 🇨🇭 Switzerland
+  { name: "switzerland-super-league", url: "https://www.footmercato.net/classement/suisse/super-league" },
+  { name: "switzerland-challenge-league", url: "https://www.footmercato.net/classement/suisse/challenge-league" },
+
+  // 🇦🇹 Austria
+  { name: "austria-bundesliga", url: "https://www.footmercato.net/classement/autriche/bundesliga" },
+
+  // 🇩🇰 Denmark
+  { name: "denmark-superliga", url: "https://www.footmercato.net/classement/danemark/superliga" },
+
+  // 🇳🇴 Norway
+  { name: "norway-eliteserien", url: "https://www.footmercato.net/classement/norvege/eliteserien" },
+
+  // 🇸🇪 Sweden
+  { name: "sweden-allsvenskan", url: "https://www.footmercato.net/classement/suede/allsvenskan" },
+
+  // 🌍 Africa
+  { name: "algeria-ligue-1", url: "https://www.footmercato.net/classement/algerie/ligue-1" },
+  { name: "tunisia-ligue-1-pro", url: "https://www.footmercato.net/classement/tunisie/ligue-1-pro" },
+  { name: "egyptian-premier-league", url: "https://www.footmercato.net/classement/egypte/premier-league" },
+  { name: "morocco-botola-pro", url: "https://www.footmercato.net/classement/maroc/botola-pro" },
+
+  // 🌎 Americas
+  { name: "usa-mls", url: "https://www.footmercato.net/classement/etats-unis/mls" },
+  { name: "mexico-liga-mx", url: "https://www.footmercato.net/classement/mexique/liga-mx" },
+  { name: "argentina-primera-division", url: "https://www.footmercato.net/classement/argentine/primera-division" },
+  { name: "brazil-serie-a", url: "https://www.footmercato.net/classement/bresil/serie-a" },
+
+  // 🌏 Asia
+  { name: "japan-j1-league", url: "https://www.footmercato.net/classement/japon/j1-league" },
+  { name: "japan-j2-league", url: "https://www.footmercato.net/classement/japon/j2-league" },
+  { name: "south-korea-k-league-1", url: "https://www.footmercato.net/classement/coree-du-sud/k-league-1" },
+  { name: "china-super-league", url: "https://www.footmercato.net/classement/chine/chinese-super-league" },
+  { name: "saudi-pro-league", url: "https://www.footmercato.net/classement/arabie-saoudite/pro-league" },
+  { name: "qatar-stars-league", url: "https://www.footmercato.net/classement/qatar/stars-league" },
+
+  // 🌏 Oceania
+  { name: "australia-a-league", url: "https://www.footmercato.net/classement/australie/a-league" },
+  { name: "australia-w-league", url: "https://www.footmercato.net/classement/australie/w-league" }
 ];
 
 export default LEAGUES;
