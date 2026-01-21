@@ -66,7 +66,7 @@ const LEAGUES = [
   { name: "japan-j2-league", url: "https://www.footmercato.net/classement/japon/j2-league" },
   { name: "south-korea-k-league-1", url: "https://www.footmercato.net/classement/coree-du-sud/k-league-1" },
   { name: "china-super-league", url: "https://www.footmercato.net/classement/chine/chinese-super-league" },
-  { name: "saudi-pro-league", url: "https://www.footmercato.net/classement/arabie-saoudite/pro-league" },
+  { name: "saudi-pro-league", url: "https://www.footmercato.net/classement/arabie-saoudite/saudi-pro-league?partial=1" },
   { name: "qatar-stars-league", url: "https://www.footmercato.net/classement/qatar/stars-league" },
 
   // 🌏 Oceania
