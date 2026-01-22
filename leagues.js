@@ -1,4 +1,6 @@
 const LEAGUES = [
+
+  { name: "ligue-des-champions-uefa", url: "https://www.footmercato.net/classement/europe/ligue-des-champions-uefa?partial=1" },
   // 🇬🇧 England
   { name: "england-premier-league", url: "https://www.footmercato.net/classement/angleterre/premier-league" },
   { name: "england-championship", url: "https://www.footmercato.net/classement/angleterre/championship" },
