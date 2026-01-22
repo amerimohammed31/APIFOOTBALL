@@ -1,5 +1,12 @@
 const LEAGUES = [
 
+
+  { name: "afc-champions-league", url: "https://www.footmercato.net/classement/asie/afc-champions-league?partial=1" },
+  { name: "copa-america", url: "https://www.footmercato.net/classement/amerique-du-sud/copa-america?partial=1" },
+  { name: "uefa-nations-league", url: "https://www.footmercato.net/classement/europe/uefa-nations-league?partial=1" },
+  { name: "uefa-europa-conference-league", url: "https://www.footmercato.net/classement/europe/uefa-europa-conference-league?partial=1" },
+  { name: "coupe-dafrique-des-nations", url: "https://www.footmercato.net/classement/afrique/coupe-dafrique-des-nations?partial=" },
+  { name: "uefa-europa-league", url: "https://www.footmercato.net/classement/europe/uefa-europa-league?partial=1" },
   { name: "ligue-des-champions-uefa", url: "https://www.footmercato.net/classement/europe/ligue-des-champions-uefa?partial=1" },
   // 🇬🇧 England
   { name: "england-premier-league", url: "https://www.footmercato.net/classement/angleterre/premier-league" },
