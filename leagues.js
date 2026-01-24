@@ -40,7 +40,43 @@ const LEAGUES = [
   { name: "coupe-feminine-uefa", url: "https://www.footmercato.net/classement/europe/coupe-feminine-uefa?partial=1" },
   { name: "brazil-serie-a", url: "https://www.footmercato.net/classement/bresil/serie-a?partial=1" },
   { name: "argentina-primera-division", url: "https://www.footmercato.net/classement/argentine/primera-division?partial=1" },
-  { name: "belgium-division-1a", url: "https://www.footmercato.net/classement/belgique/division-1a?partial=1" }
+  { name: "belgium-division-1a", url: "https://www.footmercato.net/classement/belgique/division-1a?partial=1" },
+  { name: "eredivisie-division-1a", url: "https://www.footmercato.net/classement/pays-bas/eredivisie?partial=1" },
+  { name: "grece-super-league", url: "https://www.footmercato.net/classement/grece/super-league?partial=1" },
+  { name: "coree-du-sud-league", url: "https://www.footmercato.net/classement/coree-du-sud/k-league?partial=1" },
+  { name: "russie-premier-league", url: "https://www.footmercato.net/classement/russie/premier-league?partial=1" },
+  { name: "algerie-premier-league", url: "https://www.footmercato.net/classement/algerie/ligue-1?partial=1" },
+  { name: "republique-tcheque-prvni-liga", url: "https://www.footmercato.net/classement/republique-tcheque/prvni-liga?partial=1" },
+  { name: "egypte-premier-league", url: "https://www.footmercato.net/classement/egypte/premier-league?partial=1" },
+  { name: "lettonie-virsliga", url: "https://www.footmercato.net/classement/lettonie/virsliga?partial=1" },
+  { name: "slovenie-1-snl", url: "https://www.footmercato.net/classement/slovenie/1-snl?partial=1" },
+  { name: "estonie-meistriliiga", url: "https://www.footmercato.net/classement/estonie/meistriliiga?partial=1" },
+  { name: "lituanie-a-lyga", url: "https://www.footmercato.net/classement/lituanie/a-lyga?partial=1" },
+  { name: "paraguay-primera-division", url: "https://www.footmercato.net/classement/paraguay/primera-division?partial=1" },
+  { name: "equateur-primera-a", url: "https://www.footmercato.net/classement/equateur/primera-a?partial=1" },
+  { name: "bolivie-division-profesional", url: "https://www.footmercato.net/classement/bolivie/division-profesional?partial=11" },
+  { name: "mexique-liga", url: "https://www.footmercato.net/classement/mexique/liga-mx?partial=1" },
+  { name: "islande-urvalsdeild", url: "https://www.footmercato.net/classement/islande/urvalsdeild-karla?partial=1" },
+  { name: "colombie-liga-dimayor", url: "https://www.footmercato.net/classement/colombie/liga-dimayor?partial=1" },
+  { name: "slovaquie-superliga", url: "https://www.footmercato.net/classement/slovaquie/superliga?partial=1" },
+  { name: "bulgarie-liga", url: "https://www.footmercato.net/classement/bulgarie/liga?partial=1" },
+  { name: "finlande-veikkausliiga", url: "https://www.footmercato.net/classement/finlande/veikkausliiga?partial=1" },
+  { name: "ukraine-premier-league", url: "https://www.footmercato.net/classement/ukraine/premier-league?partial=1" },
+  { name: "croatie-1-hnl", url: "https://www.footmercato.net/classement/croatie/1-hnl?partial=1" },
+  { name: "venezuela-liga", url: "https://www.footmercato.net/classement/venezuela/liga?partial=1" },
+  { name: "chili-primera-division", url: "https://www.footmercato.net/classement/chili/primera-division?partial=1" },
+  { name: "costa-rica-1ere-division", url: "https://www.footmercato.net/classement/costa-rica/1ere-division?partial=1" },
+  { name: "uruguay-primer", url: "https://www.footmercato.net/classement/uruguay/primera?partial=1" },
+  { name: "roumanie-liga-1", url: "https://www.footmercato.net/classement/roumanie/liga-1?partial=1" },
+  { name: "qatar-stars-league", url: "https://www.footmercato.net/classement/qatar/qatar-stars-league?partial=1" },
+
+
+
+
+
+
+
+
 
 ];
 
