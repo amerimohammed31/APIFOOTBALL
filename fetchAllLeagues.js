@@ -15,20 +15,27 @@ async function fetchStandings(league, retries = 3) {
         timeout: 15000
       });
 
-      if (response.status !== 200) throw new Error(`HTTP status ${response.status}`);
+      if (response.status !== 200) {
+        throw new Error(`HTTP status ${response.status}`);
+      }
 
       const $ = cheerio.load(response.data);
       const table = $("table tbody tr");
 
-      if (!table.length) throw new Error("No table found");
+      if (!table.length) {
+        throw new Error("No table found");
+      }
 
       const standings = [];
       table.each((_, row) => {
         const cols = $(row).find("td");
+
+        // استخراج بيانات كل فريق مع fallback للصور
         const rank = Number($(cols[0]).text().trim());
         const teamCell = $(cols[1]);
         const team = teamCell.find("span").text().trim() || teamCell.text().trim();
         const logo = teamCell.find("img").attr("data-src") || teamCell.find("img").attr("src") || null;
+
         const points = Number($(cols[2]).text().trim());
         const played = Number($(cols[3]).text().trim());
         const goalDiff = $(cols[4]).text().trim();
@@ -46,48 +53,24 @@ async function fetchStandings(league, retries = 3) {
     } catch (err) {
       console.warn(`⚠ Attempt ${attempt} failed for ${league.name}: ${err.message}`);
       if (attempt === retries) return null;
-      await new Promise(res => setTimeout(res, 2000));
+      await new Promise(res => setTimeout(res, 2000)); // تأخير قبل المحاولة التالية
     }
   }
 }
 
-// —————— دالة لجلب كل الدوريات مع تحديث JSON بطريقة احترافية ——————
+// —————— دالة لجلب كل الدوريات بشكل متوازي مع الحد من الطلبات المتزامنة ——————
 export default async function fetchAllLeagues(concurrency = 5) {
-  // قراءة البيانات الموجودة مسبقًا إذا كان الملف موجود
-  let allLeagues = {};
-  if (fs.existsSync(DATA_FILE)) {
-    try {
-      allLeagues = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-    } catch {
-      console.warn("⚠ Failed to read existing data, starting fresh.");
-      allLeagues = {};
-    }
-  }
-
-  // قراءة الدوريات الفاشلة السابقة
-  let previousFailed = [];
-  if (fs.existsSync(FAILED_FILE)) {
-    try {
-      previousFailed = JSON.parse(fs.readFileSync(FAILED_FILE, "utf-8"));
-    } catch {
-      previousFailed = [];
-    }
-  }
-
+  const allLeagues = {};
   const failedLeagues = [];
 
-  // قائمة الدوريات للمعالجة (يمكن إعادة المحاولة فقط للفاشلة سابقًا)
-  const queue = [...LEAGUES];
+  const queue = [...LEAGUES]; // قائمة الدوريات للمعالجة
 
   async function worker() {
     while (queue.length > 0) {
       const league = queue.shift();
       const standings = await fetchStandings(league);
       if (standings && standings.length > 0) {
-        allLeagues[league.name] = {
-          lastUpdated: new Date().toISOString(),
-          standings
-        };
+        allLeagues[league.name] = standings;
         console.log(`✅ Fetched ${league.name}`);
       } else {
         failedLeagues.push(league.name);
@@ -97,9 +80,10 @@ export default async function fetchAllLeagues(concurrency = 5) {
     }
   }
 
+  // إنشاء عدد من العمال حسب الـ concurrency
   await Promise.all(Array.from({ length: concurrency }, worker));
 
-  // حفظ البيانات بعد الدمج
+  // حفظ البيانات
   fs.writeFileSync(DATA_FILE, JSON.stringify(allLeagues, null, 2));
   fs.writeFileSync(FAILED_FILE, JSON.stringify(failedLeagues, null, 2));
 
