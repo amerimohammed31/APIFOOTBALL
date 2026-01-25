@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3000;
 
 // ملفات البيانات
-const DATA_FILE = "./all_leagues_standings.json";
+const DATA_FILE = "./all_leagues_full_tables.json"; // استخدم الملف الجديد الذي يحتوي على جميع الجداول
 const MATCH_FILE = "./match-today.json";
 
 // ===== Cache في الذاكرة =====
@@ -31,7 +31,7 @@ function loadMatches() {
 
 // ===== Routes =====
 
-// 1️⃣ تصنيفات الدوريات
+// 1️⃣ تصنيفات الدوريات (كل الجداول مع أسماء المجموعات)
 app.get("/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
   const raw = standingsCache[league];
@@ -43,6 +43,7 @@ app.get("/standings/:league", (req, res) => {
     });
   }
 
+  // normalizeLeague الآن يدعم كل الجداول داخل "tables" بما فيها المجموعات
   const normalized = normalizeLeague(raw);
   res.json(normalized);
 });
@@ -55,17 +56,20 @@ app.get("/match-today", (req, res) => {
 // ===== Fetch البيانات عند التشغيل =====
 (async () => {
   try {
-    // جلب جميع الدوريات
+    console.log("🔄 Fetching all leagues...");
     const allStandings = await fetchAllLeagues();
     fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
     standingsCache = allStandings;
     console.log("✅ All leagues standings fetched and cached");
 
-    // جلب مباريات اليوم
+    console.log("🔄 Fetching matches today...");
     const todayMatches = await fetchMatchToday();
     fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
     matchesCache = todayMatches;
     console.log("✅ Match-Today fetched and cached");
+
+    loadStandings();
+    loadMatches();
   } catch (err) {
     console.error("❌ Failed initial fetch:", err.message);
   }
@@ -74,11 +78,13 @@ app.get("/match-today", (req, res) => {
 // ===== تحديث البيانات كل 30 دقيقة =====
 setInterval(async () => {
   try {
+    console.log("🔄 Updating all leagues standings...");
     const allStandings = await fetchAllLeagues();
     fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
     standingsCache = allStandings;
     console.log("🔄 Standings updated");
 
+    console.log("🔄 Updating matches today...");
     const todayMatches = await fetchMatchToday();
     fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
     matchesCache = todayMatches;
@@ -86,7 +92,7 @@ setInterval(async () => {
   } catch (err) {
     console.error("❌ Update failed:", err.message);
   }
-}, 30 * 60 * 1000); // 30 دقيقة
+}, 30 * 60 * 1000); // كل 30 دقيقة
 
 // ===== Start Server =====
 app.listen(PORT, () => {

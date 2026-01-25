@@ -1,14 +1,14 @@
+// fetchAllTables.js
 import axios from "axios";
 import * as cheerio from "cheerio";
 import fs from "fs";
 import LEAGUES from "./leagues.js";
 
-const DATA_FILE = "./all_leagues_raw_tables.json";
+const DATA_FILE = "./all_leagues_full_tables.json";
 const FAILED_FILE = "./failed_leagues.json";
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-/* —————— Axios Client قوي —————— */
 const client = axios.create({
   headers: {
     "User-Agent":
@@ -19,20 +19,24 @@ const client = axios.create({
   validateStatus: s => s >= 200 && s < 500
 });
 
-/* —————— استخراج عنوان الجدول —————— */
+// استخراج عنوان الجدول أو تعيين اسم مجموعة افتراضي (A, B, C...)
 function getTableTitle($, table, index) {
-  return (
-    $(table).find("caption").text().trim() ||
+  const caption = $(table).find("caption").text().trim();
+  const heading =
     $(table).prevAll("h1,h2,h3,h4").first().text().trim() ||
-    $(table).closest("section,div").find("h2,h3").first().text().trim() ||
-    `table_${index}`
-  );
+    $(table).closest("section,div").find("h2,h3").first().text().trim();
+  
+  if (caption) return caption;
+  if (heading) return heading;
+
+  // إذا لم يوجد عنوان، استخدم Group A, B, C...
+  const groupLetter = String.fromCharCode(65 + index); // 65 = 'A'
+  return `Group ${groupLetter}`;
 }
 
-/* —————— تحليل جدول واحد RAW 100% —————— */
+// تحليل جدول واحد
 function parseTable($, table) {
   const headers = [];
-
   $(table)
     .find("thead th")
     .each((_, th) => {
@@ -40,18 +44,15 @@ function parseTable($, table) {
     });
 
   const rows = [];
-
   $(table)
     .find("tbody tr")
     .each((_, tr) => {
       const row = {};
-
       $(tr)
         .find("td")
         .each((i, td) => {
           const key = headers[i] || `col_${i}`;
           const cell = $(td);
-
           row[key] = {
             text: cell.text().replace(/\s+/g, " ").trim() || null,
             html: cell.html() || null,
@@ -66,27 +67,22 @@ function parseTable($, table) {
               .get()
           };
         });
-
       if (Object.keys(row).length) rows.push(row);
     });
 
   return rows;
 }
 
-/* —————— جلب كل الجداول من صفحة واحدة —————— */
+// جلب كل الجداول من صفحة دوري واحد
 async function fetchLeagueTables(league, retries = 4) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const timeout = 20000 + attempt * 10000;
       const res = await client.get(league.url, { timeout });
 
-      if (res.status !== 200) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-
-      if (!res.data || res.data.length < 5000) {
+      if (res.status !== 200) throw new Error(`HTTP ${res.status}`);
+      if (!res.data || res.data.length < 5000)
         throw new Error("Empty or blocked HTML");
-      }
 
       const $ = cheerio.load(res.data);
       const tables = [];
@@ -102,27 +98,20 @@ async function fetchLeagueTables(league, retries = 4) {
         });
       });
 
-      if (!tables.length) {
-        throw new Error("No tables found");
-      }
-
+      if (!tables.length) throw new Error("No tables found");
       return tables;
     } catch (err) {
-      if (attempt === retries) {
-        return { error: err.message };
-      }
-
+      if (attempt === retries) return { error: err.message };
       const delay = 2000 * attempt + Math.random() * 1500;
       await sleep(delay);
     }
   }
 }
 
-/* —————— جلب جميع الدوريات (Concurrency آمن) —————— */
+// جلب جميع الدوريات
 export default async function fetchAllLeagues(concurrency = 2) {
   const results = {};
   const failed = [];
-
   const queue = [...LEAGUES];
 
   async function worker(id) {
@@ -131,17 +120,11 @@ export default async function fetchAllLeagues(concurrency = 2) {
       if (!league) return;
 
       console.log(`👷 Worker ${id} → ${league.name}`);
-
       const data = await fetchLeagueTables(league);
 
       if (Array.isArray(data)) {
-        results[league.name] = {
-          url: league.url,
-          tables: data
-        };
-        console.log(
-          `✅ ${league.name} → ${data.length} tables`
-        );
+        results[league.name] = { url: league.url, tables: data };
+        console.log(`✅ ${league.name} → ${data.length} tables`);
       } else {
         failed.push({
           name: league.name,
@@ -161,9 +144,15 @@ export default async function fetchAllLeagues(concurrency = 2) {
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(results, null, 2));
   fs.writeFileSync(FAILED_FILE, JSON.stringify(failed, null, 2));
-
   console.log(`🎉 Saved → ${DATA_FILE}`);
   if (failed.length) console.log(`⚠ Failed → ${FAILED_FILE}`);
 
   return results;
+}
+
+// تشغيل سريع عند الاستدعاء مباشر
+if (require.main === module) {
+  (async () => {
+    await fetchAllLeagues();
+  })();
 }
