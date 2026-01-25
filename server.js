@@ -7,12 +7,15 @@ import { normalizeLeague } from "./normalizeStandings.js";
 const app = express();
 const PORT = 3000;
 
+// ملفات البيانات
 const DATA_FILE = "./all_leagues_standings.json";
 const MATCH_FILE = "./match-today.json";
 
+// ===== Cache في الذاكرة =====
 let standingsCache = {};
 let matchesCache = {};
 
+// ===== Load البيانات من الملفات =====
 function loadStandings() {
   if (!fs.existsSync(DATA_FILE)) return {};
   standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
@@ -25,17 +28,30 @@ function loadMatches() {
   console.log("⚽ Match-Today loaded into cache");
 }
 
+// ===== Routes =====
+
+// 1️⃣ تصنيفات الدوريات
 app.get("/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
   const raw = standingsCache[league];
-  if (!raw) return res.status(404).json({ error: "League not found", supported: Object.keys(standingsCache) });
 
-  const normalized = normalizeLeague(raw);
-  res.json(normalized);
+  if (!raw) {
+    return res.status(404).json({
+      error: "League not found",
+      supported: Object.keys(standingsCache),
+    });
+  }
+
+  const normalizedTables = normalizeLeague(raw); // مصفوفة من الجداول
+  res.json(normalizedTables);
 });
 
-app.get("/match-today", (req, res) => res.json(matchesCache));
+// 2️⃣ مباريات اليوم
+app.get("/match-today", (req, res) => {
+  res.json(matchesCache);
+});
 
+// ===== Fetch البيانات عند التشغيل =====
 (async () => {
   try {
     const allStandings = await fetchAllLeagues();
@@ -52,6 +68,7 @@ app.get("/match-today", (req, res) => res.json(matchesCache));
   }
 })();
 
+// ===== تحديث البيانات كل 30 دقيقة =====
 setInterval(async () => {
   try {
     const allStandings = await fetchAllLeagues();
@@ -66,8 +83,9 @@ setInterval(async () => {
   } catch (err) {
     console.error("❌ Update failed:", err.message);
   }
-}, 30 * 60 * 1000);
+}, 30 * 60 * 1000); // 30 دقيقة
 
+// ===== Start Server =====
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log("📌 Endpoints:");

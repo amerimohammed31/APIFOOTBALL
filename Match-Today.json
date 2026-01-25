@@ -159,17 +159,26 @@
           "name": "Strasbourg",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-25T19:45:00+00:00",
-        "isLive": false,
+        "score": "0 - 2",
+        "status": "live",
+        "time": "56'",
+        "isLive": true,
         "winner": null,
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/ligue-1-plus.png"
         ],
         "goals": {
           "home": [],
-          "away": []
+          "away": [
+            {
+              "player": "J. Panichelli",
+              "minute": "25'"
+            },
+            {
+              "player": "J. Enciso",
+              "minute": "27'"
+            }
+          ]
         }
       }
     ]
@@ -419,19 +428,21 @@
           "name": "Celta Vigo",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/celta-de-vigo.png"
         },
-        "score": "2 - 1",
-        "status": "live",
-        "time": "88'",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [
-          "https://assets-fr.imgfoot.com/media/cache/150x150/bein-1-67d187bb512e3.png"
-        ],
+        "score": "3 - 1",
+        "status": "finished",
+        "time": "",
+        "isLive": false,
+        "winner": "home",
+        "broadcasts": [],
         "goals": {
           "home": [
             {
               "player": "Mikel Oyarzabal",
               "minute": "17', 75'"
+            },
+            {
+              "player": "Brais Méndez",
+              "minute": "90'+6 (sp)"
             }
           ],
           "away": [
@@ -453,16 +464,21 @@
           "name": "Betis",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/real-betis.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-25T20:00:00+00:00",
-        "isLive": false,
+        "score": "1 - 0",
+        "status": "live",
+        "time": "MT",
+        "isLive": true,
         "winner": null,
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/bein-2.png"
         ],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "Carlos Vicente",
+              "minute": "3'"
+            }
+          ],
           "away": []
         }
       }
@@ -560,9 +576,9 @@
           "name": "Mexique",
           "logo": "https://www.footmercato.net/build/images/flags-v2-png/mex.9e03a7e2.png"
         },
-        "score": null,
+        "score": "0 - 0",
         "status": "live",
-        "time": "2026-01-25T19:30:00+00:00",
+        "time": "64'",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -700,12 +716,10 @@
         },
         "score": "3 - 0",
         "status": "finished",
-        "time": "terminé",
+        "time": "",
         "isLive": false,
         "winner": "home",
-        "broadcasts": [
-          "https://assets-fr.imgfoot.com/media/cache/150x150/dazn-671b98d475358.png"
-        ],
+        "broadcasts": [],
         "goals": {
           "home": [
             {
@@ -735,10 +749,10 @@
           "name": "Milan",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/milan.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-25T19:45:00+00:00",
-        "isLive": false,
+        "score": "0 - 0",
+        "status": "live",
+        "time": "54'",
+        "isLive": true,
         "winner": null,
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/dazn-671b98d475358.png"
@@ -806,10 +820,10 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/al-fateh.png"
         },
         "score": "2 - 0",
-        "status": "live",
-        "time": "90+6'",
-        "isLive": true,
-        "winner": null,
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
           "home": [
@@ -837,10 +851,10 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/al-hilal.png"
         },
         "score": "1 - 1",
-        "status": "live",
-        "time": "90'",
-        "isLive": true,
-        "winner": null,
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [
@@ -1117,11 +1131,11 @@
           "name": "Estrela",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/cf-estrela-amadora-6117e70c1bd7b.png"
         },
-        "score": "3 - 0",
-        "status": "live",
-        "time": "61'",
-        "isLive": true,
-        "winner": null,
+        "score": "4 - 0",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/bein-6.png"
         ],
@@ -1134,6 +1148,10 @@
             {
               "player": "Sidny Cabral",
               "minute": "58'"
+            },
+            {
+              "player": "Anísio Cabral",
+              "minute": "84'"
             }
           ],
           "away": []
@@ -1150,17 +1168,25 @@
           "name": "Tondela",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/tondela.png"
         },
-        "score": "1 - 0",
-        "status": "live",
-        "time": "65'",
-        "isLive": true,
-        "winner": null,
+        "score": "3 - 0",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
           "home": [
             {
               "player": "Mathias de Amorim",
               "minute": "31'"
+            },
+            {
+              "player": "Gil Dias",
+              "minute": "69'"
+            },
+            {
+              "player": "Pedro Santos",
+              "minute": "81'"
             }
           ],
           "away": []
@@ -1177,16 +1203,25 @@
           "name": "Alverca",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/alverca.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-25T20:30:00+00:00",
-        "isLive": false,
+        "score": "2 - 0",
+        "status": "live",
+        "time": "27'",
+        "isLive": true,
         "winner": null,
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/bein-3.png"
         ],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "Vítor Carvalho",
+              "minute": "17'"
+            },
+            {
+              "player": "R. Zalazar",
+              "minute": "23'"
+            }
+          ],
           "away": []
         }
       }
@@ -1271,10 +1306,10 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/dender.png"
         },
         "score": "0 - 0",
-        "status": "live",
-        "time": "90+4'",
-        "isLive": true,
-        "winner": null,
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -1292,14 +1327,19 @@
           "name": "Westerlo",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/westerlo.png"
         },
-        "score": "0 - 1",
-        "status": "live",
-        "time": "50'",
-        "isLive": true,
-        "winner": null,
+        "score": "1 - 1",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "K. Mrabti",
+              "minute": "88'"
+            }
+          ],
           "away": [
             {
               "player": "Nacho Ferri",
@@ -1902,10 +1942,10 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/castellon.png"
         },
         "score": "0 - 0",
-        "status": "live",
-        "time": "90+1'",
-        "isLive": true,
-        "winner": null,
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -1923,10 +1963,10 @@
           "name": "Santander",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/racing-santander.png"
         },
-        "score": null,
-        "status": "scheduled",
-        "time": "2026-01-25T20:00:00+00:00",
-        "isLive": false,
+        "score": "0 - 0",
+        "status": "live",
+        "time": "MT",
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -1951,11 +1991,11 @@
           "name": "CODM",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/codm-meknes.png"
         },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T15:00:00+00:00",
-        "isLive": true,
-        "winner": null,
+        "score": "1 - 2",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -2172,9 +2212,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/guarani.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-25T21:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -2226,11 +2266,11 @@
           "name": "Cluj",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/cfr-1907-cluj.png"
         },
-        "score": "1 - 3",
-        "status": "live",
-        "time": "63'",
-        "isLive": true,
-        "winner": null,
+        "score": "1 - 4",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [
@@ -2251,6 +2291,10 @@
             {
               "player": "A. Cordea",
               "minute": "49'"
+            },
+            {
+              "player": "L. Biliboc",
+              "minute": "90'+1"
             }
           ]
         }
@@ -2420,10 +2464,10 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/correcaminos-uat.png"
         },
         "score": "0 - 0",
-        "status": "live",
-        "time": "63'",
-        "isLive": true,
-        "winner": null,
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -2881,9 +2925,9 @@
           "name": "Monopoli",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/monopoli.png"
         },
-        "score": null,
+        "score": "0 - 0",
         "status": "live",
-        "time": "2026-01-25T19:30:00+00:00",
+        "time": "73'",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -3100,10 +3144,10 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/al-masry.png"
         },
         "score": "0 - 0",
-        "status": "live",
-        "time": "23'",
-        "isLive": true,
-        "winner": null,
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -3121,17 +3165,21 @@
           "name": "Stellenbosch",
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
-        "score": "1 - 0",
-        "status": "live",
-        "time": "24'",
-        "isLive": true,
-        "winner": null,
+        "score": "2 - 0",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
           "home": [
             {
               "player": "A. Belhocini",
               "minute": "5'"
+            },
+            {
+              "player": "F. El Melali",
+              "minute": "90'+5 (sp)"
             }
           ],
           "away": []
@@ -3148,14 +3196,19 @@
           "name": "Maniema U.",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/maniema-union.png"
         },
-        "score": "0 - 0",
-        "status": "live",
-        "time": "25'",
-        "isLive": true,
-        "winner": null,
+        "score": "1 - 0",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "M. Moufid",
+              "minute": "81'"
+            }
+          ],
           "away": []
         }
       }
@@ -3413,6 +3466,28 @@
         }
       },
       {
+        "liveId": "3688843180841260317",
+        "matchLink": "https://www.footmercato.net/live/3688843180841260317-zemplin-michalovce-vs-ozgon",
+        "homeTeam": {
+          "name": "Zemplín",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zemplin-michalovce.png"
+        },
+        "awayTeam": {
+          "name": "Ozgon",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T08:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
         "liveId": "885491450477429297",
         "matchLink": "https://www.footmercato.net/live/885491450477429297-miedz-legnica-vs-nasaf",
         "homeTeam": {
@@ -3533,11 +3608,11 @@
           "name": "Middelfart",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/middelfart.png"
         },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T11:00:00+00:00",
-        "isLive": true,
-        "winner": null,
+        "score": "8 - 2",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "home",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -3555,11 +3630,11 @@
           "name": "Großaspach",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/sonnenhof-grossaspach.png"
         },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T11:00:00+00:00",
-        "isLive": true,
-        "winner": null,
+        "score": "2 - 12",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "away",
         "broadcasts": [],
         "goals": {
           "home": [],
@@ -3577,9 +3652,97 @@
           "name": "Astoria",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/astoria-walldorf.png"
         },
+        "score": "1 - 1",
+        "status": "finished",
+        "time": "terminé",
+        "isLive": false,
+        "winner": "draw",
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "636883678471165173",
+        "matchLink": "https://www.footmercato.net/live/636883678471165173-ks-polonia-varsovie-vs-lnz-cherkasy",
+        "homeTeam": {
+          "name": "Polonia",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/ks-polonia-varsovie.png"
+        },
+        "awayTeam": {
+          "name": "LNZ Cherkasy",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
         "score": null,
         "status": "live",
-        "time": "2026-01-25T11:00:00+00:00",
+        "time": "2026-01-25T12:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "5258120767673032495",
+        "matchLink": "https://www.footmercato.net/live/5258120767673032495-barockstadt-fulda-lehn-vs-rot-weiss-erfurt",
+        "homeTeam": {
+          "name": "Lehnerz",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/barockstadt-fulda-lehn.png"
+        },
+        "awayTeam": {
+          "name": "Erfurt",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/rot-weiss-erfurt.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T12:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "191829226610363463",
+        "matchLink": "https://www.footmercato.net/live/191829226610363463-lokomotiv-sofia-1929-vs-fc-zorya-louhansk",
+        "homeTeam": {
+          "name": "Lokomotiv Sf",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/lokomotiv-sofia-1929.png"
+        },
+        "awayTeam": {
+          "name": "Zorya",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-zorya-louhansk.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T12:30:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "1707048177944338360",
+        "matchLink": "https://www.footmercato.net/live/1707048177944338360-slavia-sofia-vs-tobol",
+        "homeTeam": {
+          "name": "Slavia Sofia",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/slavia-sofia.png"
+        },
+        "awayTeam": {
+          "name": "Tobol",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/tobol.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T12:30:00+00:00",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -3787,6 +3950,72 @@
         }
       },
       {
+        "liveId": "6440161593102384884",
+        "matchLink": "https://www.footmercato.net/live/6440161593102384884-kauno-zalgiris-vs-jenis",
+        "homeTeam": {
+          "name": "Kauno Žalgiris",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/kauno-zalgiris.png"
+        },
+        "awayTeam": {
+          "name": "Jenis",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T13:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "500414654588701739",
+        "matchLink": "https://www.footmercato.net/live/500414654588701739-zemplin-michalovce-vs-zeljeznicar",
+        "homeTeam": {
+          "name": "Zemplín",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zemplin-michalovce.png"
+        },
+        "awayTeam": {
+          "name": "Željezničar",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zeljeznicar.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T14:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "3039553046413122186",
+        "matchLink": "https://www.footmercato.net/live/3039553046413122186-dynamo-kiev-vs-malisheva",
+        "homeTeam": {
+          "name": "Dynamo Kiev",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-dynamo-kiev.png"
+        },
+        "awayTeam": {
+          "name": "Malisheva",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T14:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
         "liveId": "5078954292330742455",
         "matchLink": "https://www.footmercato.net/live/5078954292330742455-aik-vs-fc-flora-tallinn",
         "homeTeam": {
@@ -3796,6 +4025,28 @@
         "awayTeam": {
           "name": "Flora",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/flora.png"
+        },
+        "score": null,
+        "status": "live",
+        "time": "2026-01-25T14:00:00+00:00",
+        "isLive": true,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "7773900381949641283",
+        "matchLink": "https://www.footmercato.net/live/7773900381949641283-yenisey-vs-nasaf",
+        "homeTeam": {
+          "name": "Yenisey",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/yenisey.png"
+        },
+        "awayTeam": {
+          "name": "Nasaf",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/nasaf.png"
         },
         "score": null,
         "status": "live",
@@ -3919,64 +4170,42 @@
         }
       },
       {
-        "liveId": "191829226610363463",
-        "matchLink": "https://www.footmercato.net/live/191829226610363463-lokomotiv-sofia-1929-vs-fc-zorya-louhansk",
+        "liveId": "3158273723707912039",
+        "matchLink": "https://www.footmercato.net/live/3158273723707912039-veres-rivne-vs-arkadag",
         "homeTeam": {
-          "name": "Lokomotiv Sf",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/lokomotiv-sofia-1929.png"
+          "name": "Veres Rivne",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/veres-rivne.png"
         },
         "awayTeam": {
-          "name": "Zorya",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-zorya-louhansk.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "500414654588701739",
-        "matchLink": "https://www.footmercato.net/live/500414654588701739-zemplin-michalovce-vs-zeljeznicar",
-        "homeTeam": {
-          "name": "Zemplín",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zemplin-michalovce.png"
-        },
-        "awayTeam": {
-          "name": "Željezničar",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zeljeznicar.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "636883678471165173",
-        "matchLink": "https://www.footmercato.net/live/636883678471165173-ks-polonia-varsovie-vs-lnz-cherkasy",
-        "homeTeam": {
-          "name": "Polonia",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/ks-polonia-varsovie.png"
-        },
-        "awayTeam": {
-          "name": "LNZ Cherkasy",
+          "name": "Arkadag",
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
         "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
+        "status": "scheduled",
+        "time": "",
+        "isLive": false,
+        "winner": null,
+        "broadcasts": [],
+        "goals": {
+          "home": [],
+          "away": []
+        }
+      },
+      {
+        "liveId": "8465975654333750558",
+        "matchLink": "https://www.footmercato.net/live/8465975654333750558-neftchi-vs-zemplin-michalovce",
+        "homeTeam": {
+          "name": "Neftchi",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/neftchi.png"
+        },
+        "awayTeam": {
+          "name": "Zemplín",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zemplin-michalovce.png"
+        },
+        "score": null,
+        "status": "scheduled",
+        "time": "",
+        "isLive": false,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -3997,183 +4226,7 @@
         },
         "score": null,
         "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "1707048177944338360",
-        "matchLink": "https://www.footmercato.net/live/1707048177944338360-slavia-sofia-vs-tobol",
-        "homeTeam": {
-          "name": "Slavia Sofia",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/slavia-sofia.png"
-        },
-        "awayTeam": {
-          "name": "Tobol",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/tobol.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "3039553046413122186",
-        "matchLink": "https://www.footmercato.net/live/3039553046413122186-dynamo-kiev-vs-malisheva",
-        "homeTeam": {
-          "name": "Dynamo Kiev",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-dynamo-kiev.png"
-        },
-        "awayTeam": {
-          "name": "Malisheva",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "3158273723707912039",
-        "matchLink": "https://www.footmercato.net/live/3158273723707912039-veres-rivne-vs-arkadag",
-        "homeTeam": {
-          "name": "Veres Rivne",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/veres-rivne.png"
-        },
-        "awayTeam": {
-          "name": "Arkadag",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "3688843180841260317",
-        "matchLink": "https://www.footmercato.net/live/3688843180841260317-zemplin-michalovce-vs-ozgon",
-        "homeTeam": {
-          "name": "Zemplín",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zemplin-michalovce.png"
-        },
-        "awayTeam": {
-          "name": "Ozgon",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "5258120767673032495",
-        "matchLink": "https://www.footmercato.net/live/5258120767673032495-barockstadt-fulda-lehn-vs-rot-weiss-erfurt",
-        "homeTeam": {
-          "name": "Lehnerz",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/barockstadt-fulda-lehn.png"
-        },
-        "awayTeam": {
-          "name": "Erfurt",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/rot-weiss-erfurt.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "6440161593102384884",
-        "matchLink": "https://www.footmercato.net/live/6440161593102384884-kauno-zalgiris-vs-jenis",
-        "homeTeam": {
-          "name": "Kauno Žalgiris",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/kauno-zalgiris.png"
-        },
-        "awayTeam": {
-          "name": "Jenis",
-          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "7773900381949641283",
-        "matchLink": "https://www.footmercato.net/live/7773900381949641283-yenisey-vs-nasaf",
-        "homeTeam": {
-          "name": "Yenisey",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/yenisey.png"
-        },
-        "awayTeam": {
-          "name": "Nasaf",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/nasaf.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
-        "isLive": true,
-        "winner": null,
-        "broadcasts": [],
-        "goals": {
-          "home": [],
-          "away": []
-        }
-      },
-      {
-        "liveId": "8465975654333750558",
-        "matchLink": "https://www.footmercato.net/live/8465975654333750558-neftchi-vs-zemplin-michalovce",
-        "homeTeam": {
-          "name": "Neftchi",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/neftchi.png"
-        },
-        "awayTeam": {
-          "name": "Zemplín",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/zemplin-michalovce.png"
-        },
-        "score": null,
-        "status": "live",
-        "time": "2026-01-25T19:00:00+00:00",
+        "time": "2026-01-25T20:00:00+00:00",
         "isLive": true,
         "winner": null,
         "broadcasts": [],
@@ -4194,9 +4247,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bolivar.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-25T20:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -4216,9 +4269,9 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/universidad-catolica.png"
         },
         "score": null,
-        "status": "scheduled",
+        "status": "live",
         "time": "2026-01-25T21:00:00+00:00",
-        "isLive": false,
+        "isLive": true,
         "winner": null,
         "broadcasts": [],
         "goals": {
@@ -4837,7 +4890,7 @@
           "home": [
             {
               "player": "M. Enderby",
-              "minute": "90'+5, 90'+4"
+              "minute": "90'+4, 90'+5"
             }
           ],
           "away": []
