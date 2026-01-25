@@ -1,12 +1,162 @@
 [
-  "france-national-3",
-  "france-national-2",
-  "coupe-du-monde",
-  "portugal-primeira-liga",
-  "jeux-olympiques",
-  "jeux-olympiques-feminins",
-  "coupe-des-confederations",
-  "tournoi-de-france",
-  "coupe-dor-concacaf",
-  "brazil-serie-a"
+  {
+    "name": "france-national-3",
+    "url": "https://www.footmercato.net/classement/france/national-3?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "france-national-2",
+    "url": "https://www.footmercato.net/classement/france/national-2?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-coupe-du-monde",
+    "url": "https://www.footmercato.net/classement/international/coupe-du-monde?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-jeux-olympiques",
+    "url": "https://www.footmercato.net/classement/international/jeux-olympiques?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-jeux-olympiques-feminins",
+    "url": "https://www.footmercato.net/classement/international/jeux-olympiques-feminins?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-coupe-des-confederations",
+    "url": "https://www.footmercato.net/classement/international/coupe-des-confederations?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-tournoi-de-france",
+    "url": "https://www.footmercato.net/classement/international/tournoi-de-france?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "amerique-du-nord-coupe-dor-de-la-concacaf",
+    "url": "https://www.footmercato.net/classement/amerique-du-nord/coupe-dor-de-la-concacaf?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "bresil-serie-a",
+    "url": "https://www.footmercato.net/classement/bresil/serie-a?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "danemark-superliga",
+    "url": "https://www.footmercato.net/classement/danemark/superliga?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "belgique-division-1b",
+    "url": "https://www.footmercato.net/classement/belgique/division-1b?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "bosnie-herzegovine-premijer-liga",
+    "url": "https://www.footmercato.net/classement/bosnie-herzegovine/premijer-liga?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "norvege-eliteserien",
+    "url": "https://www.footmercato.net/classement/norvege/eliteserien?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "allemagne-barrages-3-liga",
+    "url": "https://www.footmercato.net/classement/allemagne/barrages-3-liga?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "angleterre-efl-league-one",
+    "url": "https://www.footmercato.net/classement/angleterre/efl-league-one?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "mexique-liga-premier-serie-a",
+    "url": "https://www.footmercato.net/classement/mexique/liga-premier-serie-a?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "espagne-tercera-division",
+    "url": "https://www.footmercato.net/classement/espagne/tercera-division?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "turquie-lig-a",
+    "url": "https://www.footmercato.net/classement/turquie/lig-a?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "angleterre-efl-league-two",
+    "url": "https://www.footmercato.net/classement/angleterre/efl-league-two?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "allemagne-oberliga",
+    "url": "https://www.footmercato.net/classement/allemagne/oberliga?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "amerique-du-nord-concacaf-champions-league",
+    "url": "https://www.footmercato.net/classement/amerique-du-nord/concacaf-champions-league?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "amerique-du-sud-copa-libertadores",
+    "url": "https://www.footmercato.net/classement/amerique-du-sud/copa-libertadores?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "afrique-ligue-des-champions-de-la-caf",
+    "url": "https://www.footmercato.net/classement/afrique/ligue-des-champions-de-la-caf?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "amerique-du-sud-conmebol-sudamericana",
+    "url": "https://www.footmercato.net/classement/amerique-du-sud/conmebol-sudamericana?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "afrique-coupe-de-la-confederation-caf",
+    "url": "https://www.footmercato.net/classement/afrique/coupe-de-la-confederation-caf?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "afrique-eliminatoires-coupe-dafrique-des-nations",
+    "url": "https://www.footmercato.net/classement/afrique/eliminatoires-coupe-dafrique-des-nations?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-coupe-intercontinentale-fifa",
+    "url": "https://www.footmercato.net/classement/international/coupe-intercontinentale-fifa?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "europe-eliminatoires-euro-u19",
+    "url": "https://www.footmercato.net/classement/europe/eliminatoires-euro-u19?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-emirates-cup",
+    "url": "https://www.footmercato.net/classement/international/emirates-cup?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "international-international-champions-cup",
+    "url": "https://www.footmercato.net/classement/international/international-champions-cup?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "europe-eliminatoires-coupe-du-monde-feminine-europe",
+    "url": "https://www.footmercato.net/classement/europe/eliminatoires-coupe-du-monde-feminine-europe?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "france-championnat-national-u19",
+    "url": "https://www.footmercato.net/classement/france/championnat-national-u19?partial=1",
+    "reason": "No tables found"
+  }
 ]

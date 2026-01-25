@@ -1,71 +1,97 @@
+// server.js
 import express from "express";
 import fs from "fs";
 import fetchAllLeagues from "./fetchAllLeagues.js";
 import { fetchMatchToday } from "./fetchMatchToday.js";
+import { normalizeLeague } from "./normalizeStandings.js";
 
 const app = express();
 const PORT = 3000;
 
+// ملفات البيانات
 const DATA_FILE = "./all_leagues_standings.json";
+const MATCH_FILE = "./match-today.json";
 
-// ===== ROUTE: Standings for each league =====
+// ===== Cache في الذاكرة =====
+let standingsCache = {};
+let matchesCache = {};
+
+// ===== Load البيانات من الملفات =====
+function loadStandings() {
+  if (!fs.existsSync(DATA_FILE)) return {};
+  standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+  console.log("📊 Standings loaded into cache");
+}
+
+function loadMatches() {
+  if (!fs.existsSync(MATCH_FILE)) return {};
+  matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
+  console.log("⚽ Match-Today loaded into cache");
+}
+
+// ===== Routes =====
+
+// 1️⃣ تصنيفات الدوريات
 app.get("/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
+  const raw = standingsCache[league];
 
-  try {
-    if (!fs.existsSync(DATA_FILE)) return res.json({});
-    const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-
-    if (!data[league]) {
-      return res.status(404).json({
-        error: "League not found",
-        supported: Object.keys(data),
-      });
-    }
-
-    res.json(data[league]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Invalid data file" });
+  if (!raw) {
+    return res.status(404).json({
+      error: "League not found",
+      supported: Object.keys(standingsCache),
+    });
   }
+
+  const normalized = normalizeLeague(raw);
+  res.json(normalized);
 });
 
-// ===== ROUTE: Matches Today =====
-app.get("/match-today", async (req, res) => {
-  try {
-    const matches = await fetchMatchToday();
-    res.json(matches);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to fetch matches today" });
-  }
+// 2️⃣ مباريات اليوم
+app.get("/match-today", (req, res) => {
+  res.json(matchesCache);
 });
 
-// ===== INITIAL FETCH =====
+// ===== Fetch البيانات عند التشغيل =====
 (async () => {
-  // 1️⃣ جلب الدوريات
-  const allStandings = await fetchAllLeagues();
-  fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
-  console.log("✅ All leagues standings fetched and saved");
+  try {
+    // جلب جميع الدوريات
+    const allStandings = await fetchAllLeagues();
+    fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
+    standingsCache = allStandings;
+    console.log("✅ All leagues standings fetched and cached");
 
-  // 2️⃣ جلب مباريات اليوم عند التشغيل وحفظها في Match-Today.json
-  await fetchMatchToday();
-  console.log("✅ Match-Today fetched and saved");
+    // جلب مباريات اليوم
+    const todayMatches = await fetchMatchToday();
+    fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
+    matchesCache = todayMatches;
+    console.log("✅ Match-Today fetched and cached");
+  } catch (err) {
+    console.error("❌ Failed initial fetch:", err.message);
+  }
 })();
 
-// ===== UPDATE STANDINGS AND MATCHES EVERY 30 MIN =====
+// ===== تحديث البيانات كل 30 دقيقة =====
 setInterval(async () => {
-  const allStandings = await fetchAllLeagues();
-  fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
-  console.log("🔄 All leagues standings updated");
+  try {
+    const allStandings = await fetchAllLeagues();
+    fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
+    standingsCache = allStandings;
+    console.log("🔄 Standings updated");
 
-  await fetchMatchToday();
-  console.log("🔄 Match-Today updated");
-}, 10 * 60 * 1000);
+    const todayMatches = await fetchMatchToday();
+    fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
+    matchesCache = todayMatches;
+    console.log("🔄 Match-Today updated");
+  } catch (err) {
+    console.error("❌ Update failed:", err.message);
+  }
+}, 30 * 60 * 1000); // 30 دقيقة
 
+// ===== Start Server =====
 app.listen(PORT, () => {
-  console.log("🚀 Server running on port " + PORT);
-  console.log("📊 Available endpoints:");
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log("📌 Endpoints:");
   console.log("   → /standings/:league");
   console.log("   → /match-today");
 });
