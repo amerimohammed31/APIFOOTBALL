@@ -1,3 +1,5 @@
+// normalizeStandings.js
+
 // أسماء أعمدة محتملة بعدة لغات
 const COLUMN_MAP = {
   rank: ["#", "Pos", "Position", "Rang"],
@@ -6,12 +8,13 @@ const COLUMN_MAP = {
   played: ["J", "MP", "Played"],
   wins: ["G", "W", "Wins"],
   draws: ["N", "D", "Draws"],
-  losses: ["P", "L", "Losses"],
+  losses: ["P", "L", "Losses"], // الخسارة
   goalDiff: ["Diff", "GD", "DIF"],
   goalsFor: ["BP", "GF"],
   goalsAgainst: ["BC", "GA"]
 };
 
+// دالة للعثور على قيمة العمود الصحيح في الصف
 function findValue(row, keys) {
   for (const key of keys) {
     if (row[key]?.text) return row[key];
@@ -19,10 +22,10 @@ function findValue(row, keys) {
   return null;
 }
 
+// الدالة الرئيسية لتطبيع الدوري
 export function normalizeLeague(rawLeague) {
   if (!rawLeague?.tables?.length) return null;
 
-  // لكل جدول في الدوري
   return rawLeague.tables.map(table => {
     return {
       title: table.title || `Table ${table.index + 1}`,
@@ -34,7 +37,7 @@ export function normalizeLeague(rawLeague) {
         played: Number(findValue(row, COLUMN_MAP.played)?.text),
         wins: Number(findValue(row, COLUMN_MAP.wins)?.text),
         draws: Number(findValue(row, COLUMN_MAP.draws)?.text),
-        losses: Number(findValue(row, COLUMN_MAP.losses)?.text),
+        losses: Number(findValue(row, COLUMN_MAP.losses)?.text), // ✅ الآن الخسارة صحيحة
         goalDiff: findValue(row, COLUMN_MAP.goalDiff)?.text,
         goalsFor: Number(findValue(row, COLUMN_MAP.goalsFor)?.text),
         goalsAgainst: Number(findValue(row, COLUMN_MAP.goalsAgainst)?.text)
