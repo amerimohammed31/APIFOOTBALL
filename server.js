@@ -15,22 +15,22 @@ const MATCH_FILE = "./match-today.json";
 let standingsCache = {};
 let matchesCache = {};
 
-// ===== Load البيانات من الملفات =====
-function loadStandings() {
-  if (!fs.existsSync(DATA_FILE)) return {};
-  standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-  console.log("📊 Standings loaded into cache");
+// ===== Load البيانات من الملفات عند البداية =====
+function loadMatches() {
+  if (fs.existsSync(MATCH_FILE)) {
+    matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
+    console.log("⚽ Match-Today loaded from file");
+  }
 }
 
-function loadMatches() {
-  if (!fs.existsSync(MATCH_FILE)) return {};
-  matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
-  console.log("⚽ Match-Today loaded into cache");
+function loadStandings() {
+  if (fs.existsSync(DATA_FILE)) {
+    standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+    console.log("📊 Standings loaded from file");
+  }
 }
 
 // ===== Routes =====
-
-// 1️⃣ تصنيفات الدوريات
 app.get("/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
   const raw = standingsCache[league];
@@ -42,53 +42,59 @@ app.get("/standings/:league", (req, res) => {
     });
   }
 
-  const normalizedTables = normalizeLeague(raw); // مصفوفة من الجداول
-  res.json(normalizedTables);
+  res.json(normalizeLeague(raw));
 });
 
-// 2️⃣ مباريات اليوم
 app.get("/match-today", (req, res) => {
   res.json(matchesCache);
 });
 
-// ===== Fetch البيانات عند التشغيل =====
-(async () => {
+// ===== دوال fetch منفصلة =====
+async function updateMatches() {
   try {
-    const allStandings = await fetchAllLeagues();
-    fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
-    standingsCache = allStandings;
-    console.log("✅ All leagues standings fetched and cached");
-
-    const todayMatches = await fetchMatchToday();
-    fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
-    matchesCache = todayMatches;
-    console.log("✅ Match-Today fetched and cached");
-  } catch (err) {
-    console.error("❌ Failed initial fetch:", err.message);
-  }
-})();
-
-// ===== تحديث البيانات كل 30 دقيقة =====
-setInterval(async () => {
-  try {
-    const allStandings = await fetchAllLeagues();
-    fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
-    standingsCache = allStandings;
-    console.log("🔄 Standings updated");
-
     const todayMatches = await fetchMatchToday();
     fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
     matchesCache = todayMatches;
     console.log("🔄 Match-Today updated");
   } catch (err) {
-    console.error("❌ Update failed:", err.message);
+    console.error("❌ Failed to update matches:", err.message);
   }
-}, 30 * 60 * 1000); // 30 دقيقة
+}
 
-// ===== Start Server =====
+async function updateStandings() {
+  try {
+    const allStandings = await fetchAllLeagues();
+    fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
+    standingsCache = allStandings;
+    console.log("🔄 Standings updated");
+  } catch (err) {
+    console.error("❌ Failed to update standings:", err.message);
+  }
+}
+
+// ===== Load البيانات من الملفات عند البداية =====
+loadMatches();
+loadStandings();
+
+// ===== Start Server فورًا =====
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log("📌 Endpoints:");
   console.log("   → /standings/:league");
   console.log("   → /match-today");
+
+  // ===== Fetch البيانات في الخلفية بشكل غير متزامن =====
+  // مباريات اليوم أولًا
+  updateMatches().then(() => {
+    console.log("✅ Match-Today initial fetch done");
+  });
+
+  // تصنيفات الدوريات بشكل مستقل
+  updateStandings().then(() => {
+    console.log("✅ Standings initial fetch done");
+  });
+
+  // ===== تحديث دوري حسب الفترات المحددة =====
+  setInterval(updateMatches, 10 * 60 * 1000);   // كل 15 دقيقة
+  setInterval(updateStandings, 15 * 60 * 1000);  // كل 5 دقائق
 });
