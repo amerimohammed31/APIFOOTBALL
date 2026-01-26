@@ -1,47 +1,31 @@
 // normalizeStandings.js
+// هذه النسخة تعتمد على ترتيب الأعمدة كما هي في Footmercato
+// لأن الحروف (D / N) تختلف معانيها من موقع لآخر
 
-// أسماء أعمدة محتملة بعدة لغات
-const COLUMN_MAP = {
-  rank: ["#", "Pos", "Position", "Rang"],
-  team: ["Équipe", "Team", "Club"],
-  points: ["Pts", "Points"],
-  played: ["J", "MP", "Played"],
-  wins: ["G", "W", "Wins"],
-  draws: ["N", "D", "Draws"],
-  losses: ["P", "L", "Losses"], // الخسارة
-  goalDiff: ["Diff", "GD", "DIF"],
-  goalsFor: ["BP", "GF"],
-  goalsAgainst: ["BC", "GA"]
-};
-
-// دالة للعثور على قيمة العمود الصحيح في الصف
-function findValue(row, keys) {
-  for (const key of keys) {
-    if (row[key]?.text) return row[key];
-  }
-  return null;
-}
-
-// الدالة الرئيسية لتطبيع الدوري
 export function normalizeLeague(rawLeague) {
-  if (!rawLeague?.tables?.length) return null;
+  if (!rawLeague || !Array.isArray(rawLeague.tables)) return null;
 
-  return rawLeague.tables.map(table => {
+  return rawLeague.tables.map((table, tableIndex) => {
     return {
-      title: table.title || `Table ${table.index + 1}`,
-      rows: table.rows.map(row => ({
-        rank: Number(findValue(row, COLUMN_MAP.rank)?.text),
-        team: findValue(row, COLUMN_MAP.team)?.text,
-        logo: findValue(row, COLUMN_MAP.team)?.images?.[0] || null,
-        points: Number(findValue(row, COLUMN_MAP.points)?.text),
-        played: Number(findValue(row, COLUMN_MAP.played)?.text),
-        wins: Number(findValue(row, COLUMN_MAP.wins)?.text),
-        draws: Number(findValue(row, COLUMN_MAP.draws)?.text),
-        losses: Number(findValue(row, COLUMN_MAP.losses)?.text), // ✅ الآن الخسارة صحيحة
-        goalDiff: findValue(row, COLUMN_MAP.goalDiff)?.text,
-        goalsFor: Number(findValue(row, COLUMN_MAP.goalsFor)?.text),
-        goalsAgainst: Number(findValue(row, COLUMN_MAP.goalsAgainst)?.text)
-      }))
+      title: table.title || `Table ${tableIndex + 1}`,
+      rows: table.rows.map(row => {
+        // نحافظ على ترتيب الأعمدة كما جاءت من HTML
+        const cells = Object.values(row);
+
+        return {
+          rank: Number(cells[0]?.text ?? 0),
+          team: cells[1]?.text ?? null,
+          logo: cells[1]?.images?.[0] ?? null,
+          points: Number(cells[2]?.text ?? 0),
+          played: Number(cells[3]?.text ?? 0),
+          goalDiff: cells[4]?.text ?? "0",
+          wins: Number(cells[5]?.text ?? 0),
+          draws: Number(cells[6]?.text ?? 0),   // N = تعادل
+          losses: Number(cells[7]?.text ?? 0),  // D = خسارة (Défaites)
+          goalsFor: Number(cells[8]?.text ?? 0),
+          goalsAgainst: Number(cells[9]?.text ?? 0),
+        };
+      })
     };
   });
 }
