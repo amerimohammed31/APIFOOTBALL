@@ -1,112 +1,61 @@
 import express from "express";
 import fs from "fs";
-import mongoose from "mongoose";
 import fetchAllLeagues from "./fetchAllLeagues.js";
 import { fetchMatchToday } from "./fetchMatchToday.js";
+import { normalizeLeague } from "./normalizeStandings.js";
 
 const app = express();
 const PORT = 3000;
 
-// ملفات البيانات المحلية
+// ملفات البيانات
 const DATA_FILE = "./all_leagues_standings.json";
 const MATCH_FILE = "./match-today.json";
 
-// Cache في الذاكرة
+// ===== Cache في الذاكرة =====
 let standingsCache = {};
-let matchesCache = [];
+let matchesCache = {};
 
-// =======================
-// MongoDB Model لتخزين الملفات كما هي
-// =======================
-const { Schema, model } = mongoose;
-
-const fileSchema = new Schema({
-  filename: String,  // اسم الملف
-  content: Object,   // محتوى الملف كامل
-});
-
-const FileData = model("FileData", fileSchema);
-
-// =======================
-// MongoDB Connection
-// =======================
-const mongoURI = process.env.MONGO_URI;
-
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log("✅ MongoDB Connected!"))
-  .catch(err => console.error("❌ MongoDB connection error:", err.message));
-
-// =======================
-// Load البيانات من الملفات محلياً
-// =======================
+// ===== Load البيانات من الملفات عند البداية =====
 function loadMatches() {
   if (fs.existsSync(MATCH_FILE)) {
-    try {
-      const data = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
-      matchesCache = Array.isArray(data) ? data : [];
-      console.log("⚽ Match-Today loaded from file");
-    } catch (err) {
-      console.error("❌ Failed to parse Match-Today file:", err.message);
-    }
+    matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
+    console.log("⚽ Match-Today loaded from file");
   }
 }
 
 function loadStandings() {
   if (fs.existsSync(DATA_FILE)) {
-    try {
-      standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-      console.log("📊 Standings loaded from file");
-    } catch (err) {
-      console.error("❌ Failed to parse Standings file:", err.message);
-    }
+    standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+    console.log("📊 Standings loaded from file");
   }
 }
 
-// =======================
-// إرسال الملفات كما هي إلى MongoDB
-// =======================
-async function storeFilesToMongo() {
-  try {
-    if (fs.existsSync(DATA_FILE) && mongoose.connection.readyState === 1) {
-      const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-      await FileData.deleteOne({ filename: "all_leagues_standings" });
-      await FileData.create({
-        filename: "all_leagues_standings",
-        content: data
-      });
-      console.log("📊 Standings JSON stored 100% in MongoDB");
-    }
+// ===== Routes =====
+app.get("/standings/:league", (req, res) => {
+  const league = req.params.league.toLowerCase();
+  const raw = standingsCache[league];
 
-    if (fs.existsSync(MATCH_FILE) && mongoose.connection.readyState === 1) {
-      const data = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
-      await FileData.deleteOne({ filename: "match-today" });
-      await FileData.create({
-        filename: "match-today",
-        content: data
-      });
-      console.log("⚽ Match-Today JSON stored 100% in MongoDB");
-    }
-  } catch (err) {
-    console.error("❌ Failed to store JSON files in MongoDB:", err.message);
+  if (!raw) {
+    return res.status(404).json({
+      error: "League not found",
+      supported: Object.keys(standingsCache),
+    });
   }
-}
 
-// =======================
-// تحديث البيانات تلقائياً
-// =======================
+  res.json(normalizeLeague(raw));
+});
+
+app.get("/match-today", (req, res) => {
+  res.json(matchesCache);
+});
+
+// ===== دوال fetch منفصلة =====
 async function updateMatches() {
   try {
     const todayMatches = await fetchMatchToday();
-    if (!Array.isArray(todayMatches)) return;
-
     fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
     matchesCache = todayMatches;
-    console.log("🔄 Match-Today updated locally");
-
-    await storeFilesToMongo(); // تحديث MongoDB
+    console.log("🔄 Match-Today updated");
   } catch (err) {
     console.error("❌ Failed to update matches:", err.message);
   }
@@ -117,43 +66,35 @@ async function updateStandings() {
     const allStandings = await fetchAllLeagues();
     fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
     standingsCache = allStandings;
-    console.log("🔄 Standings updated locally");
-
-    await storeFilesToMongo(); // تحديث MongoDB
+    console.log("🔄 Standings updated");
   } catch (err) {
     console.error("❌ Failed to update standings:", err.message);
   }
 }
 
-// =======================
-// Routes
-// =======================
-app.get("/standings/:league", (req, res) => {
-  const league = req.params.league.toLowerCase();
-  const raw = standingsCache[league];
-
-  if (!raw) return res.status(404).json({ error: "League not found" });
-
-  res.json(raw); // مباشرة بدون تعديل
-});
-
-app.get("/match-today", (req, res) => {
-  res.json(matchesCache); // مباشرة بدون تعديل
-});
-
-// =======================
-// Start Server
-// =======================
+// ===== Load البيانات من الملفات عند البداية =====
 loadMatches();
 loadStandings();
 
-app.listen(PORT, async () => {
+// ===== Start Server فورًا =====
+app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
+  console.log("📌 Endpoints:");
+  console.log("   → /standings/:league");
+  console.log("   → /match-today");
 
-  // إرسال الملفات كاملة إلى MongoDB عند التشغيل
-  await storeFilesToMongo();
+  // ===== Fetch البيانات في الخلفية بشكل غير متزامن =====
+  // مباريات اليوم أولًا
+  updateMatches().then(() => {
+    console.log("✅ Match-Today initial fetch done");
+  });
 
-  // تحديث البيانات بشكل دوري
-  setInterval(updateMatches, 10 * 60 * 1000);
-  setInterval(updateStandings, 15 * 60 * 1000);
+  // تصنيفات الدوريات بشكل مستقل
+  updateStandings().then(() => {
+    console.log("✅ Standings initial fetch done");
+  });
+
+  // ===== تحديث دوري حسب الفترات المحددة =====
+  setInterval(updateMatches, 10 * 60 * 1000);   // كل 15 دقيقة
+  setInterval(updateStandings, 15 * 60 * 1000);  // كل 5 دقائق
 });
