@@ -6,9 +6,9 @@ import { fetchMatchToday } from "./fetchMatchToday.js";
 import { normalizeLeague } from "./normalizeStandings.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-// ===== ملفات البيانات المحلية =====
+// ملفات البيانات المحلية
 const DATA_FILE = "./all_leagues_standings.json";
 const MATCH_FILE = "./match-today.json";
 
@@ -35,12 +35,8 @@ const matchSchema = new Schema({
 const MatchToday = model("MatchToday", matchSchema);
 
 // ===== MongoDB Connection =====
-if (!process.env.MONGO_URI) {
-  console.error("❌ Please define MONGO_URI in .env");
-  process.exit(1);
-}
-
-mongoose.connect(process.env.MONGO_URI, {
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -84,27 +80,25 @@ function loadStandings() {
 // ===== Update Functions =====
 async function updateMatches() {
   try {
-    // قراءة البيانات من الملف المحلي بدل API خارجي
-    let todayMatches = matchesCache;
-    if (fs.existsSync(MATCH_FILE)) {
-      todayMatches = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
-    }
+    const todayMatches = await fetchMatchToday();
 
-    // ===== حفظ محلي =====
+    // ===== حفظ محلي كما هو =====
     fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
     matchesCache = todayMatches;
     console.log("🔄 Match-Today updated locally");
 
-    // ===== حفظ في MongoDB =====
-    await MatchToday.deleteMany({});
-    await MatchToday.insertMany(todayMatches.map(match => ({
-      date: new Date(match.date),
-      homeTeam: match.home,
-      awayTeam: match.away,
-      score: match.score,
-      raw: match
-    })));
-    console.log("🔄 Match-Today updated in MongoDB");
+    // ===== حفظ نسخة في MongoDB =====
+    if (mongoose.connection.readyState === 1) {
+      await MatchToday.deleteMany({});
+      await MatchToday.insertMany(todayMatches.map(match => ({
+        date: new Date(match.date),
+        homeTeam: match.home,
+        awayTeam: match.away,
+        score: match.score,
+        raw: match
+      })));
+      console.log("🔄 Match-Today updated in MongoDB");
+    }
   } catch (err) {
     console.error("❌ Failed to update matches:", err.message);
   }
@@ -112,46 +106,44 @@ async function updateMatches() {
 
 async function updateStandings() {
   try {
-    // قراءة البيانات من الملف المحلي بدل API خارجي
-    let allStandings = standingsCache;
-    if (fs.existsSync(DATA_FILE)) {
-      allStandings = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-    }
+    const allStandings = await fetchAllLeagues();
 
-    // ===== حفظ محلي =====
+    // ===== حفظ محلي كما هو =====
     fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
     standingsCache = allStandings;
     console.log("🔄 Standings updated locally");
 
-    // ===== حفظ في MongoDB =====
-    await Standings.deleteMany({});
-    const standingsArray = Object.keys(allStandings).map(league => ({
-      league,
-      data: allStandings[league]
-    }));
-    await Standings.insertMany(standingsArray);
-    console.log("🔄 Standings updated in MongoDB");
+    // ===== حفظ نسخة في MongoDB =====
+    if (mongoose.connection.readyState === 1) {
+      await Standings.deleteMany({});
+      const standingsArray = Object.keys(allStandings).map(league => ({
+        league,
+        data: allStandings[league]
+      }));
+      await Standings.insertMany(standingsArray);
+      console.log("🔄 Standings updated in MongoDB");
+    }
   } catch (err) {
     console.error("❌ Failed to update standings:", err.message);
   }
 }
 
-// ===== Load البيانات عند البداية =====
+// ===== Load البيانات من الملفات عند البداية =====
 loadMatches();
 loadStandings();
 
-// ===== Start Server =====
+// ===== Start Server فورًا =====
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log("📌 Endpoints:");
   console.log("   → /standings/:league");
   console.log("   → /match-today");
 
-  // تحديث MongoDB عند البداية
-  updateMatches().then(() => console.log("✅ Match-Today initial sync done"));
-  updateStandings().then(() => console.log("✅ Standings initial sync done"));
+  // ===== Fetch البيانات في الخلفية بشكل غير متزامن =====
+  updateMatches().then(() => console.log("✅ Match-Today initial fetch done"));
+  updateStandings().then(() => console.log("✅ Standings initial fetch done"));
 
-  // تحديث دوري حسب الفترات المحددة
+  // ===== تحديث دوري حسب الفترات المحددة =====
   setInterval(updateMatches, 10 * 60 * 1000);   // كل 10 دقائق
   setInterval(updateStandings, 15 * 60 * 1000); // كل 15 دقيقة
 });
