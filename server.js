@@ -1,130 +1,157 @@
-import 'dotenv/config';
 import express from "express";
 import fs from "fs";
-import path from "path";
 import mongoose from "mongoose";
+import fetchAllLeagues from "./fetchAllLeagues.js";
+import { fetchMatchToday } from "./fetchMatchToday.js";
+import { normalizeLeague } from "./normalizeStandings.js";
 
 const app = express();
-app.use(express.json());
-
 const PORT = process.env.PORT || 3000;
 
-// ===== الملفات المحلية =====
-const DATA_DIR = path.join(process.cwd(), "data");
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
-
-const STANDINGS_FILE = path.join(DATA_DIR, "standings.json");
-const MATCHTODAY_FILE = path.join(DATA_DIR, "match-today.json");
+// ===== ملفات البيانات المحلية =====
+const DATA_FILE = "./all_leagues_standings.json";
+const MATCH_FILE = "./match-today.json";
 
 // ===== Cache في الذاكرة =====
 let standingsCache = {};
 let matchesCache = {};
 
 // ===== MongoDB Models =====
-const StandingsSchema = new mongoose.Schema({
+const { Schema, model } = mongoose;
+
+const standingsSchema = new Schema({
   league: String,
-  tables: Array
-}, { timestamps: true });
+  data: Object,
+});
+const Standings = model("Standings", standingsSchema);
 
-const MatchTodaySchema = new mongoose.Schema({
-  matches: Array
-}, { timestamps: true });
+const matchSchema = new Schema({
+  date: Date,
+  homeTeam: String,
+  awayTeam: String,
+  score: String,
+  raw: Object,
+});
+const MatchToday = model("MatchToday", matchSchema);
 
-const Standings = mongoose.model("standings", StandingsSchema);
-const MatchToday = mongoose.model("matchtodays", MatchTodaySchema);
+// ===== MongoDB Connection =====
+if (!process.env.MONGO_URI) {
+  console.error("❌ Please define MONGO_URI in .env");
+  process.exit(1);
+}
 
-// ===== اتصال MongoDB =====
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch(err => console.error("❌ MongoDB connection error:", err.message));
-
-// ===== Helpers لحفظ البيانات =====
-const saveToFile = (filePath, data) => {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-};
-
-const saveStandingsMongo = async (league, tables) => {
-  if (mongoose.connection.readyState !== 1) return;
-  await Standings.updateOne({ league }, { league, tables }, { upsert: true });
-};
-
-const saveMatchTodayMongo = async (matches) => {
-  if (mongoose.connection.readyState !== 1) return;
-  await MatchToday.deleteMany();
-  await MatchToday.create({ matches });
-};
-
-// ===== Load البيانات من الملفات =====
-if (fs.existsSync(STANDINGS_FILE)) {
-  standingsCache = JSON.parse(fs.readFileSync(STANDINGS_FILE, "utf-8"));
-  console.log("📊 Standings loaded from file");
-}
-
-if (fs.existsSync(MATCHTODAY_FILE)) {
-  matchesCache = JSON.parse(fs.readFileSync(MATCHTODAY_FILE, "utf-8"));
-  console.log("⚽ Match-Today loaded from file");
-}
+  .then(() => console.log("✅ MongoDB Connected to LiveScore!"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
 // ===== Routes =====
 app.get("/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
-  const tables = standingsCache[league] || [];
-  res.json(tables);
+  const raw = standingsCache[league];
+
+  if (!raw) {
+    return res.status(404).json({
+      error: "League not found",
+      supported: Object.keys(standingsCache),
+    });
+  }
+
+  res.json(normalizeLeague(raw));
 });
 
 app.get("/match-today", (req, res) => {
-  res.json(matchesCache || []);
+  res.json(matchesCache);
 });
 
-// ===== Functions لتحديث MongoDB =====
-const updateStandings = async () => {
-  try {
-    if (!fs.existsSync(STANDINGS_FILE)) return;
-    const localData = JSON.parse(fs.readFileSync(STANDINGS_FILE, "utf-8"));
-    standingsCache = localData;
-
-    const arrayData = Object.keys(localData).map(league => ({
-      league,
-      tables: localData[league]
-    }));
-
-    await Standings.deleteMany();
-    await Standings.insertMany(arrayData);
-
-    console.log("🔄 Standings updated in MongoDB");
-  } catch (err) {
-    console.error("❌ Failed to update standings:", err.message);
+// ===== Load البيانات من الملفات عند البداية =====
+function loadMatches() {
+  if (fs.existsSync(MATCH_FILE)) {
+    matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
+    console.log("⚽ Match-Today loaded from file");
   }
-};
+}
 
-const updateMatches = async () => {
+function loadStandings() {
+  if (fs.existsSync(DATA_FILE)) {
+    standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+    console.log("📊 Standings loaded from file");
+  }
+}
+
+// ===== Update Functions =====
+async function updateMatches() {
   try {
-    if (!fs.existsSync(MATCHTODAY_FILE)) return;
-    const localData = JSON.parse(fs.readFileSync(MATCHTODAY_FILE, "utf-8"));
-    matchesCache = localData;
+    // قراءة البيانات من الملف المحلي بدل API خارجي
+    let todayMatches = matchesCache;
+    if (fs.existsSync(MATCH_FILE)) {
+      todayMatches = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
+    }
 
-    await MatchToday.deleteMany();
-    await MatchToday.create({ matches: localData });
+    // ===== حفظ محلي =====
+    fs.writeFileSync(MATCH_FILE, JSON.stringify(todayMatches, null, 2));
+    matchesCache = todayMatches;
+    console.log("🔄 Match-Today updated locally");
 
+    // ===== حفظ في MongoDB =====
+    await MatchToday.deleteMany({});
+    await MatchToday.insertMany(todayMatches.map(match => ({
+      date: new Date(match.date),
+      homeTeam: match.home,
+      awayTeam: match.away,
+      score: match.score,
+      raw: match
+    })));
     console.log("🔄 Match-Today updated in MongoDB");
   } catch (err) {
     console.error("❌ Failed to update matches:", err.message);
   }
-};
+}
+
+async function updateStandings() {
+  try {
+    // قراءة البيانات من الملف المحلي بدل API خارجي
+    let allStandings = standingsCache;
+    if (fs.existsSync(DATA_FILE)) {
+      allStandings = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+    }
+
+    // ===== حفظ محلي =====
+    fs.writeFileSync(DATA_FILE, JSON.stringify(allStandings, null, 2));
+    standingsCache = allStandings;
+    console.log("🔄 Standings updated locally");
+
+    // ===== حفظ في MongoDB =====
+    await Standings.deleteMany({});
+    const standingsArray = Object.keys(allStandings).map(league => ({
+      league,
+      data: allStandings[league]
+    }));
+    await Standings.insertMany(standingsArray);
+    console.log("🔄 Standings updated in MongoDB");
+  } catch (err) {
+    console.error("❌ Failed to update standings:", err.message);
+  }
+}
+
+// ===== Load البيانات عند البداية =====
+loadMatches();
+loadStandings();
 
 // ===== Start Server =====
-app.listen(PORT, async () => {
+app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log("📌 Endpoints:");
   console.log("   → /standings/:league");
   console.log("   → /match-today");
 
   // تحديث MongoDB عند البداية
-  await updateMatches();
-  await updateStandings();
+  updateMatches().then(() => console.log("✅ Match-Today initial sync done"));
+  updateStandings().then(() => console.log("✅ Standings initial sync done"));
 
-  console.log("🎉 Initial sync done");
+  // تحديث دوري حسب الفترات المحددة
+  setInterval(updateMatches, 10 * 60 * 1000);   // كل 10 دقائق
+  setInterval(updateStandings, 15 * 60 * 1000); // كل 15 دقيقة
 });
