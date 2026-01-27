@@ -14,7 +14,7 @@ const MATCH_FILE = "./match-today.json";
 
 // Cache في الذاكرة
 let standingsCache = {};
-let matchesCache = {};
+let matchesCache = [];
 
 // MongoDB Models
 const { Schema, model } = mongoose;
@@ -41,9 +41,11 @@ mongoose.connect(mongoURI, {
   useUnifiedTopology: true,
 })
   .then(() => console.log("✅ MongoDB Connected to LiveScore!"))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
+  .catch(err => console.error("❌ MongoDB connection error:", err.message));
 
+// =======================
 // Routes
+// =======================
 app.get("/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
   const raw = standingsCache[league];
@@ -62,7 +64,9 @@ app.get("/match-today", (req, res) => {
   res.json(matchesCache);
 });
 
-// Load البيانات من الملفات عند البداية
+// =======================
+// Load البيانات من الملفات
+// =======================
 function loadMatches() {
   if (fs.existsSync(MATCH_FILE)) {
     matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
@@ -77,10 +81,13 @@ function loadStandings() {
   }
 }
 
-// إرسال البيانات الموجودة إلى MongoDB عند بداية التشغيل
+// =======================
+// إرسال الملفات إلى MongoDB
+// =======================
 async function fillMongoFromFiles() {
   try {
-    if (Object.keys(standingsCache).length > 0) {
+    // ارسال Standings
+    if (Object.keys(standingsCache).length > 0 && mongoose.connection.readyState === 1) {
       await Standings.deleteMany({});
       const standingsArray = Object.keys(standingsCache).map(league => ({
         league,
@@ -90,7 +97,8 @@ async function fillMongoFromFiles() {
       console.log("📊 Standings imported to MongoDB from local files");
     }
 
-    if (matchesCache.length > 0) {
+    // ارسال Matches
+    if (matchesCache.length > 0 && mongoose.connection.readyState === 1) {
       await MatchToday.deleteMany({});
       await MatchToday.insertMany(matchesCache.map(match => ({
         date: new Date(match.date),
@@ -106,7 +114,9 @@ async function fillMongoFromFiles() {
   }
 }
 
+// =======================
 // Update Functions
+// =======================
 async function updateMatches() {
   try {
     const todayMatches = await fetchMatchToday();
@@ -151,25 +161,22 @@ async function updateStandings() {
   }
 }
 
-// Load البيانات من الملفات عند البداية
+// =======================
+// Start Server
+// =======================
 loadMatches();
 loadStandings();
 
-// Start Server
 app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log("📌 Endpoints:");
   console.log("   → /standings/:league");
   console.log("   → /match-today");
 
-  // Import existing files to MongoDB immediately
+  // بعد التأكد من تحميل كل البيانات من الملفات، أرسلها إلى MongoDB
   await fillMongoFromFiles();
 
-  // Fetch البيانات في الخلفية بشكل غير متزامن
-  updateMatches().then(() => console.log("✅ Match-Today initial fetch done"));
-  updateStandings().then(() => console.log("✅ Standings initial fetch done"));
-
-  // تحديث دوري حسب الفترات المحددة
+  // تحديث البيانات بشكل دوري
   setInterval(updateMatches, 10 * 60 * 1000);
   setInterval(updateStandings, 15 * 60 * 1000);
 });
