@@ -1,6 +1,9 @@
 import express from "express";
-import fs from "fs";
 import fetch from "node-fetch";
+import fsSync from "fs";
+import fs from "fs/promises";
+import http from "http";
+import { WebSocketServer } from "ws";
 
 import fetchAllLeagues from "./fetchAllLeagues.js";
 import { fetchMatchToday } from "./fetchMatchToday.js";
@@ -9,110 +12,183 @@ import { normalizeLeague } from "./normalizeStandings.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ===== ملفات البيانات =====
+// ================== HTTP Server ==================
+const server = http.createServer(app);
+
+// ================== WebSocket ==================
+const wss = new WebSocketServer({ server });
+
+// ================== Files ==================
 const DATA_FILE = "./all_leagues_standings.json";
 const MATCH_FILE = "./match-today.json";
 
-// ===== Cache في الذاكرة =====
+// ================== Cache ==================
 let standingsCache = {};
+let normalizedStandingsCache = {};
 let matchesCache = {};
 
-// ===== دوال لمقارنة البيانات قبل الكتابة =====
-function writeIfChanged(filePath, newData) {
+// ================== Helpers ==================
+async function writeIfChanged(filePath, newData) {
   const jsonData = JSON.stringify(newData, null, 2);
-  if (fs.existsSync(filePath)) {
-    const currentData = fs.readFileSync(filePath, "utf8");
-    if (currentData === jsonData) return false; // لا حاجة للكتابة
+
+  if (fsSync.existsSync(filePath)) {
+    const current = await fs.readFile(filePath, "utf8");
+    if (current === jsonData) return false;
   }
-  fs.writeFileSync(filePath, jsonData);
+
+  await fs.writeFile(filePath, jsonData);
   return true;
 }
 
-// ===== Load البيانات عند البداية =====
-function loadMatches() {
-  if (fs.existsSync(MATCH_FILE)) {
-    matchesCache = JSON.parse(fs.readFileSync(MATCH_FILE, "utf-8"));
-    console.log("⚽ Match-Today loaded from file");
+function broadcast(type, data) {
+  const payload = JSON.stringify({ type, data });
+  wss.clients.forEach((client) => {
+    if (client.readyState === 1) {
+      client.send(payload);
+    }
+  });
+}
+
+// ================== Load from disk ==================
+async function loadFromDisk() {
+  try {
+    if (fsSync.existsSync(MATCH_FILE)) {
+      matchesCache = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
+      console.log("⚽ Match-Today loaded");
+    }
+
+    if (fsSync.existsSync(DATA_FILE)) {
+      standingsCache = JSON.parse(await fs.readFile(DATA_FILE, "utf8"));
+      for (const league in standingsCache) {
+        normalizedStandingsCache[league] = normalizeLeague(
+          standingsCache[league]
+        );
+      }
+      console.log("📊 Standings loaded");
+    }
+  } catch (err) {
+    console.error("❌ Load error:", err.message);
   }
 }
 
-function loadStandings() {
-  if (fs.existsSync(DATA_FILE)) {
-    standingsCache = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
-    console.log("📊 Standings loaded from file");
-  }
-}
-
-// ===== Routes =====
-app.get("/standings/:league", (req, res) => {
-  const league = req.params.league.toLowerCase();
-  const raw = standingsCache[league];
-  if (!raw) {
-    return res.status(404).json({
-      error: "League not found",
-      supported: Object.keys(standingsCache),
-    });
-  }
-  res.json(normalizeLeague(raw));
-});
-
-app.get("/match-today", (req, res) => {
-  res.json(matchesCache);
-});
-
-// ===== تحديث البيانات =====
+// ================== Update Jobs ==================
 async function updateMatches() {
   try {
-    const todayMatches = await fetchMatchToday();
-    const changed = writeIfChanged(MATCH_FILE, todayMatches);
-    matchesCache = todayMatches;
-    if (changed) console.log("🔄 Match-Today updated (new changes)");
-    else console.log("🔄 Match-Today fetched (no changes)");
+    const data = await fetchMatchToday();
+    const changed = await writeIfChanged(MATCH_FILE, data);
+    matchesCache = data;
+
+    if (changed) {
+      console.log("🔴 Match-Today updated");
+      broadcast("matches_update", matchesCache);
+    } else {
+      console.log("🟢 Match-Today no changes");
+    }
   } catch (err) {
-    console.error("❌ Failed to update matches:", err.message);
+    console.error("❌ Match update failed:", err.message);
   }
 }
 
 async function updateStandings() {
   try {
-    const allStandings = await fetchAllLeagues();
-    const changed = writeIfChanged(DATA_FILE, allStandings);
-    standingsCache = allStandings;
-    if (changed) console.log("🔄 Standings updated (new changes)");
-    else console.log("🔄 Standings fetched (no changes)");
+    const raw = await fetchAllLeagues();
+    const normalized = {};
+
+    for (const league in raw) {
+      normalized[league] = normalizeLeague(raw[league]);
+    }
+
+    const changed = await writeIfChanged(DATA_FILE, raw);
+    standingsCache = raw;
+    normalizedStandingsCache = normalized;
+
+    if (changed) {
+      console.log("📊 Standings updated");
+      broadcast("standings_update", normalizedStandingsCache);
+    } else {
+      console.log("📊 Standings no changes");
+    }
   } catch (err) {
-    console.error("❌ Failed to update standings:", err.message);
+    console.error("❌ Standings update failed:", err.message);
   }
 }
 
-// ===== Load البيانات عند البداية =====
-loadMatches();
-loadStandings();
-
-// ===== Start Server =====
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log("📌 Endpoints:");
-  console.log("   → /standings/:league");
-  console.log("   → /match-today");
-
-  // أول جلب عند تشغيل السيرفر
-  updateMatches().then(() => console.log("✅ Match-Today initial fetch done"));
-  updateStandings().then(() => console.log("✅ Standings initial fetch done"));
-
-  // تحديث دوري تلقائي كل فترة (طالما السيرفر نشط)
-  setInterval(updateMatches, 10 * 60 * 1000);   // كل 10 دقائق
-  setInterval(updateStandings, 11 * 60 * 1000); // كل 15 دقيقة
-
-  // ===== Self-ping للحفاظ على السيرفر نشط =====
-  setInterval(() => {
-    fetch(`http://localhost:${PORT}/standings/ping`)
-      .then(() => console.log("💤 Self-ping sent to keep server awake"))
-      .catch(() => {});
-  }, 5 * 60 * 1000); // كل 5 دقائق
+// ================== Middleware ==================
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Cache-Control", "public, max-age=60");
+  next();
 });
 
-// ===== Endpoint مخصص للـ Self-ping =====
-app.get("/standings/ping", (req, res) => {
+// ================== API Routes ==================
+app.get("/api/v1/match-today", (req, res) => {
+  if (!matchesCache || Object.keys(matchesCache).length === 0) {
+    return res.status(503).json({ error: "Matches not ready" });
+  }
+  res.json(matchesCache);
+});
+
+app.get("/api/v1/standings/:league", (req, res) => {
+  const league = req.params.league.toLowerCase();
+
+  if (!normalizedStandingsCache[league]) {
+    return res.status(404).json({
+      error: "League not found",
+      supportedLeagues: Object.keys(normalizedStandingsCache),
+    });
+  }
+
+  res.json(normalizedStandingsCache[league]);
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    uptime: process.uptime(),
+    wsClients: wss.clients.size,
+  });
+});
+
+app.get("/ping", (req, res) => {
   res.send("pong");
+});
+
+// ================== WebSocket Events ==================
+wss.on("connection", (ws) => {
+  console.log("📱 WebSocket client connected");
+
+  ws.send(
+    JSON.stringify({
+      type: "init",
+      data: {
+        matches: matchesCache,
+        standings: normalizedStandingsCache,
+      },
+    })
+  );
+
+  ws.on("close", () => {
+    console.log("❌ WebSocket client disconnected");
+  });
+});
+
+// ================== Start Server ==================
+server.listen(PORT, async () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+
+  await loadFromDisk();
+
+  await updateMatches();
+  await updateStandings();
+
+  // Schedulers
+  setInterval(updateMatches, 5 * 60 * 1000);   // ⏱ مباريات
+  setInterval(updateStandings, 10 * 60 * 1000); // ⏱ ترتيب
+
+  // Self ping (Render)
+  if (process.env.SELF_URL) {
+    setInterval(() => {
+      fetch(process.env.SELF_URL).catch(() => {});
+    }, 5 * 60 * 1000);
+  }
 });
