@@ -182,7 +182,7 @@ server.listen(PORT, async () => {
   await updateStandings();
 
   // Schedulers
-  setInterval(updateMatches, 5 * 60 * 1000);   // ⏱ مباريات
+  setInterval(updateMatches, 10 * 60 * 1000);   // ⏱ مباريات
   setInterval(updateStandings, 10 * 60 * 1000); // ⏱ ترتيب
 
   // Self ping (Render)

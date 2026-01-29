@@ -40,11 +40,6 @@
     "reason": "No tables found"
   },
   {
-    "name": "bresil-serie-a",
-    "url": "https://www.footmercato.net/classement/bresil/serie-a?partial=1",
-    "reason": "No tables found"
-  },
-  {
     "name": "danemark-superliga",
     "url": "https://www.footmercato.net/classement/danemark/superliga?partial=1",
     "reason": "No tables found"
@@ -85,13 +80,13 @@
     "reason": "No tables found"
   },
   {
-    "name": "angleterre-efl-league-two",
-    "url": "https://www.footmercato.net/classement/angleterre/efl-league-two?partial=1",
+    "name": "turquie-lig-a",
+    "url": "https://www.footmercato.net/classement/turquie/lig-a?partial=1",
     "reason": "No tables found"
   },
   {
-    "name": "turquie-lig-a",
-    "url": "https://www.footmercato.net/classement/turquie/lig-a?partial=1",
+    "name": "angleterre-efl-league-two",
+    "url": "https://www.footmercato.net/classement/angleterre/efl-league-two?partial=1",
     "reason": "No tables found"
   },
   {
@@ -115,18 +110,13 @@
     "reason": "No tables found"
   },
   {
-    "name": "amerique-du-sud-conmebol-sudamericana",
-    "url": "https://www.footmercato.net/classement/amerique-du-sud/conmebol-sudamericana?partial=1",
-    "reason": "No tables found"
-  },
-  {
     "name": "afrique-coupe-de-la-confederation-caf",
     "url": "https://www.footmercato.net/classement/afrique/coupe-de-la-confederation-caf?partial=1",
     "reason": "No tables found"
   },
   {
-    "name": "international-coupe-intercontinentale-fifa",
-    "url": "https://www.footmercato.net/classement/international/coupe-intercontinentale-fifa?partial=1",
+    "name": "amerique-du-sud-conmebol-sudamericana",
+    "url": "https://www.footmercato.net/classement/amerique-du-sud/conmebol-sudamericana?partial=1",
     "reason": "No tables found"
   },
   {
@@ -135,13 +125,18 @@
     "reason": "No tables found"
   },
   {
-    "name": "europe-eliminatoires-euro-u19",
-    "url": "https://www.footmercato.net/classement/europe/eliminatoires-euro-u19?partial=1",
+    "name": "international-coupe-intercontinentale-fifa",
+    "url": "https://www.footmercato.net/classement/international/coupe-intercontinentale-fifa?partial=1",
     "reason": "No tables found"
   },
   {
     "name": "international-emirates-cup",
     "url": "https://www.footmercato.net/classement/international/emirates-cup?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "europe-eliminatoires-euro-u19",
+    "url": "https://www.footmercato.net/classement/europe/eliminatoires-euro-u19?partial=1",
     "reason": "No tables found"
   },
   {
