@@ -7,7 +7,7 @@ const FILE_PATH = path.resolve("Match-Today.json");
 const BASE_URL = "https://www.footmercato.net";
 const URL = BASE_URL + "/live/";
 
-// axios instance احترافي
+// Axios instance مع timeout و headers
 const http = axios.create({
   timeout: 20000,
   headers: {
@@ -71,16 +71,8 @@ async function fetchMatchDetails(liveId) {
           .find(".blockVertical__content")
           .each((_, content) => {
             const label = $(content).find(".statInline__title").text().trim();
-            const home = $(content)
-              .find(".statInline__value .statInline__valueMain")
-              .first()
-              .text()
-              .trim();
-            const away = $(content)
-              .find(".statInline__value .statInline__valueMain")
-              .last()
-              .text()
-              .trim();
+            const home = $(content).find(".statInline__value .statInline__valueMain").first().text().trim();
+            const away = $(content).find(".statInline__value .statInline__valueMain").last().text().trim();
             if (label) contents[label] = { home, away };
           });
         if (Object.keys(contents).length) details.stats[blockTitle] = contents;
@@ -101,8 +93,7 @@ async function fetchMatchDetails(liveId) {
         const compareLink = $(block)
           .find("a[data-modal='modalMatchStatComparator']")
           .attr("data-api");
-        if (players.length)
-          details.stats[blockTitle] = { players, compareLink };
+        if (players.length) details.stats[blockTitle] = { players, compareLink };
       }
 
       // BlockHorizontal
@@ -111,10 +102,7 @@ async function fetchMatchDetails(liveId) {
         $(block)
           .find(".blockHorizontal__content")
           .each((_, hContent) => {
-            const statName = $(hContent)
-              .find(".statsStandings__headerTitle")
-              .text()
-              .trim();
+            const statName = $(hContent).find(".statsStandings__headerTitle").text().trim();
             const players = [];
             $(hContent)
               .find(".statsStandings__ranking")
@@ -122,15 +110,8 @@ async function fetchMatchDetails(liveId) {
                 const rank = $(pEl).find(".statsStandings__rank").text().trim();
                 const name = $(pEl).find(".statsStandings__name").text().trim();
                 const logo = $(pEl).find("img").attr("data-src");
-                const valueHighlight = $(pEl)
-                  .find(".statsStandings__value--highlight")
-                  .text()
-                  .trim();
-                const value = $(pEl)
-                  .find(".statsStandings__value")
-                  .not(".statsStandings__value--highlight")
-                  .text()
-                  .trim();
+                const valueHighlight = $(pEl).find(".statsStandings__value--highlight").text().trim();
+                const value = $(pEl).find(".statsStandings__value").not(".statsStandings__value--highlight").text().trim();
                 const link = $(pEl).attr("href");
                 players.push({ rank, name, logo, valueHighlight, value, link });
               });
@@ -145,7 +126,7 @@ async function fetchMatchDetails(liveId) {
 }
 
 /* =========================================
-   MAIN SCRAPER (يحافظ على كل الحقول الأصلية)
+   MAIN SCRAPER (يحافظ على جميع الحقول الأصلية)
 ========================================= */
 export async function fetchMatchToday() {
   try {
@@ -159,10 +140,7 @@ export async function fetchMatchToday() {
     const matchesToFetchDetails = [];
 
     $(".matchesGroup").each((_, leagueEl) => {
-      const leagueName = $(leagueEl)
-        .find(".title__leftLink")
-        .text()
-        .trim();
+      const leagueName = $(leagueEl).find(".title__leftLink").text().trim();
       const leagueLogo = $(leagueEl).find("img").attr("data-src") || "";
       const matches = [];
 
@@ -170,11 +148,8 @@ export async function fetchMatchToday() {
         .find(".matchesGroup__match")
         .each((_, matchEl) => {
           const matchFull = $(matchEl).find(".matchFull");
-
           const liveId = matchFull.attr("data-live-id") || null;
-          const matchLink =
-            BASE_URL +
-            (matchFull.find("a.matchFull__link").attr("href") || "");
+          const matchLink = BASE_URL + (matchFull.find("a.matchFull__link").attr("href") || "");
 
           const homeEl = matchFull.find(".matchFull__team").first();
           const awayEl = matchFull.find(".matchFull__team--away");
@@ -190,20 +165,15 @@ export async function fetchMatchToday() {
 
           const homeScore = homeEl.find(".matchFull__score").text().trim();
           const awayScore = awayEl.find(".matchFull__score").text().trim();
-          const score =
-            homeScore && awayScore ? `${homeScore} - ${awayScore}` : null;
+          const score = homeScore && awayScore ? `${homeScore} - ${awayScore}` : null;
 
           let status = "scheduled";
           const isLive = matchFull.attr("data-live") === "1";
           const liveValue = matchFull.attr("data-live-value") || "";
-          const playedText = matchFull
-            .find(".matchFull__infosPlayed")
-            .text()
-            .toLowerCase();
+          const playedText = matchFull.find(".matchFull__infosPlayed").text().toLowerCase();
 
           if (isLive) status = "live";
-          else if (playedText.includes("terminé") || liveValue.includes("played"))
-            status = "finished";
+          else if (playedText.includes("terminé") || liveValue.includes("played")) status = "finished";
 
           let winner = null;
           if (status === "finished" && homeScore && awayScore) {
@@ -213,22 +183,18 @@ export async function fetchMatchToday() {
           }
 
           const goals = { home: [], away: [] };
-          matchFull
-            .find(".matchFull__strikers--home .matchFull__striker")
-            .each((_, g) => {
-              goals.home.push({
-                player: $(g).find(".matchFull__strikerName").text().trim(),
-                minute: $(g).find(".matchFull__strikerTime").text().trim(),
-              });
+          matchFull.find(".matchFull__strikers--home .matchFull__striker").each((_, g) => {
+            goals.home.push({
+              player: $(g).find(".matchFull__strikerName").text().trim(),
+              minute: $(g).find(".matchFull__strikerTime").text().trim(),
             });
-          matchFull
-            .find(".matchFull__strikers--away .matchFull__striker")
-            .each((_, g) => {
-              goals.away.push({
-                player: $(g).find(".matchFull__strikerName").text().trim(),
-                minute: $(g).find(".matchFull__strikerTime").text().trim(),
-              });
+          });
+          matchFull.find(".matchFull__strikers--away .matchFull__striker").each((_, g) => {
+            goals.away.push({
+              player: $(g).find(".matchFull__strikerName").text().trim(),
+              minute: $(g).find(".matchFull__strikerTime").text().trim(),
             });
+          });
 
           const broadcasts = [];
           matchFull.find(".matchFull__broadcastImage").each((_, img) => {
@@ -259,9 +225,7 @@ export async function fetchMatchToday() {
           matchesToFetchDetails.push(matchData);
         });
 
-      if (matches.length > 0) {
-        leagues.push({ leagueName, leagueLogo, matches });
-      }
+      if (matches.length > 0) leagues.push({ leagueName, leagueLogo, matches });
     });
 
     console.log("📊 Fetching match details...");
@@ -270,7 +234,7 @@ export async function fetchMatchToday() {
       match.details = await fetchMatchDetails(match.liveId);
     }
 
-    // دمج آمن مع البيانات القديمة بدون تغيير أي شيء
+    // دمج ذكي مع البيانات القديمة بدون فقد أي شيء
     let oldData = [];
     if (fs.existsSync(FILE_PATH)) {
       oldData = JSON.parse(fs.readFileSync(FILE_PATH, "utf-8"));
@@ -278,16 +242,14 @@ export async function fetchMatchToday() {
 
     const mergedLeagues = [...oldData];
     for (const newLeague of leagues) {
-      const existingLeague = mergedLeagues.find(
-        (l) => l.leagueName === newLeague.leagueName
-      );
+      const existingLeague = mergedLeagues.find((l) => l.leagueName === newLeague.leagueName);
       if (existingLeague) {
         for (const match of newLeague.matches) {
           const existingMatch = existingLeague.matches.find(
             (m) => m.liveId === match.liveId || m.matchLink === match.matchLink
           );
           if (existingMatch) {
-            // تحديث details فقط دون تغيير أي بيانات أصلية
+            // تحديث details فقط
             existingMatch.details = match.details;
           } else {
             existingLeague.matches.push(match);
