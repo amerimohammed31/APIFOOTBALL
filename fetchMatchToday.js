@@ -7,7 +7,7 @@ const FILE_PATH = path.resolve("Match-Today.json");
 const BASE_URL = "https://www.footmercato.net";
 const URL = BASE_URL + "/live/";
 
-// Axios instance مع timeout و headers
+// Axios instance
 const http = axios.create({
   timeout: 20000,
   headers: {
@@ -17,12 +17,8 @@ const http = axios.create({
   },
 });
 
-// delay لمنع الحظر
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/* =========================================
-   Retry Request
-========================================= */
 async function safeRequest(url, retries = 3) {
   try {
     const res = await http.get(url);
@@ -37,9 +33,9 @@ async function safeRequest(url, retries = 3) {
   }
 }
 
-/* =========================================
-   استخراج تفاصيل المباراة
-========================================= */
+/* ============================
+   جلب تفاصيل كل مباراة فقط
+============================ */
 async function fetchMatchDetails(liveId) {
   if (!liveId) return {};
   const statsLink = `${BASE_URL}/live/${liveId}/stats`;
@@ -125,9 +121,9 @@ async function fetchMatchDetails(liveId) {
   return details;
 }
 
-/* =========================================
-   MAIN SCRAPER (يحافظ على جميع الحقول الأصلية)
-========================================= */
+/* ============================
+   Scraper الرئيسي
+============================ */
 export async function fetchMatchToday() {
   try {
     console.log("🚀 Fetching matches...");
@@ -171,7 +167,6 @@ export async function fetchMatchToday() {
           const isLive = matchFull.attr("data-live") === "1";
           const liveValue = matchFull.attr("data-live-value") || "";
           const playedText = matchFull.find(".matchFull__infosPlayed").text().toLowerCase();
-
           if (isLive) status = "live";
           else if (playedText.includes("terminé") || liveValue.includes("played")) status = "finished";
 
@@ -218,7 +213,7 @@ export async function fetchMatchToday() {
             winner,
             broadcasts,
             goals,
-            details: {}, // سيتم ملؤها لاحقًا
+            details: {}, // سيتم ملؤها لاحقًا فقط
           };
 
           matches.push(matchData);
@@ -234,11 +229,9 @@ export async function fetchMatchToday() {
       match.details = await fetchMatchDetails(match.liveId);
     }
 
-    // دمج ذكي مع البيانات القديمة بدون فقد أي شيء
+    // دمج ذكي مع البيانات القديمة بدون تغيير أي شيء
     let oldData = [];
-    if (fs.existsSync(FILE_PATH)) {
-      oldData = JSON.parse(fs.readFileSync(FILE_PATH, "utf-8"));
-    }
+    if (fs.existsSync(FILE_PATH)) oldData = JSON.parse(fs.readFileSync(FILE_PATH, "utf-8"));
 
     const mergedLeagues = [...oldData];
     for (const newLeague of leagues) {
@@ -249,7 +242,7 @@ export async function fetchMatchToday() {
             (m) => m.liveId === match.liveId || m.matchLink === match.matchLink
           );
           if (existingMatch) {
-            // تحديث details فقط
+            // تحديث details فقط دون أي تغيير للنتيجة أو الحالة
             existingMatch.details = match.details;
           } else {
             existingLeague.matches.push(match);

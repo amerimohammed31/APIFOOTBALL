@@ -30,12 +30,10 @@ let matchesCache = {};
 // ================== Helpers ==================
 async function writeIfChanged(filePath, newData) {
   const jsonData = JSON.stringify(newData, null, 2);
-
   if (fsSync.existsSync(filePath)) {
     const current = await fs.readFile(filePath, "utf8");
     if (current === jsonData) return false;
   }
-
   await fs.writeFile(filePath, jsonData);
   return true;
 }
@@ -60,9 +58,7 @@ async function loadFromDisk() {
     if (fsSync.existsSync(DATA_FILE)) {
       standingsCache = JSON.parse(await fs.readFile(DATA_FILE, "utf8"));
       for (const league in standingsCache) {
-        normalizedStandingsCache[league] = normalizeLeague(
-          standingsCache[league]
-        );
+        normalizedStandingsCache[league] = normalizeLeague(standingsCache[league]);
       }
       console.log("📊 Standings loaded");
     }
@@ -74,9 +70,32 @@ async function loadFromDisk() {
 // ================== Update Jobs ==================
 async function updateMatches() {
   try {
-    const data = await fetchMatchToday();
-    const changed = await writeIfChanged(MATCH_FILE, data);
-    matchesCache = data;
+    const newData = await fetchMatchToday();
+
+    // دمج ذكي: تحديث details فقط دون تغيير أي بيانات أساسية
+    if (matchesCache && matchesCache.length > 0) {
+      for (const newLeague of newData) {
+        const existingLeague = matchesCache.find(l => l.leagueName === newLeague.leagueName);
+        if (existingLeague) {
+          for (const newMatch of newLeague.matches) {
+            const existingMatch = existingLeague.matches.find(
+              m => m.liveId === newMatch.liveId || m.matchLink === newMatch.matchLink
+            );
+            if (existingMatch) {
+              existingMatch.details = newMatch.details; // فقط تفاصيل
+            } else {
+              existingLeague.matches.push(newMatch);
+            }
+          }
+        } else {
+          matchesCache.push(newLeague);
+        }
+      }
+    } else {
+      matchesCache = newData;
+    }
+
+    const changed = await writeIfChanged(MATCH_FILE, matchesCache);
 
     if (changed) {
       console.log("🔴 Match-Today updated");
@@ -122,7 +141,7 @@ app.use((req, res, next) => {
 
 // ================== API Routes ==================
 app.get("/api/v1/match-today", (req, res) => {
-  if (!matchesCache || Object.keys(matchesCache).length === 0) {
+  if (!matchesCache || matchesCache.length === 0) {
     return res.status(503).json({ error: "Matches not ready" });
   }
   res.json(matchesCache);
@@ -130,14 +149,12 @@ app.get("/api/v1/match-today", (req, res) => {
 
 app.get("/api/v1/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
-
   if (!normalizedStandingsCache[league]) {
     return res.status(404).json({
       error: "League not found",
       supportedLeagues: Object.keys(normalizedStandingsCache),
     });
   }
-
   res.json(normalizedStandingsCache[league]);
 });
 
