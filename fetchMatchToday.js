@@ -7,7 +7,6 @@ const FILE_PATH = path.resolve("Match-Today.json");
 const BASE_URL = "https://www.footmercato.net";
 const URL = BASE_URL + "/live/";
 
-// Axios instance
 const http = axios.create({
   timeout: 20000,
   headers: {
@@ -33,97 +32,92 @@ async function safeRequest(url, retries = 3) {
   }
 }
 
-/* ============================
-   جلب تفاصيل كل مباراة فقط
-============================ */
 async function fetchMatchDetails(liveId) {
   if (!liveId) return {};
-  const statsLink = `${BASE_URL}/live/${liveId}/stats`;
-  const html = await safeRequest(statsLink);
-  if (!html) return {};
+  try {
+    const statsLink = `${BASE_URL}/live/${liveId}/stats`;
+    const html = await safeRequest(statsLink);
+    if (!html) return {};
 
-  const $ = cheerio.load(html);
-  const details = {
-    stadium: $(".matchHeader__stadium").text().trim() || null,
-    referee: $(".matchHeader__referee").text().trim() || null,
-    competition: $(".matchHeader__competition").text().trim() || null,
-    stats: {},
-  };
+    const $ = cheerio.load(html);
+    const details = {
+      stadium: $(".matchHeader__stadium").text().trim() || null,
+      referee: $(".matchHeader__referee").text().trim() || null,
+      competition: $(".matchHeader__competition").text().trim() || null,
+      stats: {},
+    };
 
-  $("#tabMatchStats .blockVertical, #tabMatchStats .blockSingle, #tabMatchStats .blockHorizontal").each(
-    (_, block) => {
-      const blockTitle = $(block)
-        .find(
-          ".blockVertical__title .title__left, .blockSingle__title .title__left, .blockHorizontal__title .title__left"
-        )
-        .text()
-        .trim();
-      if (!blockTitle) return;
+    $("#tabMatchStats .blockVertical, #tabMatchStats .blockSingle, #tabMatchStats .blockHorizontal").each(
+      (_, block) => {
+        const blockTitle = $(block)
+          .find(".blockVertical__title .title__left, .blockSingle__title .title__left, .blockHorizontal__title .title__left")
+          .text()
+          .trim();
+        if (!blockTitle) return;
 
-      // BlockVertical
-      if ($(block).hasClass("blockVertical")) {
-        const contents = {};
-        $(block)
-          .find(".blockVertical__content")
-          .each((_, content) => {
-            const label = $(content).find(".statInline__title").text().trim();
-            const home = $(content).find(".statInline__value .statInline__valueMain").first().text().trim();
-            const away = $(content).find(".statInline__value .statInline__valueMain").last().text().trim();
-            if (label) contents[label] = { home, away };
-          });
-        if (Object.keys(contents).length) details.stats[blockTitle] = contents;
+        // BlockVertical
+        if ($(block).hasClass("blockVertical")) {
+          const contents = {};
+          $(block)
+            .find(".blockVertical__content")
+            .each((_, content) => {
+              const label = $(content).find(".statInline__title").text().trim();
+              const home = $(content).find(".statInline__value .statInline__valueMain").first().text().trim();
+              const away = $(content).find(".statInline__value .statInline__valueMain").last().text().trim();
+              if (label) contents[label] = { home, away };
+            });
+          if (Object.keys(contents).length) details.stats[blockTitle] = contents;
+        }
+
+        // BlockSingle
+        if ($(block).hasClass("blockSingle")) {
+          const players = [];
+          $(block)
+            .find(".matchBestPlayersComparator__players a.personCard")
+            .each((_, playerEl) => {
+              const name = $(playerEl).find(".personCard__name").text().trim();
+              const desc = $(playerEl).find(".personCard__description").text().trim();
+              const link = $(playerEl).attr("href");
+              const image = $(playerEl).find("img").attr("data-src");
+              players.push({ name, desc, link, image });
+            });
+          const compareLink = $(block).find("a[data-modal='modalMatchStatComparator']").attr("data-api");
+          if (players.length) details.stats[blockTitle] = { players, compareLink };
+        }
+
+        // BlockHorizontal
+        if ($(block).hasClass("blockHorizontal")) {
+          const horizontalStats = [];
+          $(block)
+            .find(".blockHorizontal__content")
+            .each((_, hContent) => {
+              const statName = $(hContent).find(".statsStandings__headerTitle").text().trim();
+              const players = [];
+              $(hContent)
+                .find(".statsStandings__ranking")
+                .each((_, pEl) => {
+                  const rank = $(pEl).find(".statsStandings__rank").text().trim();
+                  const name = $(pEl).find(".statsStandings__name").text().trim();
+                  const logo = $(pEl).find("img").attr("data-src");
+                  const valueHighlight = $(pEl).find(".statsStandings__value--highlight").text().trim();
+                  const value = $(pEl).find(".statsStandings__value").not(".statsStandings__value--highlight").text().trim();
+                  const link = $(pEl).attr("href");
+                  players.push({ rank, name, logo, valueHighlight, value, link });
+                });
+              if (statName) horizontalStats.push({ statName, players });
+            });
+          if (horizontalStats.length) details.stats[blockTitle] = horizontalStats;
+        }
       }
+    );
 
-      // BlockSingle
-      if ($(block).hasClass("blockSingle")) {
-        const players = [];
-        $(block)
-          .find(".matchBestPlayersComparator__players a.personCard")
-          .each((_, playerEl) => {
-            const name = $(playerEl).find(".personCard__name").text().trim();
-            const desc = $(playerEl).find(".personCard__description").text().trim();
-            const link = $(playerEl).attr("href");
-            const image = $(playerEl).find("img").attr("data-src");
-            players.push({ name, desc, link, image });
-          });
-        const compareLink = $(block)
-          .find("a[data-modal='modalMatchStatComparator']")
-          .attr("data-api");
-        if (players.length) details.stats[blockTitle] = { players, compareLink };
-      }
-
-      // BlockHorizontal
-      if ($(block).hasClass("blockHorizontal")) {
-        const horizontalStats = [];
-        $(block)
-          .find(".blockHorizontal__content")
-          .each((_, hContent) => {
-            const statName = $(hContent).find(".statsStandings__headerTitle").text().trim();
-            const players = [];
-            $(hContent)
-              .find(".statsStandings__ranking")
-              .each((_, pEl) => {
-                const rank = $(pEl).find(".statsStandings__rank").text().trim();
-                const name = $(pEl).find(".statsStandings__name").text().trim();
-                const logo = $(pEl).find("img").attr("data-src");
-                const valueHighlight = $(pEl).find(".statsStandings__value--highlight").text().trim();
-                const value = $(pEl).find(".statsStandings__value").not(".statsStandings__value--highlight").text().trim();
-                const link = $(pEl).attr("href");
-                players.push({ rank, name, logo, valueHighlight, value, link });
-              });
-            if (statName) horizontalStats.push({ statName, players });
-          });
-        if (horizontalStats.length) details.stats[blockTitle] = horizontalStats;
-      }
-    }
-  );
-
-  return details;
+    return details;
+  } catch (err) {
+    console.error("❌ Error fetching match details:", err.message);
+    return {};
+  }
 }
 
-/* ============================
-   Scraper الرئيسي
-============================ */
 export async function fetchMatchToday() {
   try {
     console.log("🚀 Fetching matches...");
@@ -213,7 +207,7 @@ export async function fetchMatchToday() {
             winner,
             broadcasts,
             goals,
-            details: {}, // سيتم ملؤها لاحقًا فقط
+            details: {},
           };
 
           matches.push(matchData);
@@ -229,11 +223,19 @@ export async function fetchMatchToday() {
       match.details = await fetchMatchDetails(match.liveId);
     }
 
-    // دمج ذكي مع البيانات القديمة بدون تغيير أي شيء
+    // دمج ذكي مع البيانات القديمة بدون تغيير أي شيء إلا للتفاصيل
     let oldData = [];
-    if (fs.existsSync(FILE_PATH)) oldData = JSON.parse(fs.readFileSync(FILE_PATH, "utf-8"));
+    if (fs.existsSync(FILE_PATH)) {
+      try {
+        oldData = JSON.parse(fs.readFileSync(FILE_PATH, "utf-8"));
+      } catch (err) {
+        console.error("❌ Failed to parse old data:", err.message);
+        oldData = [];
+      }
+    }
 
     const mergedLeagues = [...oldData];
+
     for (const newLeague of leagues) {
       const existingLeague = mergedLeagues.find((l) => l.leagueName === newLeague.leagueName);
       if (existingLeague) {
@@ -242,8 +244,10 @@ export async function fetchMatchToday() {
             (m) => m.liveId === match.liveId || m.matchLink === match.matchLink
           );
           if (existingMatch) {
-            // تحديث details فقط دون أي تغيير للنتيجة أو الحالة
+            // تحديث التفاصيل فقط بدون تغيير أي شيء آخر
             existingMatch.details = match.details;
+            existingMatch.status = match.status; // تحديث الحالة فقط إذا تغيرت
+            existingMatch.score = match.score; // تحديث النتيجة إذا تغيرت
           } else {
             existingLeague.matches.push(match);
           }
@@ -254,7 +258,7 @@ export async function fetchMatchToday() {
     }
 
     fs.writeFileSync(FILE_PATH, JSON.stringify(mergedLeagues, null, 2), "utf-8");
-    console.log("✅ SCRAPER COMPLETED");
+    console.log("✅ SCRAPER COMPLETED WITHOUT CONFLICTS");
 
     return mergedLeagues;
   } catch (err) {
