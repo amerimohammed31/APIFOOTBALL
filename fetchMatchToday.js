@@ -40,11 +40,8 @@ async function fetchMatchDetails(liveId) {
     if (!html) return {};
 
     const $ = cheerio.load(html);
-    const details = {
-      stats: {},
-    };
+    const details = { stats: {} };
 
-    // ===== BlockVertical, BlockSingle, BlockHorizontal =====
     $("#tabMatchStats .blockVertical, #tabMatchStats .blockSingle, #tabMatchStats .blockHorizontal").each(
       (_, block) => {
         const blockTitle = $(block)
@@ -53,7 +50,7 @@ async function fetchMatchDetails(liveId) {
           .trim();
         if (!blockTitle) return;
 
-        // BlockVertical
+        // ===== BlockVertical =====
         if ($(block).hasClass("blockVertical")) {
           const contents = {};
           $(block)
@@ -67,7 +64,7 @@ async function fetchMatchDetails(liveId) {
           if (Object.keys(contents).length) details.stats[blockTitle] = contents;
         }
 
-        // BlockSingle
+        // ===== BlockSingle =====
         if ($(block).hasClass("blockSingle")) {
           const players = [];
           $(block)
@@ -83,7 +80,7 @@ async function fetchMatchDetails(liveId) {
           if (players.length) details.stats[blockTitle] = { players, compareLink };
         }
 
-        // BlockHorizontal
+        // ===== BlockHorizontal =====
         if ($(block).hasClass("blockHorizontal")) {
           const horizontalStats = [];
           $(block)
@@ -169,6 +166,7 @@ export async function fetchMatchToday() {
             else winner = "draw";
           }
 
+          // جمع الاهداف
           const goals = { home: [], away: [] };
           matchFull.find(".matchFull__strikers--home .matchFull__striker").each((_, g) => {
             goals.home.push({
@@ -204,7 +202,7 @@ export async function fetchMatchToday() {
             isLive,
             winner,
             broadcasts,
-            goals,
+            goals, // حفظ جميع الاهداف
             details: {},
           };
 
@@ -217,17 +215,16 @@ export async function fetchMatchToday() {
 
     console.log("📊 Fetching match details...");
     for (const match of matchesToFetchDetails) {
-      await sleep(1200);
+      await sleep(1000); // تأخير بسيط لتجنب الحظر
       match.details = await fetchMatchDetails(match.liveId);
     }
 
-    // دمج ذكي مع البيانات القديمة بدون تغيير أي شيء إلا للتفاصيل
+    // دمج البيانات القديمة والجديدة مع الحفاظ على كل شيء
     let oldData = [];
     if (fs.existsSync(FILE_PATH)) {
       try {
         oldData = JSON.parse(fs.readFileSync(FILE_PATH, "utf-8"));
-      } catch (err) {
-        console.error("❌ Failed to parse old data:", err.message);
+      } catch {
         oldData = [];
       }
     }
@@ -245,6 +242,7 @@ export async function fetchMatchToday() {
             existingMatch.details = match.details;
             existingMatch.status = match.status;
             existingMatch.score = match.score;
+            existingMatch.goals = match.goals; // ← تحديث الاهداف أيضاً
           } else {
             existingLeague.matches.push(match);
           }
@@ -255,7 +253,7 @@ export async function fetchMatchToday() {
     }
 
     fs.writeFileSync(FILE_PATH, JSON.stringify(mergedLeagues, null, 2), "utf-8");
-    console.log("✅ SCRAPER COMPLETED WITHOUT CONFLICTS");
+    console.log("✅ SCRAPER COMPLETED SUCCESSFULLY");
 
     return mergedLeagues;
   } catch (err) {
