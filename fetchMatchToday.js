@@ -41,9 +41,7 @@ async function safeRequest(url, retries = 3) {
    استخراج تفاصيل المباراة كاملة
 ========================================= */
 async function fetchMatchDetails(link, liveId) {
-  // استخدام الرابط الصحيح stats لكل مباراة
   const statsLink = `${BASE_URL}/live/${liveId}/stats`;
-
   const html = await safeRequest(statsLink);
   if (!html) return {};
 
@@ -64,10 +62,9 @@ async function fetchMatchDetails(link, liveId) {
         )
         .text()
         .trim();
-
       if (!blockTitle) return;
 
-      // ----- BlockVertical -----
+      // BlockVertical
       if ($(block).hasClass("blockVertical")) {
         const contents = {};
         $(block)
@@ -87,14 +84,12 @@ async function fetchMatchDetails(link, liveId) {
               .last()
               .text()
               .trim();
-
             if (label) contents[label] = { home, away };
           });
-
         if (Object.keys(contents).length) details.stats[blockTitle] = contents;
       }
 
-      // ----- BlockSingle (Face à face) -----
+      // BlockSingle
       if ($(block).hasClass("blockSingle")) {
         const players = [];
         $(block)
@@ -115,7 +110,7 @@ async function fetchMatchDetails(link, liveId) {
           details.stats[blockTitle] = { players, compareLink };
       }
 
-      // ----- BlockHorizontal (Tops & Flops) -----
+      // BlockHorizontal
       if ($(block).hasClass("blockHorizontal")) {
         const horizontalStats = [];
         $(block)
@@ -148,13 +143,10 @@ async function fetchMatchDetails(link, liveId) {
                   .text()
                   .trim();
                 const link = $(pEl).attr("href");
-
                 players.push({ rank, name, logo, valueHighlight, value, link });
               });
-
             if (statName) horizontalStats.push({ statName, players });
           });
-
         if (horizontalStats.length)
           details.stats[blockTitle] = horizontalStats;
       }
@@ -170,7 +162,6 @@ async function fetchMatchDetails(link, liveId) {
 export async function fetchMatchToday() {
   try {
     console.log("🚀 Fetching matches...");
-
     const html = await safeRequest(URL);
     if (!html) return [];
 
@@ -186,7 +177,6 @@ export async function fetchMatchToday() {
       const leagueLogo = $(leagueEl).find("img").attr("data-src") || "";
 
       const matches = [];
-
       $(leagueEl)
         .find(".matchesGroup__match")
         .each((_, matchEl) => {
@@ -234,7 +224,7 @@ export async function fetchMatchToday() {
 
     console.log("📊 Fetching match details...");
     for (const match of matchesToFetchDetails) {
-      await sleep(1200); // مهم لتجنب الحظر
+      await sleep(1200);
       match.details = await fetchMatchDetails(match.matchLink, match.liveId);
     }
 
