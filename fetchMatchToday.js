@@ -2,15 +2,18 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import fs from "fs";
 
-const FILE_PATH = "./Match-Today.json";
+const FILE_PATH = "./match-today.json";
 const URL = "https://www.footmercato.net/live/";
 
 export async function fetchMatchToday() {
   try {
     const { data } = await axios.get(URL, {
+      timeout: 15000,
       headers: {
-        "User-Agent": "Mozilla/5.0"
-      }
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        Accept: "text/html",
+      },
     });
 
     const $ = cheerio.load(data);
@@ -32,70 +35,54 @@ export async function fetchMatchToday() {
         .each((_, matchEl) => {
           const matchFull = $(matchEl).find(".matchFull");
 
-          /* ================== IDs & LINKS ================== */
           const liveId = matchFull.attr("data-live-id") || null;
+
           const matchLink =
             "https://www.footmercato.net" +
             (matchFull.find("a.matchFull__link").attr("href") || "");
 
-          /* ================== الفرق ================== */
           const homeEl = matchFull.find(".matchFull__team").first();
           const awayEl = matchFull.find(".matchFull__team--away");
 
           const homeTeam = {
             name: homeEl.find(".matchTeam__name").text().trim(),
-            logo: homeEl.find("img").attr("data-src") || ""
+            logo: homeEl.find("img").attr("data-src") || "",
           };
 
           const awayTeam = {
             name: awayEl.find(".matchTeam__name").text().trim(),
-            logo: awayEl.find("img").attr("data-src") || ""
+            logo: awayEl.find("img").attr("data-src") || "",
           };
 
-          /* ================== النتيجة ================== */
           const homeScore = homeEl.find(".matchFull__score").text().trim();
           const awayScore = awayEl.find(".matchFull__score").text().trim();
 
           const score =
             homeScore && awayScore ? `${homeScore} - ${awayScore}` : null;
 
-          /* ================== الحالة ================== */
           let status = "scheduled";
-
           const isLive = matchFull.attr("data-live") === "1";
-          const liveValue = matchFull.attr("data-live-value") || "";
           const playedText = matchFull
             .find(".matchFull__infosPlayed")
             .text()
             .toLowerCase();
 
-          if (isLive) {
-            status = "live";
-          } else if (
-            playedText.includes("terminé") ||
-            liveValue.includes("played")
-          ) {
-            status = "finished";
-          }
+          if (isLive) status = "live";
+          else if (playedText.includes("terminé")) status = "finished";
 
-          /* ================== الوقت ================== */
           const time =
             matchFull.find(".matchFull__infosDate time").attr("datetime") ||
             matchFull.find(".matchFull__dateTimeChrono").text().trim() ||
             "";
 
-          /* ================== الأهداف ================== */
-          const goals = {
-            home: [],
-            away: []
-          };
+          const goals = { home: [], away: [] };
 
           matchFull
             .find(".matchFull__strikers--home .matchFull__striker")
             .each((_, g) => {
               goals.home.push({
                 player: $(g).find(".matchFull__strikerName").text().trim(),
-                minute: $(g).find(".matchFull__strikerTime").text().trim()
+                minute: $(g).find(".matchFull__strikerTime").text().trim(),
               });
             });
 
@@ -104,17 +91,16 @@ export async function fetchMatchToday() {
             .each((_, g) => {
               goals.away.push({
                 player: $(g).find(".matchFull__strikerName").text().trim(),
-                minute: $(g).find(".matchFull__strikerTime").text().trim()
+                minute: $(g).find(".matchFull__strikerTime").text().trim(),
               });
             });
 
-          /* ================== القنوات الناقلة ================== */
           const broadcasts = [];
           matchFull.find(".matchFull__broadcastImage").each((_, img) => {
-            broadcasts.push($(img).attr("data-src"));
+            const src = $(img).attr("data-src");
+            if (src) broadcasts.push(src);
           });
 
-          /* ================== الفائز ================== */
           let winner = null;
           if (status === "finished" && homeScore && awayScore) {
             if (+homeScore > +awayScore) winner = "home";
@@ -133,7 +119,7 @@ export async function fetchMatchToday() {
             isLive,
             winner,
             broadcasts,
-            goals
+            goals,
           });
         });
 
@@ -141,17 +127,17 @@ export async function fetchMatchToday() {
         leagues.push({
           leagueName,
           leagueLogo,
-          matches
+          matches,
         });
       }
     });
 
-    fs.writeFileSync(FILE_PATH, JSON.stringify(leagues, null, 2), "utf-8");
-    console.log("✅ MatchToday updated successfully");
+    fs.writeFileSync(FILE_PATH, JSON.stringify(leagues, null, 2), "utf8");
+    console.log("✅ Match-Today fetched successfully");
 
     return leagues;
   } catch (err) {
-    console.error("❌ Error fetching MatchToday:", err.message);
+    console.error("❌ Error fetching Match-Today:", err.message);
     return [];
   }
 }

@@ -25,21 +25,24 @@ const MATCH_FILE = "./match-today.json";
 // ================== Cache ==================
 let standingsCache = {};
 let normalizedStandingsCache = {};
-let matchesCache = {};
+let matchesCache = [];
 
 // ================== Helpers ==================
 async function writeIfChanged(filePath, newData) {
   const jsonData = JSON.stringify(newData, null, 2);
+
   if (fsSync.existsSync(filePath)) {
     const current = await fs.readFile(filePath, "utf8");
     if (current === jsonData) return false;
   }
-  await fs.writeFile(filePath, jsonData);
+
+  await fs.writeFile(filePath, jsonData, "utf8");
   return true;
 }
 
 function broadcast(type, data) {
   const payload = JSON.stringify({ type, data });
+
   wss.clients.forEach((client) => {
     if (client.readyState === 1) {
       client.send(payload);
@@ -52,15 +55,17 @@ async function loadFromDisk() {
   try {
     if (fsSync.existsSync(MATCH_FILE)) {
       matchesCache = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
-      console.log("⚽ Match-Today loaded");
+      console.log("⚽ Match-Today loaded from disk");
     }
 
     if (fsSync.existsSync(DATA_FILE)) {
       standingsCache = JSON.parse(await fs.readFile(DATA_FILE, "utf8"));
       for (const league in standingsCache) {
-        normalizedStandingsCache[league] = normalizeLeague(standingsCache[league]);
+        normalizedStandingsCache[league] = normalizeLeague(
+          standingsCache[league]
+        );
       }
-      console.log("📊 Standings loaded");
+      console.log("📊 Standings loaded from disk");
     }
   } catch (err) {
     console.error("❌ Load error:", err.message);
@@ -72,17 +77,28 @@ async function updateMatches() {
   try {
     const newData = await fetchMatchToday();
 
-    // دمج ذكي: تحديث details فقط دون تغيير أي بيانات أساسية
-    if (matchesCache && matchesCache.length > 0) {
+    if (!Array.isArray(newData) || newData.length === 0) {
+      console.log("🟡 Match-Today empty or not ready");
+      return;
+    }
+
+    // ===== Smart merge =====
+    if (matchesCache.length > 0) {
       for (const newLeague of newData) {
-        const existingLeague = matchesCache.find(l => l.leagueName === newLeague.leagueName);
+        const existingLeague = matchesCache.find(
+          (l) => l.leagueName === newLeague.leagueName
+        );
+
         if (existingLeague) {
           for (const newMatch of newLeague.matches) {
             const existingMatch = existingLeague.matches.find(
-              m => m.liveId === newMatch.liveId || m.matchLink === newMatch.matchLink
+              (m) =>
+                (m.liveId && m.liveId === newMatch.liveId) ||
+                m.matchLink === newMatch.matchLink
             );
+
             if (existingMatch) {
-              existingMatch.details = newMatch.details; // فقط تفاصيل
+              Object.assign(existingMatch, newMatch);
             } else {
               existingLeague.matches.push(newMatch);
             }
@@ -118,6 +134,7 @@ async function updateStandings() {
     }
 
     const changed = await writeIfChanged(DATA_FILE, raw);
+
     standingsCache = raw;
     normalizedStandingsCache = normalized;
 
@@ -149,12 +166,14 @@ app.get("/api/v1/match-today", (req, res) => {
 
 app.get("/api/v1/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
+
   if (!normalizedStandingsCache[league]) {
     return res.status(404).json({
       error: "League not found",
       supportedLeagues: Object.keys(normalizedStandingsCache),
     });
   }
+
   res.json(normalizedStandingsCache[league]);
 });
 
@@ -170,7 +189,7 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-// ================== WebSocket Events ==================
+// ================== WebSocket ==================
 wss.on("connection", (ws) => {
   console.log("📱 WebSocket client connected");
 
@@ -189,20 +208,17 @@ wss.on("connection", (ws) => {
   });
 });
 
-// ================== Start Server ==================
+// ================== Start ==================
 server.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
 
   await loadFromDisk();
-
   await updateMatches();
   await updateStandings();
 
-  // Schedulers
-  setInterval(updateMatches, 10 * 60 * 1000);   // ⏱ مباريات
-  setInterval(updateStandings, 10 * 60 * 1000); // ⏱ ترتيب
+  setInterval(updateMatches, 5 * 60 * 1000);
+  setInterval(updateStandings, 10 * 60 * 1000);
 
-  // Self ping (Render)
   if (process.env.SELF_URL) {
     setInterval(() => {
       fetch(process.env.SELF_URL).catch(() => {});
