@@ -40,6 +40,11 @@
     "reason": "No tables found"
   },
   {
+    "name": "equateur-primera-a",
+    "url": "https://www.footmercato.net/classement/equateur/primera-a?partial=1",
+    "reason": "No tables found"
+  },
+  {
     "name": "danemark-superliga",
     "url": "https://www.footmercato.net/classement/danemark/superliga?partial=1",
     "reason": "No tables found"
@@ -50,13 +55,18 @@
     "reason": "No tables found"
   },
   {
+    "name": "norvege-eliteserien",
+    "url": "https://www.footmercato.net/classement/norvege/eliteserien?partial=1",
+    "reason": "No tables found"
+  },
+  {
     "name": "bosnie-herzegovine-premijer-liga",
     "url": "https://www.footmercato.net/classement/bosnie-herzegovine/premijer-liga?partial=1",
     "reason": "No tables found"
   },
   {
-    "name": "norvege-eliteserien",
-    "url": "https://www.footmercato.net/classement/norvege/eliteserien?partial=1",
+    "name": "allemagne-barrages-3-liga",
+    "url": "https://www.footmercato.net/classement/allemagne/barrages-3-liga?partial=1",
     "reason": "No tables found"
   },
   {
@@ -65,8 +75,8 @@
     "reason": "No tables found"
   },
   {
-    "name": "allemagne-barrages-3-liga",
-    "url": "https://www.footmercato.net/classement/allemagne/barrages-3-liga?partial=1",
+    "name": "bresil-serie-b",
+    "url": "https://www.footmercato.net/classement/bresil/serie-b?partial=1",
     "reason": "No tables found"
   },
   {
