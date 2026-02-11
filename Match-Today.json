@@ -7035,7 +7035,132 @@
         },
         "score": null,
         "isLive": false,
-        "stats": {},
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 15 buts",
+              "homeMain": "40%",
+              "homeAdd": "(6)",
+              "awayMain": "60%",
+              "awayAdd": "(9)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "0.67",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "56%",
+              "homeAdd": "(5)",
+              "awayMain": "33%",
+              "awayAdd": "(3)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "44%",
+              "homeAdd": "(4)",
+              "awayMain": "67%",
+              "awayAdd": "(6)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "11%",
+              "homeAdd": "(1)",
+              "awayMain": "22%",
+              "awayAdd": "(2)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "11%",
+              "homeAdd": "(1)",
+              "awayMain": "11%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-7666453258959424713"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0011"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-2935869045725749291"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0000"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-9068605326416530269"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0000"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3819982441788091802"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0131"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-961332876051100769"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0102"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        },
         "lineups": {},
         "status": "scheduled",
         "goals": {

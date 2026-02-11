@@ -4,7 +4,6 @@ import fs from "fs";
 import path from "path";
 
 const FILE_PATH = path.resolve("./match-today.json");
-const PREV_FILE_PATH = path.resolve("./match-today.json");
 const URL = "https://www.footmercato.net/live/";
 const RETRY_COUNT = 3;
 const TIMEOUT = 20000;
@@ -103,15 +102,12 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // ALL DATA ATTRIBUTES
+    // RAW DATA ATTRIBUTES
     $("[data-live-id], [data-team], [data-type]").each((_, el) => {
       const attribs = el.attribs || {};
       Object.keys(attribs).forEach((k) => {
         if (k.startsWith("data-")) {
-          stats.rawDataAttributes.push({
-            key: k,
-            value: attribs[k],
-          });
+          stats.rawDataAttributes.push({ key: k, value: attribs[k] });
         }
       });
     });
@@ -121,22 +117,6 @@ async function fetchMatchStats(liveId) {
     console.error(`❌ Error fetching stats for liveId ${liveId}: ${err.message}`);
     return {};
   }
-}
-
-// ================= COMPARE =================
-function compareMatches(oldMatches, newMatches) {
-  const changes = [];
-  const oldMap = {};
-  oldMatches.forEach((m) => (oldMap[m.liveId] = m));
-
-  newMatches.forEach((m) => {
-    const oldM = oldMap[m.liveId];
-    if (!oldM) changes.push({ type: "new_match", match: m });
-    else if (JSON.stringify(oldM) !== JSON.stringify(m))
-      changes.push({ type: "update", match: m });
-  });
-
-  return changes;
 }
 
 // ================= MAIN FETCH =================
@@ -220,8 +200,6 @@ export async function fetchMatchToday() {
             isLive,
             goals,
             broadcasts,
-
-            // 🔥 NEW FULL DATA
             rawHTML: matchFull.html(),
             attributes: matchFull.get(0)?.attribs || {},
             rawText: matchFull.text().trim(),
@@ -239,21 +217,6 @@ export async function fetchMatchToday() {
         })
       );
     }
-
-    // COMPARE PREVIOUS
-    let prevData = [];
-    if (fs.existsSync(PREV_FILE_PATH)) {
-      try {
-        prevData = JSON.parse(fs.readFileSync(PREV_FILE_PATH, "utf8"));
-      } catch {}
-    }
-
-    const changes = [];
-    leagues.forEach((league) => {
-      const oldLeague = prevData.find((l) => l.leagueName === league.leagueName);
-      const oldMatches = oldLeague ? oldLeague.matches : [];
-      changes.push(...compareMatches(oldMatches, league.matches));
-    });
 
     fs.writeFileSync(FILE_PATH, JSON.stringify(leagues, null, 2), "utf8");
     console.log("✅ FULL ULTRA DATA SAVED");

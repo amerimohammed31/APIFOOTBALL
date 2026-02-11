@@ -30,23 +30,18 @@ let matchesCache = [];
 // ================== Helpers ==================
 async function writeIfChanged(filePath, newData) {
   const jsonData = JSON.stringify(newData, null, 2);
-
   if (fsSync.existsSync(filePath)) {
     const current = await fs.readFile(filePath, "utf8");
     if (current === jsonData) return false;
   }
-
   await fs.writeFile(filePath, jsonData, "utf8");
   return true;
 }
 
 function broadcast(type, data) {
   const payload = JSON.stringify({ type, data });
-
   wss.clients.forEach((client) => {
-    if (client.readyState === 1) {
-      client.send(payload);
-    }
+    if (client.readyState === 1) client.send(payload);
   });
 }
 
@@ -76,13 +71,12 @@ async function loadFromDisk() {
 async function updateMatches() {
   try {
     const newData = await fetchMatchToday();
-
     if (!Array.isArray(newData) || newData.length === 0) {
       console.log("🟡 Match-Today empty or not ready");
       return;
     }
 
-    // ===== Smart merge =====
+    // دمج ذكي مع matchesCache
     if (matchesCache.length > 0) {
       for (const newLeague of newData) {
         const existingLeague = matchesCache.find(
@@ -128,13 +122,9 @@ async function updateStandings() {
   try {
     const raw = await fetchAllLeagues();
     const normalized = {};
-
-    for (const league in raw) {
-      normalized[league] = normalizeLeague(raw[league]);
-    }
+    for (const league in raw) normalized[league] = normalizeLeague(raw[league]);
 
     const changed = await writeIfChanged(DATA_FILE, raw);
-
     standingsCache = raw;
     normalizedStandingsCache = normalized;
 
@@ -158,22 +148,18 @@ app.use((req, res, next) => {
 
 // ================== API Routes ==================
 app.get("/api/v1/match-today", (req, res) => {
-  if (!matchesCache || matchesCache.length === 0) {
+  if (!matchesCache || matchesCache.length === 0)
     return res.status(503).json({ error: "Matches not ready" });
-  }
   res.json(matchesCache);
 });
 
 app.get("/api/v1/standings/:league", (req, res) => {
   const league = req.params.league.toLowerCase();
-
-  if (!normalizedStandingsCache[league]) {
+  if (!normalizedStandingsCache[league])
     return res.status(404).json({
       error: "League not found",
       supportedLeagues: Object.keys(normalizedStandingsCache),
     });
-  }
-
   res.json(normalizedStandingsCache[league]);
 });
 
@@ -185,9 +171,7 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.get("/ping", (req, res) => {
-  res.send("pong");
-});
+app.get("/ping", (req, res) => res.send("pong"));
 
 // ================== WebSocket ==================
 wss.on("connection", (ws) => {
@@ -196,16 +180,11 @@ wss.on("connection", (ws) => {
   ws.send(
     JSON.stringify({
       type: "init",
-      data: {
-        matches: matchesCache,
-        standings: normalizedStandingsCache,
-      },
+      data: { matches: matchesCache, standings: normalizedStandingsCache },
     })
   );
 
-  ws.on("close", () => {
-    console.log("❌ WebSocket client disconnected");
-  });
+  ws.on("close", () => console.log("❌ WebSocket client disconnected"));
 });
 
 // ================== Start ==================
@@ -216,7 +195,12 @@ server.listen(PORT, async () => {
   await updateMatches();
   await updateStandings();
 
-  setInterval(updateMatches, 5 * 60 * 1000);
+  // ✅ تحديث المباريات كل 5 دقائق (تصحيح المشكلة فقط)
+  setInterval(() => {
+    updateMatches().catch(err => console.error("❌ updateMatches failed:", err.message));
+  }, 5 * 60 * 1000);
+
+  // تحديث الترتيب كل 10 دقائق كما هو
   setInterval(updateStandings, 10 * 60 * 1000);
 
   if (process.env.SELF_URL) {
