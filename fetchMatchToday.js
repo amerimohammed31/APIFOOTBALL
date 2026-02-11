@@ -9,7 +9,7 @@ const URL = "https://www.footmercato.net/live/";
 const RETRY_COUNT = 3;
 const TIMEOUT = 20000;
 
-// ======== دالة Retry آلية ========
+// ================= RETRY =================
 async function fetchWithRetry(url, retries = RETRY_COUNT) {
   for (let i = 0; i <= retries; i++) {
     try {
@@ -30,7 +30,7 @@ async function fetchWithRetry(url, retries = RETRY_COUNT) {
   }
 }
 
-// ======== دالة مسح إحصائيات مباراة ========
+// ================= FULL STATS =================
 async function fetchMatchStats(liveId) {
   if (!liveId) return {};
   const statsUrl = `https://www.footmercato.net/live/${liveId}/stats`;
@@ -38,10 +38,17 @@ async function fetchMatchStats(liveId) {
   try {
     const data = await fetchWithRetry(statsUrl);
     const $ = cheerio.load(data);
-    const stats = {};
 
-    // Face à face
-    stats.faceToFace = [];
+    const stats = {
+      faceToFace: [],
+      goalStats: [],
+      extraStats: [],
+      timeline: [],
+      cards: [],
+      rawDataAttributes: [],
+    };
+
+    // FACE TO FACE
     $(".blockFaceToFace__history .blockFaceToFace__match").each((_, el) => {
       stats.faceToFace.push({
         homeTeam: $(el).find(".teamHome .teamName").text().trim(),
@@ -51,39 +58,61 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // Stats des buts
-    stats.goalStats = [];
+    // STAT INLINE
     $(".blockVertical__contents .blockVertical__content").each((_, el) => {
-      const title = $(el).find(".statInline__title").text().trim();
-      const leftMain = $(el)
-        .find(".statInline__valueWrapper .statInline__value")
-        .first()
-        .find(".statInline__valueMain")
-        .first()
-        .text()
-        .trim();
-      const leftAdd = $(el)
-        .find(".statInline__valueWrapper .statInline__value")
-        .first()
-        .find(".statInline__valueAdditional")
-        .first()
-        .text()
-        .trim();
-      const rightMain = $(el)
-        .find(".statInline__valueWrapper .statInline__value--right .statInline__valueMain")
-        .first()
-        .text()
-        .trim();
-      const rightAdd = $(el)
-        .find(".statInline__valueWrapper .statInline__value--right .statInline__valueAdditional")
-        .first()
-        .text()
-        .trim();
-
       stats.goalStats.push({
-        title,
-        left: { main: leftMain, additional: leftAdd },
-        right: { main: rightMain, additional: rightAdd },
+        title: $(el).find(".statInline__title").text().trim(),
+        homeMain: $(el).find(".statInline__valueMain").first().text().trim(),
+        homeAdd: $(el).find(".statInline__valueAdditional").first().text().trim(),
+        awayMain: $(el)
+          .find(".statInline__value--right .statInline__valueMain")
+          .text()
+          .trim(),
+        awayAdd: $(el)
+          .find(".statInline__value--right .statInline__valueAdditional")
+          .text()
+          .trim(),
+      });
+    });
+
+    // STAT HORIZONTAL
+    $(".statHorizontal").each((_, el) => {
+      stats.extraStats.push({
+        title: $(el).find(".statHorizontal__title").text().trim(),
+        home: $(el).find(".statHorizontal__value").first().text().trim(),
+        away: $(el).find(".statHorizontal__value").last().text().trim(),
+      });
+    });
+
+    // TIMELINE EVENTS
+    $(".timeline__event").each((_, el) => {
+      stats.timeline.push({
+        minute: $(el).find(".timeline__time").text().trim(),
+        player: $(el).find(".timeline__player").text().trim(),
+        team: $(el).attr("data-team") || "",
+        type: $(el).attr("data-type") || "",
+      });
+    });
+
+    // CARDS
+    $(".timeline__card").each((_, el) => {
+      stats.cards.push({
+        player: $(el).find(".player").text().trim(),
+        minute: $(el).find(".time").text().trim(),
+        cardType: $(el).hasClass("red") ? "red" : "yellow",
+      });
+    });
+
+    // ALL DATA ATTRIBUTES
+    $("[data-live-id], [data-team], [data-type]").each((_, el) => {
+      const attribs = el.attribs || {};
+      Object.keys(attribs).forEach((k) => {
+        if (k.startsWith("data-")) {
+          stats.rawDataAttributes.push({
+            key: k,
+            value: attribs[k],
+          });
+        }
       });
     });
 
@@ -94,29 +123,23 @@ async function fetchMatchStats(liveId) {
   }
 }
 
-// ======== دالة مقارنة المباريات ========
+// ================= COMPARE =================
 function compareMatches(oldMatches, newMatches) {
   const changes = [];
   const oldMap = {};
-  oldMatches.forEach((m) => {
-    oldMap[m.liveId] = m;
-  });
+  oldMatches.forEach((m) => (oldMap[m.liveId] = m));
 
   newMatches.forEach((m) => {
     const oldM = oldMap[m.liveId];
-    if (!oldM) {
-      changes.push({ type: "new_match", match: m });
-    } else {
-      if (JSON.stringify(oldM) !== JSON.stringify(m)) {
-        changes.push({ type: "update", match: m });
-      }
-    }
+    if (!oldM) changes.push({ type: "new_match", match: m });
+    else if (JSON.stringify(oldM) !== JSON.stringify(m))
+      changes.push({ type: "update", match: m });
   });
 
   return changes;
 }
 
-// ======== دالة سحب المباريات اليومية مع حفظ التغييرات ========
+// ================= MAIN FETCH =================
 export async function fetchMatchToday() {
   try {
     const data = await fetchWithRetry(URL);
@@ -124,11 +147,10 @@ export async function fetchMatchToday() {
     const leagues = [];
 
     $(".matchesGroup").each((_, leagueEl) => {
-      const leagueName = $(leagueEl)
-        .find(".title__leftLink")
-        .text()
-        .trim();
-      const leagueLogo = $(leagueEl).find(".title__leftLink img").attr("data-src") || "";
+      const leagueName = $(leagueEl).find(".title__leftLink").text().trim();
+      const leagueLogo =
+        $(leagueEl).find(".title__leftLink img").attr("data-src") || "";
+
       const matches = [];
 
       $(leagueEl)
@@ -140,40 +162,38 @@ export async function fetchMatchToday() {
           const homeEl = matchFull.find(".matchFull__team").first();
           const awayEl = matchFull.find(".matchFull__team--away");
 
-          const homeTeam = {
-            name: homeEl.find(".matchTeam__name").text().trim(),
-            logo: homeEl.find("img").attr("data-src") || "",
-          };
-          const awayTeam = {
-            name: awayEl.find(".matchTeam__name").text().trim(),
-            logo: awayEl.find("img").attr("data-src") || "",
-          };
-
           const homeScore = homeEl.find(".matchFull__score").text().trim();
           const awayScore = awayEl.find(".matchFull__score").text().trim();
-          const score = homeScore && awayScore ? `${homeScore} - ${awayScore}` : null;
+
+          const isLive = matchFull.attr("data-live") === "1";
+          const playedText = matchFull
+            .find(".matchFull__infosPlayed")
+            .text()
+            .toLowerCase();
 
           let status = "scheduled";
-          const isLive = matchFull.attr("data-live") === "1";
-          const playedText = matchFull.find(".matchFull__infosPlayed").text().toLowerCase();
           if (isLive) status = "live";
-          else if (playedText.includes("terminé")) status = "finished";
-
-          const time = matchFull.find(".matchFull__infosDate time").attr("datetime") || "";
+          else if (playedText.includes("termin")) status = "finished";
 
           const goals = { home: [], away: [] };
-          matchFull.find(".matchFull__strikers--home .matchFull__striker").each((_, g) => {
-            goals.home.push({
-              player: $(g).find(".matchFull__strikerName").text().trim(),
-              minute: $(g).find(".matchFull__strikerTime").text().trim(),
+
+          matchFull
+            .find(".matchFull__strikers--home .matchFull__striker")
+            .each((_, g) => {
+              goals.home.push({
+                player: $(g).find(".matchFull__strikerName").text().trim(),
+                minute: $(g).find(".matchFull__strikerTime").text().trim(),
+              });
             });
-          });
-          matchFull.find(".matchFull__strikers--away .matchFull__striker").each((_, g) => {
-            goals.away.push({
-              player: $(g).find(".matchFull__strikerName").text().trim(),
-              minute: $(g).find(".matchFull__strikerTime").text().trim(),
+
+          matchFull
+            .find(".matchFull__strikers--away .matchFull__striker")
+            .each((_, g) => {
+              goals.away.push({
+                player: $(g).find(".matchFull__strikerName").text().trim(),
+                minute: $(g).find(".matchFull__strikerTime").text().trim(),
+              });
             });
-          });
 
           const broadcasts = [];
           matchFull.find(".matchFull__broadcastImage").each((_, img) => {
@@ -181,32 +201,37 @@ export async function fetchMatchToday() {
             if (src) broadcasts.push(src);
           });
 
-          let winner = null;
-          if (status === "finished" && homeScore && awayScore) {
-            if (+homeScore > +awayScore) winner = "home";
-            else if (+awayScore > +homeScore) winner = "away";
-            else winner = "draw";
-          }
-
           matches.push({
             liveId,
-            statsLink: liveId ? `https://www.footmercato.net/live/${liveId}/stats` : null,
-            homeTeam,
-            awayTeam,
-            score,
+            statsLink: liveId
+              ? `https://www.footmercato.net/live/${liveId}/stats`
+              : null,
+            homeTeam: {
+              name: homeEl.find(".matchTeam__name").text().trim(),
+              logo: homeEl.find("img").attr("data-src") || "",
+            },
+            awayTeam: {
+              name: awayEl.find(".matchTeam__name").text().trim(),
+              logo: awayEl.find("img").attr("data-src") || "",
+            },
+            score:
+              homeScore && awayScore ? `${homeScore} - ${awayScore}` : null,
             status,
-            time,
             isLive,
-            winner,
-            broadcasts,
             goals,
+            broadcasts,
+
+            // 🔥 NEW FULL DATA
+            rawHTML: matchFull.html(),
+            attributes: matchFull.get(0)?.attribs || {},
+            rawText: matchFull.text().trim(),
           });
         });
 
       if (matches.length > 0) leagues.push({ leagueName, leagueLogo, matches });
     });
 
-    // تتبع إحصائيات كل مباراة بشكل متوازي
+    // FETCH FULL STATS PARALLEL
     for (const league of leagues) {
       await Promise.all(
         league.matches.map(async (match) => {
@@ -215,17 +240,14 @@ export async function fetchMatchToday() {
       );
     }
 
-    // قراءة البيانات السابقة
+    // COMPARE PREVIOUS
     let prevData = [];
     if (fs.existsSync(PREV_FILE_PATH)) {
       try {
         prevData = JSON.parse(fs.readFileSync(PREV_FILE_PATH, "utf8"));
-      } catch {
-        console.warn("⚠️ Previous JSON corrupted or empty.");
-      }
+      } catch {}
     }
 
-    // مقارنة التغييرات
     const changes = [];
     leagues.forEach((league) => {
       const oldLeague = prevData.find((l) => l.leagueName === league.leagueName);
@@ -233,19 +255,8 @@ export async function fetchMatchToday() {
       changes.push(...compareMatches(oldMatches, league.matches));
     });
 
-    if (changes.length > 0) {
-      console.log("🟢 Changes detected:");
-      changes.forEach((c) => {
-        console.log(`- [${c.type}] ${c.match.homeTeam.name} vs ${c.match.awayTeam.name}`);
-      });
-    } else {
-      console.log("🟢 No changes detected today.");
-    }
-
-    // حفظ الملفات
-    fs.writeFileSync(PREV_FILE_PATH, JSON.stringify(leagues, null, 2), "utf8");
     fs.writeFileSync(FILE_PATH, JSON.stringify(leagues, null, 2), "utf8");
-    console.log("✅ Match-Today FULL stats saved.");
+    console.log("✅ FULL ULTRA DATA SAVED");
 
     return leagues;
   } catch (err) {
@@ -254,7 +265,6 @@ export async function fetchMatchToday() {
   }
 }
 
-// ======== تشغيل تلقائي عند التنفيذ في ES Module ========
 if (import.meta.url === `file://${process.argv[1]}`) {
   fetchMatchToday();
 }
