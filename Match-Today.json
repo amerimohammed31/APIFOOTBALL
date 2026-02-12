@@ -4,15 +4,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/premier-league-6629182c30d13.png",
     "matches": [
       {
-        "liveId": "5854679986668302112",
-        "statsLink": "https://www.footmercato.net/live/5854679986668302112/stats",
+        "liveId": "5015024808237317266",
+        "statsLink": "https://www.footmercato.net/live/5015024808237317266/stats",
         "homeTeam": {
-          "name": "Sunderland",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/sunderland-afc.png"
+          "name": "Brentford",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/brentford.png"
         },
         "awayTeam": {
-          "name": "Liverpool",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/liverpool.png"
+          "name": "Arsenal",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/arsenal-660.png"
         },
         "score": null,
         "isLive": false,
@@ -20,46 +20,46 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 50 buts",
-              "homeMain": "26%",
-              "homeAdd": "(13)",
-              "awayMain": "74%",
-              "awayAdd": "(37)"
+              "title": "Répartition des 27 buts",
+              "homeMain": "30%",
+              "homeAdd": "(8)",
+              "awayMain": "70%",
+              "awayAdd": "(19)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "0.57",
+              "homeMain": "0.73",
               "homeAdd": "",
-              "awayMain": "1.61",
+              "awayMain": "1.73",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
-              "homeMain": "57%",
-              "homeAdd": "(13)",
-              "awayMain": "13%",
-              "awayAdd": "(3)"
+              "homeMain": "36%",
+              "homeAdd": "(4)",
+              "awayMain": "9%",
+              "awayAdd": "(1)"
             },
             {
               "title": "Au moins 1 but marqué",
-              "homeMain": "43%",
-              "homeAdd": "(10)",
-              "awayMain": "87%",
-              "awayAdd": "(20)"
+              "homeMain": "64%",
+              "homeAdd": "(7)",
+              "awayMain": "91%",
+              "awayAdd": "(10)"
             },
             {
               "title": "Plus de 1.5 buts marqués",
-              "homeMain": "13%",
-              "homeAdd": "(3)",
-              "awayMain": "57%",
-              "awayAdd": "(13)"
+              "homeMain": "9%",
+              "homeAdd": "(1)",
+              "awayMain": "55%",
+              "awayAdd": "(6)"
             },
             {
               "title": "Plus de 2.5 buts marqués",
               "homeMain": "0%",
-              "homeAdd": "(4)",
-              "awayMain": "17%",
-              "awayAdd": "(4)"
+              "homeAdd": "(3)",
+              "awayMain": "27%",
+              "awayAdd": "(3)"
             },
             {
               "title": "Plus de 3.5 buts marqués",
@@ -84,100 +84,100 @@
             },
             {
               "title": "Victoires",
-              "homeMain": "9",
+              "homeMain": "12",
               "homeAdd": "",
-              "awayMain": "11",
+              "awayMain": "17",
               "awayAdd": ""
             },
             {
               "title": "Nuls",
-              "homeMain": "9",
+              "homeMain": "3",
               "homeAdd": "",
-              "awayMain": "6",
+              "awayMain": "5",
               "awayAdd": ""
             },
             {
               "title": "Défaites",
-              "homeMain": "7",
+              "homeMain": "10",
               "homeAdd": "",
-              "awayMain": "8",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Buts",
-              "homeMain": "27",
+              "homeMain": "39",
               "homeAdd": "",
-              "awayMain": "40",
+              "awayMain": "49",
               "awayAdd": ""
             },
             {
               "title": "Buts sur penalty",
-              "homeMain": "2",
+              "homeMain": "6",
               "homeAdd": "",
-              "awayMain": "1",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Possession",
-              "homeMain": "44%",
+              "homeMain": "46%",
               "homeAdd": "",
-              "awayMain": "60%",
+              "awayMain": "57%",
               "awayAdd": ""
             },
             {
               "title": "Précision des passes",
               "homeMain": "79%",
               "homeAdd": "",
-              "awayMain": "86%",
+              "awayMain": "84%",
               "awayAdd": ""
             },
             {
               "title": "Précision des centres",
-              "homeMain": "21%",
+              "homeMain": "25%",
               "homeAdd": "",
-              "awayMain": "22%",
+              "awayMain": "24%",
               "awayAdd": ""
             },
             {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "46'",
+              "homeMain": "39'",
               "homeAdd": "",
-              "awayMain": "53'",
+              "awayMain": "40'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "69'",
+              "homeMain": "70'",
               "homeAdd": "",
-              "awayMain": "74'",
+              "awayMain": "68'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "16",
+              "homeMain": "18",
               "homeAdd": "",
-              "awayMain": "21",
+              "awayMain": "22",
               "awayAdd": ""
             },
             {
               "title": "Premier but encaissé en moyenne",
-              "homeMain": "39'",
+              "homeMain": "42'",
               "homeAdd": "",
-              "awayMain": "43'",
+              "awayMain": "49'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but encaissé en moyenne",
-              "homeMain": "54'",
+              "homeMain": "66'",
               "homeAdd": "",
-              "awayMain": "75'",
+              "awayMain": "68'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "17",
+              "homeMain": "19",
               "homeAdd": "",
-              "awayMain": "18",
+              "awayMain": "12",
               "awayAdd": ""
             }
           ],
@@ -187,31 +187,7 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-6409504892356585205"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0011"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-4975113850805051557"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0022"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-2981659630342347839"
+              "value": "matchSlim-4197505199489434792"
             },
             {
               "key": "data-live-value",
@@ -223,11 +199,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-3869847955197441846"
+              "value": "matchSlim-3166004802505016734"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0022"
+              "value": "playedterminé0011"
             },
             {
               "key": "data-live",
@@ -235,7 +211,31 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-4795833348827979632"
+              "value": "matchSlim-1598199780324361499"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0013"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-19536422636700421"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0021"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3721275564208744270"
             },
             {
               "key": "data-live-value",
@@ -256,14 +256,14 @@
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png"
         ],
-        "rawHTML": "\n    <a href=\"/live/5854679986668302112-sunderland-vs-liverpool\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/sunderland-afc.png\" alt=\"Logo Sunderland AFC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Sunderland</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/liverpool.png\" alt=\"Logo Liverpool FC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Liverpool</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T20:15:00+00:00\">\n                                21:15\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png\" alt=\"Logo Canal + Foot\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/5015024808237317266-brentford-vs-arsenal\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/brentford.png\" alt=\"Logo Brentford\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Brentford</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/arsenal-660.png\" alt=\"Logo Arsenal FC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Arsenal</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T20:00:00+00:00\">\n                                21:00\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png\" alt=\"Logo Canal + Foot\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "5854679986668302112",
+          "data-live-id": "5015024808237317266",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Sunderland\n\n\n                \n                \n                    \n        \n\n\n    Liverpool\n\n\n                \n            \n                \n                            \n                            \n                                21:15"
+        "rawText": "Brentford\n\n\n                \n                \n                    \n        \n\n\n    Arsenal\n\n\n                \n            \n                \n                            \n                            \n                                21:00"
       },
       {
         "liveId": "6938229470237282774",
@@ -819,15 +819,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/coupe-du-roi-66290058281a5.png",
     "matches": [
       {
-        "liveId": "4215812552305587145",
-        "statsLink": "https://www.footmercato.net/live/4215812552305587145/stats",
+        "liveId": "7199148941461881523",
+        "statsLink": "https://www.footmercato.net/live/7199148941461881523/stats",
         "homeTeam": {
-          "name": "Bilbao",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/athletic-bilbao.png"
+          "name": "Atlético",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/atletico-madrid-66a7606eaccd2.png"
         },
         "awayTeam": {
-          "name": "Real Sociedad",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/real-sociedad.png"
+          "name": "Barcelone",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/barcelone.png"
         },
         "score": null,
         "isLive": false,
@@ -835,60 +835,60 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 104 buts",
-              "homeMain": "52%",
-              "homeAdd": "(54)",
-              "awayMain": "48%",
-              "awayAdd": "(50)"
+              "title": "Répartition des 160 buts",
+              "homeMain": "37%",
+              "homeAdd": "(59)",
+              "awayMain": "63%",
+              "awayAdd": "(101)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "1.26",
+              "homeMain": "1.13",
               "homeAdd": "",
-              "awayMain": "1.16",
+              "awayMain": "1.94",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
-              "homeMain": "23%",
-              "homeAdd": "(10)",
-              "awayMain": "35%",
-              "awayAdd": "(15)"
+              "homeMain": "31%",
+              "homeAdd": "(16)",
+              "awayMain": "13%",
+              "awayAdd": "(7)"
             },
             {
               "title": "Au moins 1 but marqué",
-              "homeMain": "77%",
-              "homeAdd": "(33)",
-              "awayMain": "65%",
-              "awayAdd": "(28)"
+              "homeMain": "69%",
+              "homeAdd": "(36)",
+              "awayMain": "87%",
+              "awayAdd": "(45)"
             },
             {
               "title": "Plus de 1.5 buts marqués",
-              "homeMain": "35%",
+              "homeMain": "29%",
               "homeAdd": "(15)",
-              "awayMain": "33%",
-              "awayAdd": "(14)"
+              "awayMain": "52%",
+              "awayAdd": "(27)"
             },
             {
               "title": "Plus de 2.5 buts marqués",
-              "homeMain": "12%",
+              "homeMain": "10%",
               "homeAdd": "(5)",
-              "awayMain": "19%",
-              "awayAdd": "(8)"
+              "awayMain": "29%",
+              "awayAdd": "(15)"
             },
             {
               "title": "Plus de 3.5 buts marqués",
-              "homeMain": "2%",
-              "homeAdd": "(1)",
-              "awayMain": "0%",
-              "awayAdd": ""
+              "homeMain": "6%",
+              "homeAdd": "(3)",
+              "awayMain": "15%",
+              "awayAdd": "(8)"
             },
             {
               "title": "Plus de 4.5 buts marqués",
               "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
+              "homeAdd": "(4)",
+              "awayMain": "8%",
+              "awayAdd": "(4)"
             },
             {
               "title": "Matchs",
@@ -899,101 +899,150 @@
             },
             {
               "title": "Victoires",
-              "homeMain": "8",
+              "homeMain": "13",
               "homeAdd": "",
-              "awayMain": "8",
+              "awayMain": "19",
               "awayAdd": ""
             },
             {
               "title": "Nuls",
-              "homeMain": "4",
+              "homeMain": "6",
               "homeAdd": "",
-              "awayMain": "7",
+              "awayMain": "1",
               "awayAdd": ""
             },
             {
               "title": "Défaites",
-              "homeMain": "11",
+              "homeMain": "4",
               "homeAdd": "",
-              "awayMain": "8",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Buts",
-              "homeMain": "25",
+              "homeMain": "38",
               "homeAdd": "",
-              "awayMain": "33",
+              "awayMain": "63",
               "awayAdd": ""
             },
             {
               "title": "Buts sur penalty",
-              "homeMain": "3",
+              "homeMain": "2",
               "homeAdd": "",
               "awayMain": "4",
               "awayAdd": ""
             },
             {
               "title": "Possession",
-              "homeMain": "49%",
+              "homeMain": "54%",
               "homeAdd": "",
-              "awayMain": "48%",
+              "awayMain": "68%",
               "awayAdd": ""
             },
             {
               "title": "Précision des passes",
-              "homeMain": "80%",
+              "homeMain": "85%",
               "homeAdd": "",
-              "awayMain": "81%",
+              "awayMain": "89%",
               "awayAdd": ""
             },
             {
               "title": "Précision des centres",
-              "homeMain": "21%",
+              "homeMain": "26%",
               "homeAdd": "",
-              "awayMain": "23%",
+              "awayMain": "26%",
               "awayAdd": ""
             },
             {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "43'",
+              "homeMain": "30'",
+              "homeAdd": "",
+              "awayMain": "32'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "56'",
+              "homeAdd": "",
+              "awayMain": "73'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "20",
+              "homeAdd": "",
+              "awayMain": "23",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "46'",
+              "homeAdd": "",
+              "awayMain": "24'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "55'",
               "homeAdd": "",
               "awayMain": "45'",
               "awayAdd": ""
             },
             {
-              "title": "Dernier but marqué en moyenne",
-              "homeMain": "64'",
-              "homeAdd": "",
-              "awayMain": "63'",
-              "awayAdd": ""
-            },
-            {
-              "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "15",
-              "homeAdd": "",
-              "awayMain": "20",
-              "awayAdd": ""
-            },
-            {
-              "title": "Premier but encaissé en moyenne",
-              "homeMain": "48'",
-              "homeAdd": "",
-              "awayMain": "50'",
-              "awayAdd": ""
-            },
-            {
-              "title": "Dernier but encaissé en moyenne",
-              "homeMain": "66'",
-              "homeAdd": "",
-              "awayMain": "61'",
-              "awayAdd": ""
-            },
-            {
               "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "18",
+              "homeMain": "13",
               "homeAdd": "",
-              "awayMain": "22",
+              "awayMain": "14",
               "awayAdd": ""
+            },
+            {
+              "title": "Âge moyen",
+              "homeMain": "27.56",
+              "homeAdd": "",
+              "awayMain": "24.99",
+              "awayAdd": ""
+            },
+            {
+              "title": "Taille moyenne",
+              "homeMain": "179.1",
+              "homeAdd": "",
+              "awayMain": "180",
+              "awayAdd": ""
+            },
+            {
+              "title": "Poids moyen",
+              "homeMain": "74.36",
+              "homeAdd": "",
+              "awayMain": "73.55",
+              "awayAdd": ""
+            },
+            {
+              "title": "Droitiers",
+              "homeMain": "9",
+              "homeAdd": "",
+              "awayMain": "9",
+              "awayAdd": ""
+            },
+            {
+              "title": "Gauchers",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            },
+            {
+              "title": "Ambidextres",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "442",
+              "homeAdd": "(30 fois)",
+              "awayMain": "433",
+              "awayAdd": "(9 fois)"
             }
           ],
           "extraStats": [],
@@ -1002,11 +1051,11 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-8058577912640325203"
+              "value": "matchSlim-5342858927395780837"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0111"
+              "value": "playedterminé0031"
             },
             {
               "key": "data-live",
@@ -1014,11 +1063,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-8966969466121037391"
+              "value": "matchSlim-5800774241640562709"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0032"
+              "value": "playedterminé0001"
             },
             {
               "key": "data-live",
@@ -1026,11 +1075,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-6332440913746569604"
+              "value": "matchSlim-566108060026889927"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0000"
+              "value": "playedterminé0024"
             },
             {
               "key": "data-live",
@@ -1038,11 +1087,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-3173751038412375372"
+              "value": "matchSlim-2194872767910193213"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0010"
+              "value": "playedterminé0044"
             },
             {
               "key": "data-live",
@@ -1050,11 +1099,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-2951527153362764840"
+              "value": "matchSlim-4866911150057563907"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0021"
+              "value": "playedterminé0012"
             },
             {
               "key": "data-live",
@@ -1071,14 +1120,14 @@
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/dazn-671b98d475358.png"
         ],
-        "rawHTML": "\n    <a href=\"/live/4215812552305587145-athletic-bilbao-vs-real-sociedad\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/athletic-bilbao.png\" alt=\"Logo Athletic Bilbao\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Bilbao</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/real-sociedad.png\" alt=\"Logo Real Sociedad\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Real Sociedad</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T20:00:00+00:00\">\n                                21:00\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/dazn-671b98d475358.png\" alt=\"Logo DAZN\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/7199148941461881523-atletico-madrid-vs-barcelone\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/atletico-madrid-66a7606eaccd2.png\" alt=\"Logo Atlético Madrid\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Atlético</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/barcelone.png\" alt=\"Logo Barcelone\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Barcelone</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T20:00:00+00:00\">\n                                21:00\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/dazn-671b98d475358.png\" alt=\"Logo DAZN\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "4215812552305587145",
+          "data-live-id": "7199148941461881523",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Bilbao\n\n\n                \n                \n                    \n        \n\n\n    Real Sociedad\n\n\n                \n            \n                \n                            \n                            \n                                21:00"
+        "rawText": "Atlético\n\n\n                \n                \n                    \n        \n\n\n    Barcelone\n\n\n                \n            \n                \n                            \n                            \n                                21:00"
       }
     ]
   },
@@ -1355,15 +1404,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/coupe-feminine-uefa.png",
     "matches": [
       {
-        "liveId": "3985322833154690973",
-        "statsLink": "https://www.footmercato.net/live/3985322833154690973/stats",
+        "liveId": "8506338997767052572",
+        "statsLink": "https://www.footmercato.net/live/8506338997767052572/stats",
         "homeTeam": {
-          "name": "Paris FC",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/paris.png"
+          "name": "Atlético",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/atletico-madrid-66a7606eaccd2.png"
         },
         "awayTeam": {
-          "name": "Real Madrid",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/real-madrid-cf.png"
+          "name": "Man Utd",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/manchester-united-fc.png"
         },
         "score": null,
         "isLive": false,
@@ -1371,101 +1420,45 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 6 buts",
-              "homeMain": "67%",
-              "homeAdd": "(4)",
-              "awayMain": "33%",
-              "awayAdd": "(2)"
-            },
-            {
-              "title": "Buts par match",
-              "homeMain": "1.33",
-              "homeAdd": "",
-              "awayMain": "0.67",
-              "awayAdd": ""
-            },
-            {
-              "title": "Aucun but marqué",
-              "homeMain": "0%",
-              "homeAdd": "(1)",
-              "awayMain": "33%",
-              "awayAdd": "(1)"
-            },
-            {
-              "title": "Au moins 1 but marqué",
-              "homeMain": "100%",
-              "homeAdd": "(3)",
-              "awayMain": "67%",
-              "awayAdd": "(2)"
-            },
-            {
-              "title": "Plus de 1.5 buts marqués",
-              "homeMain": "33%",
-              "homeAdd": "(1)",
-              "awayMain": "0%",
-              "awayAdd": ""
-            },
-            {
-              "title": "Plus de 2.5 buts marqués",
-              "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
-            },
-            {
-              "title": "Plus de 3.5 buts marqués",
-              "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
-            },
-            {
-              "title": "Plus de 4.5 buts marqués",
-              "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
-            },
-            {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "30'",
+              "homeMain": "34'",
               "homeAdd": "",
-              "awayMain": "24'",
+              "awayMain": "33'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "57'",
+              "homeMain": "63'",
               "homeAdd": "",
-              "awayMain": "63'",
+              "awayMain": "76'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "10",
+              "homeMain": "16",
               "homeAdd": "",
-              "awayMain": "16",
+              "awayMain": "11",
               "awayAdd": ""
             },
             {
               "title": "Premier but encaissé en moyenne",
-              "homeMain": "41'",
+              "homeMain": "36'",
               "homeAdd": "",
-              "awayMain": "35'",
+              "awayMain": "42'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but encaissé en moyenne",
-              "homeMain": "56'",
+              "homeMain": "62'",
               "homeAdd": "",
-              "awayMain": "58'",
+              "awayMain": "48'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "7",
+              "homeMain": "12",
               "homeAdd": "",
-              "awayMain": "8",
+              "awayMain": "10",
               "awayAdd": ""
             }
           ],
@@ -1475,35 +1468,11 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-7411428410598767259"
+              "value": "matchSlim-4360442905531017102"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0011"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-4524214805284810010"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0001"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-2111400761314838821"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0021"
+              "value": "playedterminé1101"
             },
             {
               "key": "data-live",
@@ -1518,17 +1487,16 @@
           "away": []
         },
         "broadcasts": [
-          "https://assets-fr.imgfoot.com/media/cache/150x150/disney-plus.png",
-          "https://assets-fr.imgfoot.com/media/cache/150x150/la-chaine-lequipe-6720b4b816cbb.png"
+          "https://assets-fr.imgfoot.com/media/cache/150x150/disney-plus.png"
         ],
-        "rawHTML": "\n    <a href=\"/live/3985322833154690973-paris-fc-vs-real-madrid\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/paris.png\" alt=\"Logo Paris FC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Paris FC</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/real-madrid-cf.png\" alt=\"Logo Real Madrid CF\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Real Madrid</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T20:00:00+00:00\">\n                                21:00\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/disney-plus.png\" alt=\"Logo Disney +\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/la-chaine-lequipe-6720b4b816cbb.png\" alt=\"Logo La Chaine l'Equipe\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/8506338997767052572-atletico-madrid-vs-manchester-united\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/atletico-madrid-66a7606eaccd2.png\" alt=\"Logo Atlético Madrid\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Atlético</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/manchester-united-fc.png\" alt=\"Logo Manchester United FC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Man Utd</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T20:00:00+00:00\">\n                                21:00\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/disney-plus.png\" alt=\"Logo Disney +\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "3985322833154690973",
+          "data-live-id": "8506338997767052572",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Paris FC\n\n\n                \n                \n                    \n        \n\n\n    Real Madrid\n\n\n                \n            \n                \n                            \n                            \n                                21:00"
+        "rawText": "Atlético\n\n\n                \n                \n                    \n        \n\n\n    Man Utd\n\n\n                \n            \n                \n                            \n                            \n                                21:00"
       },
       {
         "liveId": "3985322833154690973",
@@ -1630,15 +1598,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/serie-a-bresil.png",
     "matches": [
       {
-        "liveId": "7973245368411753649",
-        "statsLink": "https://www.footmercato.net/live/7973245368411753649/stats",
+        "liveId": "5259318916889542527",
+        "statsLink": "https://www.footmercato.net/live/5259318916889542527/stats",
         "homeTeam": {
-          "name": "Chapecoense",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/chapecoense.png"
+          "name": "Fluminense",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fluminense.png"
         },
         "awayTeam": {
-          "name": "Coritiba",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/coritiba.png"
+          "name": "Botafogo",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/botafogo.png"
         },
         "score": null,
         "isLive": false,
@@ -1646,51 +1614,51 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 24 buts",
-              "homeMain": "50%",
-              "homeAdd": "(12)",
-              "awayMain": "50%",
-              "awayAdd": "(12)"
+              "title": "Répartition des 33 buts",
+              "homeMain": "48%",
+              "homeAdd": "(16)",
+              "awayMain": "52%",
+              "awayAdd": "(17)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "1.2",
+              "homeMain": "0.8",
               "homeAdd": "",
-              "awayMain": "1.2",
+              "awayMain": "0.85",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
               "homeMain": "40%",
-              "homeAdd": "(4)",
-              "awayMain": "20%",
-              "awayAdd": "(2)"
+              "homeAdd": "(8)",
+              "awayMain": "35%",
+              "awayAdd": "(7)"
             },
             {
               "title": "Au moins 1 but marqué",
               "homeMain": "60%",
-              "homeAdd": "(6)",
-              "awayMain": "80%",
-              "awayAdd": "(8)"
+              "homeAdd": "(12)",
+              "awayMain": "65%",
+              "awayAdd": "(13)"
             },
             {
               "title": "Plus de 1.5 buts marqués",
-              "homeMain": "40%",
+              "homeMain": "20%",
               "homeAdd": "(4)",
-              "awayMain": "30%",
-              "awayAdd": "(3)"
+              "awayMain": "20%",
+              "awayAdd": "(4)"
             },
             {
               "title": "Plus de 2.5 buts marqués",
-              "homeMain": "10%",
-              "homeAdd": "(1)",
-              "awayMain": "10%",
-              "awayAdd": "(1)"
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
             },
             {
               "title": "Plus de 3.5 buts marqués",
-              "homeMain": "10%",
-              "homeAdd": "(1)",
+              "homeMain": "0%",
+              "homeAdd": "",
               "awayMain": "0%",
               "awayAdd": ""
             },
@@ -1731,72 +1699,72 @@
             },
             {
               "title": "Buts",
-              "homeMain": "5",
+              "homeMain": "3",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "7",
               "awayAdd": ""
             },
             {
               "title": "Possession",
-              "homeMain": "34%",
+              "homeMain": "54%",
               "homeAdd": "",
-              "awayMain": "31%",
+              "awayMain": "51%",
               "awayAdd": ""
             },
             {
               "title": "Précision des passes",
-              "homeMain": "72%",
+              "homeMain": "86%",
               "homeAdd": "",
-              "awayMain": "71%",
+              "awayMain": "86%",
               "awayAdd": ""
             },
             {
               "title": "Précision des centres",
-              "homeMain": "30%",
+              "homeMain": "15%",
               "homeAdd": "",
-              "awayMain": "27%",
+              "awayMain": "19%",
               "awayAdd": ""
             },
             {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "53'",
+              "homeMain": "33'",
               "homeAdd": "",
-              "awayMain": "45'",
+              "awayMain": "33'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "90'",
+              "homeMain": "40'",
               "homeAdd": "",
-              "awayMain": "53'",
+              "awayMain": "88'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but marqué",
               "homeMain": "2",
               "homeAdd": "",
-              "awayMain": "1",
+              "awayMain": "2",
               "awayAdd": ""
             },
             {
               "title": "Premier but encaissé en moyenne",
-              "homeMain": "50'",
+              "homeMain": "77'",
               "homeAdd": "",
-              "awayMain": "55'",
+              "awayMain": "26'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but encaissé en moyenne",
-              "homeMain": "61'",
+              "homeMain": "77'",
               "homeAdd": "",
-              "awayMain": "55'",
+              "awayMain": "79'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but concédé",
               "homeMain": "2",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "1",
               "awayAdd": ""
             }
           ],
@@ -1806,11 +1774,11 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-7487651049036030701"
+              "value": "matchSlim-5069522909232661990"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0000"
+              "value": "playedterminé0020"
             },
             {
               "key": "data-live",
@@ -1818,11 +1786,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-4678070248949536578"
+              "value": "matchSlim-1255070191830754014"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0112"
+              "value": "playedterminé0020"
             },
             {
               "key": "data-live",
@@ -1830,11 +1798,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-108136829096971523"
+              "value": "matchSlim-6279337247863975984"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0021"
+              "value": "playedterminé0001"
             },
             {
               "key": "data-live",
@@ -1842,7 +1810,7 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-2514709864984599934"
+              "value": "matchSlim-6738757978656378650"
             },
             {
               "key": "data-live-value",
@@ -1854,11 +1822,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-5888741968590721931"
+              "value": "matchSlim-623192818716558209"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0021"
+              "value": "playedterminé0002"
             },
             {
               "key": "data-live",
@@ -1873,14 +1841,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/7973245368411753649-chapecoense-vs-coritiba\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/chapecoense.png\" alt=\"Logo Chapecoense\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Chapecoense</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/coritiba.png\" alt=\"Logo Coritiba\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Coritiba</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T22:00:00+00:00\">\n                                23:00\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/5259318916889542527-fluminense-vs-botafogo\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/fluminense.png\" alt=\"Logo Fluminense\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Fluminense</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/botafogo.png\" alt=\"Logo Botafogo\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Botafogo</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T22:30:00+00:00\">\n                                23:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "7973245368411753649",
+          "data-live-id": "5259318916889542527",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Chapecoense\n\n\n                \n                \n                    \n        \n\n\n    Coritiba\n\n\n                \n            \n                \n                            \n                            \n                                23:00"
+        "rawText": "Fluminense\n\n\n                \n                \n                    \n        \n\n\n    Botafogo\n\n\n                \n            \n                \n                            \n                            \n                                23:30"
       },
       {
         "liveId": "3200020449415600571",
@@ -3438,15 +3406,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/swiss-super-league.png",
     "matches": [
       {
-        "liveId": "5906962213592550643",
-        "statsLink": "https://www.footmercato.net/live/5906962213592550643/stats",
+        "liveId": "1166017357071786955",
+        "statsLink": "https://www.footmercato.net/live/1166017357071786955/stats",
         "homeTeam": {
-          "name": "Lugano",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/lugano.png"
+          "name": "Sion",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/sion.png"
         },
         "awayTeam": {
-          "name": "Servette",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/servette.png"
+          "name": "Bâle",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bale.png"
         },
         "score": null,
         "isLive": false,
@@ -3454,60 +3422,60 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 69 buts",
-              "homeMain": "52%",
-              "homeAdd": "(36)",
-              "awayMain": "48%",
-              "awayAdd": "(33)"
+              "title": "Répartition des 112 buts",
+              "homeMain": "30%",
+              "homeAdd": "(34)",
+              "awayMain": "70%",
+              "awayAdd": "(78)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "1.33",
+              "homeMain": "0.92",
               "homeAdd": "",
-              "awayMain": "1.22",
+              "awayMain": "2.11",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
-              "homeMain": "26%",
-              "homeAdd": "(7)",
-              "awayMain": "26%",
-              "awayAdd": "(7)"
+              "homeMain": "41%",
+              "homeAdd": "(15)",
+              "awayMain": "11%",
+              "awayAdd": "(4)"
             },
             {
               "title": "Au moins 1 but marqué",
-              "homeMain": "74%",
-              "homeAdd": "(20)",
-              "awayMain": "74%",
-              "awayAdd": "(20)"
+              "homeMain": "59%",
+              "homeAdd": "(22)",
+              "awayMain": "89%",
+              "awayAdd": "(33)"
             },
             {
               "title": "Plus de 1.5 buts marqués",
-              "homeMain": "37%",
-              "homeAdd": "(10)",
-              "awayMain": "37%",
-              "awayAdd": "(10)"
+              "homeMain": "24%",
+              "homeAdd": "(9)",
+              "awayMain": "62%",
+              "awayAdd": "(23)"
             },
             {
               "title": "Plus de 2.5 buts marqués",
-              "homeMain": "15%",
-              "homeAdd": "(4)",
-              "awayMain": "7%",
-              "awayAdd": "(2)"
+              "homeMain": "5%",
+              "homeAdd": "(2)",
+              "awayMain": "35%",
+              "awayAdd": "(13)"
             },
             {
               "title": "Plus de 3.5 buts marqués",
-              "homeMain": "7%",
-              "homeAdd": "(2)",
-              "awayMain": "4%",
-              "awayAdd": "(1)"
+              "homeMain": "3%",
+              "homeAdd": "(1)",
+              "awayMain": "16%",
+              "awayAdd": "(6)"
             },
             {
               "title": "Plus de 4.5 buts marqués",
               "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
+              "homeAdd": "(2)",
+              "awayMain": "5%",
+              "awayAdd": "(2)"
             },
             {
               "title": "Matchs",
@@ -3518,100 +3486,100 @@
             },
             {
               "title": "Victoires",
-              "homeMain": "12",
+              "homeMain": "8",
+              "homeAdd": "",
+              "awayMain": "11",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nuls",
+              "homeMain": "10",
               "homeAdd": "",
               "awayMain": "6",
               "awayAdd": ""
             },
             {
-              "title": "Nuls",
+              "title": "Défaites",
               "homeMain": "5",
               "homeAdd": "",
-              "awayMain": "7",
-              "awayAdd": ""
-            },
-            {
-              "title": "Défaites",
-              "homeMain": "6",
-              "homeAdd": "",
-              "awayMain": "10",
+              "awayMain": "6",
               "awayAdd": ""
             },
             {
               "title": "Buts",
-              "homeMain": "39",
+              "homeMain": "34",
               "homeAdd": "",
-              "awayMain": "39",
+              "awayMain": "36",
               "awayAdd": ""
             },
             {
               "title": "Buts sur penalty",
-              "homeMain": "4",
+              "homeMain": "5",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "6",
               "awayAdd": ""
             },
             {
               "title": "Possession",
-              "homeMain": "56%",
+              "homeMain": "50%",
               "homeAdd": "",
-              "awayMain": "52%",
+              "awayMain": "56%",
               "awayAdd": ""
             },
             {
               "title": "Précision des passes",
-              "homeMain": "85%",
+              "homeMain": "79%",
               "homeAdd": "",
-              "awayMain": "79%",
+              "awayMain": "81%",
               "awayAdd": ""
             },
             {
               "title": "Précision des centres",
-              "homeMain": "30%",
+              "homeMain": "28%",
               "homeAdd": "",
-              "awayMain": "29%",
+              "awayMain": "24%",
               "awayAdd": ""
             },
             {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "39'",
+              "homeMain": "34'",
               "homeAdd": "",
-              "awayMain": "39'",
+              "awayMain": "38'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "55'",
-              "homeAdd": "",
-              "awayMain": "63'",
-              "awayAdd": ""
-            },
-            {
-              "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "20",
-              "homeAdd": "",
-              "awayMain": "20",
-              "awayAdd": ""
-            },
-            {
-              "title": "Premier but encaissé en moyenne",
-              "homeMain": "45'",
-              "homeAdd": "",
-              "awayMain": "29'",
-              "awayAdd": ""
-            },
-            {
-              "title": "Dernier but encaissé en moyenne",
-              "homeMain": "68'",
+              "homeMain": "53'",
               "homeAdd": "",
               "awayMain": "61'",
               "awayAdd": ""
             },
             {
-              "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "16",
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "17",
               "homeAdd": "",
-              "awayMain": "20",
+              "awayMain": "19",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "25'",
+              "homeAdd": "",
+              "awayMain": "33'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "51'",
+              "homeAdd": "",
+              "awayMain": "53'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "15",
+              "homeAdd": "",
+              "awayMain": "16",
               "awayAdd": ""
             }
           ],
@@ -3621,11 +3589,11 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-3449573335464346037"
+              "value": "matchSlim-3857220271281259042"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0042"
+              "value": "playedterminé0011"
             },
             {
               "key": "data-live",
@@ -3633,11 +3601,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-5693081928473338698"
+              "value": "matchSlim-6080114522647470991"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0021"
+              "value": "playedterminé0001"
             },
             {
               "key": "data-live",
@@ -3645,11 +3613,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-2057572855642165561"
+              "value": "matchSlim-1878200865789180856"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0041"
+              "value": "playedterminé0020"
             },
             {
               "key": "data-live",
@@ -3657,11 +3625,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-5293662951898950949"
+              "value": "matchSlim-2520679075866807216"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0002"
+              "value": "playedterminé1041"
             },
             {
               "key": "data-live",
@@ -3669,11 +3637,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-2813079072504293764"
+              "value": "matchSlim-2493214877333584288"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé1030"
+              "value": "playedterminé0111"
             },
             {
               "key": "data-live",
@@ -3688,14 +3656,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/5906962213592550643-lugano-vs-servette\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lugano.png\" alt=\"Logo Lugano\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Lugano</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/servette.png\" alt=\"Logo Servette\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Servette</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T19:30:00+00:00\">\n                                20:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/1166017357071786955-sion-vs-bale\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/sion.png\" alt=\"Logo Sion\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Sion</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/bale.png\" alt=\"Logo Bâle\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Bâle</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T19:30:00+00:00\">\n                                20:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "5906962213592550643",
+          "data-live-id": "1166017357071786955",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Lugano\n\n\n                \n                \n                    \n        \n\n\n    Servette\n\n\n                \n            \n                \n                            \n                            \n                                20:30"
+        "rawText": "Sion\n\n\n                \n                \n                    \n        \n\n\n    Bâle\n\n\n                \n            \n                \n                            \n                            \n                                20:30"
       },
       {
         "liveId": "3776049758344652150",
@@ -4516,15 +4484,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/serie-c-6629263a0df06.png",
     "matches": [
       {
-        "liveId": "6930951328518946507",
-        "statsLink": "https://www.footmercato.net/live/6930951328518946507/stats",
+        "liveId": "8904576074582462175",
+        "statsLink": "https://www.footmercato.net/live/8904576074582462175/stats",
         "homeTeam": {
-          "name": "Pro Patria",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/pro-patria.png"
+          "name": "Ascoli",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/ascoli.png"
         },
         "awayTeam": {
-          "name": "Cittadella",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/cittadella.png"
+          "name": "Torres",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/sassari-torres.png"
         },
         "score": null,
         "isLive": false,
@@ -4532,45 +4500,101 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Premier but marqué en moyenne",
-              "homeMain": "47'",
+              "title": "Répartition des 7 buts",
+              "homeMain": "57%",
+              "homeAdd": "(4)",
+              "awayMain": "43%",
+              "awayAdd": "(3)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1.33",
               "homeAdd": "",
-              "awayMain": "55'",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "0%",
+              "homeAdd": "(1)",
+              "awayMain": "33%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "100%",
+              "homeAdd": "(3)",
+              "awayMain": "67%",
+              "awayAdd": "(2)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "33%",
+              "homeAdd": "(1)",
+              "awayMain": "33%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "36'",
+              "homeAdd": "",
+              "awayMain": "42'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "61'",
+              "homeMain": "59'",
               "homeAdd": "",
-              "awayMain": "65'",
+              "awayMain": "54'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "12",
+              "homeMain": "18",
               "homeAdd": "",
-              "awayMain": "18",
+              "awayMain": "14",
               "awayAdd": ""
             },
             {
               "title": "Premier but encaissé en moyenne",
-              "homeMain": "32'",
+              "homeMain": "53'",
               "homeAdd": "",
-              "awayMain": "56'",
+              "awayMain": "38'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but encaissé en moyenne",
-              "homeMain": "64'",
+              "homeMain": "60'",
               "homeAdd": "",
-              "awayMain": "71'",
+              "awayMain": "60'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "21",
+              "homeMain": "11",
               "homeAdd": "",
-              "awayMain": "16",
+              "awayMain": "19",
               "awayAdd": ""
             }
           ],
@@ -4580,11 +4604,35 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-5862506997333555035"
+              "value": "matchSlim-2538531336745488994"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0000"
+              "value": "playedterminé1101"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-2197438682271698719"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0012"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-1693027396339983931"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé1012"
             },
             {
               "key": "data-live",
@@ -4599,14 +4647,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/6930951328518946507-pro-patria-vs-cittadella\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/pro-patria.png\" alt=\"Logo Pro Patria\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Pro Patria</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/cittadella.png\" alt=\"Logo Cittadella\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Cittadella</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T19:30:00+00:00\">\n                                20:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/8904576074582462175-ascoli-vs-sassari-torres-1903\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/ascoli.png\" alt=\"Logo Ascoli\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Ascoli</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/sassari-torres.png\" alt=\"Logo Sassari Torres 1903\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Torres</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T19:30:00+00:00\">\n                                20:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "6930951328518946507",
+          "data-live-id": "8904576074582462175",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Pro Patria\n\n\n                \n                \n                    \n        \n\n\n    Cittadella\n\n\n                \n            \n                \n                            \n                            \n                                20:30"
+        "rawText": "Ascoli\n\n\n                \n                \n                    \n        \n\n\n    Torres\n\n\n                \n            \n                \n                            \n                            \n                                20:30"
       },
       {
         "liveId": "5808741365037858642",
@@ -5385,46 +5433,46 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/concacaf-champions-league-6628d4564ff8f.png",
     "matches": [
       {
-        "liveId": "8733163539798400598",
-        "statsLink": "https://www.footmercato.net/live/8733163539798400598/stats",
+        "liveId": "1248020769984724321",
+        "statsLink": "https://www.footmercato.net/live/1248020769984724321/stats",
         "homeTeam": {
-          "name": "Tigres",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/club-tigres-uanl.png"
+          "name": "Monterrey",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/cf-rayados-de-monterrey.png"
         },
         "awayTeam": {
-          "name": "Forge",
+          "name": "Xelajú",
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
-        "score": "4 - 1",
+        "score": "2 - 0",
         "isLive": false,
         "stats": {
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 5 buts",
-              "homeMain": "80%",
-              "homeAdd": "(4)",
-              "awayMain": "20%",
+              "title": "Répartition des 4 buts",
+              "homeMain": "75%",
+              "homeAdd": "(3)",
+              "awayMain": "25%",
               "awayAdd": "(1)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "2",
+              "homeMain": "1.5",
               "homeAdd": "",
               "awayMain": "0.5",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
-              "homeMain": "50%",
+              "homeMain": "0%",
               "homeAdd": "(1)",
               "awayMain": "50%",
               "awayAdd": "(1)"
             },
             {
               "title": "Au moins 1 but marqué",
-              "homeMain": "50%",
-              "homeAdd": "(1)",
+              "homeMain": "100%",
+              "homeAdd": "(2)",
               "awayMain": "50%",
               "awayAdd": "(1)"
             },
@@ -5437,15 +5485,15 @@
             },
             {
               "title": "Plus de 2.5 buts marqués",
-              "homeMain": "50%",
-              "homeAdd": "(1)",
+              "homeMain": "0%",
+              "homeAdd": "",
               "awayMain": "0%",
               "awayAdd": ""
             },
             {
               "title": "Plus de 3.5 buts marqués",
-              "homeMain": "50%",
-              "homeAdd": "(1)",
+              "homeMain": "0%",
+              "homeAdd": "",
               "awayMain": "0%",
               "awayAdd": ""
             },
@@ -5458,38 +5506,45 @@
             },
             {
               "title": "Possession",
-              "homeMain": "77%",
+              "homeMain": "61%",
               "homeAdd": "",
-              "awayMain": "23%",
+              "awayMain": "39%",
               "awayAdd": ""
             },
             {
               "title": "Passes réussies",
-              "homeMain": "90%",
+              "homeMain": "88%",
               "homeAdd": "",
-              "awayMain": "79%",
+              "awayMain": "77%",
               "awayAdd": ""
             },
             {
               "title": "Âge moyen",
-              "homeMain": "29.07",
+              "homeMain": "28.58",
               "homeAdd": "",
-              "awayMain": "26.4",
+              "awayMain": "31.05",
               "awayAdd": ""
             },
             {
               "title": "Taille moyenne",
-              "homeMain": "175.5",
+              "homeMain": "178",
               "homeAdd": "",
-              "awayMain": "180.88",
+              "awayMain": "177",
               "awayAdd": ""
             },
             {
               "title": "Poids moyen",
-              "homeMain": "69.4",
+              "homeMain": "70.55",
               "homeAdd": "",
-              "awayMain": "78.5",
+              "awayMain": "71.56",
               "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "4231",
+              "homeAdd": "(2 fois)",
+              "awayMain": "532",
+              "awayAdd": "(1 fois)"
             },
             {
               "title": "",
@@ -5500,72 +5555,72 @@
             },
             {
               "title": "Tirs bloqués",
-              "homeMain": "5",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Hors-jeux",
+              "homeMain": "3",
+              "homeAdd": "",
+              "awayMain": "5",
+              "awayAdd": ""
+            },
+            {
+              "title": "Touches",
+              "homeMain": "17",
+              "homeAdd": "",
+              "awayMain": "26",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes",
+              "homeMain": "525",
+              "homeAdd": "",
+              "awayMain": "333",
+              "awayAdd": ""
+            },
+            {
+              "title": "Corners joués",
+              "homeMain": "3",
               "homeAdd": "",
               "awayMain": "2",
               "awayAdd": ""
             },
             {
-              "title": "Hors-jeux",
+              "title": "Dégagements",
+              "homeMain": "16",
+              "homeAdd": "",
+              "awayMain": "19",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles",
+              "homeMain": "22",
+              "homeAdd": "",
+              "awayMain": "18",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles réussis",
+              "homeMain": "12",
+              "homeAdd": "",
+              "awayMain": "13",
+              "awayAdd": ""
+            },
+            {
+              "title": "Penalties concédés",
               "homeMain": "0",
               "homeAdd": "",
               "awayMain": "1",
               "awayAdd": ""
             },
             {
-              "title": "Touches",
-              "homeMain": "11",
-              "homeAdd": "",
-              "awayMain": "12",
-              "awayAdd": ""
-            },
-            {
-              "title": "Passes",
-              "homeMain": "727",
-              "homeAdd": "",
-              "awayMain": "215",
-              "awayAdd": ""
-            },
-            {
-              "title": "Corners joués",
-              "homeMain": "8",
-              "homeAdd": "",
-              "awayMain": "4",
-              "awayAdd": ""
-            },
-            {
-              "title": "Tacles",
-              "homeMain": "16",
-              "homeAdd": "",
-              "awayMain": "17",
-              "awayAdd": ""
-            },
-            {
-              "title": "Dégagements",
-              "homeMain": "5",
-              "homeAdd": "",
-              "awayMain": "27",
-              "awayAdd": ""
-            },
-            {
-              "title": "Tacles réussis",
-              "homeMain": "9",
-              "homeAdd": "",
-              "awayMain": "7",
-              "awayAdd": ""
-            },
-            {
-              "title": "Penalties concédés",
+              "title": "Arrêts",
               "homeMain": "1",
               "homeAdd": "",
-              "awayMain": "0",
-              "awayAdd": ""
-            },
-            {
-              "title": "Arrêts",
-              "homeMain": "2",
-              "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "7",
               "awayAdd": ""
             }
           ],
@@ -5575,11 +5630,11 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-1857127623660497761"
+              "value": "matchSlim-5890608824731318639"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0000"
+              "value": "playedterminé0011"
             },
             {
               "key": "data-live",
@@ -5592,34 +5647,25 @@
         "goals": {
           "home": [
             {
-              "player": "R. Aguirre",
-              "minute": "22', 71'"
+              "player": "I. Fimbres",
+              "minute": "33'"
             },
             {
-              "player": "Á. Correa",
-              "minute": "81'"
-            },
-            {
-              "player": "Joaquim",
-              "minute": "86'"
+              "player": "L. Ocampos",
+              "minute": "83' (sp)"
             }
           ],
-          "away": [
-            {
-              "player": "B. Wright",
-              "minute": "80' (sp)"
-            }
-          ]
+          "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/8733163539798400598-club-tigres-uanl-vs-forge\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/club-tigres-uanl.png\" alt=\"Logo Club Tigres UANL\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Tigres</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">4</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">22', 71'</span>\n                                <span class=\"matchFull__strikerName\">R. Aguirre</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">81'</span>\n                                <span class=\"matchFull__strikerName\">Á. Correa</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">86'</span>\n                                <span class=\"matchFull__strikerName\">Joaquim</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Forge\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Forge</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">80' (sp)</span>\n                                <span class=\"matchFull__strikerName\">B. Wright</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosPlayed\">terminé</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/1248020769984724321-cf-rayados-de-monterrey-vs-xelaju\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/cf-rayados-de-monterrey.png\" alt=\"Logo CF Rayados de Monterrey\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Monterrey</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">2</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">33'</span>\n                                <span class=\"matchFull__strikerName\">I. Fimbres</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">83' (sp)</span>\n                                <span class=\"matchFull__strikerName\">L. Ocampos</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Xelajú\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Xelajú</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosPlayed\">terminé</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "8733163539798400598",
-          "data-live-value": "played41000",
+          "data-live-id": "1248020769984724321",
+          "data-live-value": "played20000",
           "data-live": "0"
         },
-        "rawText": "Tigres\n4\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                22', 71'\n                                R. Aguirre\n                            \n                                                    \n                                81'\n                                Á. Correa\n                            \n                                                    \n                                86'\n                                Joaquim\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Forge\n1\n                        \n\n                                    \n                                                    \n                                80' (sp)\n                                B. Wright\n                            \n                                            \n                \n            \n                \n                            terminé"
+        "rawText": "Monterrey\n2\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                33'\n                                I. Fimbres\n                            \n                                                    \n                                83' (sp)\n                                L. Ocampos\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Xelajú\n0\n                        \n\n                \n            \n                \n                            terminé"
       },
       {
         "liveId": "8733163539798400598",
@@ -5771,55 +5817,55 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/copa-libertadores.png",
     "matches": [
       {
-        "liveId": "2498086542238802984",
-        "statsLink": "https://www.footmercato.net/live/2498086542238802984/stats",
+        "liveId": "964668255713464951",
+        "statsLink": "https://www.footmercato.net/live/964668255713464951/stats",
         "homeTeam": {
-          "name": "Táchira",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/deportivo-tachira.png"
+          "name": "Alianza Lima",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/alianza-lima.png"
         },
         "awayTeam": {
-          "name": "The Strongest",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/the-strongest.png"
+          "name": "2 de Mayo",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/2-de-mayo.png"
         },
-        "score": "1 - 0",
+        "score": "1 - 1",
         "isLive": false,
         "stats": {
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 4 buts",
-              "homeMain": "50%",
-              "homeAdd": "(2)",
-              "awayMain": "50%",
+              "title": "Répartition des 3 buts",
+              "homeMain": "33%",
+              "homeAdd": "(1)",
+              "awayMain": "67%",
               "awayAdd": "(2)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "1",
+              "homeMain": "0.5",
               "homeAdd": "",
               "awayMain": "1",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
-              "homeMain": "0%",
+              "homeMain": "50%",
               "homeAdd": "(1)",
-              "awayMain": "50%",
-              "awayAdd": "(1)"
+              "awayMain": "0%",
+              "awayAdd": ""
             },
             {
               "title": "Au moins 1 but marqué",
-              "homeMain": "100%",
-              "homeAdd": "(2)",
-              "awayMain": "50%",
-              "awayAdd": "(1)"
+              "homeMain": "50%",
+              "homeAdd": "(1)",
+              "awayMain": "100%",
+              "awayAdd": "(2)"
             },
             {
               "title": "Plus de 1.5 buts marqués",
               "homeMain": "0%",
-              "homeAdd": "(1)",
-              "awayMain": "50%",
-              "awayAdd": "(1)"
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
             },
             {
               "title": "Plus de 2.5 buts marqués",
@@ -5844,87 +5890,87 @@
             },
             {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "44'",
+              "homeMain": "39'",
               "homeAdd": "",
-              "awayMain": "33'",
+              "awayMain": "26'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "66'",
+              "homeMain": "89'",
               "homeAdd": "",
-              "awayMain": "68'",
+              "awayMain": "26'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "16",
+              "homeMain": "2",
               "homeAdd": "",
-              "awayMain": "29",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Premier but encaissé en moyenne",
-              "homeMain": "27'",
+              "homeMain": "46'",
               "homeAdd": "",
-              "awayMain": "37'",
+              "awayMain": "55'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but encaissé en moyenne",
-              "homeMain": "44'",
+              "homeMain": "46'",
               "homeAdd": "",
-              "awayMain": "58'",
+              "awayMain": "84'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "8",
+              "homeMain": "2",
               "homeAdd": "",
-              "awayMain": "23",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Possession",
-              "homeMain": "68%",
+              "homeMain": "59%",
               "homeAdd": "",
-              "awayMain": "32%",
+              "awayMain": "41%",
               "awayAdd": ""
             },
             {
               "title": "Passes réussies",
-              "homeMain": "77%",
+              "homeMain": "75%",
               "homeAdd": "",
-              "awayMain": "61%",
+              "awayMain": "70%",
               "awayAdd": ""
             },
             {
               "title": "Âge moyen",
-              "homeMain": "26.81",
+              "homeMain": "30.45",
               "homeAdd": "",
-              "awayMain": "29.53",
+              "awayMain": "29.22",
               "awayAdd": ""
             },
             {
               "title": "Taille moyenne",
-              "homeMain": "180.6",
+              "homeMain": "180.67",
               "homeAdd": "",
-              "awayMain": "177.63",
+              "awayMain": "178.71",
               "awayAdd": ""
             },
             {
               "title": "Poids moyen",
-              "homeMain": "78.27",
+              "homeMain": "80.2",
               "homeAdd": "",
-              "awayMain": "74.89",
+              "awayMain": "76.2",
               "awayAdd": ""
             },
             {
               "title": "Formations",
               "homeMain": "4231",
               "homeAdd": "(1 fois)",
-              "awayMain": "4231",
-              "awayAdd": "(2 fois)"
+              "awayMain": "4141",
+              "awayAdd": "(5 fois)"
             },
             {
               "title": "",
@@ -5935,72 +5981,72 @@
             },
             {
               "title": "Tirs bloqués",
-              "homeMain": "1",
+              "homeMain": "6",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "6",
               "awayAdd": ""
             },
             {
               "title": "Hors-jeux",
-              "homeMain": "1",
+              "homeMain": "2",
               "homeAdd": "",
               "awayMain": "1",
               "awayAdd": ""
             },
             {
               "title": "Touches",
-              "homeMain": "24",
+              "homeMain": "15",
               "homeAdd": "",
-              "awayMain": "16",
+              "awayMain": "21",
               "awayAdd": ""
             },
             {
               "title": "Passes",
-              "homeMain": "407",
+              "homeMain": "350",
               "homeAdd": "",
-              "awayMain": "201",
+              "awayMain": "264",
               "awayAdd": ""
             },
             {
               "title": "Corners joués",
-              "homeMain": "9",
+              "homeMain": "5",
               "homeAdd": "",
               "awayMain": "3",
               "awayAdd": ""
             },
             {
+              "title": "Tacles réussis",
+              "homeMain": "15",
+              "homeAdd": "",
+              "awayMain": "10",
+              "awayAdd": ""
+            },
+            {
               "title": "Tacles",
-              "homeMain": "14",
+              "homeMain": "22",
               "homeAdd": "",
               "awayMain": "17",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dégagements",
+              "homeMain": "29",
+              "homeAdd": "",
+              "awayMain": "49",
               "awayAdd": ""
             },
             {
               "title": "Penalties concédés",
               "homeMain": "1",
               "homeAdd": "",
-              "awayMain": "0",
-              "awayAdd": ""
-            },
-            {
-              "title": "Tacles réussis",
-              "homeMain": "7",
-              "homeAdd": "",
-              "awayMain": "13",
-              "awayAdd": ""
-            },
-            {
-              "title": "Dégagements",
-              "homeMain": "20",
-              "homeAdd": "",
-              "awayMain": "54",
+              "awayMain": "1",
               "awayAdd": ""
             },
             {
               "title": "Arrêts",
-              "homeMain": "1",
+              "homeMain": "4",
               "homeAdd": "",
-              "awayMain": "8",
+              "awayMain": "5",
               "awayAdd": ""
             }
           ],
@@ -6010,11 +6056,11 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-2648722949974450411"
+              "value": "matchSlim-571868489337376225"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0021"
+              "value": "playedterminé0010"
             },
             {
               "key": "data-live",
@@ -6027,21 +6073,26 @@
         "goals": {
           "home": [
             {
-              "player": "R. Pollero",
-              "minute": "32'"
+              "player": "L. Advíncula",
+              "minute": "63'"
             }
           ],
-          "away": []
+          "away": [
+            {
+              "player": "B. Ayala",
+              "minute": "74' (sp)"
+            }
+          ]
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/2498086542238802984-deportivo-tachira-vs-the-strongest\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/deportivo-tachira.png\" alt=\"Logo Deportivo Táchira\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Táchira</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">32'</span>\n                                <span class=\"matchFull__strikerName\">R. Pollero</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/the-strongest.png\" alt=\"Logo The Strongest\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">The Strongest</span><span class=\"matchTeam__card\">\n            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" class=\"colorRedCardSvg\">\n    <path d=\"M15 1.5H9a3 3 0 0 0-3 3v15a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-15a3 3 0 0 0-3-3Z\"></path>\n</svg>\n\n\n        </span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosPlayed\">terminé</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/964668255713464951-alianza-lima-vs-2-de-mayo\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/alianza-lima.png\" alt=\"Logo Alianza Lima\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Alianza Lima</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">63'</span>\n                                <span class=\"matchFull__strikerName\">L. Advíncula</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/2-de-mayo.png\" alt=\"Logo 2 de Mayo\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">2 de Mayo</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">74' (sp)</span>\n                                <span class=\"matchFull__strikerName\">B. Ayala</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosPlayed\">terminé</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "2498086542238802984",
-          "data-live-value": "played10010",
+          "data-live-id": "964668255713464951",
+          "data-live-value": "played11000",
           "data-live": "0"
         },
-        "rawText": "Táchira\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                32'\n                                R. Pollero\n                            \n                                            \n                \n                \n                    \n        \n\n\n    The Strongest\n            \n\n    \n\n\n\n        \n0\n                        \n\n                \n            \n                \n                            terminé"
+        "rawText": "Alianza Lima\n1\n                        \n\n                                    \n                                                    \n                                63'\n                                L. Advíncula\n                            \n                                            \n                \n                \n                    \n        \n\n\n    2 de Mayo\n1\n                        \n\n                                    \n                                                    \n                                74' (sp)\n                                B. Ayala\n                            \n                                            \n                \n            \n                \n                            terminé"
       }
     ]
   },
@@ -6757,15 +6808,15 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/coupe-de-belgique-6628fd9673ed6.png",
     "matches": [
       {
-        "liveId": "7458774916714964829",
-        "statsLink": "https://www.footmercato.net/live/7458774916714964829/stats",
+        "liveId": "1072745500033279872",
+        "statsLink": "https://www.footmercato.net/live/1072745500033279872/stats",
         "homeTeam": {
-          "name": "R. Union SG",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/union-saint-gilloise.png"
+          "name": "Antwerp",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/antwerp.png"
         },
         "awayTeam": {
-          "name": "Charleroi",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/sporting-charleroi.png"
+          "name": "Anderlecht",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/anderlecht.png"
         },
         "score": null,
         "isLive": false,
@@ -6773,53 +6824,53 @@
           "faceToFace": [],
           "goalStats": [
             {
-              "title": "Répartition des 29 buts",
-              "homeMain": "76%",
-              "homeAdd": "(22)",
-              "awayMain": "24%",
-              "awayAdd": "(7)"
+              "title": "Répartition des 64 buts",
+              "homeMain": "41%",
+              "homeAdd": "(26)",
+              "awayMain": "59%",
+              "awayAdd": "(38)"
             },
             {
               "title": "Buts par match",
-              "homeMain": "1.83",
+              "homeMain": "0.84",
               "homeAdd": "",
-              "awayMain": "0.58",
+              "awayMain": "1.23",
               "awayAdd": ""
             },
             {
               "title": "Aucun but marqué",
-              "homeMain": "17%",
-              "homeAdd": "(2)",
-              "awayMain": "50%",
-              "awayAdd": "(6)"
+              "homeMain": "42%",
+              "homeAdd": "(13)",
+              "awayMain": "29%",
+              "awayAdd": "(9)"
             },
             {
               "title": "Au moins 1 but marqué",
-              "homeMain": "83%",
-              "homeAdd": "(10)",
-              "awayMain": "50%",
-              "awayAdd": "(6)"
+              "homeMain": "58%",
+              "homeAdd": "(18)",
+              "awayMain": "71%",
+              "awayAdd": "(22)"
             },
             {
               "title": "Plus de 1.5 buts marqués",
-              "homeMain": "50%",
-              "homeAdd": "(6)",
-              "awayMain": "8%",
-              "awayAdd": "(1)"
+              "homeMain": "23%",
+              "homeAdd": "(7)",
+              "awayMain": "35%",
+              "awayAdd": "(11)"
             },
             {
               "title": "Plus de 2.5 buts marqués",
-              "homeMain": "42%",
-              "homeAdd": "(5)",
-              "awayMain": "0%",
-              "awayAdd": ""
+              "homeMain": "3%",
+              "homeAdd": "(1)",
+              "awayMain": "10%",
+              "awayAdd": "(3)"
             },
             {
               "title": "Plus de 3.5 buts marqués",
-              "homeMain": "8%",
-              "homeAdd": "(1)",
-              "awayMain": "0%",
-              "awayAdd": ""
+              "homeMain": "0%",
+              "homeAdd": "(2)",
+              "awayMain": "6%",
+              "awayAdd": "(2)"
             },
             {
               "title": "Plus de 4.5 buts marqués",
@@ -6837,100 +6888,100 @@
             },
             {
               "title": "Victoires",
-              "homeMain": "15",
+              "homeMain": "8",
               "homeAdd": "",
-              "awayMain": "9",
+              "awayMain": "10",
               "awayAdd": ""
             },
             {
               "title": "Nuls",
-              "homeMain": "7",
+              "homeMain": "6",
               "homeAdd": "",
               "awayMain": "6",
               "awayAdd": ""
             },
             {
               "title": "Défaites",
-              "homeMain": "2",
+              "homeMain": "10",
               "homeAdd": "",
-              "awayMain": "9",
+              "awayMain": "8",
               "awayAdd": ""
             },
             {
               "title": "Buts",
-              "homeMain": "40",
+              "homeMain": "28",
               "homeAdd": "",
-              "awayMain": "32",
+              "awayMain": "30",
               "awayAdd": ""
             },
             {
               "title": "Buts sur penalty",
-              "homeMain": "2",
+              "homeMain": "5",
               "homeAdd": "",
-              "awayMain": "3",
+              "awayMain": "4",
               "awayAdd": ""
             },
             {
               "title": "Possession",
-              "homeMain": "52%",
+              "homeMain": "48%",
               "homeAdd": "",
-              "awayMain": "47%",
+              "awayMain": "53%",
               "awayAdd": ""
             },
             {
               "title": "Précision des passes",
-              "homeMain": "80%",
+              "homeMain": "79%",
               "homeAdd": "",
               "awayMain": "80%",
               "awayAdd": ""
             },
             {
               "title": "Précision des centres",
-              "homeMain": "30%",
+              "homeMain": "23%",
               "homeAdd": "",
-              "awayMain": "19%",
+              "awayMain": "20%",
               "awayAdd": ""
             },
             {
               "title": "Premier but marqué en moyenne",
-              "homeMain": "40'",
+              "homeMain": "38'",
               "homeAdd": "",
-              "awayMain": "35'",
+              "awayMain": "39'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but marqué en moyenne",
-              "homeMain": "71'",
+              "homeMain": "55'",
               "homeAdd": "",
-              "awayMain": "55'",
+              "awayMain": "57'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but marqué",
-              "homeMain": "20",
+              "homeMain": "15",
               "homeAdd": "",
-              "awayMain": "19",
+              "awayMain": "17",
               "awayAdd": ""
             },
             {
               "title": "Premier but encaissé en moyenne",
-              "homeMain": "49'",
+              "homeMain": "36'",
               "homeAdd": "",
-              "awayMain": "29'",
+              "awayMain": "38'",
               "awayAdd": ""
             },
             {
               "title": "Dernier but encaissé en moyenne",
               "homeMain": "50'",
               "homeAdd": "",
-              "awayMain": "53'",
+              "awayMain": "63'",
               "awayAdd": ""
             },
             {
               "title": "Nb de matchs - au moins 1 but concédé",
-              "homeMain": "12",
+              "homeMain": "19",
               "homeAdd": "",
-              "awayMain": "17",
+              "awayMain": "15",
               "awayAdd": ""
             }
           ],
@@ -6940,7 +6991,31 @@
           "rawDataAttributes": [
             {
               "key": "data-live-id",
-              "value": "matchSlim-1991171696598154057"
+              "value": "matchSlim-174770516683364066"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé2001"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-7707730573400918161"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0022"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-4203746570591911897"
             },
             {
               "key": "data-live-value",
@@ -6952,11 +7027,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-8491205737128375619"
+              "value": "matchSlim-6889542102356829881"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0011"
+              "value": "playedterminé1013"
             },
             {
               "key": "data-live",
@@ -6964,35 +7039,11 @@
             },
             {
               "key": "data-live-id",
-              "value": "matchSlim-9031288463377411693"
+              "value": "matchSlim-9191637323767234213"
             },
             {
               "key": "data-live-value",
-              "value": "playedterminé0031"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-988202975019940264"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0012"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-6855932321330613027"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0010"
+              "value": "playedterminé0000"
             },
             {
               "key": "data-live",
@@ -7007,14 +7058,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/7458774916714964829-union-saint-gilloise-vs-sporting-charleroi\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/union-saint-gilloise.png\" alt=\"Logo Union Saint-Gilloise\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">R. Union SG</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/sporting-charleroi.png\" alt=\"Logo Sporting Charleroi\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Charleroi</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T19:30:00+00:00\">\n                                20:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/1072745500033279872-antwerp-vs-anderlecht\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/antwerp.png\" alt=\"Logo Antwerp\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Antwerp</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/anderlecht.png\" alt=\"Logo Anderlecht\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Anderlecht</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T19:30:00+00:00\">\n                                20:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "7458774916714964829",
+          "data-live-id": "1072745500033279872",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "R. Union SG\n\n\n                \n                \n                    \n        \n\n\n    Charleroi\n\n\n                \n            \n                \n                            \n                            \n                                20:30"
+        "rawText": "Antwerp\n\n\n                \n                \n                    \n        \n\n\n    Anderlecht\n\n\n                \n            \n                \n                            \n                            \n                                20:30"
       }
     ]
   },
@@ -7023,143 +7074,25 @@
     "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/amicaux-club.png",
     "matches": [
       {
-        "liveId": "950251106406975931",
-        "statsLink": "https://www.footmercato.net/live/950251106406975931/stats",
+        "liveId": "1618040933852209678",
+        "statsLink": "https://www.footmercato.net/live/1618040933852209678/stats",
         "homeTeam": {
-          "name": "Sporting KC",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/sporting-kc.png"
+          "name": "Rhode Island",
+          "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
         "awayTeam": {
-          "name": "NYCFC",
-          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/new-york-city.png"
+          "name": "Union II",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/bethlehem-steel.png"
         },
         "score": null,
         "isLive": false,
         "stats": {
           "faceToFace": [],
-          "goalStats": [
-            {
-              "title": "Répartition des 15 buts",
-              "homeMain": "40%",
-              "homeAdd": "(6)",
-              "awayMain": "60%",
-              "awayAdd": "(9)"
-            },
-            {
-              "title": "Buts par match",
-              "homeMain": "0.67",
-              "homeAdd": "",
-              "awayMain": "1",
-              "awayAdd": ""
-            },
-            {
-              "title": "Aucun but marqué",
-              "homeMain": "56%",
-              "homeAdd": "(5)",
-              "awayMain": "33%",
-              "awayAdd": "(3)"
-            },
-            {
-              "title": "Au moins 1 but marqué",
-              "homeMain": "44%",
-              "homeAdd": "(4)",
-              "awayMain": "67%",
-              "awayAdd": "(6)"
-            },
-            {
-              "title": "Plus de 1.5 buts marqués",
-              "homeMain": "11%",
-              "homeAdd": "(1)",
-              "awayMain": "22%",
-              "awayAdd": "(2)"
-            },
-            {
-              "title": "Plus de 2.5 buts marqués",
-              "homeMain": "11%",
-              "homeAdd": "(1)",
-              "awayMain": "11%",
-              "awayAdd": "(1)"
-            },
-            {
-              "title": "Plus de 3.5 buts marqués",
-              "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
-            },
-            {
-              "title": "Plus de 4.5 buts marqués",
-              "homeMain": "0%",
-              "homeAdd": "",
-              "awayMain": "0%",
-              "awayAdd": ""
-            }
-          ],
+          "goalStats": [],
           "extraStats": [],
           "timeline": [],
           "cards": [],
-          "rawDataAttributes": [
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-7666453258959424713"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0011"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-2935869045725749291"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0000"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-9068605326416530269"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0000"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-3819982441788091802"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0131"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            },
-            {
-              "key": "data-live-id",
-              "value": "matchSlim-961332876051100769"
-            },
-            {
-              "key": "data-live-value",
-              "value": "playedterminé0102"
-            },
-            {
-              "key": "data-live",
-              "value": "0"
-            }
-          ]
+          "rawDataAttributes": []
         },
         "lineups": {},
         "status": "scheduled",
@@ -7168,14 +7101,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/950251106406975931-sporting-kc-vs-new-york-city\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/sporting-kc.png\" alt=\"Logo Sporting KC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Sporting KC</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/new-york-city.png\" alt=\"Logo New York City\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">NYCFC</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-11T21:30:00+00:00\">\n                                22:30\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/1618040933852209678-rhode-island-vs-philadelphia-union-ii\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Rhode Island\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Rhode Island</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/bethlehem-steel.png\" alt=\"Logo Philadelphia Union\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Union II</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T21:00:00+00:00\">\n                                22:00\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
-          "data-live-id": "950251106406975931",
+          "data-live-id": "1618040933852209678",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Sporting KC\n\n\n                \n                \n                    \n        \n\n\n    NYCFC\n\n\n                \n            \n                \n                            \n                            \n                                22:30"
+        "rawText": "Rhode Island\n\n\n                \n                \n                    \n        \n\n\n    Union II\n\n\n                \n            \n                \n                            \n                            \n                                22:00"
       },
       {
         "liveId": "750541075563692069",
@@ -8688,6 +8621,1588 @@
         "isLive": false,
         "stats": {},
         "lineups": {}
+      }
+    ]
+  },
+  {
+    "leagueName": "National",
+    "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/national.png",
+    "matches": [
+      {
+        "liveId": "1774771431120394942",
+        "statsLink": "https://www.footmercato.net/live/1774771431120394942/stats",
+        "homeTeam": {
+          "name": "QRM",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/logo-quevilly-rouen-metropole-6086a1c28bcd8.png"
+        },
+        "awayTeam": {
+          "name": "Concarneau",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/logo-concarneau.png"
+        },
+        "score": "0 - 1",
+        "status": "live",
+        "isLive": true,
+        "goals": {
+          "home": [],
+          "away": [
+            {
+              "player": "Y. Soukouna",
+              "minute": "4'"
+            }
+          ]
+        },
+        "broadcasts": [
+          "https://assets-fr.imgfoot.com/media/cache/150x150/youtube-671bb471bdf82.png"
+        ],
+        "rawHTML": "\n    <a href=\"/live/1774771431120394942-quevilly-rouen-vs-concarneau\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/logo-quevilly-rouen-metropole-6086a1c28bcd8.png\" alt=\"Logo Quevilly-Rouen\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">QRM</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/logo-concarneau.png\" alt=\"Logo Concarneau\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Concarneau</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">4'</span>\n                                <span class=\"matchFull__strikerName\">Y. Soukouna</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">5'</span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/youtube-671bb471bdf82.png\" alt=\"Logo Youtube\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "1774771431120394942",
+          "data-live-value": "playing01005'1",
+          "data-live": "1"
+        },
+        "rawText": "QRM\n0\n                        \n\n                \n                \n                    \n        \n\n\n    Concarneau\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                4'\n                                Y. Soukouna\n                            \n                                            \n                \n            \n                \n                            5'",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 35 buts",
+              "homeMain": "37%",
+              "homeAdd": "(13)",
+              "awayMain": "63%",
+              "awayAdd": "(22)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "1.69",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "38%",
+              "homeAdd": "(5)",
+              "awayMain": "15%",
+              "awayAdd": "(2)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "62%",
+              "homeAdd": "(8)",
+              "awayMain": "85%",
+              "awayAdd": "(11)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "31%",
+              "homeAdd": "(4)",
+              "awayMain": "38%",
+              "awayAdd": "(5)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "8%",
+              "homeAdd": "(1)",
+              "awayMain": "31%",
+              "awayAdd": "(4)"
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "(1)",
+              "awayMain": "8%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "(1)",
+              "awayMain": "8%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Matchs",
+              "homeMain": "18",
+              "homeAdd": "",
+              "awayMain": "18",
+              "awayAdd": ""
+            },
+            {
+              "title": "Victoires",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nuls",
+              "homeMain": "5",
+              "homeAdd": "",
+              "awayMain": "8",
+              "awayAdd": ""
+            },
+            {
+              "title": "Défaites",
+              "homeMain": "11",
+              "homeAdd": "",
+              "awayMain": "4",
+              "awayAdd": ""
+            },
+            {
+              "title": "Buts",
+              "homeMain": "14",
+              "homeAdd": "",
+              "awayMain": "19",
+              "awayAdd": ""
+            },
+            {
+              "title": "Buts sur penalty",
+              "homeMain": "3",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            },
+            {
+              "title": "Possession",
+              "homeMain": "43%",
+              "homeAdd": "",
+              "awayMain": "47%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Précision des passes",
+              "homeMain": "76%",
+              "homeAdd": "",
+              "awayMain": "79%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Précision des centres",
+              "homeMain": "24%",
+              "homeAdd": "",
+              "awayMain": "23%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "38'",
+              "homeAdd": "",
+              "awayMain": "33'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "45'",
+              "homeAdd": "",
+              "awayMain": "61'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "10",
+              "homeAdd": "",
+              "awayMain": "10",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "34'",
+              "homeAdd": "",
+              "awayMain": "37'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "54'",
+              "homeAdd": "",
+              "awayMain": "53'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "15",
+              "homeAdd": "",
+              "awayMain": "10",
+              "awayAdd": ""
+            },
+            {
+              "title": "Âge moyen",
+              "homeMain": "23.95",
+              "homeAdd": "",
+              "awayMain": "29.47",
+              "awayAdd": ""
+            },
+            {
+              "title": "Taille moyenne",
+              "homeMain": "179.57",
+              "homeAdd": "",
+              "awayMain": "181.5",
+              "awayAdd": ""
+            },
+            {
+              "title": "Poids moyen",
+              "homeMain": "75.5",
+              "homeAdd": "",
+              "awayMain": "72",
+              "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "442",
+              "homeAdd": "(6 fois)",
+              "awayMain": "352",
+              "awayAdd": "(2 fois)"
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3066659110585789381"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0131"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3069558278643766292"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0051"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5284500766294937610"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé1021"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5929705122967291559"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0000"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-6464733683528046425"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0023"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "leagueName": "Saudi Pro League",
+    "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/saudi-pro-league.png",
+    "matches": [
+      {
+        "liveId": "7650415640711848278",
+        "statsLink": "https://www.footmercato.net/live/7650415640711848278/stats",
+        "homeTeam": {
+          "name": "Damac",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/damak-fc.png"
+        },
+        "awayTeam": {
+          "name": "Taawoun",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/al-taawon.png"
+        },
+        "score": "2 - 1",
+        "status": "finished",
+        "isLive": false,
+        "goals": {
+          "home": [
+            {
+              "player": "Y. Meïté",
+              "minute": "34', 82'"
+            }
+          ],
+          "away": [
+            {
+              "player": "Biel",
+              "minute": "14'"
+            }
+          ]
+        },
+        "broadcasts": [],
+        "rawHTML": "\n    <a href=\"/live/7650415640711848278-damac-vs-al-taawoun\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/damak-fc.png\" alt=\"Logo Damac\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Damac</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">2</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">34', 82'</span>\n                                <span class=\"matchFull__strikerName\">Y. Meïté</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/al-taawon.png\" alt=\"Logo Al Taawoun\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Taawoun</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">14'</span>\n                                <span class=\"matchFull__strikerName\">Biel</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosPlayed\">terminé</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "7650415640711848278",
+          "data-live-value": "played21000",
+          "data-live": "0"
+        },
+        "rawText": "Damac\n2\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                34', 82'\n                                Y. Meïté\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Taawoun\n1\n                        \n\n                                    \n                                                    \n                                14'\n                                Biel\n                            \n                                            \n                \n            \n                \n                            terminé",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 39 buts",
+              "homeMain": "36%",
+              "homeAdd": "(14)",
+              "awayMain": "64%",
+              "awayAdd": "(25)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "1.79",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "29%",
+              "homeAdd": "(4)",
+              "awayMain": "21%",
+              "awayAdd": "(3)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "71%",
+              "homeAdd": "(10)",
+              "awayMain": "79%",
+              "awayAdd": "(11)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "29%",
+              "homeAdd": "(4)",
+              "awayMain": "50%",
+              "awayAdd": "(7)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "(4)",
+              "awayMain": "29%",
+              "awayAdd": "(4)"
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "(1)",
+              "awayMain": "7%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "(1)",
+              "awayMain": "7%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "45'",
+              "homeAdd": "",
+              "awayMain": "39'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "45'",
+              "homeAdd": "",
+              "awayMain": "68'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "14",
+              "homeAdd": "",
+              "awayMain": "16",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "32'",
+              "homeAdd": "",
+              "awayMain": "53'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "61'",
+              "homeAdd": "",
+              "awayMain": "64'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "17",
+              "homeAdd": "",
+              "awayMain": "14",
+              "awayAdd": ""
+            },
+            {
+              "title": "Possession",
+              "homeMain": "44%",
+              "homeAdd": "",
+              "awayMain": "56%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes réussies",
+              "homeMain": "83%",
+              "homeAdd": "",
+              "awayMain": "84%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Âge moyen",
+              "homeMain": "29.03",
+              "homeAdd": "",
+              "awayMain": "26.63",
+              "awayAdd": ""
+            },
+            {
+              "title": "Taille moyenne",
+              "homeMain": "175.22",
+              "homeAdd": "",
+              "awayMain": "177.67",
+              "awayAdd": ""
+            },
+            {
+              "title": "Poids moyen",
+              "homeMain": "70.88",
+              "homeAdd": "",
+              "awayMain": "73.44",
+              "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "4231",
+              "homeAdd": "(8 fois)",
+              "awayMain": "433",
+              "awayAdd": "(11 fois)"
+            },
+            {
+              "title": "",
+              "homeMain": "",
+              "homeAdd": "",
+              "awayMain": "",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tirs bloqués",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            },
+            {
+              "title": "Hors-jeux",
+              "homeMain": "3",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Touches",
+              "homeMain": "16",
+              "homeAdd": "",
+              "awayMain": "18",
+              "awayAdd": ""
+            },
+            {
+              "title": "Corners joués",
+              "homeMain": "4",
+              "homeAdd": "",
+              "awayMain": "3",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes",
+              "homeMain": "322",
+              "homeAdd": "",
+              "awayMain": "418",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dégagements",
+              "homeMain": "27",
+              "homeAdd": "",
+              "awayMain": "19",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles",
+              "homeMain": "15",
+              "homeAdd": "",
+              "awayMain": "14",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles réussis",
+              "homeMain": "11",
+              "homeAdd": "",
+              "awayMain": "9",
+              "awayAdd": ""
+            },
+            {
+              "title": "Arrêts",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5256354985280689492"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0261"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-6033296140203973398"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0130"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-6381567645481459809"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0022"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3190986027649476593"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé1001"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-4712937567943246987"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0000"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      {
+        "liveId": "3634515550705751204",
+        "statsLink": "https://www.footmercato.net/live/3634515550705751204/stats",
+        "homeTeam": {
+          "name": "Hazem",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/al-hazm-rass.png"
+        },
+        "awayTeam": {
+          "name": "Okhdood",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/al-okhdood.png"
+        },
+        "score": "1 - 1",
+        "status": "live",
+        "isLive": true,
+        "goals": {
+          "home": [
+            {
+              "player": "Abdulaziz Al Dhuwayhi",
+              "minute": "24'"
+            }
+          ],
+          "away": [
+            {
+              "player": "G. Gül",
+              "minute": "18'"
+            }
+          ]
+        },
+        "broadcasts": [],
+        "rawHTML": "\n    <a href=\"/live/3634515550705751204-al-hazm-rass-vs-al-okhdood\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/al-hazm-rass.png\" alt=\"Logo Al Hazm Rass\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Hazem</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">24'</span>\n                                <span class=\"matchFull__strikerName\">Abdulaziz Al Dhuwayhi</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/al-okhdood.png\" alt=\"Logo Al Okhdood\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Okhdood</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">18'</span>\n                                <span class=\"matchFull__strikerName\">G. Gül</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">35'</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "3634515550705751204",
+          "data-live-value": "playing110035'1",
+          "data-live": "1"
+        },
+        "rawText": "Hazem\n1\n                        \n\n                                    \n                                                    \n                                24'\n                                Abdulaziz Al Dhuwayhi\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Okhdood\n1\n                        \n\n                                    \n                                                    \n                                18'\n                                G. Gül\n                            \n                                            \n                \n            \n                \n                            35'",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 6 buts",
+              "homeMain": "50%",
+              "homeAdd": "(3)",
+              "awayMain": "50%",
+              "awayAdd": "(3)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "33%",
+              "homeAdd": "(1)",
+              "awayMain": "33%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "67%",
+              "homeAdd": "(2)",
+              "awayMain": "67%",
+              "awayAdd": "(2)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "33%",
+              "homeAdd": "(1)",
+              "awayMain": "33%",
+              "awayAdd": "(1)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "54'",
+              "homeAdd": "",
+              "awayMain": "40'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "61'",
+              "homeAdd": "",
+              "awayMain": "53'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "12",
+              "homeAdd": "",
+              "awayMain": "11",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "44'",
+              "homeAdd": "",
+              "awayMain": "36'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "71'",
+              "homeAdd": "",
+              "awayMain": "61'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "18",
+              "homeAdd": "",
+              "awayMain": "18",
+              "awayAdd": ""
+            },
+            {
+              "title": "Possession",
+              "homeMain": "51%",
+              "homeAdd": "",
+              "awayMain": "49%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes réussies",
+              "homeMain": "86%",
+              "homeAdd": "",
+              "awayMain": "87%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Âge moyen",
+              "homeMain": "28.64",
+              "homeAdd": "",
+              "awayMain": "28.63",
+              "awayAdd": ""
+            },
+            {
+              "title": "Taille moyenne",
+              "homeMain": "184",
+              "homeAdd": "",
+              "awayMain": "178.22",
+              "awayAdd": ""
+            },
+            {
+              "title": "Poids moyen",
+              "homeMain": "77.75",
+              "homeAdd": "",
+              "awayMain": "70.78",
+              "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "343",
+              "homeAdd": "(3 fois)",
+              "awayMain": "4231",
+              "awayAdd": "(2 fois)"
+            },
+            {
+              "title": "",
+              "homeMain": "",
+              "homeAdd": "",
+              "awayMain": "",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tirs bloqués",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "3",
+              "awayAdd": ""
+            },
+            {
+              "title": "Hors-jeux",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Touches",
+              "homeMain": "3",
+              "homeAdd": "",
+              "awayMain": "5",
+              "awayAdd": ""
+            },
+            {
+              "title": "Corners joués",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "3",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes",
+              "homeMain": "140",
+              "homeAdd": "",
+              "awayMain": "140",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles réussis",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "3",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dégagements",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "4",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Arrêts",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3900048985854285151"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0012"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3311539418892231779"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0000"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-1875302643289925198"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé1021"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      {
+        "liveId": "4566876581295664470",
+        "statsLink": "https://www.footmercato.net/live/4566876581295664470/stats",
+        "homeTeam": {
+          "name": "Qadsiah",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/al-quadisiya-khobar.png"
+        },
+        "awayTeam": {
+          "name": "NEOM",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/neom.png"
+        },
+        "score": "0 - 0",
+        "status": "live",
+        "isLive": true,
+        "goals": {
+          "home": [],
+          "away": []
+        },
+        "broadcasts": [],
+        "rawHTML": "\n    <a href=\"/live/4566876581295664470-al-quadisiya-khobar-vs-neom\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/al-quadisiya-khobar.png\" alt=\"Logo Al Quadisiya Khobar\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Qadsiah</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/neom.png\" alt=\"Logo NEOM\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">NEOM</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">35'</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "4566876581295664470",
+          "data-live-value": "playing000035'1",
+          "data-live": "1"
+        },
+        "rawText": "Qadsiah\n0\n                        \n\n                \n                \n                    \n        \n\n\n    NEOM\n0\n                        \n\n                \n            \n                \n                            35'",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "27'",
+              "homeAdd": "",
+              "awayMain": "43'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "66'",
+              "homeAdd": "",
+              "awayMain": "64'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "18",
+              "homeAdd": "",
+              "awayMain": "16",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "46'",
+              "homeAdd": "",
+              "awayMain": "38'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "61'",
+              "homeAdd": "",
+              "awayMain": "63'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "14",
+              "homeAdd": "",
+              "awayMain": "16",
+              "awayAdd": ""
+            },
+            {
+              "title": "Possession",
+              "homeMain": "61%",
+              "homeAdd": "",
+              "awayMain": "39%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes réussies",
+              "homeMain": "84%",
+              "homeAdd": "",
+              "awayMain": "79%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Âge moyen",
+              "homeMain": "28.28",
+              "homeAdd": "",
+              "awayMain": "26.9",
+              "awayAdd": ""
+            },
+            {
+              "title": "Taille moyenne",
+              "homeMain": "180.1",
+              "homeAdd": "",
+              "awayMain": "180.6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Poids moyen",
+              "homeMain": "75.09",
+              "homeAdd": "",
+              "awayMain": "76.18",
+              "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "442",
+              "homeAdd": "(9 fois)",
+              "awayMain": "541",
+              "awayAdd": "(1 fois)"
+            },
+            {
+              "title": "",
+              "homeMain": "",
+              "homeAdd": "",
+              "awayMain": "",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tirs bloqués",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            },
+            {
+              "title": "Hors-jeux",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Touches",
+              "homeMain": "8",
+              "homeAdd": "",
+              "awayMain": "7",
+              "awayAdd": ""
+            },
+            {
+              "title": "Corners joués",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes",
+              "homeMain": "224",
+              "homeAdd": "",
+              "awayMain": "145",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dégagements",
+              "homeMain": "5",
+              "homeAdd": "",
+              "awayMain": "6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles réussis",
+              "homeMain": "6",
+              "homeAdd": "",
+              "awayMain": "4",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles",
+              "homeMain": "8",
+              "homeAdd": "",
+              "awayMain": "6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Arrêts",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5482818034050747537"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0013"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "leagueName": "Primera División (Argentine)",
+    "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/primera-division.png",
+    "matches": [
+      {
+        "liveId": "5117815968163464467",
+        "statsLink": "https://www.footmercato.net/live/5117815968163464467/stats",
+        "homeTeam": {
+          "name": "Tigre",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/ca-tigre.png"
+        },
+        "awayTeam": {
+          "name": "Aldosivi",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/aldosivi.png"
+        },
+        "score": null,
+        "status": "scheduled",
+        "isLive": false,
+        "goals": {
+          "home": [],
+          "away": []
+        },
+        "broadcasts": [],
+        "rawHTML": "\n    <a href=\"/live/5117815968163464467-tigre-vs-aldosivi\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/ca-tigre.png\" alt=\"Logo CA Tigre\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Tigre</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/aldosivi.png\" alt=\"Logo Aldosivi\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Aldosivi</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T22:00:00+00:00\">\n                                23:00\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "5117815968163464467",
+          "data-live-value": "fixture000",
+          "data-live": "0"
+        },
+        "rawText": "Tigre\n\n\n                \n                \n                    \n        \n\n\n    Aldosivi\n\n\n                \n            \n                \n                            \n                            \n                                23:00",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 20 buts",
+              "homeMain": "80%",
+              "homeAdd": "(16)",
+              "awayMain": "20%",
+              "awayAdd": "(4)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1.78",
+              "homeAdd": "",
+              "awayMain": "0.44",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "11%",
+              "homeAdd": "(1)",
+              "awayMain": "56%",
+              "awayAdd": "(5)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "89%",
+              "homeAdd": "(8)",
+              "awayMain": "44%",
+              "awayAdd": "(4)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "78%",
+              "homeAdd": "(7)",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "11%",
+              "homeAdd": "(1)",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Matchs",
+              "homeMain": "4",
+              "homeAdd": "",
+              "awayMain": "4",
+              "awayAdd": ""
+            },
+            {
+              "title": "Victoires",
+              "homeMain": "3",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nuls",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "3",
+              "awayAdd": ""
+            },
+            {
+              "title": "Défaites",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Buts",
+              "homeMain": "10",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            },
+            {
+              "title": "Possession",
+              "homeMain": "38%",
+              "homeAdd": "",
+              "awayMain": "47%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Précision des passes",
+              "homeMain": "68%",
+              "homeAdd": "",
+              "awayMain": "73%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Précision des centres",
+              "homeMain": "14%",
+              "homeAdd": "",
+              "awayMain": "20%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "42'",
+              "homeAdd": "",
+              "awayMain": "64'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "71'",
+              "homeAdd": "",
+              "awayMain": "64'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "4",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "84'",
+              "homeAdd": "",
+              "awayMain": "9'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "84'",
+              "homeAdd": "",
+              "awayMain": "45'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "3",
+              "homeAdd": "",
+              "awayMain": "2",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5372909816709143888"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0020"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-1015019605595835124"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0002"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-8689224721575446027"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0030"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-2446346658384201474"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0010"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5341359087323048368"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0002"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "leagueName": "Eerste Divisie (Pays-Bas)",
+    "leagueLogo": "https://assets-fr.imgfoot.com/media/cache/60x60/eerste-divisie.png",
+    "matches": [
+      {
+        "liveId": "5981448444518964869",
+        "statsLink": "https://www.footmercato.net/live/5981448444518964869/stats",
+        "homeTeam": {
+          "name": "Den Bosch",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/den-bosch.png"
+        },
+        "awayTeam": {
+          "name": "Eindhoven",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-eindhoven.png"
+        },
+        "score": null,
+        "status": "scheduled",
+        "isLive": false,
+        "goals": {
+          "home": [],
+          "away": []
+        },
+        "broadcasts": [],
+        "rawHTML": "\n    <a href=\"/live/5981448444518964869-den-bosch-vs-fc-eindhoven\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/den-bosch.png\" alt=\"Logo Den Bosch\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Den Bosch</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/fc-eindhoven.png\" alt=\"Logo FC Eindhoven\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Eindhoven</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-12T19:00:00+00:00\">\n                                20:00\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "5981448444518964869",
+          "data-live-value": "fixture000",
+          "data-live": "0"
+        },
+        "rawText": "Den Bosch\n\n\n                \n                \n                    \n        \n\n\n    Eindhoven\n\n\n                \n            \n                \n                            \n                            \n                                20:00",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 56 buts",
+              "homeMain": "41%",
+              "homeAdd": "(23)",
+              "awayMain": "59%",
+              "awayAdd": "(33)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1.1",
+              "homeAdd": "",
+              "awayMain": "1.57",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "43%",
+              "homeAdd": "(9)",
+              "awayMain": "14%",
+              "awayAdd": "(3)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "57%",
+              "homeAdd": "(12)",
+              "awayMain": "86%",
+              "awayAdd": "(18)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "29%",
+              "homeAdd": "(6)",
+              "awayMain": "48%",
+              "awayAdd": "(10)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "19%",
+              "homeAdd": "(4)",
+              "awayMain": "14%",
+              "awayAdd": "(3)"
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "5%",
+              "homeAdd": "(1)",
+              "awayMain": "10%",
+              "awayAdd": "(2)"
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "38'",
+              "homeAdd": "",
+              "awayMain": "41'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "62'",
+              "homeAdd": "",
+              "awayMain": "72'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "22",
+              "homeAdd": "",
+              "awayMain": "15",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "34'",
+              "homeAdd": "",
+              "awayMain": "31'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "65'",
+              "homeAdd": "",
+              "awayMain": "66'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "22",
+              "homeAdd": "",
+              "awayMain": "18",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-7136867013697278119"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0013"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-8659375119742795874"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0012"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-1680197229173337033"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0022"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-6441262258181165313"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0020"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-5741066956241422944"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0020"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
       }
     ]
   }

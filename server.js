@@ -68,11 +68,28 @@ async function loadFromDisk() {
 }
 
 // ================== Update Jobs ==================
+let updatingMatches = false;
+
+function hasLiveMatch(data) {
+  return data.some((league) =>
+    league.matches.some(
+      (m) =>
+        m.status?.toLowerCase().includes("live") ||
+        m.status?.toLowerCase().includes("playing") ||
+        m.minute
+    )
+  );
+}
+
 async function updateMatches() {
+  if (updatingMatches) return;
+  updatingMatches = true;
+
   try {
     const newData = await fetchMatchToday();
     if (!Array.isArray(newData) || newData.length === 0) {
       console.log("🟡 Match-Today empty or not ready");
+      updatingMatches = false;
       return;
     }
 
@@ -115,6 +132,8 @@ async function updateMatches() {
     }
   } catch (err) {
     console.error("❌ Match update failed:", err.message);
+  } finally {
+    updatingMatches = false;
   }
 }
 
@@ -171,8 +190,6 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.get("/ping", (req, res) => res.send("pong"));
-
 // ================== WebSocket ==================
 wss.on("connection", (ws) => {
   console.log("📱 WebSocket client connected");
@@ -195,17 +212,16 @@ server.listen(PORT, async () => {
   await updateMatches();
   await updateStandings();
 
-  // ✅ تحديث المباريات كل 5 دقائق (تصحيح المشكلة فقط)
-  setInterval(() => {
-    updateMatches().catch(err => console.error("❌ updateMatches failed:", err.message));
-  }, 5 * 60 * 1000);
+  // ================== Auto Updates ==================
+  // تحديث المباريات كل دقيقة أثناء LIVE، كل 5 دقائق إذا لا توجد مباريات LIVE
+  setInterval(async () => {
+    if (hasLiveMatch(matchesCache)) {
+      await updateMatches();
+    } else {
+      setTimeout(updateMatches, 5 * 60 * 1000);
+    }
+  }, 60 * 1000);
 
   // تحديث الترتيب كل 10 دقائق كما هو
   setInterval(updateStandings, 10 * 60 * 1000);
-
-  if (process.env.SELF_URL) {
-    setInterval(() => {
-      fetch(process.env.SELF_URL).catch(() => {});
-    }, 5 * 60 * 1000);
-  }
 });
