@@ -4,6 +4,7 @@ import fsSync from "fs";
 import fs from "fs/promises";
 import http from "http";
 import { WebSocketServer } from "ws";
+import crypto from "crypto";
 
 import fetchAllLeagues from "./fetchAllLeagues.js";
 import { fetchMatchToday } from "./fetchMatchToday.js";
@@ -26,15 +27,30 @@ const MATCH_FILE = "./match-today.json";
 let standingsCache = {};
 let normalizedStandingsCache = {};
 let matchesCache = [];
+let matchHashCache = new Map(); // لتجنب الكتابة إذا لم تتغير
 
 // ================== Helpers ==================
-async function writeIfChanged(filePath, newData) {
-  const jsonData = JSON.stringify(newData, null, 2);
+function hashObject(obj) {
+  return crypto.createHash("md5").update(JSON.stringify(obj)).digest("hex");
+}
+
+async function atomicWrite(filePath, data) {
+  const tempFile = filePath + ".tmp";
+  await fs.writeFile(tempFile, JSON.stringify(data, null, 2), "utf8");
+  await fs.rename(tempFile, filePath);
+}
+
+async function writeIfChanged(filePath, newData, hashMap = null) {
+  const newHash = hashObject(newData);
+  if (hashMap && hashMap.get(filePath) === newHash) return false;
+
   if (fsSync.existsSync(filePath)) {
     const current = await fs.readFile(filePath, "utf8");
-    if (current === jsonData) return false;
+    if (current === JSON.stringify(newData, null, 2)) return false;
   }
-  await fs.writeFile(filePath, jsonData, "utf8");
+
+  await atomicWrite(filePath, newData);
+  if (hashMap) hashMap.set(filePath, newHash);
   return true;
 }
 
@@ -45,11 +61,23 @@ function broadcast(type, data) {
   });
 }
 
+// Debounce للـ WebSocket لتجنب التكرار السريع
+let broadcastTimeout = null;
+function broadcastDebounced(type, data, delay = 500) {
+  if (broadcastTimeout) clearTimeout(broadcastTimeout);
+  broadcastTimeout = setTimeout(() => broadcast(type, data), delay);
+}
+
 // ================== Load from disk ==================
 async function loadFromDisk() {
   try {
     if (fsSync.existsSync(MATCH_FILE)) {
       matchesCache = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
+      matchesCache.forEach((l) =>
+        l.matches.forEach((m) =>
+          matchHashCache.set(m.liveId || m.matchLink, hashObject(m))
+        )
+      );
       console.log("⚽ Match-Today loaded from disk");
     }
 
@@ -63,7 +91,7 @@ async function loadFromDisk() {
       console.log("📊 Standings loaded from disk");
     }
   } catch (err) {
-    console.error("❌ Load error:", err.message);
+    console.error(`[${new Date().toISOString()}] ❌ Load error:`, err.message);
   }
 }
 
@@ -88,50 +116,55 @@ async function updateMatches() {
   try {
     const newData = await fetchMatchToday();
     if (!Array.isArray(newData) || newData.length === 0) {
-      console.log("🟡 Match-Today empty or not ready");
+      console.log(`[${new Date().toISOString()}] 🟡 Match-Today empty or not ready`);
       updatingMatches = false;
       return;
     }
 
-    // دمج ذكي مع matchesCache
-    if (matchesCache.length > 0) {
-      for (const newLeague of newData) {
-        const existingLeague = matchesCache.find(
-          (l) => l.leagueName === newLeague.leagueName
+    // ================= دمج ذكي باستخدام Map =================
+    const leagueMap = new Map();
+    matchesCache.forEach((l) => leagueMap.set(l.leagueName, l));
+
+    for (const newLeague of newData) {
+      const existingLeague = leagueMap.get(newLeague.leagueName);
+      if (existingLeague) {
+        const matchMap = new Map(
+          existingLeague.matches.map((m) => [m.liveId || m.matchLink, m])
         );
 
-        if (existingLeague) {
-          for (const newMatch of newLeague.matches) {
-            const existingMatch = existingLeague.matches.find(
-              (m) =>
-                (m.liveId && m.liveId === newMatch.liveId) ||
-                m.matchLink === newMatch.matchLink
-            );
-
-            if (existingMatch) {
-              Object.assign(existingMatch, newMatch);
-            } else {
-              existingLeague.matches.push(newMatch);
+        for (const newMatch of newLeague.matches) {
+          const key = newMatch.liveId || newMatch.matchLink;
+          const newHash = hashObject(newMatch);
+          if (matchMap.has(key)) {
+            if (matchHashCache.get(key) !== newHash) {
+              Object.assign(matchMap.get(key), newMatch);
+              matchHashCache.set(key, newHash);
             }
+          } else {
+            existingLeague.matches.push(newMatch);
+            matchMap.set(key, newMatch);
+            matchHashCache.set(key, newHash);
           }
-        } else {
-          matchesCache.push(newLeague);
         }
+      } else {
+        matchesCache.push(newLeague);
+        leagueMap.set(newLeague.leagueName, newLeague);
+        newLeague.matches.forEach((m) =>
+          matchHashCache.set(m.liveId || m.matchLink, hashObject(m))
+        );
       }
-    } else {
-      matchesCache = newData;
     }
 
-    const changed = await writeIfChanged(MATCH_FILE, matchesCache);
+    const changed = await writeIfChanged(MATCH_FILE, matchesCache, matchHashCache);
 
     if (changed) {
-      console.log("🔴 Match-Today updated");
-      broadcast("matches_update", matchesCache);
+      console.log(`[${new Date().toISOString()}] 🔴 Match-Today updated`);
+      broadcastDebounced("matches_update", matchesCache);
     } else {
-      console.log("🟢 Match-Today no changes");
+      console.log(`[${new Date().toISOString()}] 🟢 Match-Today no changes`);
     }
   } catch (err) {
-    console.error("❌ Match update failed:", err.message);
+    console.error(`[${new Date().toISOString()}] ❌ Match update failed:`, err.message);
   } finally {
     updatingMatches = false;
   }
@@ -143,18 +176,18 @@ async function updateStandings() {
     const normalized = {};
     for (const league in raw) normalized[league] = normalizeLeague(raw[league]);
 
-    const changed = await writeIfChanged(DATA_FILE, raw);
+    const changed = await writeIfChanged(DATA_FILE, raw, matchHashCache);
     standingsCache = raw;
     normalizedStandingsCache = normalized;
 
     if (changed) {
-      console.log("📊 Standings updated");
-      broadcast("standings_update", normalizedStandingsCache);
+      console.log(`[${new Date().toISOString()}] 📊 Standings updated`);
+      broadcastDebounced("standings_update", normalizedStandingsCache);
     } else {
-      console.log("📊 Standings no changes");
+      console.log(`[${new Date().toISOString()}] 📊 Standings no changes`);
     }
   } catch (err) {
-    console.error("❌ Standings update failed:", err.message);
+    console.error(`[${new Date().toISOString()}] ❌ Standings update failed:`, err.message);
   }
 }
 
@@ -192,7 +225,7 @@ app.get("/health", (req, res) => {
 
 // ================== WebSocket ==================
 wss.on("connection", (ws) => {
-  console.log("📱 WebSocket client connected");
+  console.log(`[${new Date().toISOString()}] 📱 WebSocket client connected`);
 
   ws.send(
     JSON.stringify({
@@ -201,7 +234,7 @@ wss.on("connection", (ws) => {
     })
   );
 
-  ws.on("close", () => console.log("❌ WebSocket client disconnected"));
+  ws.on("close", () => console.log(`[${new Date().toISOString()}] ❌ WebSocket client disconnected`));
 });
 
 // ================== Start ==================
@@ -209,11 +242,12 @@ server.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
 
   await loadFromDisk();
-  await updateMatches();
-  await updateStandings();
+
+  // ================== تشغيل أولي متوازي ==================
+  await Promise.all([updateMatches(), updateStandings()]);
 
   // ================== Auto Updates ==================
-  // تحديث المباريات كل دقيقة أثناء LIVE، كل 5 دقائق إذا لا توجد مباريات LIVE
+  // تحديث المباريات: كل دقيقة أثناء LIVE، كل 5 دقائق إذا لا توجد مباريات LIVE
   setInterval(async () => {
     if (hasLiveMatch(matchesCache)) {
       await updateMatches();
@@ -222,6 +256,6 @@ server.listen(PORT, async () => {
     }
   }, 60 * 1000);
 
-  // تحديث الترتيب كل 10 دقائق كما هو
+  // تحديث الترتيب كل 10 دقائق
   setInterval(updateStandings, 10 * 60 * 1000);
 });
