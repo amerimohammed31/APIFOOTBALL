@@ -32,6 +32,7 @@ async function fetchWithRetry(url, retries = RETRY_COUNT) {
 // ================= FULL STATS =================
 async function fetchMatchStats(liveId) {
   if (!liveId) return {};
+
   const statsUrl = `https://www.footmercato.net/live/${liveId}/stats`;
 
   try {
@@ -47,7 +48,6 @@ async function fetchMatchStats(liveId) {
       rawDataAttributes: [],
     };
 
-    // FACE TO FACE
     $(".blockFaceToFace__history .blockFaceToFace__match").each((_, el) => {
       stats.faceToFace.push({
         homeTeam: $(el).find(".teamHome .teamName").text().trim(),
@@ -57,7 +57,6 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // STAT INLINE
     $(".blockVertical__contents .blockVertical__content").each((_, el) => {
       stats.goalStats.push({
         title: $(el).find(".statInline__title").text().trim(),
@@ -74,7 +73,6 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // STAT HORIZONTAL
     $(".statHorizontal").each((_, el) => {
       stats.extraStats.push({
         title: $(el).find(".statHorizontal__title").text().trim(),
@@ -83,7 +81,6 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // TIMELINE EVENTS
     $(".timeline__event").each((_, el) => {
       stats.timeline.push({
         minute: $(el).find(".timeline__time").text().trim(),
@@ -93,7 +90,6 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // CARDS
     $(".timeline__card").each((_, el) => {
       stats.cards.push({
         player: $(el).find(".player").text().trim(),
@@ -102,7 +98,6 @@ async function fetchMatchStats(liveId) {
       });
     });
 
-    // RAW DATA ATTRIBUTES
     $("[data-live-id], [data-team], [data-type]").each((_, el) => {
       const attribs = el.attribs || {};
       Object.keys(attribs).forEach((k) => {
@@ -206,14 +201,27 @@ export async function fetchMatchToday() {
           });
         });
 
-      if (matches.length > 0) leagues.push({ leagueName, leagueLogo, matches });
+      const blockedKeywords = ["amicaux", "friendly", "club friendlies"];
+      const normalizedLeagueName = (leagueName || "").toLowerCase();
+
+      if (
+        matches.length > 0 &&
+        !blockedKeywords.some((keyword) =>
+          normalizedLeagueName.includes(keyword)
+        )
+      ) {
+        leagues.push({ leagueName, leagueLogo, matches });
+      }
     });
 
-    // FETCH FULL STATS PARALLEL
     for (const league of leagues) {
       await Promise.all(
         league.matches.map(async (match) => {
-          match.stats = await fetchMatchStats(match.liveId);
+          if (match.isLive || match.status === "finished") {
+            match.stats = await fetchMatchStats(match.liveId);
+          } else {
+            match.stats = null;
+          }
         })
       );
     }
