@@ -1,5 +1,4 @@
 import express from "express";
-import fetch from "node-fetch";
 import fsSync from "fs";
 import fs from "fs/promises";
 import http from "http";
@@ -7,7 +6,7 @@ import { WebSocketServer } from "ws";
 import crypto from "crypto";
 
 import fetchAllLeagues from "./fetchAllLeagues.js";
-import { fetchMatchToday } from "./fetchMatchToday.js";
+import { fetchMatchToday, liveStatsCache } from "./fetchMatchToday.js";
 import { normalizeLeague } from "./normalizeStandings.js";
 
 const app = express();
@@ -27,7 +26,7 @@ const MATCH_FILE = "./match-today.json";
 let standingsCache = {};
 let normalizedStandingsCache = {};
 let matchesCache = [];
-let matchHashCache = new Map(); // لتجنب الكتابة إذا لم تتغير
+let matchHashCache = new Map();
 
 // ================== Helpers ==================
 function hashObject(obj) {
@@ -61,7 +60,6 @@ function broadcast(type, data) {
   });
 }
 
-// Debounce للـ WebSocket لتجنب التكرار السريع
 let broadcastTimeout = null;
 function broadcastDebounced(type, data, delay = 500) {
   if (broadcastTimeout) clearTimeout(broadcastTimeout);
@@ -100,38 +98,50 @@ let updatingMatches = false;
 
 function hasLiveMatch(data) {
   return data.some((league) =>
-    league.matches.some(
-      (m) =>
-        m.status?.toLowerCase().includes("live") ||
-        m.status?.toLowerCase().includes("playing") ||
-        m.minute
-    )
+    league.matches.some((m) => m.status?.toLowerCase() === "live")
   );
 }
 
+// ================== Live Update فقط ==================
+async function updateLiveMatchesOnly() {
+  const liveLeagues = matchesCache
+    .map(l => ({
+      ...l,
+      matches: l.matches.filter(m => m.isLive)
+    }))
+    .filter(l => l.matches.length > 0);
+
+  if (liveLeagues.length === 0) return;
+
+  for (const league of liveLeagues) {
+    for (const match of league.matches) {
+      const newStats = await fetchMatchToday();
+      // تحديث stats مباشرة
+      match.stats = newStats.find(l => l.leagueName === league.leagueName)
+                           ?.matches.find(m => m.liveId === match.liveId)?.stats || {};
+      liveStatsCache.set(match.liveId, match.stats);
+      matchHashCache.set(match.liveId, hashObject(match));
+    }
+  }
+  broadcastDebounced("matches_update", matchesCache);
+}
+
+// ================== Full Update ==================
 async function updateMatches() {
   if (updatingMatches) return;
   updatingMatches = true;
-
   try {
     const newData = await fetchMatchToday();
-    if (!Array.isArray(newData) || newData.length === 0) {
-      console.log(`[${new Date().toISOString()}] 🟡 Match-Today empty or not ready`);
-      updatingMatches = false;
-      return;
-    }
+    if (!Array.isArray(newData) || newData.length === 0) return;
 
-    // ================= دمج ذكي باستخدام Map =================
+    // دمج ذكي
     const leagueMap = new Map();
     matchesCache.forEach((l) => leagueMap.set(l.leagueName, l));
 
     for (const newLeague of newData) {
       const existingLeague = leagueMap.get(newLeague.leagueName);
       if (existingLeague) {
-        const matchMap = new Map(
-          existingLeague.matches.map((m) => [m.liveId || m.matchLink, m])
-        );
-
+        const matchMap = new Map(existingLeague.matches.map((m) => [m.liveId || m.matchLink, m]));
         for (const newMatch of newLeague.matches) {
           const key = newMatch.liveId || newMatch.matchLink;
           const newHash = hashObject(newMatch);
@@ -156,39 +166,23 @@ async function updateMatches() {
     }
 
     const changed = await writeIfChanged(MATCH_FILE, matchesCache, matchHashCache);
-
-    if (changed) {
-      console.log(`[${new Date().toISOString()}] 🔴 Match-Today updated`);
-      broadcastDebounced("matches_update", matchesCache);
-    } else {
-      console.log(`[${new Date().toISOString()}] 🟢 Match-Today no changes`);
-    }
-  } catch (err) {
-    console.error(`[${new Date().toISOString()}] ❌ Match update failed:`, err.message);
+    if (changed) broadcastDebounced("matches_update", matchesCache);
   } finally {
     updatingMatches = false;
   }
 }
 
+// ================== Standings Update ==================
 async function updateStandings() {
   try {
     const raw = await fetchAllLeagues();
     const normalized = {};
     for (const league in raw) normalized[league] = normalizeLeague(raw[league]);
-
     const changed = await writeIfChanged(DATA_FILE, raw, matchHashCache);
     standingsCache = raw;
     normalizedStandingsCache = normalized;
-
-    if (changed) {
-      console.log(`[${new Date().toISOString()}] 📊 Standings updated`);
-      broadcastDebounced("standings_update", normalizedStandingsCache);
-    } else {
-      console.log(`[${new Date().toISOString()}] 📊 Standings no changes`);
-    }
-  } catch (err) {
-    console.error(`[${new Date().toISOString()}] ❌ Standings update failed:`, err.message);
-  }
+    if (changed) broadcastDebounced("standings_update", normalizedStandingsCache);
+  } catch {}
 }
 
 // ================== Middleware ==================
@@ -198,7 +192,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ================== API Routes ==================
+// ================== API ==================
 app.get("/api/v1/match-today", (req, res) => {
   if (!matchesCache || matchesCache.length === 0)
     return res.status(503).json({ error: "Matches not ready" });
@@ -225,37 +219,14 @@ app.get("/health", (req, res) => {
 
 // ================== WebSocket ==================
 wss.on("connection", (ws) => {
-  console.log(`[${new Date().toISOString()}] 📱 WebSocket client connected`);
-
-  ws.send(
-    JSON.stringify({
-      type: "init",
-      data: { matches: matchesCache, standings: normalizedStandingsCache },
-    })
-  );
-
-  ws.on("close", () => console.log(`[${new Date().toISOString()}] ❌ WebSocket client disconnected`));
+  ws.send(JSON.stringify({ type: "init", data: { matches: matchesCache, standings: normalizedStandingsCache } }));
 });
 
 // ================== Start ==================
 server.listen(PORT, async () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-
   await loadFromDisk();
-
-  // ================== تشغيل أولي متوازي ==================
   await Promise.all([updateMatches(), updateStandings()]);
-
-  // ================== Auto Updates ==================
-  // تحديث المباريات: كل دقيقة أثناء LIVE، كل 5 دقائق إذا لا توجد مباريات LIVE
-  setInterval(async () => {
-    if (hasLiveMatch(matchesCache)) {
-      await updateMatches();
-    } else {
-      setTimeout(updateMatches, 5 * 60 * 1000);
-    }
-  }, 60 * 1000);
-
-  // تحديث الترتيب كل 10 دقائق
-  setInterval(updateStandings, 10 * 60 * 1000);
+  setInterval(updateLiveMatchesOnly, 60 * 1000); // Live كل دقيقة
+  setInterval(updateMatches, 5 * 60 * 1000);     // Full Update كل 5 دقائق
+  setInterval(updateStandings, 10 * 60 * 1000);  // Standings كل 10 دقائق
 });

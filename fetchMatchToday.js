@@ -2,6 +2,7 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 
 const FILE_PATH = path.resolve("./match-today.json");
 const URL = "https://www.footmercato.net/live/";
@@ -30,9 +31,11 @@ async function fetchWithRetry(url, retries = RETRY_COUNT) {
 }
 
 // ================= FULL STATS =================
-async function fetchMatchStats(liveId) {
-  if (!liveId) return {};
+export const liveStatsCache = new Map();
+export const preloadedStatsSet = new Set();
 
+export async function fetchMatchStats(liveId) {
+  if (!liveId) return {};
   const statsUrl = `https://www.footmercato.net/live/${liveId}/stats`;
 
   try {
@@ -214,16 +217,25 @@ export async function fetchMatchToday() {
       }
     });
 
+    // ================= Assign stats =================
     for (const league of leagues) {
-      await Promise.all(
-        league.matches.map(async (match) => {
-          if (match.isLive || match.status === "finished") {
+      for (const match of league.matches) {
+        if (match.isLive) {
+          match.stats = await fetchMatchStats(match.liveId);
+          liveStatsCache.set(match.liveId, match.stats);
+          preloadedStatsSet.add(match.liveId);
+        } else if (match.status === "scheduled") {
+          if (!preloadedStatsSet.has(match.liveId)) {
             match.stats = await fetchMatchStats(match.liveId);
+            liveStatsCache.set(match.liveId, match.stats);
+            preloadedStatsSet.add(match.liveId);
           } else {
-            match.stats = null;
+            match.stats = liveStatsCache.get(match.liveId) || null;
           }
-        })
-      );
+        } else if (match.status === "finished") {
+          match.stats = liveStatsCache.get(match.liveId) || null;
+        }
+      }
     }
 
     fs.writeFileSync(FILE_PATH, JSON.stringify(leagues, null, 2), "utf8");
