@@ -4,14 +4,17 @@ import fs from "fs/promises";
 import http from "http";
 import { WebSocketServer } from "ws";
 import crypto from "crypto";
+import path from "path";
+import { fileURLToPath } from 'url';
 
+// ================== تصحيح المسارات ==================
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// ================== استيراد الملفات ==================
 import fetchAllLeagues from "./fetchAllLeagues.js";
 import { fetchMatchToday, liveStatsCache } from "./fetchMatchToday.js";
 import { normalizeLeague } from "./normalizeStandings.js";
-
-// ================== تصحيح الاستيراد ==================
-
-// ================== IMPORT الملف الجديد ==================
 import fetchAllMatchesFull from "./matches-today-full.js";
 
 const app = express();
@@ -24,16 +27,22 @@ const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
 // ================== Files ==================
-const DATA_FILE = "./all_leagues_standings.json";
-const MATCH_FILE = "./match-today.json";
-const MATCH_FULL_FILE = "./matches-today-full.json"; // ملف المباريات الكامل الجديد
+const DATA_FILE = path.join(__dirname, "all_leagues_standings.json");
+const MATCH_FILE = path.join(__dirname, "match-today.json");
+const MATCH_FULL_FILE = path.join(__dirname, "matches-today-full.json");
 
 // ================== Cache ==================
 let standingsCache = {};
 let normalizedStandingsCache = {};
 let matchesCache = [];
-let matchesFullCache = []; // Cache جديد للمباريات الكاملة
+let matchesFullCache = [];
 let matchHashCache = new Map();
+
+// ================== متغيرات التحكم بالتحديث ==================
+let updatingMatches = false;
+let updatingMatchesFull = false;
+let updatingLiveScores = false;
+let updatingStandings = false;
 
 // ================== Helpers ==================
 function hashObject(obj) {
@@ -73,6 +82,25 @@ function broadcastDebounced(type, data, delay = 500) {
   broadcastTimeout = setTimeout(() => broadcast(type, data), delay);
 }
 
+// ================== دالة التحقق من وجود مباريات حية ==================
+function hasLiveMatches(matches) {
+  if (!matches || !Array.isArray(matches)) return false;
+  
+  return matches.some(match => {
+    const status = match.status?.toLowerCase() || match.Eps?.toLowerCase();
+    return status && 
+           !['ft', 'finished', 'postp.', 'canc.', 'ns', 'not started'].includes(status) &&
+           !status.includes('ft') &&
+           !status.includes('finished');
+  });
+}
+
+// ================== دالة جلب النتائج المباشرة (مؤقتة) ==================
+async function fetchLiveScores(matches) {
+  // هذه دالة مؤقتة - يجب استبدالها بالدالة الحقيقية من fetchMatchToday
+  return matches;
+}
+
 // ================== Load from disk ==================
 async function loadFromDisk() {
   try {
@@ -80,25 +108,28 @@ async function loadFromDisk() {
     if (fsSync.existsSync(MATCH_FILE)) {
       matchesCache = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
       matchesCache.forEach((l) =>
-        l.matches.forEach((m) =>
-          matchHashCache.set(m.liveId || m.matchLink, hashObject(m))
-        )
+        l.matches?.forEach((m) => {
+          if (m?.liveId || m?.matchLink) {
+            matchHashCache.set(m.liveId || m.matchLink, hashObject(m));
+          }
+        })
       );
       console.log("⚽ Match-Today loaded from disk");
     }
 
-    // ================== تحميل ملف المباريات الكامل الجديد ==================
+    // تحميل ملف المباريات الكامل
     if (fsSync.existsSync(MATCH_FULL_FILE)) {
       matchesFullCache = JSON.parse(await fs.readFile(MATCH_FULL_FILE, "utf8"));
       console.log(`📊 Matches Full loaded from disk (${matchesFullCache.length} matches)`);
     }
 
+    // تحميل الترتيبات
     if (fsSync.existsSync(DATA_FILE)) {
       standingsCache = JSON.parse(await fs.readFile(DATA_FILE, "utf8"));
       for (const league in standingsCache) {
-        normalizedStandingsCache[league] = normalizeLeague(
-          standingsCache[league]
-        );
+        if (standingsCache[league]) {
+          normalizedStandingsCache[league] = normalizeLeague(standingsCache[league]);
+        }
       }
       console.log("📊 Standings loaded from disk");
     }
@@ -107,71 +138,38 @@ async function loadFromDisk() {
   }
 }
 
-// ================== Update Jobs ==================
-let updatingMatches = false;
-let updatingMatchesFull = false; // متغير جديد للتحديث الكامل
-let updatingLiveScores = false; // متغير للتحديث المباشر
-
-function hasLiveMatch(data) {
-  return data.some((league) =>
-    league.matches.some((m) => m.status?.toLowerCase() === "live")
-  );
-}
-
-// ================== Live Update فقط ==================
-async function updateLiveMatchesOnly() {
-  if (updatingLiveScores) return;
-  updatingLiveScores = true;
-  
-  try {
-    const liveLeagues = matchesCache
-      .map(l => ({
-        ...l,
-        matches: l.matches.filter(m => m.isLive)
-      }))
-      .filter(l => l.matches.length > 0);
-
-    if (liveLeagues.length === 0) return;
-
-    for (const league of liveLeagues) {
-      for (const match of league.matches) {
-        const newStats = await fetchMatchToday();
-        // تحديث stats مباشرة
-        match.stats = newStats.find(l => l.leagueName === league.leagueName)
-                             ?.matches.find(m => m.liveId === match.liveId)?.stats || {};
-        liveStatsCache.set(match.liveId, match.stats);
-        matchHashCache.set(match.liveId, hashObject(match));
-      }
-    }
-    broadcastDebounced("matches_update", matchesCache);
-  } finally {
-    updatingLiveScores = false;
-  }
-}
-
-// ================== Live Scores Update (من liveScoreFetcher) ==================
+// ================== Live Scores Update ==================
 async function updateLiveScores() {
   if (updatingLiveScores || !matchesCache || matchesCache.length === 0) return;
   
   updatingLiveScores = true;
   try {
-    // التحقق من وجود مباريات حية
-    const allMatches = matchesCache.flatMap(l => l.matches);
+    // جمع كل المباريات
+    const allMatches = matchesCache.flatMap(l => l.matches || []);
+    
+    // التحقق من وجود مباريات حية باستخدام الدالة الجديدة
     const hasLive = hasLiveMatches(allMatches);
     
-    if (!hasLive) return;
+    if (!hasLive) {
+      updatingLiveScores = false;
+      return;
+    }
     
     let hasChanges = false;
     const updatedLeagues = [];
     
     // تحديث كل دوري على حدة
     for (const league of matchesCache) {
-      const updatedMatches = await fetchLiveScores(league.matches);
+      const updatedMatches = await fetchLiveScores(league.matches || []);
       
       // التحقق من وجود تغييرات
       for (let i = 0; i < updatedMatches.length; i++) {
         const match = updatedMatches[i];
-        const key = match.liveId || match.matchLink;
+        if (!match) continue;
+        
+        const key = match.liveId || match.matchLink || match.Eid;
+        if (!key) continue;
+        
         const oldHash = matchHashCache.get(key);
         const newHash = hashObject(match);
         
@@ -199,9 +197,6 @@ async function updateLiveScores() {
       console.log(`[${new Date().toISOString()}] ⚡ Live scores updated`);
     }
     
-    // تنظيف الكاش القديم
-    cleanLiveCache();
-    
   } catch (error) {
     console.error(`[${new Date().toISOString()}] ❌ Live scores update error:`, error.message);
   } finally {
@@ -209,7 +204,7 @@ async function updateLiveScores() {
   }
 }
 
-// ================== Full Match Update (الملف العادي) ==================
+// ================== Regular Match Update ==================
 async function updateMatches() {
   if (updatingMatches) return;
   updatingMatches = true;
@@ -224,9 +219,13 @@ async function updateMatches() {
     for (const newLeague of newData) {
       const existingLeague = leagueMap.get(newLeague.leagueName);
       if (existingLeague) {
-        const matchMap = new Map(existingLeague.matches.map((m) => [m.liveId || m.matchLink, m]));
-        for (const newMatch of newLeague.matches) {
-          const key = newMatch.liveId || newMatch.matchLink;
+        const matchMap = new Map(
+          (existingLeague.matches || []).map((m) => [m.liveId || m.matchLink || m.Eid, m])
+        );
+        for (const newMatch of newLeague.matches || []) {
+          const key = newMatch.liveId || newMatch.matchLink || newMatch.Eid;
+          if (!key) continue;
+          
           const newHash = hashObject(newMatch);
           if (matchMap.has(key)) {
             if (matchHashCache.get(key) !== newHash) {
@@ -242,20 +241,26 @@ async function updateMatches() {
       } else {
         matchesCache.push(newLeague);
         leagueMap.set(newLeague.leagueName, newLeague);
-        newLeague.matches.forEach((m) =>
-          matchHashCache.set(m.liveId || m.matchLink, hashObject(m))
-        );
+        (newLeague.matches || []).forEach((m) => {
+          const key = m.liveId || m.matchLink || m.Eid;
+          if (key) matchHashCache.set(key, hashObject(m));
+        });
       }
     }
 
     const changed = await writeIfChanged(MATCH_FILE, matchesCache, matchHashCache);
-    if (changed) broadcastDebounced("matches_update", matchesCache);
+    if (changed) {
+      broadcastDebounced("matches_update", matchesCache);
+      console.log(`[${new Date().toISOString()}] ✅ Regular matches updated`);
+    }
+  } catch (error) {
+    console.error(`[${new Date().toISOString()}] ❌ Regular matches update error:`, error.message);
   } finally {
     updatingMatches = false;
   }
 }
 
-// ================== FULL MATCHES UPDATE (الملف الكامل الجديد) ==================
+// ================== Full Matches Update ==================
 async function updateMatchesFull() {
   if (updatingMatchesFull) return;
   updatingMatchesFull = true;
@@ -290,15 +295,33 @@ async function updateMatchesFull() {
 
 // ================== Standings Update ==================
 async function updateStandings() {
+  if (updatingStandings) return;
+  updatingStandings = true;
+  
   try {
     const raw = await fetchAllLeagues();
+    if (!raw) return;
+    
     const normalized = {};
-    for (const league in raw) normalized[league] = normalizeLeague(raw[league]);
+    for (const league in raw) {
+      if (raw[league]) {
+        normalized[league] = normalizeLeague(raw[league]);
+      }
+    }
+    
     const changed = await writeIfChanged(DATA_FILE, raw, matchHashCache);
     standingsCache = raw;
     normalizedStandingsCache = normalized;
-    if (changed) broadcastDebounced("standings_update", normalizedStandingsCache);
-  } catch {}
+    
+    if (changed) {
+      broadcastDebounced("standings_update", normalizedStandingsCache);
+      console.log(`[${new Date().toISOString()}] ✅ Standings updated`);
+    }
+  } catch (error) {
+    console.error(`[${new Date().toISOString()}] ❌ Standings update error:`, error.message);
+  } finally {
+    updatingStandings = false;
+  }
 }
 
 // ================== Middleware ==================
@@ -308,21 +331,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// ================== API ==================
+// ================== API Routes ==================
 app.get("/api/v1/match-today", (req, res) => {
   if (!matchesCache || matchesCache.length === 0)
     return res.status(503).json({ error: "Matches not ready" });
   res.json(matchesCache);
 });
 
-// ================== API جديد للمباريات الكاملة ==================
 app.get("/api/v1/matches-full", (req, res) => {
   if (!matchesFullCache || matchesFullCache.length === 0)
     return res.status(503).json({ error: "Full matches not ready" });
   res.json(matchesFullCache);
 });
 
-// ================== API لمباراة محددة بالكامل ==================
 app.get("/api/v1/match-full/:eid", (req, res) => {
   const eid = req.params.eid;
   if (!matchesFullCache || matchesFullCache.length === 0)
@@ -335,7 +356,6 @@ app.get("/api/v1/match-full/:eid", (req, res) => {
   res.json(match);
 });
 
-// ================== API للنتائج المباشرة ==================
 app.get("/api/v1/live-scores", (req, res) => {
   if (!matchesCache || matchesCache.length === 0) {
     return res.status(503).json({ error: "Matches not ready" });
@@ -345,9 +365,12 @@ app.get("/api/v1/live-scores", (req, res) => {
   const liveMatches = matchesCache
     .map(league => ({
       ...league,
-      matches: league.matches.filter(m => 
-        m.isLive === true || m.status?.toLowerCase() === 'live'
-      )
+      matches: (league.matches || []).filter(m => {
+        const status = m.status?.toLowerCase() || m.Eps?.toLowerCase();
+        return status && 
+               !['ft', 'finished', 'postp.', 'canc.', 'ns', 'not started'].includes(status) &&
+               !status.includes('ft');
+      })
     }))
     .filter(league => league.matches.length > 0);
   
@@ -369,7 +392,9 @@ app.get("/health", (req, res) => {
     status: "ok",
     uptime: process.uptime(),
     wsClients: wss.clients.size,
+    matchesCount: matchesCache.length,
     matchesFullCount: matchesFullCache.length,
+    standingsCount: Object.keys(standingsCache).length
   });
 });
 
@@ -380,20 +405,20 @@ wss.on("connection", (ws) => {
     data: { 
       matches: matchesCache, 
       standings: normalizedStandingsCache,
-      matchesFull: matchesFullCache // إضافة المباريات الكاملة للتهيئة
+      matchesFull: matchesFullCache
     } 
   }));
 });
 
-// ================== Start ==================
+// ================== Start Server ==================
 server.listen(PORT, async () => {
   await loadFromDisk();
   
   // تشغيل جميع التحديثات الأولية
-  await Promise.all([
+  await Promise.allSettled([
     updateMatches(), 
     updateStandings(),
-    updateMatchesFull() // تشغيل التحديث الكامل لأول مرة
+    updateMatchesFull()
   ]);
   
   // ================== إعداد المؤقتات ==================
@@ -401,17 +426,14 @@ server.listen(PORT, async () => {
   // تحديث المباريات العادي كل 5 دقائق
   setInterval(updateMatches, 5 * 60 * 1000);
   
-  // ================== تحديث المباريات الكامل كل 5 دقائق ==================
+  // تحديث المباريات الكامل كل 5 دقائق
   setInterval(updateMatchesFull, 5 * 60 * 1000);
   
   // تحديث الترتيبات كل 10 دقائق
   setInterval(updateStandings, 10 * 60 * 1000);
   
-  // تحديث المباريات الحية كل 60 ثانية (باستخدام liveScoreFetcher)
-  setInterval(updateLiveScores, 60 * 1000);
-  
-  // تحديث المباريات الحية القديم كل دقيقة (اختياري - يمكن إزالته)
-  // setInterval(updateLiveMatchesOnly, 60 * 1000);
+  // تحديث النتائج المباشرة كل 30 ثانية
+  setInterval(updateLiveScores, 30 * 1000);
   
   console.log(`[${new Date().toISOString()}] 🚀 Server started on port ${PORT}`);
   console.log(`[${new Date().toISOString()}] ⚽ Regular matches update every 5 minutes`);
@@ -419,3 +441,5 @@ server.listen(PORT, async () => {
   console.log(`[${new Date().toISOString()}] 🏆 Standings update every 10 minutes`);
   console.log(`[${new Date().toISOString()}] 🔴 Live scores update every 30 seconds`);
 });
+
+export default app;

@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// دالة لتحديث التاريخ تلقائياً (اختياري)
+// دالة لتحديث التاريخ تلقائياً
 function getTodayDate() {
   const today = new Date();
   const year = today.getFullYear();
@@ -16,7 +16,7 @@ function getTodayDate() {
   return `${year}${month}${day}`;
 }
 
-const DATE = "20260224"; // يمكن تغييره إلى getTodayDate() للتاريخ التلقائي
+const DATE = getTodayDate(); // استخدام التاريخ التلقائي
 const LOCALE = "en";
 const OUTPUT_FILE = path.resolve("./matches-today-full.json");
 
@@ -32,20 +32,27 @@ async function fetchJSON(url) {
     const { data } = await axios.get(url, {
       headers: {
         "User-Agent": "Mozilla/5.0",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Origin": "https://www.livescore.com",
+        "Referer": "https://www.livescore.com/"
       },
       timeout: 15000
     });
     return data;
   } catch (err) {
-    console.error(`❌ Error fetching: ${url} -> ${err.message}`);
+    // تجاهل الأخطاء 404 - هذا طبيعي لبعض المباريات
+    if (err.response?.status !== 404) {
+      console.error(`❌ Error fetching: ${url} -> ${err.message}`);
+    }
     return null;
   }
 }
 
 function buildTeamImageURL(team) {
   if (!team || !team.Img) return null;
-  return `https://storage.livescore.com/images/team/medium/${team.Img}`;
+  // إزالة التكرار في المسار إذا كان موجوداً
+  const imgPath = team.Img.replace(/^images\/team\/medium\//, '');
+  return `https://storage.livescore.com/images/team/medium/${imgPath}`;
 }
 
 // ---------------- FETCH SINGLE MATCH ----------------
@@ -56,13 +63,21 @@ async function fetchMatchDetails(event, league) {
 
   const match = {
     Eid: eid,
-    League: league.Snm,
-    LeagueBadge: league.badgeUrl,
+    League: league.Snm || league.CompN || "Unknown League",
+    LeagueBadge: league.badgeUrl || null,
     Teams: {
-      Home: homeTeam ? { ...homeTeam, Img: buildTeamImageURL(homeTeam) } : null,
-      Away: awayTeam ? { ...awayTeam, Img: buildTeamImageURL(awayTeam) } : null,
+      Home: homeTeam ? { 
+        ...homeTeam, 
+        Img: buildTeamImageURL(homeTeam),
+        Nm: homeTeam.Nm || homeTeam.name || "Unknown"
+      } : null,
+      Away: awayTeam ? { 
+        ...awayTeam, 
+        Img: buildTeamImageURL(awayTeam),
+        Nm: awayTeam.Nm || awayTeam.name || "Unknown"
+      } : null,
     },
-    Status: event.Eps || null,
+    Status: event.Eps || "NS",
     StartTime: event.Esd || null,
     Statistics: null,
     Scoreboard: null,
@@ -70,39 +85,41 @@ async function fetchMatchDetails(event, league) {
   };
 
   // ---------------- FETCH STATS, SCOREBOARD, LINEUPS ----------------
-  const [stats, scoreboard, lineups] = await Promise.all([
+  const [stats, scoreboard, lineups] = await Promise.allSettled([
     fetchJSON(API_STATISTICS(eid)),
     fetchJSON(API_SCOREBOARD(eid)),
     fetchJSON(API_LINEUPS(eid))
   ]);
 
   // ---------------- STATISTICS ----------------
-  if (stats) {
-    match.Statistics = stats;
+  if (stats.status === 'fulfilled' && stats.value) {
+    match.Statistics = stats.value;
 
-    if (stats.Teams) {
+    if (stats.value.Teams) {
       if (match.Teams.Home) {
-        match.Teams.Home.Players = stats.Teams.Home?.Players || [];
-        match.Teams.Home.Substitutes = stats.Teams.Home?.Substitutes || [];
-        match.Teams.Home.Coach = stats.Teams.Home?.Coach || null;
+        match.Teams.Home.Players = stats.value.Teams.Home?.Players || [];
+        match.Teams.Home.Substitutes = stats.value.Teams.Home?.Substitutes || [];
+        match.Teams.Home.Coach = stats.value.Teams.Home?.Coach || null;
       }
       if (match.Teams.Away) {
-        match.Teams.Away.Players = stats.Teams.Away?.Players || [];
-        match.Teams.Away.Substitutes = stats.Teams.Away?.Substitutes || [];
-        match.Teams.Away.Coach = stats.Teams.Away?.Coach || null;
+        match.Teams.Away.Players = stats.value.Teams.Away?.Players || [];
+        match.Teams.Away.Substitutes = stats.value.Teams.Away?.Substitutes || [];
+        match.Teams.Away.Coach = stats.value.Teams.Away?.Coach || null;
       }
     }
 
-    match.Statistics.Events = stats.Events || [];
+    match.Statistics.Events = stats.value.Events || [];
   }
 
   // ---------------- SCOREBOARD ----------------
-  if (scoreboard) match.Scoreboard = scoreboard;
+  if (scoreboard.status === 'fulfilled' && scoreboard.value) {
+    match.Scoreboard = scoreboard.value;
+  }
 
   // ---------------- LINEUPS ----------------
-  if (lineups && lineups.Lu) {
-    const homeTeamLineup = lineups.Lu.find(t => t.Tnb === 1);
-    const awayTeamLineup = lineups.Lu.find(t => t.Tnb === 2);
+  if (lineups.status === 'fulfilled' && lineups.value && lineups.value.Lu) {
+    const homeTeamLineup = lineups.value.Lu.find(t => t.Tnb === 1);
+    const awayTeamLineup = lineups.value.Lu.find(t => t.Tnb === 2);
 
     const formatLineup = (team) => {
       if (!team) return null;
@@ -118,7 +135,7 @@ async function fetchMatchDetails(event, league) {
     match.Lineups = {
       Home: formatLineup(homeTeamLineup),
       Away: formatLineup(awayTeamLineup),
-      Substitutions: lineups.Subs || {}
+      Substitutions: lineups.value.Subs || {}
     };
   }
 
