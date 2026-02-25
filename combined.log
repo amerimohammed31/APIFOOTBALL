@@ -1,0 +1,8 @@
+{"level":"info","message":"📊 Matches Full loaded from disk (116 matches)","timestamp":"2026-02-25T22:34:41.375Z"}
+{"level":"info","message":"⚽ Match-Today loaded from disk","timestamp":"2026-02-25T22:34:41.756Z"}
+{"level":"info","message":"🏆 BeSoccer data loaded from disk (80 matches)","timestamp":"2026-02-25T22:34:42.178Z"}
+{"level":"info","message":"📊 Standings loaded from disk","timestamp":"2026-02-25T22:34:43.244Z"}
+{"level":"info","message":"🚀 Worker 4032 started on port 3000","timestamp":"2026-02-25T22:34:43.273Z"}
+{"level":"info","message":"🚀 Fetching full matches data...","timestamp":"2026-02-25T22:34:53.280Z"}
+{"level":"info","message":"🏆 Starting BeSoccer update...","timestamp":"2026-02-25T22:34:59.236Z"}
+{"level":"info","message":"🚀 تشغيل سكريبت BeSoccer...","timestamp":"2026-02-25T22:34:59.244Z"}
