@@ -11,10 +11,6 @@ import util from 'util';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import responseTime from 'response-time';
-import cluster from 'cluster';
-import os from 'os';
-import winston from 'winston';
-import Redis from 'ioredis';
 
 const execPromise = util.promisify(exec);
 
@@ -28,27 +24,11 @@ import { fetchMatchToday, liveStatsCache } from "./fetchMatchToday.js";
 import { normalizeLeague } from "./normalizeStandings.js";
 import fetchAllMatchesFull from "./matches-today-full.js";
 
-// ================== Cluster Mode ==================
-const numCPUs = os.cpus().length;
-const isPrimary = cluster.isPrimary;
+// ================== التحقق من بيئة التشغيل ==================
+const isProduction = process.env.NODE_ENV === 'production';
+const isRender = process.env.RENDER === 'true'; // للتأكد من أننا على Render
 
-if (isPrimary && process.env.NODE_ENV === 'production') {
-  console.log(`🚀 Primary ${process.pid} is running`);
-  
-  // Fork workers
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
-  
-  cluster.on('exit', (worker) => {
-    console.log(`⚠️ Worker ${worker.process.pid} died. Restarting...`);
-    cluster.fork();
-  });
-  
-} else {
-  // Workers run the server
-  startServer();
-}
+console.log(`🚀 بيئة التشغيل: ${isProduction ? 'إنتاج' : 'تطوير'} ${isRender ? '(Render)' : ''}`);
 
 function startServer() {
   const app = express();
@@ -59,42 +39,6 @@ function startServer() {
 
   // ================== WebSocket ==================
   const wss = new WebSocketServer({ server });
-
-  // ================== Redis Cache ==================
-  let redis = null;
-  try {
-    redis = new Redis({
-      host: 'localhost',
-      port: 6379,
-      retryStrategy: times => Math.min(times * 50, 2000),
-      lazyConnect: true
-    });
-    
-    redis.on('error', (err) => {
-      console.log('⚠️ Redis not available:', err.message);
-      redis = null;
-    });
-  } catch (err) {
-    console.log('⚠️ Redis disabled:', err.message);
-    redis = null;
-  }
-
-  // ================== Logger ==================
-  const logger = winston.createLogger({
-    level: process.env.LOG_LEVEL || 'info',
-    format: winston.format.combine(
-      winston.format.timestamp(),
-      winston.format.json()
-    ),
-    transports: [
-      new winston.transports.File({ filename: 'error.log', level: 'error' }),
-      new winston.transports.File({ filename: 'combined.log' }),
-      new winston.transports.Console({ 
-        format: winston.format.simple(),
-        silent: process.env.NODE_ENV === 'test'
-      })
-    ]
-  });
 
   // ================== Files ==================
   const DATA_FILE = path.join(__dirname, "all_leagues_standings.json");
@@ -151,35 +95,28 @@ function startServer() {
     return true;
   }
 
-  // ================== Redis Cache Helper ==================
-  async function getCachedOrFetch(key, fetchFn, ttl = 300) {
-    if (!redis) return await fetchFn();
-    
-    try {
-      const cached = await redis.get(key);
-      if (cached) return JSON.parse(cached);
-      
-      const data = await fetchFn();
-      await redis.setex(key, ttl, JSON.stringify(data));
-      return data;
-    } catch (err) {
-      logger.warn(`Redis error for ${key}:`, err.message);
-      return await fetchFn();
-    }
-  }
-
-  // ================== Lazy Loading ==================
+  // ================== Lazy Loading مع تحسين الذاكرة ==================
   async function getMatchesCache() {
     if (!matchesCache && fsSync.existsSync(MATCH_FILE)) {
-      matchesCache = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
-      matchesCache.forEach((l) =>
-        l.matches?.forEach((m) => {
-          if (m?.liveId || m?.matchLink) {
-            matchHashCache.set(m.liveId || m.matchLink, hashObject(m));
-          }
-        })
-      );
-      logger.info("⚽ Match-Today loaded from disk");
+      const data = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
+      // تخزين البيانات بشكل محدود للحفاظ على الذاكرة
+      matchesCache = data.map(league => ({
+        leagueName: league.leagueName,
+        leagueId: league.leagueId,
+        country: league.country,
+        matches: (league.matches || []).map(m => ({
+          Eid: m.Eid,
+          homeTeam: m.homeTeam,
+          awayTeam: m.awayTeam,
+          status: m.status,
+          time: m.time,
+          score: m.score,
+          liveId: m.liveId,
+          matchLink: m.matchLink
+        }))
+      }));
+      
+      console.log(`⚽ Match-Today loaded (${matchesCache.length} leagues)`);
     }
     return matchesCache || [];
   }
@@ -187,7 +124,7 @@ function startServer() {
   async function getMatchesFullCache() {
     if (!matchesFullCache && fsSync.existsSync(MATCH_FULL_FILE)) {
       matchesFullCache = JSON.parse(await fs.readFile(MATCH_FULL_FILE, "utf8"));
-      logger.info(`📊 Matches Full loaded from disk (${matchesFullCache.length} matches)`);
+      console.log(`📊 Full matches loaded (${matchesFullCache.length} matches)`);
     }
     return matchesFullCache || [];
   }
@@ -195,7 +132,7 @@ function startServer() {
   async function getBesoccerCache() {
     if (!besoccerCache && fsSync.existsSync(BESOCCER_FILE)) {
       besoccerCache = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
-      logger.info(`🏆 BeSoccer data loaded from disk (${besoccerCache?.metadata?.totalMatches || 0} matches)`);
+      console.log(`🏆 BeSoccer loaded (${besoccerCache?.metadata?.totalMatches || 0} matches)`);
     }
     return besoccerCache;
   }
@@ -209,10 +146,21 @@ function startServer() {
           normalizedStandingsCache[league] = normalizeLeague(standingsCache[league]);
         }
       }
-      logger.info("📊 Standings loaded from disk");
+      console.log(`📊 Standings loaded (${Object.keys(standingsCache).length} leagues)`);
     }
     return { raw: standingsCache || {}, normalized: normalizedStandingsCache || {} };
   }
+
+  // ================== تنظيف الذاكرة الدورية ==================
+  function cleanupMemory() {
+    if (global.gc) {
+      global.gc();
+      console.log('🧹 Manual garbage collection performed');
+    }
+  }
+
+  // تشغيل تنظيف الذاكرة كل ساعة
+  setInterval(cleanupMemory, 60 * 60 * 1000);
 
   // ================== دالة التحقق من وجود مباريات حية ==================
   function hasLiveMatches(matches) {
@@ -227,15 +175,9 @@ function startServer() {
     });
   }
 
-  // ================== دالة جلب النتائج المباشرة (مؤقتة) ==================
-  async function fetchLiveScores(matches) {
-    // هذه دالة مؤقتة - يجب استبدالها بالدالة الحقيقية من fetchMatchToday
-    return matches;
-  }
-
-  // ================== تشغيل سكريبت BeSoccer ==================
+  // ================== تشغيل سكريبت BeSoccer (محسّن للذاكرة) ==================
   async function runBesoccerScript() {
-    logger.info("🚀 تشغيل سكريبت BeSoccer...");
+    console.log("🚀 تشغيل سكريبت BeSoccer...");
     
     const scriptPath = path.join(__dirname, "besoccer.js");
     
@@ -244,37 +186,37 @@ function startServer() {
     }
     
     try {
-      const { stdout, stderr } = await execPromise(`node ${scriptPath}`, {
+      // في بيئة Render، نستخدم max-old-space-size أصغر للعملية الفرعية
+      const nodeOptions = isRender ? '--max-old-space-size=256' : '';
+      const { stdout, stderr } = await execPromise(`node ${nodeOptions} ${scriptPath}`, {
         cwd: __dirname,
-        maxBuffer: 10 * 1024 * 1024
+        maxBuffer: 5 * 1024 * 1024, // تقليل الـ buffer إلى 5MB
+        timeout: 5 * 60 * 1000 // مهلة 5 دقائق
       });
       
       if (stdout) {
-        stdout.split('\n').forEach(line => {
-          if (line.trim()) logger.info(`[BeSoccer] ${line.trim()}`);
-        });
-      }
-      
-      if (stderr) {
-        stderr.split('\n').forEach(line => {
-          if (line.trim()) logger.error(`[BeSoccer Error] ${line.trim()}`);
-        });
+        const lines = stdout.split('\n').filter(l => l.trim());
+        // عرض فقط آخر 10 أسطر من المخرجات
+        lines.slice(-10).forEach(line => console.log(`[BeSoccer] ${line.trim()}`));
       }
       
       if (fsSync.existsSync(BESOCCER_FILE)) {
         const stats = fsSync.statSync(BESOCCER_FILE);
-        logger.info(`✅ BeSoccer completed (${(stats.size / 1024).toFixed(2)} KB)`);
+        console.log(`✅ BeSoccer completed (${(stats.size / 1024).toFixed(2)} KB)`);
+        
+        // تحديث الكاش
+        besoccerCache = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
       }
       
       return { success: true };
       
     } catch (error) {
-      logger.error("❌ BeSoccer failed:", error.message);
+      console.error("❌ BeSoccer failed:", error.message);
       throw error;
     }
   }
 
-  // ================== تحديث بيانات BeSoccer ==================
+  // ================== تحديث بيانات BeSoccer (مع تحكم بالذاكرة) ==================
   async function updateBesoccerData() {
     if (updatingBesoccer) return;
     
@@ -282,24 +224,25 @@ function startServer() {
     const startTime = Date.now();
     
     try {
-      logger.info("🏆 Starting BeSoccer update...");
-      await runBesoccerScript();
+      console.log("🏆 Starting BeSoccer update...");
       
-      if (fsSync.existsSync(BESOCCER_FILE)) {
-        const newData = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
-        
-        if (redis) {
-          await redis.setex('besoccer:all', 300, JSON.stringify(newData));
-        }
-        
-        besoccerCache = newData;
-        broadcastToSubscribers('besoccer_update', newData);
-        
-        logger.info(`✅ BeSoccer updated in ${((Date.now() - startTime) / 1000).toFixed(2)}s`);
+      // في Render، نحدد إذا كانت الذاكرة كافية
+      const memUsage = process.memoryUsage();
+      const usedMemMB = Math.round(memUsage.heapUsed / 1024 / 1024);
+      
+      if (isRender && usedMemMB > 300) {
+        console.log(`⚠️ ذاكرة عالية (${usedMemMB}MB) - تأجيل تحديث BeSoccer`);
+        return;
       }
       
+      await runBesoccerScript();
+      
+      broadcastToSubscribers('besoccer_update', besoccerCache);
+      
+      console.log(`✅ BeSoccer updated in ${((Date.now() - startTime) / 1000).toFixed(2)}s`);
+      
     } catch (error) {
-      logger.error("❌ BeSoccer update error:", error.message);
+      console.error("❌ BeSoccer update error:", error.message);
     } finally {
       updatingBesoccer = false;
     }
@@ -322,7 +265,6 @@ function startServer() {
         clearInterval(liveInterval);
         liveInterval = setInterval(updateLiveScores, 5 * 60 * 1000);
         
-        // تحقق كل 30 دقيقة إذا رجعت مباريات حية
         setTimeout(() => {
           clearInterval(liveInterval);
           liveInterval = setInterval(updateLiveScores, 30 * 1000);
@@ -337,7 +279,7 @@ function startServer() {
       const updatedLeagues = [];
       
       for (const league of matches) {
-        const updatedMatches = await fetchLiveScores(league.matches || []);
+        const updatedMatches = league.matches || [];
         
         for (let i = 0; i < updatedMatches.length; i++) {
           const match = updatedMatches[i];
@@ -361,17 +303,12 @@ function startServer() {
       if (hasChanges) {
         matchesCache = updatedLeagues;
         await atomicWrite(MATCH_FILE, matchesCache);
-        
-        if (redis) {
-          await redis.del('matches:today');
-        }
-        
         broadcastToSubscribers('matches_update', matchesCache);
-        logger.info("⚡ Live scores updated");
+        console.log("⚡ Live scores updated");
       }
       
     } catch (error) {
-      logger.error("❌ Live scores update error:", error.message);
+      console.error("❌ Live scores update error:", error.message);
     } finally {
       updatingLiveScores = false;
     }
@@ -386,53 +323,16 @@ function startServer() {
       const newData = await fetchMatchToday();
       if (!Array.isArray(newData) || newData.length === 0) return;
 
-      const currentMatches = await getMatchesCache();
-      const leagueMap = new Map();
-      currentMatches.forEach((l) => leagueMap.set(l.leagueName, l));
-
-      for (const newLeague of newData) {
-        const existingLeague = leagueMap.get(newLeague.leagueName);
-        if (existingLeague) {
-          const matchMap = new Map(
-            (existingLeague.matches || []).map((m) => [m.liveId || m.matchLink || m.Eid, m])
-          );
-          for (const newMatch of newLeague.matches || []) {
-            const key = newMatch.liveId || newMatch.matchLink || newMatch.Eid;
-            if (!key) continue;
-            
-            const newHash = hashObject(newMatch);
-            if (matchMap.has(key)) {
-              if (matchHashCache.get(key) !== newHash) {
-                Object.assign(matchMap.get(key), newMatch);
-                matchHashCache.set(key, newHash);
-              }
-            } else {
-              existingLeague.matches.push(newMatch);
-              matchMap.set(key, newMatch);
-              matchHashCache.set(key, newHash);
-            }
-          }
-        } else {
-          currentMatches.push(newLeague);
-          leagueMap.set(newLeague.leagueName, newLeague);
-          (newLeague.matches || []).forEach((m) => {
-            const key = m.liveId || m.matchLink || m.Eid;
-            if (key) matchHashCache.set(key, hashObject(m));
-          });
-        }
-      }
-
-      matchesCache = currentMatches;
-      const changed = await writeIfChanged(MATCH_FILE, currentMatches);
+      matchesCache = newData;
+      const changed = await writeIfChanged(MATCH_FILE, newData);
       
       if (changed) {
-        if (redis) await redis.del('matches:today');
-        broadcastToSubscribers('matches_update', currentMatches);
-        logger.info("✅ Regular matches updated");
+        broadcastToSubscribers('matches_update', newData);
+        console.log("✅ Regular matches updated");
       }
       
     } catch (error) {
-      logger.error("❌ Regular matches update error:", error.message);
+      console.error("❌ Regular matches update error:", error.message);
     } finally {
       updatingMatches = false;
     }
@@ -444,7 +344,7 @@ function startServer() {
     updatingMatchesFull = true;
     
     try {
-      logger.info("🚀 Fetching full matches data...");
+      console.log("🚀 Fetching full matches data...");
       await fetchAllMatchesFull();
       
       if (fsSync.existsSync(MATCH_FULL_FILE)) {
@@ -453,13 +353,12 @@ function startServer() {
         
         if (changed) {
           matchesFullCache = newData;
-          if (redis) await redis.del('matches:full');
           broadcastToSubscribers('matches_full_update', newData);
-          logger.info(`✅ Full matches updated (${newData.length} matches)`);
+          console.log(`✅ Full matches updated (${newData.length} matches)`);
         }
       }
     } catch (error) {
-      logger.error("❌ Full matches update error:", error.message);
+      console.error("❌ Full matches update error:", error.message);
     } finally {
       updatingMatchesFull = false;
     }
@@ -486,56 +385,38 @@ function startServer() {
       if (changed) {
         standingsCache = raw;
         normalizedStandingsCache = normalized;
-        
-        if (redis) {
-          await redis.del('standings:all');
-          for (const league in normalized) {
-            await redis.setex(`standings:${league}`, 600, JSON.stringify(normalized[league]));
-          }
-        }
-        
         broadcastToSubscribers('standings_update', normalized);
-        logger.info("✅ Standings updated");
+        console.log("✅ Standings updated");
       }
       
     } catch (error) {
-      logger.error("❌ Standings update error:", error.message);
+      console.error("❌ Standings update error:", error.message);
     } finally {
       updatingStandings = false;
     }
   }
 
   // ================== WebSocket مع اشتراكات ==================
-  wss.on("connection", (ws) => {
-    ws.subscriptions = new Set(['init']); // اشتراك افتراضي في init
+  wss.on("connection", async (ws) => {
+    ws.subscriptions = new Set(['init']);
     
+    // إرسال البيانات الموجودة حالياً
     ws.send(JSON.stringify({ 
       type: "init", 
       data: { 
-        matches: matchesCache || [],
-        standings: normalizedStandingsCache || {},
-        matchesFull: matchesFullCache || [],
-        besoccer: besoccerCache
+        matches: await getMatchesCache(),
+        standings: (await getStandingsCache()).normalized,
+        matchesFull: await getMatchesFullCache(),
+        besoccer: await getBesoccerCache()
       } 
     }));
     
     ws.on('message', (message) => {
       try {
         const { type, subscribe, unsubscribe } = JSON.parse(message);
-        
-        if (subscribe) {
-          ws.subscriptions.add(subscribe);
-        }
-        if (unsubscribe) {
-          ws.subscriptions.delete(unsubscribe);
-        }
-      } catch (err) {
-        // تجاهل الأخطاء في parsing
-      }
-    });
-    
-    ws.on('close', () => {
-      // تنظيف
+        if (subscribe) ws.subscriptions.add(subscribe);
+        if (unsubscribe) ws.subscriptions.delete(unsubscribe);
+      } catch (err) {}
     });
   });
 
@@ -549,27 +430,20 @@ function startServer() {
   }
 
   // ================== Middleware ==================
-  app.use(compression({
-    level: 6,
-    threshold: 1024,
-    filter: (req, res) => {
-      if (req.headers['x-no-compression']) return false;
-      return compression.filter(req, res);
-    }
-  }));
+  app.use(compression({ level: 6, threshold: 1024 }));
 
   app.use(responseTime((req, res, time) => {
     stats.avgResponseTime = (stats.avgResponseTime * stats.requests + time) / (stats.requests + 1);
     stats.requests++;
     
-    if (time > 1000) {
-      logger.warn(`Slow request: ${req.method} ${req.url} (${time.toFixed(2)}ms)`);
+    if (time > 2000) {
+      console.warn(`⚠️ Slow request: ${req.method} ${req.url} (${time.toFixed(2)}ms)`);
     }
   }));
 
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 100,
+    max: isRender ? 50 : 100, // تقليل الحد على Render
     message: { error: "Too many requests" },
     standardHeaders: true,
     legacyHeaders: false,
@@ -580,14 +454,14 @@ function startServer() {
   
   app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Cache-Control", "public, max-age=60");
+    res.setHeader("Cache-Control", "public, max-age=30"); // تقليل الـ cache
     next();
   });
 
-  // ================== API Routes (محسّنة مع Redis) ==================
+  // ================== API Routes ==================
   app.get("/api/v1/match-today", async (req, res) => {
     try {
-      const data = await getCachedOrFetch('matches:today', getMatchesCache, 60);
+      const data = await getMatchesCache();
       if (!data || data.length === 0) {
         return res.status(503).json({ error: "Matches not ready" });
       }
@@ -600,7 +474,7 @@ function startServer() {
 
   app.get("/api/v1/matches-full", async (req, res) => {
     try {
-      const data = await getCachedOrFetch('matches:full', getMatchesFullCache, 300);
+      const data = await getMatchesFullCache();
       if (!data || data.length === 0) {
         return res.status(503).json({ error: "Full matches not ready" });
       }
@@ -630,7 +504,7 @@ function startServer() {
 
   app.get("/api/v1/besoccer", async (req, res) => {
     try {
-      const data = await getCachedOrFetch('besoccer:all', getBesoccerCache, 60);
+      const data = await getBesoccerCache();
       if (!data) {
         return res.status(503).json({ error: "BeSoccer data not ready" });
       }
@@ -644,9 +518,7 @@ function startServer() {
   app.get("/api/v1/besoccer/competitions", async (req, res) => {
     try {
       const data = await getBesoccerCache();
-      if (!data) {
-        return res.status(503).json({ error: "BeSoccer data not ready" });
-      }
+      if (!data) return res.status(503).json({ error: "BeSoccer data not ready" });
       res.json(data.competitions || []);
     } catch (err) {
       stats.errors++;
@@ -657,13 +529,11 @@ function startServer() {
   app.get("/api/v1/besoccer/matches", async (req, res) => {
     try {
       const page = parseInt(req.query.page) || 1;
-      const limit = parseInt(req.query.limit) || 20;
+      const limit = Math.min(parseInt(req.query.limit) || 20, 50); // حد أقصى 50
       const start = (page - 1) * limit;
       
       const data = await getBesoccerCache();
-      if (!data) {
-        return res.status(503).json({ error: "BeSoccer data not ready" });
-      }
+      if (!data) return res.status(503).json({ error: "BeSoccer data not ready" });
       
       const allMatches = data.competitions?.flatMap(c => c.matches || []) || [];
       const paginated = allMatches.slice(start, start + limit);
@@ -674,95 +544,6 @@ function startServer() {
         total: allMatches.length,
         pages: Math.ceil(allMatches.length / limit),
         data: paginated
-      });
-    } catch (err) {
-      stats.errors++;
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get("/api/v1/besoccer/competition/:name", async (req, res) => {
-    try {
-      const competitionName = req.params.name.toLowerCase();
-      const data = await getBesoccerCache();
-      
-      if (!data) {
-        return res.status(503).json({ error: "BeSoccer data not ready" });
-      }
-      
-      const competition = data.competitions?.find(c => 
-        c.name.toLowerCase().includes(competitionName)
-      );
-      
-      if (!competition) {
-        return res.status(404).json({ error: "Competition not found" });
-      }
-      
-      res.json(competition);
-    } catch (err) {
-      stats.errors++;
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get("/api/v1/besoccer/match/:matchId", async (req, res) => {
-    try {
-      const matchId = req.params.matchId;
-      const data = await getBesoccerCache();
-      
-      if (!data) {
-        return res.status(503).json({ error: "BeSoccer data not ready" });
-      }
-      
-      let foundMatch = null;
-      for (const comp of data.competitions || []) {
-        const match = comp.matches?.find(m => m.id === matchId || m.matchId === matchId);
-        if (match) {
-          foundMatch = match;
-          break;
-        }
-      }
-      
-      if (!foundMatch) {
-        return res.status(404).json({ error: "Match not found" });
-      }
-      
-      res.json(foundMatch);
-    } catch (err) {
-      stats.errors++;
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get("/api/v1/besoccer/live", async (req, res) => {
-    try {
-      const data = await getBesoccerCache();
-      if (!data) {
-        return res.status(503).json({ error: "BeSoccer data not ready" });
-      }
-      
-      const liveMatches = data.competitions?.map(comp => ({
-        ...comp,
-        matches: comp.matches?.filter(m => m.isLive) || []
-      })).filter(comp => comp.matches.length > 0) || [];
-      
-      res.json(liveMatches);
-    } catch (err) {
-      stats.errors++;
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get("/api/v1/besoccer/statistics", async (req, res) => {
-    try {
-      const data = await getBesoccerCache();
-      if (!data) {
-        return res.status(503).json({ error: "BeSoccer data not ready" });
-      }
-      
-      res.json({
-        metadata: data.metadata,
-        statistics: data.statistics
       });
     } catch (err) {
       stats.errors++;
@@ -783,7 +564,7 @@ function startServer() {
           matches: (league.matches || []).filter(m => {
             const status = m.status?.toLowerCase() || m.Eps?.toLowerCase();
             return status && 
-                   !['ft', 'finished', 'postp.', 'canc.', 'ns', 'not started'].includes(status) &&
+                   !['ft', 'finished', 'postp.', 'canc.', 'ns'].includes(status) &&
                    !status.includes('ft');
           })
         }))
@@ -799,15 +580,6 @@ function startServer() {
   app.get("/api/v1/standings/:league", async (req, res) => {
     try {
       const league = req.params.league.toLowerCase();
-      
-      // Try Redis first
-      if (redis) {
-        const cached = await redis.get(`standings:${league}`);
-        if (cached) {
-          return res.json(JSON.parse(cached));
-        }
-      }
-      
       const { normalized } = await getStandingsCache();
       
       if (!normalized[league]) {
@@ -815,11 +587,6 @@ function startServer() {
           error: "League not found",
           supportedLeagues: Object.keys(normalized),
         });
-      }
-      
-      // Cache in Redis
-      if (redis) {
-        await redis.setex(`standings:${league}`, 600, JSON.stringify(normalized[league]));
       }
       
       res.json(normalized[league]);
@@ -830,21 +597,27 @@ function startServer() {
   });
 
   app.get("/health", (req, res) => {
+    const memUsage = process.memoryUsage();
     res.json({
       status: "ok",
       worker: process.pid,
       uptime: process.uptime(),
       wsClients: wss.clients.size,
+      memory: {
+        rss: Math.round(memUsage.rss / 1024 / 1024) + 'MB',
+        heapTotal: Math.round(memUsage.heapTotal / 1024 / 1024) + 'MB',
+        heapUsed: Math.round(memUsage.heapUsed / 1024 / 1024) + 'MB'
+      },
       stats: {
         requests: stats.requests,
         avgResponseTime: stats.avgResponseTime.toFixed(2) + 'ms',
-        errors: stats.errors,
-        uptime: Math.floor((Date.now() - stats.startTime) / 1000) + 's'
+        errors: stats.errors
       }
     });
   });
 
   app.get("/health/detailed", async (req, res) => {
+    const memUsage = process.memoryUsage();
     const matches = await getMatchesCache();
     const matchesFull = await getMatchesFullCache();
     const besoccer = await getBesoccerCache();
@@ -855,14 +628,18 @@ function startServer() {
       worker: process.pid,
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
-      memory: process.memoryUsage(),
+      memory: {
+        rss: Math.round(memUsage.rss / 1024 / 1024) + 'MB',
+        heapTotal: Math.round(memUsage.heapTotal / 1024 / 1024) + 'MB',
+        heapUsed: Math.round(memUsage.heapUsed / 1024 / 1024) + 'MB',
+        external: Math.round(memUsage.external / 1024 / 1024) + 'MB'
+      },
       cache: {
         matches: matches ? matches.length : 0,
         matchesFull: matchesFull ? matchesFull.length : 0,
         besoccer: besoccer?.metadata?.totalMatches || 0,
         standings: raw ? Object.keys(raw).length : 0
       },
-      redis: redis ? 'connected' : 'disabled',
       files: {
         matchFile: fsSync.existsSync(MATCH_FILE) ? fsSync.statSync(MATCH_FILE).size : 0,
         matchFullFile: fsSync.existsSync(MATCH_FULL_FILE) ? fsSync.statSync(MATCH_FULL_FILE).size : 0,
@@ -882,22 +659,38 @@ function startServer() {
 
   // ================== Start Server ==================
   async function initializeServer() {
-    // Load initial data
+    console.log(`\n${'='.repeat(60)}`);
+    console.log(`🚀 بدء تشغيل السيرفر على port ${PORT}`);
+    console.log(`📊 حد الذاكرة: ${isRender ? '512MB (Render)' : 'غير محدد'}`);
+    console.log(`${'='.repeat(60)}\n`);
+    
+    // تحميل البيانات الأساسية فقط
     await Promise.allSettled([
       getMatchesCache(),
       getMatchesFullCache(),
-      getBesoccerCache(),
       getStandingsCache()
     ]);
     
-    // Schedule updates with staggered timing
+    // تحميل BeSoccer بشكل منفصل (أقل أهمية)
+    setTimeout(async () => {
+      await getBesoccerCache();
+    }, 5000);
+    
+    // جدولة التحديثات
     const schedule = [
       { fn: updateLiveScores, interval: 30 * 1000, delay: 0 },
       { fn: updateMatches, interval: 5 * 60 * 1000, delay: 5 * 1000 },
       { fn: updateMatchesFull, interval: 5 * 60 * 1000, delay: 10 * 1000 },
-      { fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 15 * 1000 },
-      { fn: updateStandings, interval: 10 * 60 * 1000, delay: 20 * 1000 }
+      { fn: updateStandings, interval: 10 * 60 * 1000, delay: 15 * 1000 }
     ];
+    
+    // تشغيل BeSoccer بشكل أقل تكراراً على Render
+    if (!isRender) {
+      schedule.push({ fn: updateBesoccerData, interval: 15 * 60 * 1000, delay: 20 * 1000 });
+    } else {
+      // على Render، نشغل BeSoccer كل ساعة فقط
+      schedule.push({ fn: updateBesoccerData, interval: 60 * 60 * 1000, delay: 30 * 1000 });
+    }
     
     schedule.forEach(({ fn, interval, delay }) => {
       setTimeout(() => {
@@ -910,8 +703,12 @@ function startServer() {
       }, delay);
     });
     
-    logger.info(`🚀 Worker ${process.pid} started on port ${PORT}`);
+    console.log(`✅ السيرفر جاهز على http://localhost:${PORT}`);
+    console.log(`📊 الذاكرة المستخدمة: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB\n`);
   }
 
   server.listen(PORT, initializeServer);
 }
+
+// بدء السيرفر
+startServer();
