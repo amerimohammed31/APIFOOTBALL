@@ -686,10 +686,10 @@ function startServer() {
     
     // تشغيل BeSoccer بشكل أقل تكراراً على Render
     if (!isRender) {
-      schedule.push({ fn: updateBesoccerData, interval: 15 * 60 * 1000, delay: 20 * 1000 });
+      schedule.push({ fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 20 * 1000 });
     } else {
       // على Render، نشغل BeSoccer كل ساعة فقط
-      schedule.push({ fn: updateBesoccerData, interval: 60 * 60 * 1000, delay: 30 * 1000 });
+      schedule.push({ fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 30 * 1000 });
     }
     
     schedule.forEach(({ fn, interval, delay }) => {
