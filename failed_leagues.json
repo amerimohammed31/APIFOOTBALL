@@ -25,6 +25,11 @@
     "reason": "No tables found"
   },
   {
+    "name": "europe-uefa-nations-league",
+    "url": "https://www.footmercato.net/classement/europe/uefa-nations-league?partial=1",
+    "reason": "No tables found"
+  },
+  {
     "name": "international-coupe-des-confederations",
     "url": "https://www.footmercato.net/classement/international/coupe-des-confederations?partial=1",
     "reason": "No tables found"
@@ -40,11 +45,6 @@
     "reason": "No tables found"
   },
   {
-    "name": "equateur-primera-a",
-    "url": "https://www.footmercato.net/classement/equateur/primera-a?partial=1",
-    "reason": "No tables found"
-  },
-  {
     "name": "danemark-superliga",
     "url": "https://www.footmercato.net/classement/danemark/superliga?partial=1",
     "reason": "No tables found"
@@ -55,23 +55,23 @@
     "reason": "No tables found"
   },
   {
-    "name": "norvege-eliteserien",
-    "url": "https://www.footmercato.net/classement/norvege/eliteserien?partial=1",
-    "reason": "No tables found"
-  },
-  {
     "name": "bosnie-herzegovine-premijer-liga",
     "url": "https://www.footmercato.net/classement/bosnie-herzegovine/premijer-liga?partial=1",
     "reason": "No tables found"
   },
   {
-    "name": "allemagne-barrages-3-liga",
-    "url": "https://www.footmercato.net/classement/allemagne/barrages-3-liga?partial=1",
+    "name": "norvege-eliteserien",
+    "url": "https://www.footmercato.net/classement/norvege/eliteserien?partial=1",
     "reason": "No tables found"
   },
   {
     "name": "angleterre-efl-league-one",
     "url": "https://www.footmercato.net/classement/angleterre/efl-league-one?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "allemagne-barrages-3-liga",
+    "url": "https://www.footmercato.net/classement/allemagne/barrages-3-liga?partial=1",
     "reason": "No tables found"
   },
   {
