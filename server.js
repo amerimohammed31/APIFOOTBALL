@@ -22,11 +22,10 @@ const __dirname = path.dirname(__filename);
 import fetchAllLeagues from "./fetchAllLeagues.js";
 import { fetchMatchToday, liveStatsCache } from "./fetchMatchToday.js";
 import { normalizeLeague } from "./normalizeStandings.js";
-import fetchAllMatchesFull from "./matches-today-full.js";
 
 // ================== التحقق من بيئة التشغيل ==================
 const isProduction = process.env.NODE_ENV === 'production';
-const isRender = process.env.RENDER === 'true'; // للتأكد من أننا على Render
+const isRender = process.env.RENDER === 'true';
 
 console.log(`🚀 بيئة التشغيل: ${isProduction ? 'إنتاج' : 'تطوير'} ${isRender ? '(Render)' : ''}`);
 
@@ -43,14 +42,12 @@ function startServer() {
   // ================== Files ==================
   const DATA_FILE = path.join(__dirname, "all_leagues_standings.json");
   const MATCH_FILE = path.join(__dirname, "match-today.json");
-  const MATCH_FULL_FILE = path.join(__dirname, "matches-today-full.json");
   const BESOCCER_FILE = path.join(__dirname, "besoccer-complete-data.json");
 
   // ================== Cache ==================
   let standingsCache = null;
   let normalizedStandingsCache = null;
   let matchesCache = null;
-  let matchesFullCache = null;
   let besoccerCache = null;
   const matchHashCache = new Map();
 
@@ -64,7 +61,6 @@ function startServer() {
 
   // ================== متغيرات التحكم بالتحديث ==================
   let updatingMatches = false;
-  let updatingMatchesFull = false;
   let updatingLiveScores = false;
   let updatingStandings = false;
   let updatingBesoccer = false;
@@ -95,11 +91,10 @@ function startServer() {
     return true;
   }
 
-  // ================== Lazy Loading مع تحسين الذاكرة ==================
+  // ================== Lazy Loading ==================
   async function getMatchesCache() {
     if (!matchesCache && fsSync.existsSync(MATCH_FILE)) {
       const data = JSON.parse(await fs.readFile(MATCH_FILE, "utf8"));
-      // تخزين البيانات بشكل محدود للحفاظ على الذاكرة
       matchesCache = data.map(league => ({
         leagueName: league.leagueName,
         leagueId: league.leagueId,
@@ -119,14 +114,6 @@ function startServer() {
       console.log(`⚽ Match-Today loaded (${matchesCache.length} leagues)`);
     }
     return matchesCache || [];
-  }
-
-  async function getMatchesFullCache() {
-    if (!matchesFullCache && fsSync.existsSync(MATCH_FULL_FILE)) {
-      matchesFullCache = JSON.parse(await fs.readFile(MATCH_FULL_FILE, "utf8"));
-      console.log(`📊 Full matches loaded (${matchesFullCache.length} matches)`);
-    }
-    return matchesFullCache || [];
   }
 
   async function getBesoccerCache() {
@@ -159,7 +146,6 @@ function startServer() {
     }
   }
 
-  // تشغيل تنظيف الذاكرة كل ساعة
   setInterval(cleanupMemory, 60 * 60 * 1000);
 
   // ================== دالة التحقق من وجود مباريات حية ==================
@@ -175,7 +161,7 @@ function startServer() {
     });
   }
 
-  // ================== تشغيل سكريبت BeSoccer (محسّن للذاكرة) ==================
+  // ================== تشغيل سكريبت BeSoccer ==================
   async function runBesoccerScript() {
     console.log("🚀 تشغيل سكريبت BeSoccer...");
     
@@ -186,17 +172,15 @@ function startServer() {
     }
     
     try {
-      // في بيئة Render، نستخدم max-old-space-size أصغر للعملية الفرعية
       const nodeOptions = isRender ? '--max-old-space-size=256' : '';
       const { stdout, stderr } = await execPromise(`node ${nodeOptions} ${scriptPath}`, {
         cwd: __dirname,
-        maxBuffer: 5 * 1024 * 1024, // تقليل الـ buffer إلى 5MB
-        timeout: 5 * 60 * 1000 // مهلة 5 دقائق
+        maxBuffer: 5 * 1024 * 1024,
+        timeout: 5 * 60 * 1000
       });
       
       if (stdout) {
         const lines = stdout.split('\n').filter(l => l.trim());
-        // عرض فقط آخر 10 أسطر من المخرجات
         lines.slice(-10).forEach(line => console.log(`[BeSoccer] ${line.trim()}`));
       }
       
@@ -204,7 +188,6 @@ function startServer() {
         const stats = fsSync.statSync(BESOCCER_FILE);
         console.log(`✅ BeSoccer completed (${(stats.size / 1024).toFixed(2)} KB)`);
         
-        // تحديث الكاش
         besoccerCache = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
       }
       
@@ -216,7 +199,7 @@ function startServer() {
     }
   }
 
-  // ================== تحديث بيانات BeSoccer (مع تحكم بالذاكرة) ==================
+  // ================== تحديث بيانات BeSoccer ==================
   async function updateBesoccerData() {
     if (updatingBesoccer) return;
     
@@ -226,7 +209,6 @@ function startServer() {
     try {
       console.log("🏆 Starting BeSoccer update...");
       
-      // في Render، نحدد إذا كانت الذاكرة كافية
       const memUsage = process.memoryUsage();
       const usedMemMB = Math.round(memUsage.heapUsed / 1024 / 1024);
       
@@ -248,7 +230,7 @@ function startServer() {
     }
   }
 
-  // ================== Live Scores Update (محسّن) ==================
+  // ================== Live Scores Update ==================
   async function updateLiveScores() {
     if (updatingLiveScores) return;
     
@@ -259,7 +241,6 @@ function startServer() {
       return status && !['ft', 'finished', 'postp.', 'canc.', 'ns'].includes(status);
     });
     
-    // إذا ما في مباريات حية، زود الفترة
     if (liveMatches.length === 0) {
       if (liveInterval) {
         clearInterval(liveInterval);
@@ -338,32 +319,6 @@ function startServer() {
     }
   }
 
-  // ================== Full Matches Update ==================
-  async function updateMatchesFull() {
-    if (updatingMatchesFull) return;
-    updatingMatchesFull = true;
-    
-    try {
-      console.log("🚀 Fetching full matches data...");
-      await fetchAllMatchesFull();
-      
-      if (fsSync.existsSync(MATCH_FULL_FILE)) {
-        const newData = JSON.parse(await fs.readFile(MATCH_FULL_FILE, "utf8"));
-        const changed = await writeIfChanged(MATCH_FULL_FILE, newData);
-        
-        if (changed) {
-          matchesFullCache = newData;
-          broadcastToSubscribers('matches_full_update', newData);
-          console.log(`✅ Full matches updated (${newData.length} matches)`);
-        }
-      }
-    } catch (error) {
-      console.error("❌ Full matches update error:", error.message);
-    } finally {
-      updatingMatchesFull = false;
-    }
-  }
-
   // ================== Standings Update ==================
   async function updateStandings() {
     if (updatingStandings) return;
@@ -400,13 +355,11 @@ function startServer() {
   wss.on("connection", async (ws) => {
     ws.subscriptions = new Set(['init']);
     
-    // إرسال البيانات الموجودة حالياً
     ws.send(JSON.stringify({ 
       type: "init", 
       data: { 
         matches: await getMatchesCache(),
         standings: (await getStandingsCache()).normalized,
-        matchesFull: await getMatchesFullCache(),
         besoccer: await getBesoccerCache()
       } 
     }));
@@ -443,7 +396,7 @@ function startServer() {
 
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: isRender ? 50 : 100, // تقليل الحد على Render
+    max: isRender ? 50 : 100,
     message: { error: "Too many requests" },
     standardHeaders: true,
     legacyHeaders: false,
@@ -454,7 +407,7 @@ function startServer() {
   
   app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Cache-Control", "public, max-age=30"); // تقليل الـ cache
+    res.setHeader("Cache-Control", "public, max-age=30");
     next();
   });
 
@@ -466,36 +419,6 @@ function startServer() {
         return res.status(503).json({ error: "Matches not ready" });
       }
       res.json(data);
-    } catch (err) {
-      stats.errors++;
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get("/api/v1/matches-full", async (req, res) => {
-    try {
-      const data = await getMatchesFullCache();
-      if (!data || data.length === 0) {
-        return res.status(503).json({ error: "Full matches not ready" });
-      }
-      res.json(data);
-    } catch (err) {
-      stats.errors++;
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get("/api/v1/match-full/:eid", async (req, res) => {
-    try {
-      const eid = req.params.eid;
-      const data = await getMatchesFullCache();
-      const match = data.find(m => m.Eid == eid);
-      
-      if (!match) {
-        return res.status(404).json({ error: "Match not found" });
-      }
-      
-      res.json(match);
     } catch (err) {
       stats.errors++;
       res.status(500).json({ error: err.message });
@@ -529,7 +452,7 @@ function startServer() {
   app.get("/api/v1/besoccer/matches", async (req, res) => {
     try {
       const page = parseInt(req.query.page) || 1;
-      const limit = Math.min(parseInt(req.query.limit) || 20, 50); // حد أقصى 50
+      const limit = Math.min(parseInt(req.query.limit) || 20, 50);
       const start = (page - 1) * limit;
       
       const data = await getBesoccerCache();
@@ -619,7 +542,6 @@ function startServer() {
   app.get("/health/detailed", async (req, res) => {
     const memUsage = process.memoryUsage();
     const matches = await getMatchesCache();
-    const matchesFull = await getMatchesFullCache();
     const besoccer = await getBesoccerCache();
     const { raw } = await getStandingsCache();
     
@@ -636,13 +558,11 @@ function startServer() {
       },
       cache: {
         matches: matches ? matches.length : 0,
-        matchesFull: matchesFull ? matchesFull.length : 0,
         besoccer: besoccer?.metadata?.totalMatches || 0,
         standings: raw ? Object.keys(raw).length : 0
       },
       files: {
         matchFile: fsSync.existsSync(MATCH_FILE) ? fsSync.statSync(MATCH_FILE).size : 0,
-        matchFullFile: fsSync.existsSync(MATCH_FULL_FILE) ? fsSync.statSync(MATCH_FULL_FILE).size : 0,
         besoccerFile: fsSync.existsSync(BESOCCER_FILE) ? fsSync.statSync(BESOCCER_FILE).size : 0,
         standingsFile: fsSync.existsSync(DATA_FILE) ? fsSync.statSync(DATA_FILE).size : 0
       },
@@ -650,7 +570,6 @@ function startServer() {
       updates: {
         liveScores: updatingLiveScores ? 'running' : 'idle',
         matches: updatingMatches ? 'running' : 'idle',
-        matchesFull: updatingMatchesFull ? 'running' : 'idle',
         besoccer: updatingBesoccer ? 'running' : 'idle',
         standings: updatingStandings ? 'running' : 'idle'
       }
@@ -664,32 +583,25 @@ function startServer() {
     console.log(`📊 حد الذاكرة: ${isRender ? '512MB (Render)' : 'غير محدد'}`);
     console.log(`${'='.repeat(60)}\n`);
     
-    // تحميل البيانات الأساسية فقط
     await Promise.allSettled([
       getMatchesCache(),
-      getMatchesFullCache(),
       getStandingsCache()
     ]);
     
-    // تحميل BeSoccer بشكل منفصل (أقل أهمية)
     setTimeout(async () => {
       await getBesoccerCache();
     }, 5000);
     
-    // جدولة التحديثات
     const schedule = [
       { fn: updateLiveScores, interval: 30 * 1000, delay: 0 },
       { fn: updateMatches, interval: 5 * 60 * 1000, delay: 5 * 1000 },
-      { fn: updateMatchesFull, interval: 5 * 60 * 1000, delay: 10 * 1000 },
       { fn: updateStandings, interval: 10 * 60 * 1000, delay: 15 * 1000 }
     ];
     
-    // تشغيل BeSoccer بشكل أقل تكراراً على Render
     if (!isRender) {
       schedule.push({ fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 20 * 1000 });
     } else {
-      // على Render، نشغل BeSoccer كل ساعة فقط
-      schedule.push({ fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 30 * 1000 });
+      schedule.push({ fn: updateBesoccerData, interval: 10 * 60 * 1000, delay: 30 * 1000 });
     }
     
     schedule.forEach(({ fn, interval, delay }) => {
@@ -710,5 +622,4 @@ function startServer() {
   server.listen(PORT, initializeServer);
 }
 
-// بدء السيرفر
 startServer();
