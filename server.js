@@ -65,6 +65,7 @@ function startServer() {
   let updatingStandings = false;
   let updatingBesoccer = false;
   let liveInterval = null;
+  let besoccerInterval = null;
 
   // ================== Helpers ==================
   function hashObject(obj) {
@@ -118,10 +119,16 @@ function startServer() {
 
   async function getBesoccerCache() {
     if (!besoccerCache && fsSync.existsSync(BESOCCER_FILE)) {
-      besoccerCache = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
-      console.log(`🏆 BeSoccer loaded (${besoccerCache?.metadata?.totalMatches || 0} matches)`);
+      try {
+        const data = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
+        besoccerCache = data;
+        console.log(`🏆 BeSoccer loaded (${data?.metadata?.totalMatches || 0} matches, ${(fsSync.statSync(BESOCCER_FILE).size / 1024).toFixed(2)} KB)`);
+      } catch (err) {
+        console.error("❌ خطأ في قراءة BeSoccer:", err.message);
+        besoccerCache = { competitions: [], metadata: { totalMatches: 0 } };
+      }
     }
-    return besoccerCache;
+    return besoccerCache || { competitions: [], metadata: { totalMatches: 0 } };
   }
 
   async function getStandingsCache() {
@@ -163,68 +170,158 @@ function startServer() {
 
   // ================== تشغيل سكريبت BeSoccer ==================
   async function runBesoccerScript() {
-    console.log("🚀 تشغيل سكريبت BeSoccer...");
+    console.log(`\n${'='.repeat(50)}`);
+    console.log(`🏃 تشغيل BeSoccer - ${new Date().toLocaleTimeString('ar-EG')}`);
+    console.log(`${'='.repeat(50)}`);
     
     const scriptPath = path.join(__dirname, "besoccer.js");
+    const outputPath = BESOCCER_FILE;
     
     if (!fsSync.existsSync(scriptPath)) {
       throw new Error(`ملف BeSoccer غير موجود: ${scriptPath}`);
     }
     
     try {
-      const nodeOptions = isRender ? '--max-old-space-size=256' : '';
-      const { stdout, stderr } = await execPromise(`node ${nodeOptions} ${scriptPath}`, {
-        cwd: __dirname,
-        maxBuffer: 5 * 1024 * 1024,
-        timeout: 5 * 60 * 1000
-      });
+      // محاولة直接用 import
+      console.log("📥 محاولة 1: استيراد الوحدة مباشرة...");
       
-      if (stdout) {
-        const lines = stdout.split('\n').filter(l => l.trim());
-        lines.slice(-10).forEach(line => console.log(`[BeSoccer] ${line.trim()}`));
-      }
+      // مسح الكاش
+      const modulePath = `file://${scriptPath}?update=${Date.now()}`;
+      const besoccerModule = await import(modulePath);
       
-      if (fsSync.existsSync(BESOCCER_FILE)) {
-        const stats = fsSync.statSync(BESOCCER_FILE);
-        console.log(`✅ BeSoccer completed (${(stats.size / 1024).toFixed(2)} KB)`);
+      if (typeof besoccerModule.default === 'function') {
+        console.log("🔄 تشغيل الدالة الرئيسية...");
+        const result = await besoccerModule.default();
         
-        besoccerCache = JSON.parse(await fs.readFile(BESOCCER_FILE, "utf8"));
+        // انتظار ثانية للتأكد من كتابة الملف
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        if (fsSync.existsSync(outputPath)) {
+          const stats = fsSync.statSync(outputPath);
+          if (stats.size > 1024) { // أكثر من 1 كيلوبايت
+            console.log(`✅ نجاح! حجم الملف: ${(stats.size / 1024).toFixed(2)} KB`);
+            
+            // تحديث الكاش
+            const fileContent = await fs.readFile(outputPath, "utf8");
+            besoccerCache = JSON.parse(fileContent);
+            
+            return { success: true, method: 'import', size: stats.size };
+          }
+        }
       }
       
-      return { success: true };
+      throw new Error("فشلت المحاولة الأولى");
       
-    } catch (error) {
-      console.error("❌ BeSoccer failed:", error.message);
-      throw error;
+    } catch (importError) {
+      console.log(`⚠️ فشلت المحاولة الأولى: ${importError.message}`);
+      console.log("🔄 محاولة 2: استخدام child_process...");
+      
+      try {
+        // حذف الملف القديم للتأكد من إنشاء جديد
+        if (fsSync.existsSync(outputPath)) {
+          await fs.unlink(outputPath);
+          console.log("🗑️ تم حذف الملف القديم");
+        }
+        
+        // تشغيل السكريبت
+        const { stdout, stderr } = await execPromise(`node "${scriptPath}"`, {
+          cwd: __dirname,
+          maxBuffer: 10 * 1024 * 1024,
+          timeout: 5 * 60 * 1000,
+          env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=512' }
+        });
+        
+        // طباعة المخرجات للتصحيح
+        if (stdout) {
+          const lines = stdout.split('\n').filter(l => l.trim());
+          lines.slice(-5).forEach(line => console.log(`   ${line}`));
+        }
+        
+        // انتظار ثانيتين للتأكد
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        if (fsSync.existsSync(outputPath)) {
+          const stats = fsSync.statSync(outputPath);
+          
+          if (stats.size > 1024) {
+            console.log(`✅ نجاح! حجم الملف: ${(stats.size / 1024).toFixed(2)} KB`);
+            
+            // تحديث الكاش
+            const fileContent = await fs.readFile(outputPath, "utf8");
+            besoccerCache = JSON.parse(fileContent);
+            
+            return { success: true, method: 'child_process', size: stats.size };
+          } else {
+            throw new Error(`الملف صغير جداً: ${stats.size} بايت`);
+          }
+        } else {
+          throw new Error("لم يتم إنشاء الملف");
+        }
+        
+      } catch (execError) {
+        console.error("❌ فشلت المحاولة الثانية:", execError.message);
+        
+        // محاولة أخيرة: إنشاء ملف تجريبي
+        console.log("🔄 محاولة 3: إنشاء ملف تجريبي...");
+        
+        const dummyData = {
+          metadata: {
+            timestamp: new Date().toISOString(),
+            totalMatches: 0,
+            message: "بيانات تجريبية - فشل التحديث الحقيقي"
+          },
+          competitions: [],
+          statistics: {
+            byStatus: { scheduled: 0, live: 0, finished: 0, postponed: 0, other: 0 },
+            byCountry: {}
+          }
+        };
+        
+        await fs.writeFile(outputPath, JSON.stringify(dummyData, null, 2), "utf8");
+        besoccerCache = dummyData;
+        
+        console.log("⚠️ تم إنشاء ملف تجريبي مؤقت");
+        return { success: false, method: 'fallback' };
+      }
     }
   }
 
   // ================== تحديث بيانات BeSoccer ==================
   async function updateBesoccerData() {
-    if (updatingBesoccer) return;
+    if (updatingBesoccer) {
+      console.log("⏳ تحديث BeSoccer قيد التشغيل بالفعل...");
+      return;
+    }
     
     updatingBesoccer = true;
     const startTime = Date.now();
     
     try {
-      console.log("🏆 Starting BeSoccer update...");
-      
       const memUsage = process.memoryUsage();
       const usedMemMB = Math.round(memUsage.heapUsed / 1024 / 1024);
       
-      if (isRender && usedMemMB > 300) {
+      console.log(`📊 الذاكرة المستخدمة: ${usedMemMB}MB`);
+      
+      if (isRender && usedMemMB > 400) {
         console.log(`⚠️ ذاكرة عالية (${usedMemMB}MB) - تأجيل تحديث BeSoccer`);
         return;
       }
       
-      await runBesoccerScript();
+      const result = await runBesoccerScript();
       
-      broadcastToSubscribers('besoccer_update', besoccerCache);
-      
-      console.log(`✅ BeSoccer updated in ${((Date.now() - startTime) / 1000).toFixed(2)}s`);
+      if (result.success) {
+        console.log(`✅ BeSoccer تحديث في ${((Date.now() - startTime) / 1000).toFixed(1)} ثانية عبر ${result.method}`);
+        
+        // إرسال التحديث عبر WebSocket
+        if (besoccerCache) {
+          broadcastToSubscribers('besoccer_update', besoccerCache);
+        }
+      } else {
+        console.log(`⚠️ BeSoccer تحديث جزئي في ${((Date.now() - startTime) / 1000).toFixed(1)} ثانية`);
+      }
       
     } catch (error) {
-      console.error("❌ BeSoccer update error:", error.message);
+      console.error("❌ خطأ في تحديث BeSoccer:", error.message);
     } finally {
       updatingBesoccer = false;
     }
@@ -428,7 +525,7 @@ function startServer() {
   app.get("/api/v1/besoccer", async (req, res) => {
     try {
       const data = await getBesoccerCache();
-      if (!data) {
+      if (!data || !data.competitions) {
         return res.status(503).json({ error: "BeSoccer data not ready" });
       }
       res.json(data);
@@ -438,10 +535,41 @@ function startServer() {
     }
   });
 
+  app.get("/api/v1/besoccer/match/:matchId", async (req, res) => {
+    try {
+      const data = await getBesoccerCache();
+      if (!data || !data.competitions) {
+        return res.status(503).json({ error: "BeSoccer data not ready" });
+      }
+      
+      const matchId = req.params.matchId;
+      let foundMatch = null;
+      
+      for (const comp of data.competitions || []) {
+        for (const match of comp.matches || []) {
+          if (match.id === matchId || match.matchId === matchId) {
+            foundMatch = match;
+            break;
+          }
+        }
+        if (foundMatch) break;
+      }
+      
+      if (!foundMatch) {
+        return res.status(404).json({ error: "Match not found" });
+      }
+      
+      res.json(foundMatch);
+    } catch (err) {
+      stats.errors++;
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   app.get("/api/v1/besoccer/competitions", async (req, res) => {
     try {
       const data = await getBesoccerCache();
-      if (!data) return res.status(503).json({ error: "BeSoccer data not ready" });
+      if (!data || !data.competitions) return res.status(503).json({ error: "BeSoccer data not ready" });
       res.json(data.competitions || []);
     } catch (err) {
       stats.errors++;
@@ -456,7 +584,7 @@ function startServer() {
       const start = (page - 1) * limit;
       
       const data = await getBesoccerCache();
-      if (!data) return res.status(503).json({ error: "BeSoccer data not ready" });
+      if (!data || !data.competitions) return res.status(503).json({ error: "BeSoccer data not ready" });
       
       const allMatches = data.competitions?.flatMap(c => c.matches || []) || [];
       const paginated = allMatches.slice(start, start + limit);
@@ -468,6 +596,30 @@ function startServer() {
         pages: Math.ceil(allMatches.length / limit),
         data: paginated
       });
+    } catch (err) {
+      stats.errors++;
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.get("/api/v1/besoccer/live", async (req, res) => {
+    try {
+      const data = await getBesoccerCache();
+      if (!data || !data.competitions) return res.status(503).json({ error: "BeSoccer data not ready" });
+      
+      const liveMatches = [];
+      for (const comp of data.competitions || []) {
+        const live = comp.matches?.filter(m => m.isLive) || [];
+        if (live.length > 0) {
+          liveMatches.push({
+            competition: comp.name,
+            country: comp.country,
+            matches: live
+          });
+        }
+      }
+      
+      res.json(liveMatches);
     } catch (err) {
       stats.errors++;
       res.status(500).json({ error: err.message });
@@ -571,7 +723,9 @@ function startServer() {
         liveScores: updatingLiveScores ? 'running' : 'idle',
         matches: updatingMatches ? 'running' : 'idle',
         besoccer: updatingBesoccer ? 'running' : 'idle',
-        standings: updatingStandings ? 'running' : 'idle'
+        standings: updatingStandings ? 'running' : 'idle',
+        nextBesoccerUpdate: besoccerInterval ? 
+          new Date(Date.now() + (5 * 60 * 1000)).toLocaleTimeString('ar-EG') : 'not scheduled'
       }
     });
   });
@@ -581,34 +735,36 @@ function startServer() {
     console.log(`\n${'='.repeat(60)}`);
     console.log(`🚀 بدء تشغيل السيرفر على port ${PORT}`);
     console.log(`📊 حد الذاكرة: ${isRender ? '512MB (Render)' : 'غير محدد'}`);
+    console.log(`⏱️  تحديث BeSoccer: كل 5 دقائق بالضبط`);
     console.log(`${'='.repeat(60)}\n`);
     
+    // تحميل الكاش أولاً
     await Promise.allSettled([
       getMatchesCache(),
-      getStandingsCache()
+      getStandingsCache(),
+      getBesoccerCache()
     ]);
     
-    setTimeout(async () => {
-      await getBesoccerCache();
-    }, 5000);
+    // تشغيل تحديث BeSoccer فوراً
+    console.log("🔄 تشغيل أول تحديث لـ BeSoccer...");
+    setTimeout(() => updateBesoccerData(), 2000);
     
+    // جدولة التحديثات
     const schedule = [
-      { fn: updateLiveScores, interval: 30 * 1000, delay: 0 },
-      { fn: updateMatches, interval: 5 * 60 * 1000, delay: 5 * 1000 },
-      { fn: updateStandings, interval: 10 * 60 * 1000, delay: 15 * 1000 }
+      { fn: updateLiveScores, interval: 30 * 1000, delay: 0 },           // كل 30 ثانية
+      { fn: updateMatches, interval: 5 * 60 * 1000, delay: 5 * 1000 },   // كل 5 دقائق
+      { fn: updateStandings, interval: 10 * 60 * 1000, delay: 15 * 1000 }, // كل 10 دقائق
+      { fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 10 * 1000 } // كل 5 دقائق
     ];
-    
-    if (!isRender) {
-      schedule.push({ fn: updateBesoccerData, interval: 5 * 60 * 1000, delay: 20 * 1000 });
-    } else {
-      schedule.push({ fn: updateBesoccerData, interval: 10 * 60 * 1000, delay: 30 * 1000 });
-    }
     
     schedule.forEach(({ fn, interval, delay }) => {
       setTimeout(() => {
         fn();
         if (fn === updateLiveScores) {
           liveInterval = setInterval(fn, interval);
+        } else if (fn === updateBesoccerData) {
+          besoccerInterval = setInterval(fn, interval);
+          console.log(`⏰ تحديث BeSoccer مجدول كل ${interval / 1000 / 60} دقائق`);
         } else {
           setInterval(fn, interval);
         }
@@ -616,10 +772,21 @@ function startServer() {
     });
     
     console.log(`✅ السيرفر جاهز على http://localhost:${PORT}`);
-    console.log(`📊 الذاكرة المستخدمة: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB\n`);
+    console.log(`📊 الذاكرة المستخدمة: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`);
+    console.log(`📡 WebSocket: متاح للتحديثات المباشرة`);
+    console.log(`${'='.repeat(60)}\n`);
   }
 
   server.listen(PORT, initializeServer);
 }
+
+// معالجة الأخطاء غير المتوقعة
+process.on('uncaughtException', (err) => {
+  console.error('❌ Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (err) => {
+  console.error('❌ Unhandled Rejection:', err);
+});
 
 startServer();

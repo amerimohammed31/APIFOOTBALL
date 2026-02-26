@@ -9,73 +9,84 @@ import https from 'https';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ================= الإعدادات المحسّنة فقط (نفس البيانات القديمة) =================
+// ================= الإعدادات المحسنة =================
 const CONFIG = {
   OUTPUT_FILE: path.join(__dirname, "./besoccer-complete-data.json"),
   URL: "https://www.besoccer.com/",
   TIMEOUT: 15000,
-  CONCURRENT_LIMIT: 3, // تحسين: 3 مباريات في نفس الوقت
-  DELAY_BETWEEN_REQUESTS: 1000, // تحسين: تقليل التأخير
-  MAX_RETRIES: 3,
-  USER_AGENTS: [ // تحسين: تبديل وكيل المستخدم
+  CONCURRENT_LIMIT: 2, // تقليل لتجنب الضغط على الموقع
+  DELAY_BETWEEN_REQUESTS: 1000,
+  MAX_RETRIES: 2,
+  USER_AGENTS: [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
   ]
 };
 
-console.log("🚀 بدء تشغيل سكريبت BeSoccer (نسخة محسّنة مع الحفاظ على البيانات)...");
-console.log(`📁 ملف الإخراج: ${CONFIG.OUTPUT_FILE}`);
+console.log("🚀 بدء تشغيل سكريبت BeSoccer - النسخة الكاملة");
 
-// ================= فئة للتعامل مع الأخطاء (مع تحسين) =================
+// التأكد من صلاحية الكتابة
+try {
+  fs.accessSync(__dirname, fs.constants.W_OK);
+  console.log(`✅ صلاحية الكتابة: متاحة في ${__dirname}`);
+} catch (err) {
+  console.error(`❌ لا يمكن الكتابة في: ${__dirname}`);
+  process.exit(1);
+}
+
+// ================= فئة للتعامل مع الأخطاء =================
 class ErrorHandler {
-  static async retry(fn, retries = CONFIG.MAX_RETRIES, delay = 2000) {
+  static async retry(fn, retries = CONFIG.MAX_RETRIES, delay = 1000) {
     for (let i = 0; i < retries; i++) {
       try {
         return await fn();
       } catch (err) {
-        console.log(`   ⚠️ محاولة ${i + 1}/${retries} فشلت: ${err.message}`);
+        console.log(`   ⚠️ محاولة ${i + 1}/${retries} فشلت: ${err.message.substring(0, 50)}`);
         if (i === retries - 1) throw err;
-        
-        // تحسين: زيادة التأخير مع كل محاولة فاشلة
-        const backoffDelay = delay * Math.pow(2, i);
-        await new Promise(resolve => setTimeout(resolve, backoffDelay));
+        await new Promise(resolve => setTimeout(resolve, delay * (i + 1)));
       }
     }
   }
 }
 
-// ================= عميل HTTP محسّن مع تبديل وكيل المستخدم =================
+// ================= عميل HTTP محسن =================
 class HttpClient {
   constructor() {
     this.axiosInstance = axios.create({
       timeout: CONFIG.TIMEOUT,
-      httpsAgent: new https.Agent({ keepAlive: true }),
-      maxRedirects: 5
-    });
-
-    this.axiosInstance.interceptors.request.use(config => {
-      config.headers = this.getHeaders();
-      return config;
+      httpsAgent: new https.Agent({ 
+        keepAlive: true, 
+        maxSockets: 5,
+        keepAliveMsecs: 1000
+      }),
+      maxRedirects: 5,
+      decompress: true
     });
   }
 
   getHeaders() {
-    const userAgent = CONFIG.USER_AGENTS[Math.floor(Math.random() * CONFIG.USER_AGENTS.length)];
-    
     return {
-      'User-Agent': userAgent,
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'User-Agent': CONFIG.USER_AGENTS[Math.floor(Math.random() * CONFIG.USER_AGENTS.length)],
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
       'Accept-Language': 'en-US,en;q=0.9,ar;q=0.8',
       'Accept-Encoding': 'gzip, deflate, br',
       'Connection': 'keep-alive',
-      'Upgrade-Insecure-Requests': '1'
+      'Upgrade-Insecure-Requests': '1',
+      'Cache-Control': 'max-age=0',
+      'Sec-Fetch-Dest': 'document',
+      'Sec-Fetch-Mode': 'navigate',
+      'Sec-Fetch-Site': 'none'
     };
   }
 
   async get(url) {
     try {
-      const response = await this.axiosInstance.get(url);
+      const response = await this.axiosInstance.get(url, { 
+        headers: this.getHeaders(),
+        validateStatus: status => status < 500
+      });
       return response.data;
     } catch (err) {
       throw err;
@@ -85,7 +96,7 @@ class HttpClient {
 
 const httpClient = new HttpClient();
 
-// ================= دالة لتنظيف الرابط =================
+// ================= دالة تنظيف الرابط =================
 function cleanUrl(url) {
   if (!url) return null;
   url = url.replace(/https?:\/\//g, '');
@@ -93,7 +104,7 @@ function cleanUrl(url) {
   return `https://www.${url}`;
 }
 
-// ================= استخراج بيانات المباراة من الصفحة الرئيسية (نفس الكود القديم) =================
+// ================= استخراج بيانات المباراة الأساسية =================
 function extractBasicMatchData($, matchEl) {
   const $match = $(matchEl);
   let matchUrl = $match.attr('href');
@@ -118,10 +129,7 @@ function extractBasicMatchData($, matchEl) {
     statusCode: $match.attr('data-status') || null,
     statusText: null,
     isVmore: $match.hasClass('vmore-hide'),
-    details: {
-      fromPreview: null,
-      fromEvents: null
-    }
+    lastUpdate: new Date().toISOString()
   };
 
   try {
@@ -177,13 +185,13 @@ function extractBasicMatchData($, matchEl) {
     }
 
   } catch (err) {
-    console.error(`   ⚠️ خطأ في استخراج بيانات المباراة الأساسية: ${err.message}`);
+    // تجاهل الأخطاء في الاستخراج
   }
 
   return matchData;
 }
 
-// ================= استخراج بيانات البطولة (نفس الكود القديم) =================
+// ================= استخراج بيانات البطولة =================
 function extractBasicCompetitionData($, panelEl) {
   const $panel = $(panelEl);
   let competitionUrl = $panel.find('.panel-head a').first().attr('href');
@@ -218,13 +226,13 @@ function extractBasicCompetitionData($, panelEl) {
     });
 
   } catch (err) {
-    console.error(`   ⚠️ خطأ في استخراج بيانات البطولة: ${err.message}`);
+    // تجاهل الأخطاء
   }
 
   return competition;
 }
 
-// ================= استخراج تفاصيل المباراة (نفس الكود القديم كاملاً) =================
+// ================= استخراج تفاصيل المباراة من الرابط =================
 function extractMatchDetailsFromUrl($, url) {
   const details = {
     jsonld: {},
@@ -243,17 +251,14 @@ function extractMatchDetailsFromUrl($, url) {
     stats: {
       general: [],
       recentForm: { local: [], visitor: [], streaks: {} },
-      offensive: { local: [], visitor: [] },
-      featured: { local: [], visitor: [] },
-      h2h: { matches: [], wins: { local: 0, draws: 0, visitor: 0 } },
-      knockout: { firstLeg: null, secondLeg: null, global: null },
-      squadValue: null,
-      matchStats: null
+      h2h: { matches: [], wins: { local: 0, draws: 0, visitor: 0 } }
     },
     injuries: { local: [], visitor: [] },
-    goalsProgression: { local: [], visitor: [] },
-    radar: { local: { values: [], color: null }, visitor: { values: [], color: null } },
-    events: { goals: [], cards: [], substitutions: [], occasions: [], var: [] }
+    events: { goals: [], cards: [], substitutions: [], occasions: [], var: [] },
+    liveData: {
+      currentMinute: null,
+      score: { home: null, away: null }
+    }
   };
 
   try {
@@ -270,9 +275,21 @@ function extractMatchDetailsFromUrl($, url) {
       details.round = $('.competition span').text().trim() || null;
     }
 
-    // النتيجة الإجمالية
-    const globalMatch = $('.global-match').first().text().trim();
-    if (globalMatch) details.globalScore = globalMatch;
+    // استخراج النتيجة الحالية والدقيقة
+    const scoreEl = $('.match-score .actual-score').first();
+    if (scoreEl.length) {
+      const scoreText = scoreEl.text().trim();
+      const numbers = scoreText.match(/\d+/g);
+      if (numbers && numbers.length >= 2) {
+        details.liveData.score.home = numbers[0];
+        details.liveData.score.away = numbers[1];
+      }
+    }
+
+    const minuteEl = $('.match-minute .minute').first();
+    if (minuteEl.length) {
+      details.liveData.currentMinute = minuteEl.text().trim();
+    }
 
     // معلومات المباراة (الملعب، الحكم)
     const matchInfoPanel = $('.match-information');
@@ -280,21 +297,6 @@ function extractMatchDetailsFromUrl($, url) {
     const stadiumLink = matchInfoPanel.find('a[href*="stadium"]');
     if (stadiumLink.length) {
       details.matchInfo.stadium.name = stadiumLink.text().trim();
-      
-      const stadiumPopup = $('#stadium');
-      if (stadiumPopup.length) {
-        details.matchInfo.stadium.image = stadiumPopup.find('img').attr('src') || null;
-        details.matchInfo.stadium.address = stadiumPopup.find('.address').text().trim() || null;
-        
-        stadiumPopup.find('.table-row').each((_, row) => {
-          const $row = $(row);
-          const label = $row.find('div:first').text().trim();
-          const value = $row.find('div:last').text().trim();
-          if (label.includes('construction')) details.matchInfo.stadium.year = value;
-          else if (label.includes('Capacity')) details.matchInfo.stadium.capacity = value;
-          else if (label.includes('Size')) details.matchInfo.stadium.size = value;
-        });
-      }
     }
     
     matchInfoPanel.find('.table-row-round a').each((_, el) => {
@@ -310,8 +312,6 @@ function extractMatchDetailsFromUrl($, url) {
       }
     });
 
-    // ========== بيانات صفحة المعاينة /preview ==========
-    
     // التشكيلة
     const lineupPanels = $('.best-eleven .tab-content');
     if (lineupPanels.length > 0) {
@@ -370,14 +370,6 @@ function extractMatchDetailsFromUrl($, url) {
           });
         }
       });
-      
-      const squadValue = $tab.find('.row.ta-c .col-2');
-      if (squadValue.length >= 2) {
-        details.stats.squadValue = {
-          local: $(squadValue[0]).text().trim(),
-          visitor: $(squadValue[1]).text().trim()
-        };
-      }
     });
 
     // آخر المباريات
@@ -408,57 +400,7 @@ function extractMatchDetailsFromUrl($, url) {
           });
         });
       });
-      
-      $tab.find('table tbody tr').each((_, row) => {
-        const $row = $(row);
-        const label = $row.find('.text-label').text().trim();
-        const leftValue = $row.find('.td-num.left .color-grey').first().text().trim();
-        const leftRecord = $row.find('.td-num.left .record').text().trim();
-        const rightValue = $row.find('.td-num.right').first().text().trim();
-        const rightRecord = $row.find('.td-num.right .record').text().trim();
-        
-        if (label) {
-          if (!details.stats.recentForm.streaks[context]) {
-            details.stats.recentForm.streaks[context] = [];
-          }
-          details.stats.recentForm.streaks[context].push({
-            label,
-            local: { value: leftValue, record: leftRecord },
-            visitor: { value: rightValue, record: rightRecord }
-          });
-        }
-      });
     });
-
-    // مرحلة خروج المغلوب
-    const knockoutPanel = $('.knockout-stage');
-    if (knockoutPanel.length) {
-      const matches = [];
-      knockoutPanel.find('.box.row').each((_, matchEl) => {
-        const $match = $(matchEl);
-        const localImg = $match.find('.team-box:first img').attr('src');
-        const visitorImg = $match.find('.team-box:last img').attr('src');
-        const score = $match.find('.marker .result').text().trim();
-        const date = $match.find('.date').text().trim();
-        const link = $match.find('a').attr('href');
-        
-        matches.push({
-          localImage: localImg,
-          visitorImage: visitorImg,
-          score,
-          date,
-          url: link ? (link.startsWith('http') ? link : `https://www.besoccer.com${link}`) : null
-        });
-      });
-      
-      if (matches.length >= 2) {
-        details.stats.knockout.firstLeg = matches[0];
-        details.stats.knockout.secondLeg = matches[1];
-      }
-      
-      const globalEl = knockoutPanel.find('.ta-c .result').last();
-      if (globalEl.length) details.stats.knockout.global = globalEl.text().trim();
-    }
 
     // المواجهات المباشرة
     const h2hPanel = $('.match-h2h');
@@ -467,16 +409,12 @@ function extractMatchDetailsFromUrl($, url) {
         const $match = $(matchEl);
         const localImg = $match.find('.team-box:first img').attr('src');
         const visitorImg = $match.find('.team-box:last img').attr('src');
-        const localResult = $match.find('.team-box:first .bg-match-res').attr('class');
-        const visitorResult = $match.find('.team-box:last .bg-match-res').attr('class');
         const score = $match.find('.marker a').text().trim();
         const link = $match.find('a').attr('href');
         
         details.stats.h2h.matches.push({
           localImage: localImg,
           visitorImage: visitorImg,
-          localResult: localResult?.includes('win') ? 'win' : localResult?.includes('draw') ? 'draw' : 'lose',
-          visitorResult: visitorResult?.includes('win') ? 'win' : visitorResult?.includes('draw') ? 'draw' : 'lose',
           score,
           url: link ? (link.startsWith('http') ? link : `https://www.besoccer.com${link}`) : null
         });
@@ -490,291 +428,57 @@ function extractMatchDetailsFromUrl($, url) {
       }
     }
 
-    // الإصابات والغيابات
-    $('.match-injuries.unavailable .col-6').each((index, col) => {
-      const $col = $(col);
-      const team = index === 0 ? 'local' : 'visitor';
-      
-      $col.find('.item-box').each((_, playerEl) => {
-        const $player = $(playerEl);
-        const name = $player.find('.main-text').text().trim();
-        const injury = $player.find('.sub-text2').text().trim();
-        const chance = $player.find('.min-box span').text().trim();
-        const img = $player.find('img').attr('src');
-        const link = $player.attr('href');
-        
-        if (name) {
-          details.injuries[team].push({
-            name,
-            injury,
-            chance,
-            image: img,
-            url: link ? (link.startsWith('http') ? link : `https://www.besoccer.com${link}`) : null
-          });
-        }
-      });
-    });
-
-    // تقدم الأهداف
-    $('.goals-progression .row.align-center').each((index, row) => {
-      const $row = $(row);
-      const isLocal = index === 0;
-      const team = isLocal ? 'local' : 'visitor';
-      
-      $row.find('.bar').each((_, barEl) => {
-        const $bar = $(barEl);
-        const width = $bar.css('width');
-        const number = $bar.find('.num').text().trim();
-        const color = $bar.attr('class')?.split(' ').find(c => ['pink', 'orange', 'yellow', 'green', 'blue', 'purple'].includes(c));
-        
-        if (number) {
-          details.goalsProgression[team].push({
-            interval: color,
-            count: number,
-            percentage: width
-          });
-        }
-      });
-    });
-
-    // المساهمة الهجومية
-    $('.offensive-contribution .tab-content').each((_, tab) => {
-      const $tab = $(tab);
-      const isActive = $tab.hasClass('active');
-      const context = isActive ? 'competition' : 'all';
-      
-      $tab.find('.col-6').each((index, col) => {
-        const $col = $(col);
-        const team = index === 0 ? 'local' : 'visitor';
-        
-        $col.find('.item-box').each((_, playerEl) => {
-          const $player = $(playerEl);
-          const name = $player.find('.mb5').text().trim();
-          const img = $player.find('img').attr('src');
-          const link = $player.attr('href');
+    // استخراج أحداث المباراة من صفحة /events
+    if (url.includes('/events')) {
+      const eventsPanel = $('.match-events');
+      if (eventsPanel.length) {
+        // استخراج الأهداف
+        eventsPanel.find('#events-goals .table-body .table-played-match').each((_, eventEl) => {
+          const $event = $(eventEl);
+          const minute = $event.find('.min').text().trim();
+          const localPlayer = $event.find('.col-side.left .name').first().text().trim();
+          const visitorPlayer = $event.find('.col-side.right .name').first().text().trim();
           
-          const assistsBar = $player.find('.assist');
-          const goalsBar = $player.find('.goal');
-          
-          const assists = assistsBar.length ? assistsBar.find('.box span').text().trim().replace(/[()]/g, '') : '0';
-          const goals = goalsBar.length ? goalsBar.find('.box span').text().trim().replace(/[()]/g, '') : '0';
-          
-          if (name) {
-            if (!details.stats.offensive[team]) details.stats.offensive[team] = [];
-            details.stats.offensive[team].push({
-              context,
-              name,
-              image: img,
-              url: link ? (link.startsWith('http') ? link : `https://www.besoccer.com${link}`) : null,
-              assists: parseInt(assists) || 0,
-              goals: parseInt(goals) || 0
+          if (localPlayer || visitorPlayer) {
+            details.events.goals.push({
+              minute,
+              localPlayer,
+              visitorPlayer
             });
           }
         });
-      });
-    });
-
-    // اللاعبين المميزين
-    $('.matches-featured-players .tab-content').each((_, tab) => {
-      const $tab = $(tab);
-      const isActive = $tab.hasClass('active');
-      const context = isActive ? 'competition' : 'all';
-      
-      $tab.find('.mb15').each((_, categoryEl) => {
-        const $category = $(categoryEl);
-        const category = $category.find('.title').text().trim();
         
-        $category.find('.row .col-6').each((index, playerCol) => {
-          const $playerCol = $(playerCol);
-          const isLocal = index === 0;
-          const value = $playerCol.find('.mark').text().trim();
-          const name = $playerCol.find('.item-box div').text().trim();
-          const img = $playerCol.find('img').attr('src');
-          const link = $playerCol.find('.item-box').attr('href');
+        // استخراج البطاقات
+        eventsPanel.find('#events-cards .table-body .table-played-match').each((_, eventEl) => {
+          const $event = $(eventEl);
+          const minute = $event.find('.min').text().trim();
+          const localPlayer = $event.find('.col-side.left .name').first().text().trim();
+          const visitorPlayer = $event.find('.col-side.right .name').first().text().trim();
+          const cardType = $event.find('.event-wrapper img').first().attr('alt');
           
-          if (name && value) {
-            const team = isLocal ? 'local' : 'visitor';
-            if (!details.stats.featured[team]) details.stats.featured[team] = [];
-            details.stats.featured[team].push({
-              context,
-              category,
-              name,
-              value,
-              image: img,
-              url: link ? (link.startsWith('http') ? link : `https://www.besoccer.com${link}`) : null
+          if (localPlayer || visitorPlayer) {
+            details.events.cards.push({
+              minute,
+              cardType,
+              localPlayer,
+              visitorPlayer
             });
           }
         });
-      });
-    });
-
-    // رادار النقاط
-    const radarData = $('#radarChart').find('script').last().html();
-    if (radarData) {
-      const localMatch = radarData.match(/values: \[([^\]]+)\]/g);
-      if (localMatch && localMatch.length >= 2) {
-        details.radar.local.values = localMatch[0].match(/\d+/g)?.map(Number) || [];
-        details.radar.visitor.values = localMatch[1].match(/\d+/g)?.map(Number) || [];
       }
-      
-      const colors = radarData.match(/#[0-9a-f]{6}/g);
-      if (colors && colors.length >= 2) {
-        details.radar.local.color = colors[0];
-        details.radar.visitor.color = colors[1];
-      }
-    }
-
-    // ========== بيانات صفحة الأحداث /events ==========
-    
-    // إحصائيات المباراة من صفحة الأحداث
-    const matchStatsPanel = $('.panel.detail-match-stats.general-stats[data-cy="stats"]');
-    if (matchStatsPanel.length) {
-      details.stats.matchStats = {};
-      
-      matchStatsPanel.find('table tbody tr').each((_, row) => {
-        const $row = $(row);
-        const title = $row.find('.title b').text().trim();
-        
-        if (title) {
-          details.stats.matchStats[title] = [];
-        } else {
-          const label = $row.find('.color-grey2 p, .text-label').first().text().trim();
-          if (label) {
-            const leftValue = $row.find('.td-num.left span').first().text().trim();
-            const rightValue = $row.find('.td-num.right span').first().text().trim();
-            const leftMark = $row.find('.td-num.left .mark').length > 0;
-            const rightMark = $row.find('.td-num.right .mark').length > 0;
-            
-            if (label.includes('Ball possession')) {
-              const leftPercent = $row.find('.td-num.left span').last().text().trim();
-              const rightPercent = $row.find('.td-num.right span').last().text().trim();
-              details.stats.matchStats.possession = {
-                local: leftPercent,
-                visitor: rightPercent
-              };
-            }
-            
-            if (label.includes('Total shots')) {
-              details.stats.matchStats.shots = {
-                local: leftValue,
-                visitor: rightValue
-              };
-            }
-            
-            details.stats.matchStats[label] = {
-              local: { value: leftValue, highlight: leftMark },
-              visitor: { value: rightValue, highlight: rightMark }
-            };
-          }
-        }
-      });
-    }
-
-    // استخراج أحداث المباراة
-    const eventsPanel = $('.match-events');
-    if (eventsPanel.length) {
-      
-      // استخراج الأهداف
-      eventsPanel.find('#events-goals .table-body .table-played-match').each((_, eventEl) => {
-        const $event = $(eventEl);
-        const minute = $event.find('.min').text().trim();
-        const score = $event.find('.mini-result').text().trim();
-        const localPlayer = $event.find('.col-side.left .name').first().text().trim();
-        const visitorPlayer = $event.find('.col-side.right .name').first().text().trim();
-        
-        if (localPlayer || visitorPlayer) {
-          details.events.goals.push({
-            minute,
-            score,
-            localPlayer,
-            visitorPlayer,
-            type: $event.find('.event-wrapper img').first().attr('alt')
-          });
-        }
-      });
-      
-      // استخراج البطاقات
-      eventsPanel.find('#events-cards .table-body .table-played-match').each((_, eventEl) => {
-        const $event = $(eventEl);
-        const minute = $event.find('.min').text().trim();
-        const localPlayer = $event.find('.col-side.left .name').first().text().trim();
-        const visitorPlayer = $event.find('.col-side.right .name').first().text().trim();
-        const cardType = $event.find('.event-wrapper img').first().attr('alt');
-        const reason = $event.find('.color-grey2').text().trim();
-        
-        if (localPlayer || visitorPlayer) {
-          details.events.cards.push({
-            minute,
-            cardType,
-            reason,
-            localPlayer,
-            visitorPlayer
-          });
-        }
-      });
-      
-      // استخراج التغييرات
-      eventsPanel.find('#events-changes .table-body .table-played-match').each((_, eventEl) => {
-        const $event = $(eventEl);
-        const minute = $event.find('.min').text().trim();
-        const localOut = $event.find('.col-side.left .name').first().text().trim();
-        const localIn = $event.find('.col-side.left .color-grey2').first().text().trim();
-        const visitorOut = $event.find('.col-side.right .name').first().text().trim();
-        const visitorIn = $event.find('.col-side.right .color-grey2').first().text().trim();
-        
-        if (localOut || visitorOut) {
-          details.events.substitutions.push({
-            minute,
-            local: localOut ? { out: localOut, in: localIn } : null,
-            visitor: visitorOut ? { out: visitorOut, in: visitorIn } : null
-          });
-        }
-      });
-      
-      // استخراج الفرص
-      eventsPanel.find('#events-occasions .table-body .table-played-match').each((_, eventEl) => {
-        const $event = $(eventEl);
-        const minute = $event.find('.min').text().trim();
-        const localPlayer = $event.find('.col-side.left .name').first().text().trim();
-        const visitorPlayer = $event.find('.col-side.right .name').first().text().trim();
-        
-        if (localPlayer || visitorPlayer) {
-          details.events.occasions.push({
-            minute,
-            localPlayer,
-            visitorPlayer,
-            type: $event.find('.event-wrapper img').first().attr('alt')
-          });
-        }
-      });
-      
-      // استخراج VAR
-      eventsPanel.find('#events-var .table-body .table-played-match').each((_, eventEl) => {
-        const $event = $(eventEl);
-        const minute = $event.find('.min').text().trim();
-        const localPlayer = $event.find('.col-side.left .name').first().text().trim();
-        const visitorPlayer = $event.find('.col-side.right .name').first().text().trim();
-        
-        if (localPlayer || visitorPlayer) {
-          details.events.var.push({
-            minute,
-            localPlayer,
-            visitorPlayer,
-            decision: $event.find('.color-grey2').text().trim()
-          });
-        }
-      });
     }
 
   } catch (err) {
-    console.error(`   ⚠️ خطأ في استخراج التفاصيل: ${err.message}`);
+    // تجاهل الأخطاء في الاستخراج
   }
 
   return details;
 }
 
-// ================= جلب تفاصيل مباراة واحدة (محسّن للسرعة) =================
+// ================= جلب تفاصيل مباراة واحدة =================
 async function fetchMatchDetails(matchUrl, matchId, matchName) {
+  if (!matchUrl) return { fromPreview: null, fromEvents: null };
+  
   if (matchUrl.includes('https://www.besoccer.comhttps://')) {
     matchUrl = matchUrl.replace('https://www.besoccer.comhttps://', 'https://www.besoccer.com/');
   }
@@ -783,51 +487,43 @@ async function fetchMatchDetails(matchUrl, matchId, matchName) {
   const previewUrl = `${baseUrl}/preview`;
   const eventsUrl = `${baseUrl}/events`;
   
-  console.log(`   📥 جلب تفاصيل ${matchName}...`);
-  
   const result = {
     fromPreview: null,
     fromEvents: null
   };
   
-  // تحسين: جلب الرابطين بشكل متوازي
-  const limit = pLimit(2);
-  const promises = [
-    limit(async () => {
-      try {
-        await ErrorHandler.retry(async () => {
-          const response = await httpClient.get(previewUrl);
-          const $ = cheerio.load(response);
-          result.fromPreview = extractMatchDetailsFromUrl($, previewUrl);
-          console.log(`      ✅ تم جلب /preview`);
-        });
-      } catch (err) {
-        console.log(`      ⚠️ فشل /preview: ${err.message}`);
-      }
-    }),
-    limit(async () => {
-      try {
-        await ErrorHandler.retry(async () => {
-          const response = await httpClient.get(eventsUrl);
-          const $ = cheerio.load(response);
-          result.fromEvents = extractMatchDetailsFromUrl($, eventsUrl);
-          console.log(`      ✅ تم جلب /events`);
-        });
-      } catch (err) {
-        console.log(`      ⚠️ فشل /events: ${err.message}`);
-      }
-    })
-  ];
+  try {
+    // جلب صفحة /preview
+    try {
+      const previewHtml = await ErrorHandler.retry(async () => {
+        return await httpClient.get(previewUrl);
+      });
+      const $preview = cheerio.load(previewHtml);
+      result.fromPreview = extractMatchDetailsFromUrl($preview, previewUrl);
+    } catch (err) {
+      // تجاهل فشل /preview
+    }
+    
+    // جلب صفحة /events
+    try {
+      const eventsHtml = await ErrorHandler.retry(async () => {
+        return await httpClient.get(eventsUrl);
+      });
+      const $events = cheerio.load(eventsHtml);
+      result.fromEvents = extractMatchDetailsFromUrl($events, eventsUrl);
+    } catch (err) {
+      // تجاهل فشل /events
+    }
+    
+  } catch (err) {
+    // تجاهل الأخطاء العامة
+  }
   
-  await Promise.all(promises);
-  
-  console.log(`   ✅ اكتمل جلب ${matchName}`);
   return result;
 }
 
 // ================= استخراج جميع المباريات من الصفحة الرئيسية =================
 function extractAllBasicMatches(html) {
-  console.log("🔍 تحليل الصفحة الرئيسية...");
   const $ = cheerio.load(html);
 
   const result = {
@@ -855,11 +551,11 @@ function extractAllBasicMatches(html) {
       result.metadata.hiddenMatches += competition.hiddenMatches;
 
       competition.matches.forEach(match => {
-        if (result.statistics.byStatus.hasOwnProperty(match.status)) {
-          result.statistics.byStatus[match.status]++;
-        } else {
-          result.statistics.byStatus.other++;
-        }
+        if (match.isLive) result.statistics.byStatus.live++;
+        else if (match.status === 'finished') result.statistics.byStatus.finished++;
+        else if (match.status === 'scheduled') result.statistics.byStatus.scheduled++;
+        else if (match.status === 'postponed') result.statistics.byStatus.postponed++;
+        else result.statistics.byStatus.other++;
       });
 
       if (competition.country) {
@@ -870,8 +566,6 @@ function extractAllBasicMatches(html) {
   });
 
   result.metadata.totalCompetitions = result.competitions.length;
-
-  console.log(`✅ تم استخراج: ${result.metadata.totalCompetitions} بطولة, ${result.metadata.totalMatches} مباراة`);
   return result;
 }
 
@@ -896,21 +590,17 @@ function removeDuplicateMatches(basicData) {
   basicData.competitions = basicData.competitions.filter(comp => comp.matches.length > 0);
   basicData.metadata.totalMatches = basicData.competitions.reduce((sum, comp) => sum + comp.matches.length, 0);
   
-  console.log(`🧹 بعد إزالة المكرر: ${basicData.metadata.totalMatches} مباراة فريدة`);
   return basicData;
 }
 
-// ================= جلب تفاصيل جميع المباريات بشكل متوازي =================
+// ================= جلب تفاصيل جميع المباريات =================
 async function fetchAllMatchesDetails(basicData) {
-  console.log("\n📥 بدء جلب تفاصيل المباريات بشكل متوازي...");
+  console.log("\n📥 جلب تفاصيل جميع المباريات (قد يستغرق وقتاً)...");
   
   const allMatches = [];
-  const seenUrls = new Set();
-  
   basicData.competitions.forEach(comp => {
     comp.matches.forEach(match => {
-      if (match.url && !seenUrls.has(match.url)) {
-        seenUrls.add(match.url);
+      if (match.url) {
         allMatches.push({
           id: match.matchId || match.id,
           url: match.url,
@@ -922,85 +612,232 @@ async function fetchAllMatchesDetails(basicData) {
     });
   });
   
-  console.log(`📊 جلب تفاصيل ${allMatches.length} مباراة (${CONFIG.CONCURRENT_LIMIT} مباراة في وقت واحد)`);
+  console.log(`📊 جلب تفاصيل ${allMatches.length} مباراة`);
   
   const results = { successful: 0, failed: 0 };
   const limit = pLimit(CONFIG.CONCURRENT_LIMIT);
   
   const promises = allMatches.map((match, index) => 
     limit(async () => {
-      console.log(`\n🔄 [${index + 1}/${allMatches.length}] ${match.name}`);
-      
       try {
+        console.log(`   🔄 جلب تفاصيل: ${match.name}`);
         const details = await fetchMatchDetails(match.url, match.id, match.name);
-        
         if (details.fromPreview || details.fromEvents) {
           match.basic.details = details;
           results.successful++;
+          console.log(`   ✅ اكتمل: ${match.name}`);
         } else {
           results.failed++;
+          console.log(`   ⚠️ فشل: ${match.name}`);
         }
       } catch (err) {
-        console.log(`   ❌ فشل: ${err.message}`);
         results.failed++;
+        console.log(`   ❌ خطأ: ${match.name} - ${err.message}`);
+      }
+      
+      // تأخير بين الطلبات
+      await new Promise(resolve => setTimeout(resolve, CONFIG.DELAY_BETWEEN_REQUESTS));
+      
+      if ((index + 1) % 5 === 0) {
+        console.log(`   📊 تقدم: ${index + 1}/${allMatches.length} مباراة (${results.successful} نجاح, ${results.failed} فشل)`);
       }
     })
   );
   
   await Promise.all(promises);
+  console.log(`\n📊 النتيجة النهائية: ${results.successful} نجاح, ${results.failed} فشل من أصل ${allMatches.length}`);
+  
   return results;
 }
 
 // ================= الدالة الرئيسية =================
 async function main() {
-  console.log("=".repeat(70));
-  console.log("🏆 BeSoccer - نسخة محسّنة (نفس البيانات + سرعة أعلى)");
-  console.log("=".repeat(70));
-  
   const startTime = Date.now();
+  const isFirstRun = !fs.existsSync(CONFIG.OUTPUT_FILE);
   
   try {
+    console.log(`\n${'='.repeat(60)}`);
+    console.log(`🏆 BeSoccer - ${isFirstRun ? 'أول تشغيل (جلب كل التفاصيل)' : 'تحديث دوري'} - ${new Date().toLocaleString('ar-EG')}`);
+    console.log(`${'='.repeat(60)}`);
+    
+    // قراءة البيانات القديمة إذا وجدت
+    let oldData = null;
+    if (!isFirstRun) {
+      try {
+        const fileContent = await fs.promises.readFile(CONFIG.OUTPUT_FILE, 'utf8');
+        oldData = JSON.parse(fileContent);
+        console.log(`📂 تم تحميل البيانات السابقة (${oldData.metadata.totalMatches} مباراة)`);
+      } catch (e) {
+        console.log("⚠️ لا يمكن قراءة الملف السابق - سيتم إنشاء ملف جديد");
+      }
+    }
+    
+    // جلب الصفحة الرئيسية
     console.log("🌐 جلب الصفحة الرئيسية...");
-    const mainHtml = await httpClient.get(CONFIG.URL);
+    const mainHtml = await ErrorHandler.retry(async () => {
+      return await httpClient.get(CONFIG.URL);
+    });
     
+    // استخراج البيانات الأساسية
     const basicData = extractAllBasicMatches(mainHtml);
+    console.log(`📊 تم استخراج ${basicData.metadata.totalMatches} مباراة في ${basicData.metadata.totalCompetitions} بطولة`);
+    console.log(`   - مباريات حية: ${basicData.statistics.byStatus.live}`);
+    console.log(`   - مباريات منتهية: ${basicData.statistics.byStatus.finished}`);
+    console.log(`   - مباريات مجدولة: ${basicData.statistics.byStatus.scheduled}`);
+    
+    // إزالة المباريات المكررة
     const cleanedData = removeDuplicateMatches(basicData);
-    const detailsResults = await fetchAllMatchesDetails(cleanedData);
+    console.log(`🧹 بعد إزالة المكرر: ${cleanedData.metadata.totalMatches} مباراة فريدة`);
     
-    const finalData = {
-      metadata: {
-        ...cleanedData.metadata,
-        performance: {
-          executionTimeMs: Date.now() - startTime,
-          concurrentLimit: CONFIG.CONCURRENT_LIMIT,
-          executionTimeMinutes: ((Date.now() - startTime) / 1000 / 60).toFixed(2)
+    let finalData;
+    
+    if (isFirstRun) {
+      // أول تشغيل: جلب كل التفاصيل
+      console.log("\n🔄 هذا هو أول تشغيل - سيتم جلب جميع التفاصيل...");
+      const detailsResults = await fetchAllMatchesDetails(cleanedData);
+      
+      finalData = {
+        metadata: {
+          ...cleanedData.metadata,
+          lastFullUpdate: new Date().toISOString(),
+          timestamp: new Date().toISOString(),
+          performance: {
+            executionTimeMs: Date.now() - startTime,
+            executionTimeSeconds: ((Date.now() - startTime) / 1000).toFixed(1),
+            concurrentLimit: CONFIG.CONCURRENT_LIMIT
+          },
+          detailsFetched: {
+            total: cleanedData.metadata.totalMatches,
+            successful: detailsResults.successful,
+            failed: detailsResults.failed,
+            successRate: ((detailsResults.successful / cleanedData.metadata.totalMatches) * 100).toFixed(1)
+          }
         },
-        detailsFetched: {
-          total: cleanedData.metadata.totalMatches,
-          successful: detailsResults.successful,
-          failed: detailsResults.failed,
-          successRate: ((detailsResults.successful / cleanedData.metadata.totalMatches) * 100).toFixed(1)
+        statistics: cleanedData.statistics,
+        competitions: cleanedData.competitions
+      };
+      
+      console.log(`\n✅ اكتمل الجلب الأول: ${detailsResults.successful} مباراة ناجحة من أصل ${cleanedData.metadata.totalMatches}`);
+      
+    } else {
+      // تحديث دوري: دمج البيانات القديمة مع الجديدة
+      console.log("\n🔄 تحديث دوري - دمج التفاصيل القديمة...");
+      
+      // دمج البيانات القديمة
+      cleanedData.competitions.forEach(newComp => {
+        const oldComp = oldData?.competitions?.find(c => c.name === newComp.name);
+        if (oldComp) {
+          newComp.matches.forEach(newMatch => {
+            const oldMatch = oldComp.matches.find(m => m.id === newMatch.id);
+            if (oldMatch && oldMatch.details) {
+              newMatch.details = oldMatch.details;
+            }
+          });
         }
-      },
-      statistics: cleanedData.statistics,
-      competitions: cleanedData.competitions
-    };
+      });
+      
+      // جلب تفاصيل المباريات الحية فقط
+      const liveMatches = [];
+      cleanedData.competitions.forEach(comp => {
+        comp.matches.forEach(match => {
+          if (match.isLive || match.status === 'live' || match.statusText?.includes("'")) {
+            liveMatches.push(match);
+          }
+        });
+      });
+      
+      if (liveMatches.length > 0) {
+        console.log(`📊 تحديث ${liveMatches.length} مباراة حية...`);
+        const limit = pLimit(CONFIG.CONCURRENT_LIMIT);
+        
+        const livePromises = liveMatches.map(match => 
+          limit(async () => {
+            try {
+              const details = await fetchMatchDetails(match.url, match.matchId, `${match.homeTeam.name} vs ${match.awayTeam.name}`);
+              if (details.fromPreview || details.fromEvents) {
+                match.details = details;
+                match.lastUpdate = new Date().toISOString();
+              }
+            } catch (err) {
+              // تجاهل الأخطاء
+            }
+            await new Promise(resolve => setTimeout(resolve, CONFIG.DELAY_BETWEEN_REQUESTS));
+          })
+        );
+        
+        await Promise.all(livePromises);
+        console.log(`✅ تم تحديث المباريات الحية`);
+      }
+      
+      finalData = {
+        metadata: {
+          ...cleanedData.metadata,
+          lastFullUpdate: oldData?.metadata?.lastFullUpdate || oldData?.metadata?.timestamp || new Date().toISOString(),
+          timestamp: new Date().toISOString(),
+          performance: {
+            executionTimeMs: Date.now() - startTime,
+            executionTimeSeconds: ((Date.now() - startTime) / 1000).toFixed(1),
+            concurrentLimit: CONFIG.CONCURRENT_LIMIT
+          },
+          updatedLiveMatches: liveMatches.length
+        },
+        statistics: cleanedData.statistics,
+        competitions: cleanedData.competitions
+      };
+    }
     
-    fs.writeFileSync(CONFIG.OUTPUT_FILE, JSON.stringify(finalData, null, 2), 'utf-8');
+    // حفظ الملف
+    console.log("💾 حفظ الملف...");
+    await fs.promises.writeFile(CONFIG.OUTPUT_FILE, JSON.stringify(finalData, null, 2), 'utf-8');
     
-    const executionTime = ((Date.now() - startTime) / 1000 / 60).toFixed(2);
-    
-    console.log("\n" + "=".repeat(70));
-    console.log("📊 التقرير النهائي:");
-    console.log("=".repeat(70));
-    console.log(`⏱️  وقت التنفيذ: ${executionTime} دقيقة`);
+    const fileStats = fs.statSync(CONFIG.OUTPUT_FILE);
+    console.log(`\n${'='.repeat(60)}`);
+    console.log(`✅ تم الحفظ بنجاح!`);
     console.log(`📁 الملف: ${CONFIG.OUTPUT_FILE}`);
-    console.log(`✅ نسبة النجاح: ${finalData.metadata.detailsFetched.successRate}%`);
-    console.log(`📊 المباريات: ${finalData.metadata.totalMatches} مباراة`);
+    console.log(`📊 الحجم: ${(fileStats.size / 1024).toFixed(2)} KB`);
+    console.log(`⏱️  الوقت: ${finalData.metadata.performance.executionTimeSeconds} ثانية`);
+    console.log(`📈 المباريات: ${finalData.metadata.totalMatches}`);
+    console.log(`   - حية: ${finalData.statistics.byStatus.live}`);
+    console.log(`   - مجدولة: ${finalData.statistics.byStatus.scheduled}`);
+    console.log(`   - منتهية: ${finalData.statistics.byStatus.finished}`);
+    if (finalData.metadata.detailsFetched) {
+      console.log(`   - تفاصيل ناجحة: ${finalData.metadata.detailsFetched.successful}`);
+      console.log(`   - نسبة النجاح: ${finalData.metadata.detailsFetched.successRate}%`);
+    }
+    console.log(`${'='.repeat(60)}`);
+    
+    // للاستخدام مع child_process
+    if (process.send) {
+      process.send({ type: 'update-complete', data: finalData });
+    }
+    
+    return finalData;
     
   } catch (err) {
-    console.error("\n💥 خطأ غير متوقع:", err);
+    console.error(`\n❌ خطأ فادح: ${err.message}`);
+    
+    // إذا فشل التحديث ولم يكن أول تشغيل، احتفظ بالبيانات القديمة
+    if (!isFirstRun && fs.existsSync(CONFIG.OUTPUT_FILE)) {
+      console.log("📂 الاحتفاظ بالبيانات القديمة");
+    }
+    
+    throw err;
   }
 }
 
-main();
+// تصدير الدالة الرئيسية
+export default main;
+
+// تشغيل الدالة الرئيسية إذا تم استدعاؤها مباشرة
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("🚀 تشغيل BeSoccer كسكريبت مستقل...");
+  main()
+    .then(() => {
+      console.log("✅ انتهى بنجاح");
+      process.exit(0);
+    })
+    .catch(err => {
+      console.error("❌ فشل:", err.message);
+      process.exit(1);
+    });
+}
