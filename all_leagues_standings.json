@@ -1,1203 +1,4 @@
 {
-  "france-ligue-1": {
-    "url": "https://www.footmercato.net/classement/france/ligue-1?partial=1",
-    "tables": [
-      {
-        "index": 0,
-        "title": "Table 1",
-        "rows": [
-          {
-            "#": {
-              "text": "1",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        1\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "PSG",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/psg/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/psg.png\" alt=\"Logo PSG\" width=\"24\" height=\"24\">\n\n                    <span>PSG</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/psg/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/psg.png"
-              ]
-            },
-            "Pts": {
-              "text": "54",
-              "html": "\n                54\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+33",
-              "html": "\n                                    +33\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "17",
-              "html": "\n                17\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "52",
-              "html": "\n                52\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "19",
-              "html": "\n                19\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "2",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        2\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Lens",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/racing-club-de-lens/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lens.png\" alt=\"Logo Lens\" width=\"24\" height=\"24\">\n\n                    <span>Lens</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/racing-club-de-lens/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/lens.png"
-              ]
-            },
-            "Pts": {
-              "text": "52",
-              "html": "\n                52\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+24",
-              "html": "\n                                    +24\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "17",
-              "html": "\n                17\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "1",
-              "html": "\n                1\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "44",
-              "html": "\n                44\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "20",
-              "html": "\n                20\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "3",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        3\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Lyon",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/ol/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-lyonnais.png\" alt=\"Logo Lyon\" width=\"24\" height=\"24\">\n\n                    <span>Lyon</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/ol/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-lyonnais.png"
-              ]
-            },
-            "Pts": {
-              "text": "45",
-              "html": "\n                45\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+14",
-              "html": "\n                                    +14\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "14",
-              "html": "\n                14\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "37",
-              "html": "\n                37\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "4",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying--2\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        4\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Marseille",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/om/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-marseille.png\" alt=\"Logo Marseille\" width=\"24\" height=\"24\">\n\n                    <span>Marseille</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/om/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-marseille.png"
-              ]
-            },
-            "Pts": {
-              "text": "40",
-              "html": "\n                40\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+17",
-              "html": "\n                                    +17\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "12",
-              "html": "\n                12\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "7",
-              "html": "\n                7\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "48",
-              "html": "\n                48\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "31",
-              "html": "\n                31\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "5",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying--3\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        5\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Lille",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/losc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lille.png\" alt=\"Logo Lille\" width=\"24\" height=\"24\">\n\n                    <span>Lille</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/losc/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/lille.png"
-              ]
-            },
-            "Pts": {
-              "text": "37",
-              "html": "\n                37\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+5",
-              "html": "\n                                    +5\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "11",
-              "html": "\n                11\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "36",
-              "html": "\n                36\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "31",
-              "html": "\n                31\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "6",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying--4\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        6\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Rennes",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/stade-rennais-fc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/stade-rennais-fc.png\" alt=\"Logo Rennes\" width=\"24\" height=\"24\">\n\n                    <span>Rennes</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/stade-rennais-fc/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/stade-rennais-fc.png"
-              ]
-            },
-            "Pts": {
-              "text": "37",
-              "html": "\n                37\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+2",
-              "html": "\n                                    +2\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "10",
-              "html": "\n                10\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "7",
-              "html": "\n                7\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "37",
-              "html": "\n                37\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "35",
-              "html": "\n                35\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "7",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        7\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Strasbourg",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/rc-strasbourg-alsace/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png\" alt=\"Logo Strasbourg\" width=\"24\" height=\"24\">\n\n                    <span>Strasbourg</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/rc-strasbourg-alsace/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png"
-              ]
-            },
-            "Pts": {
-              "text": "34",
-              "html": "\n                34\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+9",
-              "html": "\n                                    +9\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "10",
-              "html": "\n                10\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "9",
-              "html": "\n                9\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "39",
-              "html": "\n                39\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "30",
-              "html": "\n                30\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "8",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        8\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Monaco",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/as-monaco/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/monaco.png\" alt=\"Logo Monaco\" width=\"24\" height=\"24\">\n\n                    <span>Monaco</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/as-monaco/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/monaco.png"
-              ]
-            },
-            "Pts": {
-              "text": "34",
-              "html": "\n                34\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+2",
-              "html": "\n                                    +2\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "10",
-              "html": "\n                10\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "9",
-              "html": "\n                9\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "38",
-              "html": "\n                38\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "36",
-              "html": "\n                36\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "9",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        9\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Lorient",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/fc-lorient/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lorient.png\" alt=\"Logo Lorient\" width=\"24\" height=\"24\">\n\n                    <span>Lorient</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/fc-lorient/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/lorient.png"
-              ]
-            },
-            "Pts": {
-              "text": "32",
-              "html": "\n                32\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-4",
-              "html": "\n                                    -4\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "7",
-              "html": "\n                7\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "32",
-              "html": "\n                32\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "36",
-              "html": "\n                36\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "10",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        10\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Toulouse",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/tfc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/toulouse.png\" alt=\"Logo Toulouse\" width=\"24\" height=\"24\">\n\n                    <span>Toulouse</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/tfc/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/toulouse.png"
-              ]
-            },
-            "Pts": {
-              "text": "31",
-              "html": "\n                31\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "+6",
-              "html": "\n                                    +6\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "7",
-              "html": "\n                7\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "33",
-              "html": "\n                33\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "27",
-              "html": "\n                27\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "11",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        11\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Brest",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/stade-brestois-29/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/brest.png\" alt=\"Logo Brest\" width=\"24\" height=\"24\">\n\n                    <span>Brest</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/stade-brestois-29/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/brest.png"
-              ]
-            },
-            "Pts": {
-              "text": "30",
-              "html": "\n                30\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-3",
-              "html": "\n                                    -3\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "9",
-              "html": "\n                9\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "31",
-              "html": "\n                31\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "34",
-              "html": "\n                34\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "12",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        12\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Angers",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/angers-sco/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/angers-sco.png\" alt=\"Logo Angers\" width=\"24\" height=\"24\">\n\n                    <span>Angers</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/angers-sco/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/angers-sco.png"
-              ]
-            },
-            "Pts": {
-              "text": "29",
-              "html": "\n                29\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-6",
-              "html": "\n                                    -6\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "10",
-              "html": "\n                10\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "22",
-              "html": "\n                22\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "28",
-              "html": "\n                28\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "13",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        13\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Le Havre",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/hac/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/le-havre.png\" alt=\"Logo Le Havre\" width=\"24\" height=\"24\">\n\n                    <span>Le Havre</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/hac/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/le-havre.png"
-              ]
-            },
-            "Pts": {
-              "text": "26",
-              "html": "\n                26\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-9",
-              "html": "\n                                    -9\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "9",
-              "html": "\n                9\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "20",
-              "html": "\n                20\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "29",
-              "html": "\n                29\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "14",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        14\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Nice",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/ogc-nice/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/ogc-nice.png\" alt=\"Logo Nice\" width=\"24\" height=\"24\">\n\n                    <span>Nice</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/ogc-nice/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/ogc-nice.png"
-              ]
-            },
-            "Pts": {
-              "text": "24",
-              "html": "\n                24\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-13",
-              "html": "\n                                    -13\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "11",
-              "html": "\n                11\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "30",
-              "html": "\n                30\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "43",
-              "html": "\n                43\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "15",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        15\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Paris FC",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/paris-fc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/paris.png\" alt=\"Logo Paris FC\" width=\"24\" height=\"24\">\n\n                    <span>Paris FC</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/paris-fc/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/paris.png"
-              ]
-            },
-            "Pts": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-13",
-              "html": "\n                                    -13\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "10",
-              "html": "\n                10\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "27",
-              "html": "\n                27\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "40",
-              "html": "\n                40\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "16",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation_playoff\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        16\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Auxerre",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/association-jeunesse-auxerroise/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/aj-auxerre.png\" alt=\"Logo Auxerre\" width=\"24\" height=\"24\">\n\n                    <span>Auxerre</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/association-jeunesse-auxerroise/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/aj-auxerre.png"
-              ]
-            },
-            "Pts": {
-              "text": "17",
-              "html": "\n                17\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-16",
-              "html": "\n                                    -16\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "14",
-              "html": "\n                14\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "17",
-              "html": "\n                17\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "33",
-              "html": "\n                33\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "17",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        17\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Nantes",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/fc-nantes/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nantes.png\" alt=\"Logo Nantes\" width=\"24\" height=\"24\">\n\n                    <span>Nantes</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/fc-nantes/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/nantes.png"
-              ]
-            },
-            "Pts": {
-              "text": "17",
-              "html": "\n                17\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-18",
-              "html": "\n                                    -18\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "14",
-              "html": "\n                14\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "22",
-              "html": "\n                22\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "40",
-              "html": "\n                40\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "18",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        18\n                        </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Metz",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/fc-metz/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/fc-metz.png\" alt=\"Logo Metz\" width=\"24\" height=\"24\">\n\n                    <span>Metz</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/fc-metz/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/fc-metz.png"
-              ]
-            },
-            "Pts": {
-              "text": "13",
-              "html": "\n                13\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "23",
-              "html": "\n                23\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-30",
-              "html": "\n                                    -30\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "16",
-              "html": "\n                16\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "22",
-              "html": "\n                22\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "52",
-              "html": "\n                52\n            ",
-              "links": [],
-              "images": []
-            }
-          }
-        ]
-      }
-    ]
-  },
   "europe-ligue-des-champions-uefa": {
     "url": "https://www.footmercato.net/classement/europe/ligue-des-champions-uefa?partial=1",
     "tables": [
@@ -3577,6 +2378,1205 @@
             "BC": {
               "text": "22",
               "html": "\n                22\n            ",
+              "links": [],
+              "images": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "france-ligue-1": {
+    "url": "https://www.footmercato.net/classement/france/ligue-1?partial=1",
+    "tables": [
+      {
+        "index": 0,
+        "title": "Table 1",
+        "rows": [
+          {
+            "#": {
+              "text": "1",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        1\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "PSG",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/psg/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/psg.png\" alt=\"Logo PSG\" width=\"24\" height=\"24\">\n\n                    <span>PSG</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/psg/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/psg.png"
+              ]
+            },
+            "Pts": {
+              "text": "54",
+              "html": "\n                54\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+33",
+              "html": "\n                                    +33\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "17",
+              "html": "\n                17\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "52",
+              "html": "\n                52\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "19",
+              "html": "\n                19\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "2",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        2\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Lens",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/racing-club-de-lens/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lens.png\" alt=\"Logo Lens\" width=\"24\" height=\"24\">\n\n                    <span>Lens</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/racing-club-de-lens/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/lens.png"
+              ]
+            },
+            "Pts": {
+              "text": "52",
+              "html": "\n                52\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+24",
+              "html": "\n                                    +24\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "17",
+              "html": "\n                17\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "1",
+              "html": "\n                1\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "5",
+              "html": "\n                5\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "44",
+              "html": "\n                44\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "20",
+              "html": "\n                20\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "3",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        3\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Lyon",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/ol/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-lyonnais.png\" alt=\"Logo Lyon\" width=\"24\" height=\"24\">\n\n                    <span>Lyon</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/ol/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-lyonnais.png"
+              ]
+            },
+            "Pts": {
+              "text": "45",
+              "html": "\n                45\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+14",
+              "html": "\n                                    +14\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "14",
+              "html": "\n                14\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "37",
+              "html": "\n                37\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "4",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying--2\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        4\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Marseille",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/om/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-marseille.png\" alt=\"Logo Marseille\" width=\"24\" height=\"24\">\n\n                    <span>Marseille</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/om/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/olympique-marseille.png"
+              ]
+            },
+            "Pts": {
+              "text": "40",
+              "html": "\n                40\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+17",
+              "html": "\n                                    +17\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "12",
+              "html": "\n                12\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "48",
+              "html": "\n                48\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "31",
+              "html": "\n                31\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "5",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying--3\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        5\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Lille",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/losc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lille.png\" alt=\"Logo Lille\" width=\"24\" height=\"24\">\n\n                    <span>Lille</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/losc/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/lille.png"
+              ]
+            },
+            "Pts": {
+              "text": "37",
+              "html": "\n                37\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+5",
+              "html": "\n                                    +5\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "11",
+              "html": "\n                11\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "36",
+              "html": "\n                36\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "31",
+              "html": "\n                31\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "6",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying--4\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        6\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Rennes",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/stade-rennais-fc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/stade-rennais-fc.png\" alt=\"Logo Rennes\" width=\"24\" height=\"24\">\n\n                    <span>Rennes</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/stade-rennais-fc/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/stade-rennais-fc.png"
+              ]
+            },
+            "Pts": {
+              "text": "37",
+              "html": "\n                37\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+2",
+              "html": "\n                                    +2\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "10",
+              "html": "\n                10\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "37",
+              "html": "\n                37\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "35",
+              "html": "\n                35\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "7",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        7\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Strasbourg",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/rc-strasbourg-alsace/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png\" alt=\"Logo Strasbourg\" width=\"24\" height=\"24\">\n\n                    <span>Strasbourg</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/rc-strasbourg-alsace/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png"
+              ]
+            },
+            "Pts": {
+              "text": "34",
+              "html": "\n                34\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+9",
+              "html": "\n                                    +9\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "10",
+              "html": "\n                10\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "9",
+              "html": "\n                9\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "39",
+              "html": "\n                39\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "30",
+              "html": "\n                30\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "8",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        8\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Monaco",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/as-monaco/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/monaco.png\" alt=\"Logo Monaco\" width=\"24\" height=\"24\">\n\n                    <span>Monaco</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/as-monaco/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/monaco.png"
+              ]
+            },
+            "Pts": {
+              "text": "34",
+              "html": "\n                34\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+2",
+              "html": "\n                                    +2\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "10",
+              "html": "\n                10\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "9",
+              "html": "\n                9\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "38",
+              "html": "\n                38\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "36",
+              "html": "\n                36\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "9",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        9\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Lorient",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/fc-lorient/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lorient.png\" alt=\"Logo Lorient\" width=\"24\" height=\"24\">\n\n                    <span>Lorient</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/fc-lorient/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/lorient.png"
+              ]
+            },
+            "Pts": {
+              "text": "32",
+              "html": "\n                32\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-4",
+              "html": "\n                                    -4\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "32",
+              "html": "\n                32\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "36",
+              "html": "\n                36\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "10",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        10\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Toulouse",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/tfc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/toulouse.png\" alt=\"Logo Toulouse\" width=\"24\" height=\"24\">\n\n                    <span>Toulouse</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/tfc/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/toulouse.png"
+              ]
+            },
+            "Pts": {
+              "text": "31",
+              "html": "\n                31\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "+6",
+              "html": "\n                                    +6\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "33",
+              "html": "\n                33\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "27",
+              "html": "\n                27\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "11",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        11\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Brest",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/stade-brestois-29/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/brest.png\" alt=\"Logo Brest\" width=\"24\" height=\"24\">\n\n                    <span>Brest</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/stade-brestois-29/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/brest.png"
+              ]
+            },
+            "Pts": {
+              "text": "30",
+              "html": "\n                30\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-3",
+              "html": "\n                                    -3\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "9",
+              "html": "\n                9\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "31",
+              "html": "\n                31\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "34",
+              "html": "\n                34\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "12",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        12\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Angers",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/angers-sco/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/angers-sco.png\" alt=\"Logo Angers\" width=\"24\" height=\"24\">\n\n                    <span>Angers</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/angers-sco/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/angers-sco.png"
+              ]
+            },
+            "Pts": {
+              "text": "29",
+              "html": "\n                29\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-6",
+              "html": "\n                                    -6\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "5",
+              "html": "\n                5\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "10",
+              "html": "\n                10\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "22",
+              "html": "\n                22\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "28",
+              "html": "\n                28\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "13",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        13\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Le Havre",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/hac/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/le-havre.png\" alt=\"Logo Le Havre\" width=\"24\" height=\"24\">\n\n                    <span>Le Havre</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/hac/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/le-havre.png"
+              ]
+            },
+            "Pts": {
+              "text": "26",
+              "html": "\n                26\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-9",
+              "html": "\n                                    -9\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "9",
+              "html": "\n                9\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "20",
+              "html": "\n                20\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "29",
+              "html": "\n                29\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "14",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        14\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Nice",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/ogc-nice/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/ogc-nice.png\" alt=\"Logo Nice\" width=\"24\" height=\"24\">\n\n                    <span>Nice</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/ogc-nice/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/ogc-nice.png"
+              ]
+            },
+            "Pts": {
+              "text": "24",
+              "html": "\n                24\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-13",
+              "html": "\n                                    -13\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "11",
+              "html": "\n                11\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "30",
+              "html": "\n                30\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "43",
+              "html": "\n                43\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "15",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        15\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Paris FC",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/paris-fc/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/paris.png\" alt=\"Logo Paris FC\" width=\"24\" height=\"24\">\n\n                    <span>Paris FC</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/paris-fc/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/paris.png"
+              ]
+            },
+            "Pts": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-13",
+              "html": "\n                                    -13\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "5",
+              "html": "\n                5\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "10",
+              "html": "\n                10\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "27",
+              "html": "\n                27\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "40",
+              "html": "\n                40\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "16",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation_playoff\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        16\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Auxerre",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/association-jeunesse-auxerroise/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/aj-auxerre.png\" alt=\"Logo Auxerre\" width=\"24\" height=\"24\">\n\n                    <span>Auxerre</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/association-jeunesse-auxerroise/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/aj-auxerre.png"
+              ]
+            },
+            "Pts": {
+              "text": "17",
+              "html": "\n                17\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-16",
+              "html": "\n                                    -16\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "5",
+              "html": "\n                5\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "14",
+              "html": "\n                14\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "17",
+              "html": "\n                17\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "33",
+              "html": "\n                33\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "17",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        17\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Nantes",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/fc-nantes/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nantes.png\" alt=\"Logo Nantes\" width=\"24\" height=\"24\">\n\n                    <span>Nantes</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/fc-nantes/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/nantes.png"
+              ]
+            },
+            "Pts": {
+              "text": "17",
+              "html": "\n                17\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-18",
+              "html": "\n                                    -18\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "5",
+              "html": "\n                5\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "14",
+              "html": "\n                14\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "22",
+              "html": "\n                22\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "40",
+              "html": "\n                40\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "18",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        18\n                        </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Metz",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/fc-metz/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/fc-metz.png\" alt=\"Logo Metz\" width=\"24\" height=\"24\">\n\n                    <span>Metz</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/fc-metz/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/fc-metz.png"
+              ]
+            },
+            "Pts": {
+              "text": "13",
+              "html": "\n                13\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "23",
+              "html": "\n                23\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-30",
+              "html": "\n                                    -30\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "16",
+              "html": "\n                16\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "22",
+              "html": "\n                22\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "52",
+              "html": "\n                52\n            ",
               "links": [],
               "images": []
             }
@@ -47112,12 +47112,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/palmeiras.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "10",
               "html": "\n                10\n            ",
@@ -47183,12 +47177,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/sao-paulo.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "10",
@@ -47256,12 +47244,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/corinthians.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "7",
               "html": "\n                7\n            ",
@@ -47327,12 +47309,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/bahia.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "7",
@@ -47400,12 +47376,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/fluminense.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "7",
               "html": "\n                7\n            ",
@@ -47471,12 +47441,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/atletico-pr.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "7",
@@ -47544,12 +47508,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/bragantino.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "7",
               "html": "\n                7\n            ",
@@ -47615,12 +47573,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/gremio.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "6",
@@ -47688,12 +47640,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/chapecoense.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "5",
               "html": "\n                5\n            ",
@@ -47759,12 +47705,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/mirassol.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "5",
@@ -47832,12 +47772,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/flamengo.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "4",
               "html": "\n                4\n            ",
@@ -47904,12 +47838,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/coritiba.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "4",
               "html": "\n                4\n            ",
@@ -47962,7 +47890,73 @@
           {
             "#": {
               "text": "13",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        13\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        13\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Santos",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/santos-fc-sao-paulo/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/santos.png\" alt=\"Logo Santos\" width=\"24\" height=\"24\">\n\n                    <span>Santos</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/santos-fc-sao-paulo/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/santos.png"
+              ]
+            },
+            "Pts": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-2",
+              "html": "\n                                    -2\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "1",
+              "html": "\n                1\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "1",
+              "html": "\n                1\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "2",
+              "html": "\n                2\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "6",
+              "html": "\n                6\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "8",
+              "html": "\n                8\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "14",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        14\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -47975,12 +47969,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/botafogo.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "3",
@@ -48033,8 +48021,8 @@
           },
           {
             "#": {
-              "text": "14",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        14\n                        </span>\n    ",
+              "text": "15",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        15\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -48047,12 +48035,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/vitoria.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "3",
@@ -48105,8 +48087,8 @@
           },
           {
             "#": {
-              "text": "15",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        15\n                        </span>\n    ",
+              "text": "16",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        16\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -48119,12 +48101,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/remo.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "3",
@@ -48177,8 +48153,8 @@
           },
           {
             "#": {
-              "text": "16",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        16\n                        </span>\n    ",
+              "text": "17",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        17\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -48192,12 +48168,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/atletico-mineiro.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "2",
               "html": "\n                2\n            ",
@@ -48249,160 +48219,8 @@
           },
           {
             "#": {
-              "text": "17",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        17\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Vasco",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/cr-vasco-da-gama/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/vasco-da-gama.png\" alt=\"Logo Vasco\" width=\"24\" height=\"24\">\n\n                    <span>Vasco</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/cr-vasco-da-gama/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/vasco-da-gama.png"
-              ]
-            },
-            "Live": {
-              "text": "1-1",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5164392352499904429-santos-vs-vasco-da-gama\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            1-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/santos.png\" alt=\"Logo Santos\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/5164392352499904429-santos-vs-vasco-da-gama"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/santos.png"
-              ]
-            },
-            "Pts": {
-              "text": "2",
-              "html": "\n                2\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-2",
-              "html": "\n                                    -2\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "0",
-              "html": "\n                0\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "2",
-              "html": "\n                2\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "2",
-              "html": "\n                2\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
               "text": "18",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        18\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "Santos",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/santos-fc-sao-paulo/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/santos.png\" alt=\"Logo Santos\" width=\"24\" height=\"24\">\n\n                    <span>Santos</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/santos-fc-sao-paulo/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/santos.png"
-              ]
-            },
-            "Live": {
-              "text": "1-1",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5164392352499904429-santos-vs-vasco-da-gama\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            1-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/vasco-da-gama.png\" alt=\"Logo Vasco da Gama\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/5164392352499904429-santos-vs-vasco-da-gama"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/vasco-da-gama.png"
-              ]
-            },
-            "Pts": {
-              "text": "2",
-              "html": "\n                2\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "4",
-              "html": "\n                4\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-3",
-              "html": "\n                                    -3\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "0",
-              "html": "\n                0\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "2",
-              "html": "\n                2\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "2",
-              "html": "\n                2\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "8",
-              "html": "\n                8\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
-              "text": "19",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        19\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        18\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -48416,12 +48234,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/cf-internacional-de-madrid.png"
               ]
             },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "2",
               "html": "\n                2\n            ",
@@ -48473,8 +48285,8 @@
           },
           {
             "#": {
-              "text": "20",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        20\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "text": "19",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        19\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -48487,12 +48299,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/cruzeiro-esporte-clube.png"
               ]
-            },
-            "Live": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "2",
@@ -48539,6 +48345,72 @@
             "BC": {
               "text": "9",
               "html": "\n                9\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "20",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--relegation\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        20\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "Vasco",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/cr-vasco-da-gama/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/vasco-da-gama.png\" alt=\"Logo Vasco\" width=\"24\" height=\"24\">\n\n                    <span>Vasco</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/cr-vasco-da-gama/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/vasco-da-gama.png"
+              ]
+            },
+            "Pts": {
+              "text": "1",
+              "html": "\n                1\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "4",
+              "html": "\n                4\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "-3",
+              "html": "\n                                    -3\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "0",
+              "html": "\n                0\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "1",
+              "html": "\n                1\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "6",
+              "html": "\n                6\n            ",
               "links": [],
               "images": []
             }
@@ -49567,7 +49439,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/independiente-rivadavia.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -49639,7 +49511,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/belgrano.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -49711,7 +49583,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/ca-tigre.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -49783,7 +49655,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/rosario-central.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -49841,7 +49713,83 @@
           {
             "#": {
               "text": "5",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        5\n                        </span>\n    ",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        5\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "links": [],
+              "images": []
+            },
+            "Équipe": {
+              "text": "River",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/ca-river-plate/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River\" width=\"24\" height=\"24\">\n\n                    <span>River</span>\n                </a>\n            ",
+              "links": [
+                "https://www.footmercato.net/club/ca-river-plate/"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png"
+              ]
+            },
+            "Scores": {
+              "text": "3-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            3-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png\" alt=\"Logo Banfield\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+              "links": [
+                "https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png"
+              ]
+            },
+            "Pts": {
+              "text": "10",
+              "html": "\n                10\n            ",
+              "links": [],
+              "images": []
+            },
+            "J": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            },
+            "DIF": {
+              "text": "0",
+              "html": "\n                                    0\n                            ",
+              "links": [],
+              "images": []
+            },
+            "G": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "N": {
+              "text": "1",
+              "html": "\n                1\n            ",
+              "links": [],
+              "images": []
+            },
+            "D": {
+              "text": "3",
+              "html": "\n                3\n            ",
+              "links": [],
+              "images": []
+            },
+            "BP": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            },
+            "BC": {
+              "text": "7",
+              "html": "\n                7\n            ",
+              "links": [],
+              "images": []
+            }
+          },
+          {
+            "#": {
+              "text": "6",
+              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        6\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
@@ -49855,7 +49803,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/gimnasia-la-plata.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -49912,82 +49860,6 @@
           },
           {
             "#": {
-              "text": "6",
-              "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        6\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
-              "links": [],
-              "images": []
-            },
-            "Équipe": {
-              "text": "River",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/ca-river-plate/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River\" width=\"24\" height=\"24\">\n\n                    <span>River</span>\n                </a>\n            ",
-              "links": [
-                "https://www.footmercato.net/club/ca-river-plate/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png"
-              ]
-            },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png\" alt=\"Logo Banfield\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png"
-              ]
-            },
-            "Pts": {
-              "text": "10",
-              "html": "\n                10\n            ",
-              "links": [],
-              "images": []
-            },
-            "J": {
-              "text": "7",
-              "html": "\n                7\n            ",
-              "links": [],
-              "images": []
-            },
-            "DIF": {
-              "text": "-1",
-              "html": "\n                                    -1\n                            ",
-              "links": [],
-              "images": []
-            },
-            "G": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "N": {
-              "text": "1",
-              "html": "\n                1\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "BP": {
-              "text": "5",
-              "html": "\n                5\n            ",
-              "links": [],
-              "images": []
-            },
-            "BC": {
-              "text": "6",
-              "html": "\n                6\n            ",
-              "links": [],
-              "images": []
-            }
-          },
-          {
-            "#": {
               "text": "7",
               "html": "\n        <span class=\"rankingTable__rankEvolution ranking--qualifying\"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        7\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
@@ -50003,9 +49875,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png\" alt=\"Logo Estudiantes Río Cuarto\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "2-0",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png\" alt=\"Logo Estudiantes Río Cuarto\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan"
               ],
@@ -50026,8 +49898,8 @@
               "images": []
             },
             "DIF": {
-              "text": "0",
-              "html": "\n                                    0\n                            ",
+              "text": "-1",
+              "html": "\n                                    -1\n                            ",
               "links": [],
               "images": []
             },
@@ -50056,8 +49928,8 @@
               "images": []
             },
             "BC": {
-              "text": "5",
-              "html": "\n                5\n            ",
+              "text": "6",
+              "html": "\n                6\n            ",
               "links": [],
               "images": []
             }
@@ -50079,7 +49951,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/argentinos-juniors.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -50151,7 +50023,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/rc.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -50223,7 +50095,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/barracas-central.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -50295,9 +50167,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River Plate\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "3-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            3-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River Plate\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield"
               ],
@@ -50318,8 +50190,8 @@
               "images": []
             },
             "DIF": {
-              "text": "-1",
-              "html": "\n                                    -1\n                            ",
+              "text": "-2",
+              "html": "\n                                    -2\n                            ",
               "links": [],
               "images": []
             },
@@ -50342,14 +50214,14 @@
               "images": []
             },
             "BP": {
-              "text": "6",
-              "html": "\n                6\n            ",
+              "text": "7",
+              "html": "\n                7\n            ",
               "links": [],
               "images": []
             },
             "BC": {
-              "text": "7",
-              "html": "\n                7\n            ",
+              "text": "9",
+              "html": "\n                9\n            ",
               "links": [],
               "images": []
             }
@@ -50371,7 +50243,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/sarmiento.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -50443,7 +50315,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/atletico-tucuman.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -50515,9 +50387,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png\" alt=\"Logo Huracán\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "2-0",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png\" alt=\"Logo Huracán\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan"
               ],
@@ -50538,8 +50410,8 @@
               "images": []
             },
             "DIF": {
-              "text": "-9",
-              "html": "\n                                    -9\n                            ",
+              "text": "-8",
+              "html": "\n                                    -8\n                            ",
               "links": [],
               "images": []
             },
@@ -50562,8 +50434,8 @@
               "images": []
             },
             "BP": {
-              "text": "2",
-              "html": "\n                2\n            ",
+              "text": "3",
+              "html": "\n                3\n            ",
               "links": [],
               "images": []
             },
@@ -50591,7 +50463,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/aldosivi.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -51665,7 +51537,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/aldosivi.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -51737,7 +51609,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/argentinos-juniors.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -51809,7 +51681,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/atletico-tucuman.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -51881,9 +51753,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River Plate\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "3-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            3-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River Plate\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield"
               ],
@@ -51957,7 +51829,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/barracas-central.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52029,7 +51901,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/belgrano.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52101,9 +51973,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png\" alt=\"Logo Huracán\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "2-0",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png\" alt=\"Logo Huracán\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan"
               ],
@@ -52177,7 +52049,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/gimnasia-la-plata.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52249,9 +52121,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png\" alt=\"Logo Estudiantes Río Cuarto\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "2-0",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png\" alt=\"Logo Estudiantes Río Cuarto\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan"
               ],
@@ -52325,7 +52197,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/independiente-rivadavia.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52397,7 +52269,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/rc.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52469,9 +52341,9 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png"
               ]
             },
-            "Live": {
-              "text": "1-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            1-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png\" alt=\"Logo Banfield\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+            "Scores": {
+              "text": "3-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            3-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png\" alt=\"Logo Banfield\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/3755574376812642923-river-plate-vs-banfield"
               ],
@@ -52545,7 +52417,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/rosario-central.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52617,7 +52489,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/sarmiento.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -52689,7 +52561,7 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/ca-tigre.png"
               ]
             },
-            "Live": {
+            "Scores": {
               "text": null,
               "html": "\n                                            ",
               "links": [],
@@ -57843,16 +57715,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/mc-alger.png"
               ]
             },
-            "Scores": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/4493408374821753661-mc-alger-vs-js-kabylie\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/js-kabylie.png\" alt=\"Logo JS Kabylie\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/4493408374821753661-mc-alger-vs-js-kabylie"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/js-kabylie.png"
-              ]
-            },
             "Pts": {
               "text": "37",
               "html": "\n                37\n            ",
@@ -57917,16 +57779,6 @@
               ],
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/cs-constantine.png"
-              ]
-            },
-            "Scores": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/4219139779589590367-cs-constantine-vs-cr-belouizdad\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/cr-belouizdad.png\" alt=\"Logo CR Belouizdad\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/4219139779589590367-cs-constantine-vs-cr-belouizdad"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/cr-belouizdad.png"
               ]
             },
             "Pts": {
@@ -57995,12 +57847,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/js-saoura.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "31",
               "html": "\n                31\n            ",
@@ -58066,12 +57912,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/olympique-akbou.png"
               ]
-            },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "29",
@@ -58139,12 +57979,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/mc-oran.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "27",
               "html": "\n                27\n            ",
@@ -58211,12 +58045,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/es-ben-aknoun.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "27",
               "html": "\n                27\n            ",
@@ -58281,16 +58109,6 @@
               ],
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/cr-belouizdad.png"
-              ]
-            },
-            "Scores": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/4219139779589590367-cs-constantine-vs-cr-belouizdad\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/cs-constantine.png\" alt=\"Logo CS Constantine\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/4219139779589590367-cs-constantine-vs-cr-belouizdad"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/cs-constantine.png"
               ]
             },
             "Pts": {
@@ -58359,12 +58177,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/mbr-rouissat.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "26",
               "html": "\n                26\n            ",
@@ -58429,16 +58241,6 @@
               ],
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/js-kabylie.png"
-              ]
-            },
-            "Scores": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/4493408374821753661-mc-alger-vs-js-kabylie\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/mc-alger.png\" alt=\"Logo MC Alger\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/4493408374821753661-mc-alger-vs-js-kabylie"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/mc-alger.png"
               ]
             },
             "Pts": {
@@ -58507,12 +58309,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/usm-khenchela.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "25",
               "html": "\n                25\n            ",
@@ -58578,12 +58374,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/logo-usm-alger.png"
               ]
-            },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "24",
@@ -58651,12 +58441,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/es-setif.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "23",
               "html": "\n                23\n            ",
@@ -58722,12 +58506,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/aso-chlef.png"
               ]
-            },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "21",
@@ -58795,12 +58573,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/paradou-ac.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "17",
               "html": "\n                17\n            ",
@@ -58867,12 +58639,6 @@
                 "https://assets-fr.imgfoot.com/media/cache/60x60/esm-mostaganem.png"
               ]
             },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
-            },
             "Pts": {
               "text": "14",
               "html": "\n                14\n            ",
@@ -58938,12 +58704,6 @@
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/el-bayadh.png"
               ]
-            },
-            "Scores": {
-              "text": null,
-              "html": "\n                                            ",
-              "links": [],
-              "images": []
             },
             "Pts": {
               "text": "12",
@@ -64261,8 +64021,8 @@
               ]
             },
             "Live": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+              "text": "2-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            2-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion"
               ],
@@ -64409,8 +64169,8 @@
               ]
             },
             "Live": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional Asunción\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+              "text": "2-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            2-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional Asunción\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion"
               ],
@@ -64485,14 +64245,10 @@
               ]
             },
             "Live": {
-              "text": "2-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/sportivo-san-lorenzo.png\" alt=\"Logo Sportivo San Lorenzo\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/sportivo-san-lorenzo.png"
-              ]
+              "text": null,
+              "html": "\n                                            ",
+              "links": [],
+              "images": []
             },
             "Pts": {
               "text": "0",
@@ -64705,14 +64461,10 @@
               ]
             },
             "Live": {
-              "text": "2-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/rubio-nu.png\" alt=\"Logo Rubio Ñú\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/rubio-nu.png"
-              ]
+              "text": null,
+              "html": "\n                                            ",
+              "links": [],
+              "images": []
             },
             "Pts": {
               "text": "0",
@@ -64916,28 +64668,28 @@
           {
             "#": {
               "text": "2",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__stable \">\n        2\n                        </span>\n    ",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        2\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
             "Équipe": {
-              "text": "Nacional",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/club-nacional/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional\" width=\"24\" height=\"24\">\n\n                    <span>Nacional</span>\n                </a>\n            ",
+              "text": "Recoleta",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/deportivo-recoleta/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" width=\"24\" height=\"24\">\n\n                    <span>Recoleta</span>\n                </a>\n            ",
               "links": [
-                "https://www.footmercato.net/club/club-nacional/"
+                "https://www.footmercato.net/club/deportivo-recoleta/"
               ],
               "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png"
+                "https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png"
               ]
             },
             "Live": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+              "text": "2-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            2-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional Asunción\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
               "links": [
                 "https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion"
               ],
               "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png"
+                "https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png"
               ]
             },
             "Pts": {
@@ -64953,8 +64705,8 @@
               "images": []
             },
             "DIF": {
-              "text": "+7",
-              "html": "\n                                    +7\n                            ",
+              "text": "+5",
+              "html": "\n                                    +5\n                            ",
               "links": [],
               "images": []
             },
@@ -64977,14 +64729,14 @@
               "images": []
             },
             "BP": {
-              "text": "12",
-              "html": "\n                12\n            ",
+              "text": "11",
+              "html": "\n                11\n            ",
               "links": [],
               "images": []
             },
             "BC": {
-              "text": "5",
-              "html": "\n                5\n            ",
+              "text": "6",
+              "html": "\n                6\n            ",
               "links": [],
               "images": []
             }
@@ -64992,33 +64744,33 @@
           {
             "#": {
               "text": "3",
-              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__up \">\n        3\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 24 24\" class=\"svgSuccessColor\">\n    <path d=\"M21.75 18.015c-.382 0-.765-.15-1.057-.442l-8.498-8.498a.272.272 0 0 0-.382 0l-8.498 8.498a1.503 1.503 0 0 1-2.122 0 1.503 1.503 0 0 1 0-2.123l8.49-8.49a3.277 3.277 0 0 1 4.627 0l8.498 8.497a1.503 1.503 0 0 1-1.058 2.566v-.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
+              "html": "\n        <span class=\"rankingTable__rankEvolution \"></span>\n        <span class=\"rankingTable__rankValue  rankingTable__rankValue__down \">\n        3\n                            <span class=\"rankingTable__movementPicto\">\n                            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" class=\"svgDangerColor\">\n    <path d=\"M21.996 6.008c-.382 0-.765.15-1.057.442l-8.498 8.497a.271.271 0 0 1-.382 0L3.56 6.45a1.503 1.503 0 0 0-2.122 0 1.503 1.503 0 0 0 0 2.122l8.49 8.49a3.277 3.277 0 0 0 4.627 0l8.498-8.497A1.503 1.503 0 0 0 21.996 6v.008Z\"></path>\n</svg>\n\n\n                        </span>\n                </span>\n    ",
               "links": [],
               "images": []
             },
             "Équipe": {
-              "text": "Recoleta",
-              "html": "\n                <a href=\"https://www.footmercato.net/club/deportivo-recoleta/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" width=\"24\" height=\"24\">\n\n                    <span>Recoleta</span>\n                </a>\n            ",
+              "text": "Nacional",
+              "html": "\n                <a href=\"https://www.footmercato.net/club/club-nacional/\">\n                        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional\" width=\"24\" height=\"24\">\n\n                    <span>Nacional</span>\n                </a>\n            ",
               "links": [
-                "https://www.footmercato.net/club/deportivo-recoleta/"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png"
-              ]
-            },
-            "Live": {
-              "text": "0-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--draw\">\n            0-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional Asunción\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion"
+                "https://www.footmercato.net/club/club-nacional/"
               ],
               "images": [
                 "https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png"
               ]
             },
+            "Live": {
+              "text": "2-1",
+              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            2-1\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
+              "links": [
+                "https://www.footmercato.net/live/5181612591360072132-recoleta-vs-nacional-asuncion"
+              ],
+              "images": [
+                "https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png"
+              ]
+            },
             "Pts": {
-              "text": "12",
-              "html": "\n                12\n            ",
+              "text": "13",
+              "html": "\n                13\n            ",
               "links": [],
               "images": []
             },
@@ -65029,38 +64781,38 @@
               "images": []
             },
             "DIF": {
-              "text": "+4",
-              "html": "\n                                    +4\n                            ",
+              "text": "+6",
+              "html": "\n                                    +6\n                            ",
               "links": [],
               "images": []
             },
             "G": {
-              "text": "3",
-              "html": "\n                3\n            ",
+              "text": "4",
+              "html": "\n                4\n            ",
               "links": [],
               "images": []
             },
             "N": {
-              "text": "3",
-              "html": "\n                3\n            ",
-              "links": [],
-              "images": []
-            },
-            "D": {
               "text": "1",
               "html": "\n                1\n            ",
               "links": [],
               "images": []
             },
+            "D": {
+              "text": "2",
+              "html": "\n                2\n            ",
+              "links": [],
+              "images": []
+            },
             "BP": {
-              "text": "9",
-              "html": "\n                9\n            ",
+              "text": "13",
+              "html": "\n                13\n            ",
               "links": [],
               "images": []
             },
             "BC": {
-              "text": "5",
-              "html": "\n                5\n            ",
+              "text": "7",
+              "html": "\n                7\n            ",
               "links": [],
               "images": []
             }
@@ -65371,14 +65123,10 @@
               ]
             },
             "Live": {
-              "text": "2-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--win\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/sportivo-san-lorenzo.png\" alt=\"Logo Sportivo San Lorenzo\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/club/sportivo-san-lorenzo.png"
-              ]
+              "text": null,
+              "html": "\n                                            ",
+              "links": [],
+              "images": []
             },
             "Pts": {
               "text": "9",
@@ -65663,14 +65411,10 @@
               ]
             },
             "Live": {
-              "text": "2-0",
-              "html": "\n                                                    <a href=\"https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo\">\n            <span class=\"rankingTable__currentScore rankingTable__currentScore--loss\">\n            2-0\n        </span>\n                    <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/rubio-nu.png\" alt=\"Logo Rubio Ñú\" width=\"24\" height=\"24\">\n\n    </a>\n\n                            ",
-              "links": [
-                "https://www.footmercato.net/live/8117787014995209313-rubio-nu-vs-sportivo-san-lorenzo"
-              ],
-              "images": [
-                "https://assets-fr.imgfoot.com/media/cache/60x60/rubio-nu.png"
-              ]
+              "text": null,
+              "html": "\n                                            ",
+              "links": [],
+              "images": []
             },
             "Pts": {
               "text": "1",
