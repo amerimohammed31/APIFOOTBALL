@@ -17,7 +17,7 @@
   {
     "name": "international-jeux-olympiques",
     "url": "https://www.footmercato.net/classement/international/jeux-olympiques?partial=1",
-    "reason": "No tables found"
+    "reason": "HTTP 429"
   },
   {
     "name": "international-jeux-olympiques-feminins",
@@ -45,23 +45,23 @@
     "reason": "No tables found"
   },
   {
-    "name": "danemark-superliga",
-    "url": "https://www.footmercato.net/classement/danemark/superliga?partial=1",
-    "reason": "No tables found"
-  },
-  {
     "name": "belgique-division-1b",
     "url": "https://www.footmercato.net/classement/belgique/division-1b?partial=1",
     "reason": "No tables found"
   },
   {
-    "name": "bosnie-herzegovine-premijer-liga",
-    "url": "https://www.footmercato.net/classement/bosnie-herzegovine/premijer-liga?partial=1",
+    "name": "danemark-superliga",
+    "url": "https://www.footmercato.net/classement/danemark/superliga?partial=1",
     "reason": "No tables found"
   },
   {
     "name": "norvege-eliteserien",
     "url": "https://www.footmercato.net/classement/norvege/eliteserien?partial=1",
+    "reason": "No tables found"
+  },
+  {
+    "name": "bosnie-herzegovine-premijer-liga",
+    "url": "https://www.footmercato.net/classement/bosnie-herzegovine/premijer-liga?partial=1",
     "reason": "No tables found"
   },
   {

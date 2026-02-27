@@ -36,149 +36,133 @@ export const preloadedStatsSet = new Set();
 
 export async function fetchMatchStats(liveId) {
   if (!liveId) return {};
-  const statsUrl = `https://www.footmercato.net/live/${liveId}/stats`;
+  
+  // تهيئة كائن النتائج النهائي
+  const fullStats = {
+    metadata: {
+      liveId,
+      extractedAt: new Date().toISOString(),
+    },
+    headToHead: {},
+    recentEncounters: [],
+    teamForms: {},
+    leagueStats: {},
+    goalsByTime: {},
+    goalTypes: {},
+    formation: {},
+    coaches: [],
+    substitutes: [],
+    injuries: [],
+    playersStats: []
+  };
 
   try {
-    const data = await fetchWithRetry(statsUrl);
-    const $ = cheerio.load(data);
+    // ================= تجلب بيانات صفحة الإحصائيات (/stats) =================
+    const statsUrl = `https://www.footmercato.net/live/${liveId}/stats`;
+    console.log(`📊 Fetching stats from: ${statsUrl}`);
+    
+    const statsData = await fetchWithRetry(statsUrl);
+    const $stats = cheerio.load(statsData);
 
-    // ===== 1. HEAD TO HEAD HISTORY (Historique des confrontations) =====
+    // ----- 1. HEAD TO HEAD HISTORY (تاريخ المواجهات) -----
     const headToHead = {
       totalMatches: 0,
       homeWins: 0,
       awayWins: 0,
       draws: 0,
-      homeGoals: 0,
-      awayGoals: 0,
       byCompetition: []
     };
 
-    // استخراج الإحصائيات الإجمالية من شريط التحديد (select)
-    $(".matchTeamsHeadToHeadHistory .select__item").each((_, item) => {
-      const competition = $(item).find(".select__itemLabel").text().trim();
-      const matchesCount = $(item).find(".select__itemSubLabel").text().trim();
-      
-      // البحث عن الرقم بين قوسين مثل "27 matchs"
-      const matches = matchesCount.match(/(\d+)/);
+    // استخراج بيانات المسابقات المختلفة
+    $stats(".select__item").each((_, item) => {
+      const competition = $stats(item).find(".select__itemLabel").text().trim();
+      const matchesText = $stats(item).find(".select__itemSubLabel").text().trim();
+      const matchesMatch = matchesText.match(/(\d+)/);
       
       headToHead.byCompetition.push({
         competition,
-        matchesCount: matches ? parseInt(matches[1]) : 0,
-        isActive: $(item).find(".select__itemButton").hasClass("active"),
-        value: $(item).attr("data-value")
+        matchesCount: matchesMatch ? parseInt(matchesMatch[1]) : 0,
+        isActive: $stats(item).hasClass("active"),
+        value: $stats(item).attr("data-value")
       });
     });
 
-    // استخراج نسب الفوز من الـ gauges
-    $(".matchTeamsHeadToHeadHistory__gaugesHistory").each((_, gaugeContainer) => {
-      const isVisible = !$(gaugeContainer).hasClass("hidden");
-      const competitionData = [];
-      
-      $(gaugeContainer).find(".verticalPercentageBar").each((_, bar) => {
-        const percent = $(bar).find(".verticalPercentageBar__gaugeOverlay").text().trim().replace('%', '');
-        const legend = $(bar).find(".verticalPercentageBar__legend").text().trim();
-        
-        // استخراج عدد الانتصارات من النص مثل "9 Victoires"
-        const winsMatch = legend.match(/(\d+)/);
-        
-        competitionData.push({
-          percent: parseInt(percent) || 0,
-          count: winsMatch ? parseInt(winsMatch[1]) : 0,
-          type: legend.includes('Victoires') ? 'wins' : 'draws',
-          team: legend.includes('9 Victoires') ? 'home' : (legend.includes('10 Victoires') ? 'away' : 'draw')
+    // استخراج الإحصائيات الإجمالية
+    $stats(".matchTeamsHeadToHeadHistory__gaugesHistory").each((_, gauge) => {
+      if (!$stats(gauge).hasClass("hidden")) {
+        const bars = [];
+        $stats(gauge).find(".verticalPercentageBar").each((_, bar) => {
+          const percent = $stats(bar).find(".verticalPercentageBar__gaugeOverlay").text().trim().replace('%', '');
+          const legend = $stats(bar).find(".verticalPercentageBar__legend").text().trim();
+          const countMatch = legend.match(/(\d+)/);
+          
+          bars.push({
+            percent: parseInt(percent) || 0,
+            count: countMatch ? parseInt(countMatch[1]) : 0,
+            legend
+          });
         });
-      });
-      
-      if (isVisible) {
-        headToHead.homeWins = competitionData.find(d => d.team === 'home')?.count || 0;
-        headToHead.awayWins = competitionData.find(d => d.team === 'away')?.count || 0;
-        headToHead.draws = competitionData.find(d => d.type === 'draws')?.count || 0;
-        headToHead.totalMatches = headToHead.homeWins + headToHead.awayWins + headToHead.draws;
+        
+        // افتراض أن الترتيب: [homeWins, draws, awayWins]
+        if (bars.length >= 3) {
+          headToHead.homeWins = bars[0].count;
+          headToHead.draws = bars[1].count;
+          headToHead.awayWins = bars[2].count;
+          headToHead.totalMatches = bars[0].count + bars[1].count + bars[2].count;
+        }
       }
     });
 
-    // ===== 2. RECENT ENCOUNTERS (Dernières confrontations) =====
+    fullStats.headToHead = headToHead;
+
+    // ----- 2. RECENT ENCOUNTERS (آخر المواجهات) -----
     const recentEncounters = [];
-    
-    $(".blockHorizontal__content--auto .matchSlim").each((_, match) => {
-      const homeTeam = $(match).find(".matchSlim__team .matchTeam__name").first().text().trim();
-      const awayTeam = $(match).find(".matchSlim__team .matchTeam__name").last().text().trim();
-      const scoreText = $(match).find(".matchSlim__scores").text().trim();
-      
-      // استخراج النتيجة مثل "1-0" أو "3-1"
-      const scores = scoreText.match(/(\d+)\s*-\s*(\d+)/);
+    $stats(".blockHorizontal__content--auto .matchSlim").each((_, match) => {
+      const homeTeam = $stats(match).find(".matchSlim__team .matchTeam__name").first().text().trim();
+      const awayTeam = $stats(match).find(".matchSlim__team .matchTeam__name").last().text().trim();
+      const scores = $stats(match).find(".matchSlim__scores").text().trim();
+      const scoreMatch = scores.match(/(\d+)\s*-\s*(\d+)/);
       
       recentEncounters.push({
         homeTeam,
         awayTeam,
-        homeScore: scores ? parseInt(scores[1]) : null,
-        awayScore: scores ? parseInt(scores[2]) : null,
-        status: $(match).find(".timeline__value").text().trim(),
-        link: $(match).find("a").attr("href"),
-        highlighted: $(match).find(".matchSlim__score--highlight").length > 0
+        homeScore: scoreMatch ? parseInt(scoreMatch[1]) : null,
+        awayScore: scoreMatch ? parseInt(scoreMatch[2]) : null,
+        status: $stats(match).find(".timeline__value").text().trim(),
+        link: $stats(match).find("a").attr("href"),
+        isHighlighted: $stats(match).find(".matchSlim__score--highlight").length > 0
       });
     });
+    fullStats.recentEncounters = recentEncounters;
 
-    // ===== 3. GOAL STATS FROM 68 GOALS (Stats des 68 buts) =====
-    const goalStats = {
-      totalGoals: 68,
-      distribution: [],
-      matchAverages: [],
-      scoringFrequency: [],
-      goalsPerMatchThresholds: []
-    };
-
-    $(".blockVertical__contents .blockVertical__content").each((_, el) => {
-      const title = $(el).find(".statInline__title").text().trim();
-      
-      const homeMain = $(el).find(".statInline__value").first().find(".statInline__valueMain").text().trim();
-      const homeAdd = $(el).find(".statInline__value").first().find(".statInline__valueAdditional").text().trim();
-      
-      const awayMain = $(el).find(".statInline__value--right .statInline__valueMain").text().trim();
-      const awayAdd = $(el).find(".statInline__value--right .statInline__valueAdditional").text().trim();
-      
-      goalStats.distribution.push({
-        title,
-        home: {
-          main: homeMain,
-          additional: homeAdd.replace(/[()]/g, '')
-        },
-        away: {
-          main: awayMain,
-          additional: awayAdd.replace(/[()]/g, '')
-        }
-      });
-    });
-
-    // ===== 4. TEAM FORMS (Séries en cours) =====
-    const teamForms = {
-      home: [],
-      away: []
-    };
-
-    $(".teamsForm__team--home .gameResultStatus").each((_, result) => {
-      teamForms.home.push($(result).text().trim());
-    });
-
-    $(".teamsForm__team--away .gameResultStatus").each((_, result) => {
-      teamForms.away.push($(result).text().trim());
-    });
-
-    // ===== 5. LEAGUE STATS (Stats globales en championnat) =====
-    const leagueStats = [];
+    // ----- 3. TEAM FORMS (آخر 5 مباريات) -----
+    const teamForms = { home: [], away: [] };
     
-    $(".blockVertical__contents--wrappingBorder .blockVertical__content").each((_, el) => {
-      const title = $(el).find(".statInline__title").text().trim();
+    $stats(".matchResultSeries a").each((i, result) => {
+      const teamClass = $stats(result).closest(".blockSingle").find(".title__left").text().trim();
+      const resultType = $stats(result).hasClass("matchResult--win") ? "win" : 
+                        $stats(result).hasClass("matchResult--draw") ? "draw" : "loss";
+      const score = $stats(result).find(".matchResult__score").text().trim();
+      const logo = $stats(result).find("img").attr("data-src") || "";
       
-      const homeValue = $(el).find(".statInline__value").first().find(".statInline__valueMain").text().trim();
-      const awayValue = $(el).find(".statInline__value--right .statInline__valueMain").text().trim();
+      const resultObj = { type: resultType, score, logo };
       
-      // إضافة قيم الـ progress bars إذا وجدت
-      let homeProgress = null;
-      let awayProgress = null;
+      if (teamClass.includes("Sporting")) teamForms.home.push(resultObj);
+      else if (teamClass.includes("Estoril")) teamForms.away.push(resultObj);
+    });
+    fullStats.teamForms = teamForms;
+
+    // ----- 4. LEAGUE STATS (إحصائيات عامة في الدوري) -----
+    const leagueStats = [];
+    $stats(".blockVertical__contents--wrappingBorder .blockVertical__content").each((_, el) => {
+      const title = $stats(el).find(".statInline__title").text().trim();
+      const homeValue = $stats(el).find(".statInline__value").first().find(".statInline__valueMain").text().trim();
+      const awayValue = $stats(el).find(".statInline__value--right .statInline__valueMain").text().trim();
       
-      $(el).find(".statInline__progressBarValue").each((i, bar) => {
-        const style = $(bar).attr('style') || '';
+      // استخراج نسب التقدم
+      let homeProgress = null, awayProgress = null;
+      $stats(el).find(".statInline__progressBarValue").each((i, bar) => {
+        const style = $stats(bar).attr('style') || '';
         const widthMatch = style.match(/width:(\d+)%/);
         if (i === 0) homeProgress = widthMatch ? parseInt(widthMatch[1]) : null;
         if (i === 1) awayProgress = widthMatch ? parseInt(widthMatch[1]) : null;
@@ -192,37 +176,22 @@ export async function fetchMatchStats(liveId) {
         awayProgress
       });
     });
+    fullStats.leagueStats = leagueStats;
 
-    // ===== 6. GOALS BY TIME SEGMENTS (Buts/tranches) =====
-    const goalsByTime = {
-      total: [],
-      home: [],
-      away: []
-    };
-
-    // استخراج بيانات كل تبويب (Total, Domicile, Extérieur)
-    const tabs = ['taball', 'tabhome', 'tabaway'];
+    // ----- 5. GOALS BY TIME SEGMENTS (الأهداف حسب الوقت) -----
+    const goalsByTime = { total: [], home: [], away: [] };
     
-    tabs.forEach(tabId => {
+    ["taball", "tabhome", "tabaway"].forEach(tabId => {
       const tabData = [];
-      $(`#${tabId} .statsPerSegments__item`).each((_, item) => {
-        const title = $(item).find(".statVerticalBarGroup__title").text().trim();
-        
-        const homeValue = $(item).find(".statVerticalBarGroup__gaugeWrapper--home .statVerticalBarGroup__value").text().trim();
-        const awayValue = $(item).find(".statVerticalBarGroup__gaugeWrapper--away .statVerticalBarGroup__value").text().trim();
-        
-        const homeHeight = $(item).find(".statVerticalBarGroup__gaugeWrapper--home .statVerticalBarGroup__gauge").attr('style') || '';
-        const awayHeight = $(item).find(".statVerticalBarGroup__gaugeWrapper--away .statVerticalBarGroup__gauge").attr('style') || '';
-        
-        const homePercent = homeHeight.match(/height:(\d+)%/) ? parseInt(homeHeight.match(/height:(\d+)%/)[1]) : 0;
-        const awayPercent = awayHeight.match(/height:(\d+)%/) ? parseInt(awayHeight.match(/height:(\d+)%/)[1]) : 0;
+      $stats(`#${tabId} .statsPerSegments__item`).each((_, item) => {
+        const segment = $stats(item).find(".statVerticalBarGroup__title").text().trim();
+        const homeValue = $stats(item).find(".statVerticalBarGroup__gaugeWrapper--home .statVerticalBarGroup__value").text().trim();
+        const awayValue = $stats(item).find(".statVerticalBarGroup__gaugeWrapper--away .statVerticalBarGroup__value").text().trim();
         
         tabData.push({
-          segment: title,
+          segment,
           home: parseInt(homeValue) || 0,
-          away: parseInt(awayValue) || 0,
-          homePercent,
-          awayPercent
+          away: parseInt(awayValue) || 0
         });
       });
       
@@ -230,115 +199,193 @@ export async function fetchMatchStats(liveId) {
       if (tabId === 'tabhome') goalsByTime.home = tabData;
       if (tabId === 'tabaway') goalsByTime.away = tabData;
     });
+    fullStats.goalsByTime = goalsByTime;
 
-    // ===== 7. GOAL DISTRIBUTION STATS (Répartition des buts) =====
-    const goalDistribution = [];
+    // ----- 6. GOAL TYPES (أنواع الأهداف) -----
+    const goalTypes = { home: [], away: [] };
     
-    $(".blockVertical__contents--wrappingBorder").last().find(".blockVertical__content").each((_, el) => {
-      const title = $(el).find(".statInline__title").text().trim();
-      const homeMain = $(el).find(".statInline__value").first().find(".statInline__valueMain").text().trim();
-      const awayMain = $(el).find(".statInline__value--right .statInline__valueMain").text().trim();
-      
-      goalDistribution.push({
-        title,
-        home: homeMain,
-        away: awayMain
-      });
-    });
-
-    // ===== 8. GOAL TYPES (Types de buts) =====
-    const goalTypes = {
-      home: [],
-      away: []
-    };
-
-    $(".goalsStatsByType").each((i, teamBlock) => {
-      const teamName = $(teamBlock).find(".goalsStatsByType__team span").text().trim();
-      const teamLogo = $(teamBlock).find(".goalsStatsByType__team img").attr('data-src') || '';
-      
+    $stats(".goalsStatsByType").each((i, teamBlock) => {
+      const teamName = $stats(teamBlock).find(".goalsStatsByType__team span").text().trim();
       const types = [];
-      $(teamBlock).find(".horizontalPercentageBar").each((_, bar) => {
-        const legend = $(bar).find(".horizontalPercentageBar__legend").text().trim();
-        const percent = $(bar).find(".horizontalPercentageBar__percent").text().trim().replace('%', '');
-        const value = $(bar).find(".horizontalPercentageBar__value").text().trim();
-        const barWidth = $(bar).find(".horizontalPercentageBar__bar").attr('style') || '';
-        const widthPercent = barWidth.match(/width:(\d+(?:\.\d+)?)%/) ? parseFloat(barWidth.match(/width:(\d+(?:\.\d+)?)%/)[1]) : 0;
+      
+      $stats(teamBlock).find(".horizontalPercentageBar").each((_, bar) => {
+        const legend = $stats(bar).find(".horizontalPercentageBar__legend").text().trim();
+        const percent = $stats(bar).find(".horizontalPercentageBar__percent").text().trim().replace('%', '');
+        const goals = $stats(bar).find(".horizontalPercentageBar__value").text().trim();
         
         types.push({
           type: legend,
           percent: parseInt(percent) || 0,
-          goals: parseInt(value) || 0,
-          barWidth: widthPercent
+          goals: parseInt(goals) || 0
         });
       });
       
-      if (i === 0) goalTypes.home = { teamName, teamLogo, types };
-      if (i === 1) goalTypes.away = { teamName, teamLogo, types };
+      if (i === 0) goalTypes.home = { teamName, types };
+      if (i === 1) goalTypes.away = { teamName, types };
     });
+    fullStats.goalTypes = goalTypes;
 
-    // ===== 9. MATCH STATUS (Le match - temporairement vide) =====
-    const matchStatus = {
-      hasStarted: false,
-      message: $(".message__title").text().trim() || "En attente des statistiques",
-      description: $(".message__text").text().trim() || "Les statistiques sont communiquées après le début du match."
+    // ----- 7. PLAYERS STATS (إحصائيات اللاعبين) -----
+    const playersStats = [];
+    $stats("#statsTable tbody tr").each((_, row) => {
+      if ($stats(row).find("td").length > 1) {
+        const playerLink = $stats(row).find("a[href*='/joueur/']").first();
+        const playerHref = playerLink.attr("href");
+        const playerId = playerHref ? playerHref.split('/').pop() : null;
+        
+        playersStats.push({
+          rank: $stats(row).find("td").eq(0).text().trim(),
+          rating: $stats(row).find(".rating").first().text().trim(),
+          player: {
+            name: $stats(row).find(".personCardCell__name").first().text().trim(),
+            link: playerHref,
+            id: playerId,
+            nationality: $stats(row).find(".personCardCell__nationalities img").last().attr('data-src')
+          },
+          team: $stats(row).find("td").eq(3).text().trim(),
+          selection: $stats(row).find("td").eq(4).text().trim(),
+          matches: parseInt($stats(row).find("td").eq(5).text().trim()) || 0,
+          minutes: parseInt($stats(row).find("td").eq(6).text().trim()) || 0,
+          goals: parseInt($stats(row).find("td").eq(7).text().trim()) || 0,
+          assists: parseInt($stats(row).find("td").eq(8).text().trim()) || 0,
+          substitutionIn: parseInt($stats(row).find("td").eq(9).text().trim()) || 0,
+          substitutionOut: parseInt($stats(row).find("td").eq(10).text().trim()) || 0,
+          interceptions: parseInt($stats(row).find("td").eq(11).text().trim()) || 0,
+          tackles: parseInt($stats(row).find("td").eq(12).text().trim()) || 0
+        });
+      }
+    });
+    fullStats.playersStats = playersStats;
+
+    // ================= تجلب بيانات صفحة التشكيلة (/formation) =================
+    const formationUrl = `https://www.footmercato.net/live/${liveId}/formation`;
+    console.log(`📋 Fetching formation from: ${formationUrl}`);
+    
+    const formationData = await fetchWithRetry(formationUrl);
+    const $formation = cheerio.load(formationData);
+
+    // ----- 8. MATCH FORMATIONS (تشكيلة المباراة) -----
+    const formation = {
+      home: {
+        name: "",
+        formation: "",
+        players: []
+      },
+      away: {
+        name: "",
+        formation: "",
+        players: []
+      }
     };
 
-    // ===== 10. RAW DATA ATTRIBUTES (كل السمات data-*) =====
-    const rawDataAttributes = [];
-    $("[data-live-id], [data-team], [data-type], [data-filter], [data-value]").each((_, el) => {
-      const attribs = el.attribs || {};
-      Object.keys(attribs).forEach((k) => {
-        if (k.startsWith("data-")) {
-          rawDataAttributes.push({ 
-            element: el.name || 'unknown',
-            key: k, 
-            value: attribs[k] 
+    // استخراج اسم الفريق والتشكيلة
+    $formation(".title").each((i, title) => {
+      const teamName = $formation(title).find(".title__leftLink").text().trim();
+      const teamFormation = $formation(title).find(".title__textBig").text().trim();
+      
+      if (i === 0) {
+        formation.home.name = teamName;
+        formation.home.formation = teamFormation;
+      } else if (i === 1) {
+        formation.away.name = teamName;
+        formation.away.formation = teamFormation;
+      }
+    });
+
+    // استخراج اللاعبين الأساسيين
+    $formation(".teamFormation__line .matchTeamPlayer").each((_, player) => {
+      const playerLink = $formation(player).attr("data-api") || 
+                        $formation(player).find("a").attr("href") ||
+                        $formation(player).attr("href");
+      
+      const playerHref = playerLink ? playerLink.match(/matchTeamsPlayersIds%5B0%5D=(\d+)/) : null;
+      const playerId = playerHref ? playerHref[1] : null;
+      
+      const team = $formation(player).closest(".teamFormation").hasClass("teamFormation--reverse") ? "away" : "home";
+      
+      const playerData = {
+        number: $formation(player).find(".matchTeamPlayer__number").text().trim(),
+        name: $formation(player).find(".matchTeamPlayer__name").text().trim(),
+        rating: $formation(player).find(".rating").text().trim(),
+        isCaptain: $formation(player).find(".matchTeamPlayer__indicator--captain").length > 0,
+        hasGoal: $formation(player).find(".matchTeamPlayer__indicator--goal").length > 0,
+        hasAssist: $formation(player).find(".matchTeamPlayer__indicator--assist").length > 0,
+        hasYellowCard: $formation(player).find(".colorYellowCardSvg").length > 0,
+        isSubstituted: $formation(player).find(".matchTeamPlayer__indicator--substitution").length > 0,
+        playerId: playerId,
+        goalsCount: $formation(player).find(".matchTeamPlayer__count").text().trim().replace('X', '') || null,
+        minuteSubstituted: $formation(player).find(".matchTeamPlayer__indicator--substitution").length > 0 ? 
+                          $formation(player).find(".personCard__extraUp").text().match(/(\d+)/)?.[1] : null
+      };
+      
+      if (team === "home") {
+        formation.home.players.push(playerData);
+      } else {
+        formation.away.players.push(playerData);
+      }
+    });
+    fullStats.formation = formation;
+
+    // ----- 9. COACHES (المدربين) -----
+    const coaches = [];
+    $formation(".personCardTeamsList__team").each((_, team) => {
+      const coachLink = $formation(team).find("a[href*='/entraineur/']");
+      if (coachLink.length) {
+        coaches.push({
+          name: coachLink.find(".personCard__name").text().trim(),
+          role: coachLink.find(".personCard__description").text().trim(),
+          link: coachLink.attr("href"),
+          nationality: coachLink.find(".personCard__extra img").attr("data-src")
+        });
+      }
+    });
+    fullStats.coaches = coaches;
+
+    // ----- 10. SUBSTITUTES (البدلاء) -----
+    const substitutes = { home: [], away: [] };
+    $formation(".personCardTeamsList__teams .personCardTeamsList__team").each((i, team) => {
+      const teamType = i === 0 ? "home" : "away";
+      
+      $formation(team).find(".personCard").each((_, player) => {
+        if (!$formation(player).find(".matchTeamPlayer").length) { // تجنب تكرار اللاعبين الأساسيين
+          const minuteMatch = $formation(player).find(".personCard__extraUp").text().match(/(\d+)/);
+          
+          substitutes[teamType].push({
+            name: $formation(player).find(".personCard__name").text().trim(),
+            position: $formation(player).find(".personCard__description").text().trim(),
+            link: $formation(player).attr("href"),
+            minuteEntered: minuteMatch ? parseInt(minuteMatch[1]) : null,
+            hasGoal: $formation(player).find(".personCard__extraDown svg[viewBox*='goal']").length > 0,
+            hasAssist: $formation(player).find(".personCard__extraDown svg[viewBox*='assist']").length > 0
           });
         }
       });
     });
+    fullStats.substitutes = substitutes;
 
-    // ===== 11. ACTIVE TABS (التبويبات النشطة) =====
-    const activeTabs = [];
-    $(".filtersTabs__link.active").each((_, tab) => {
-      activeTabs.push({
-        name: $(tab).text().trim(),
-        href: $(tab).attr('href') || ''
-      });
+    // ----- 11. INJURIES (الإصابات) -----
+    const injuries = [];
+    $formation(".personCardTeamsList .personCard").each((_, player) => {
+      if ($formation(player).find(".personCard__injuryPicto").length) {
+        injuries.push({
+          name: $formation(player).find(".personCard__name").text().trim(),
+          description: $formation(player).find(".personCard__description").text().trim(),
+          link: $formation(player).attr("href"),
+          injuryType: $formation(player).find(".personCard__injurySeverity").hasClass("personCard__injurySeverity--badly") ? "bad" : "unknown"
+        });
+      }
     });
-
-    // بناء الكائن النهائي
-    const fullStats = {
-      metadata: {
-        url: statsUrl,
-        liveId,
-        extractedAt: new Date().toISOString(),
-        hasMatchStarted: matchStatus.hasStarted,
-        activeTabs
-      },
-      headToHead,
-      recentEncounters,
-      goalStats,
-      teamForms,
-      leagueStats,
-      goalsByTime,
-      goalDistribution,
-      goalTypes,
-      matchStatus,
-      rawDataAttributes: rawDataAttributes.slice(0, 50), // تحد من الكمية
-      allDataExtracted: true
-    };
+    fullStats.injuries = injuries;
 
     return fullStats;
     
   } catch (err) {
     console.error(`❌ Error fetching stats for liveId ${liveId}: ${err.message}`);
     return {
+      ...fullStats,
       error: err.message,
       metadata: {
-        url: statsUrl,
-        liveId,
-        extractedAt: new Date().toISOString(),
+        ...fullStats.metadata,
         hasError: true
       }
     };
@@ -411,6 +458,9 @@ export async function fetchMatchToday() {
             statsLink: liveId
               ? `https://www.footmercato.net/live/${liveId}/stats`
               : null,
+            formationLink: liveId
+              ? `https://www.footmercato.net/live/${liveId}/formation`
+              : null,
             homeTeam: {
               name: homeEl.find(".matchTeam__name").text().trim(),
               logo: homeEl.find("img").attr("data-src") || "",
@@ -444,31 +494,27 @@ export async function fetchMatchToday() {
       }
     });
 
-    // ================= Assign stats =================
+    // ================= جلب البيانات المتقدمة لكل مباراة =================
     for (const league of leagues) {
       for (const match of league.matches) {
-        if (match.isLive) {
-          console.log(`🎯 Fetching LIVE stats for ${match.homeTeam.name} vs ${match.awayTeam.name}`);
-          match.stats = await fetchMatchStats(match.liveId);
-          liveStatsCache.set(match.liveId, match.stats);
-          preloadedStatsSet.add(match.liveId);
-        } else if (match.status === "scheduled") {
-          if (!preloadedStatsSet.has(match.liveId)) {
-            console.log(`📅 Pre-loading stats for scheduled match: ${match.homeTeam.name} vs ${match.awayTeam.name}`);
+        if (match.isLive || match.status === "scheduled" || match.status === "finished") {
+          console.log(`🎯 Fetching comprehensive data for ${match.homeTeam.name} vs ${match.awayTeam.name} (${match.status})`);
+          
+          // التحقق من وجود البيانات في الكاش أولاً
+          if (liveStatsCache.has(match.liveId)) {
+            match.stats = liveStatsCache.get(match.liveId);
+            console.log(`✅ Using cached data for ${match.liveId}`);
+          } else {
             match.stats = await fetchMatchStats(match.liveId);
             liveStatsCache.set(match.liveId, match.stats);
             preloadedStatsSet.add(match.liveId);
-          } else {
-            match.stats = liveStatsCache.get(match.liveId) || null;
           }
-        } else if (match.status === "finished") {
-          match.stats = liveStatsCache.get(match.liveId) || null;
         }
       }
     }
 
     fs.writeFileSync(FILE_PATH, JSON.stringify(leagues, null, 2), "utf8");
-    console.log("✅ FULL ULTRA DATA SAVED WITH COMPREHENSIVE STATS");
+    console.log("✅ COMPREHENSIVE DATA SAVED WITH ALL STATS AND FORMATIONS");
 
     return leagues;
   } catch (err) {
