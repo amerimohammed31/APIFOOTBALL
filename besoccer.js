@@ -6,33 +6,72 @@ import { fileURLToPath } from 'url';
 import pLimit from 'p-limit';
 import https from 'https';
 import crypto from 'crypto';
+import { HttpsProxyAgent } from 'https-proxy-agent';
+import { SocksProxyAgent } from 'socks-proxy-agent';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ================= الإعدادات المتقدمة =================
+// ================= الإعدادات المتقدمة مع مكافحة الحظر =================
 const CONFIG = {
-  // إعدادات الملفات - فقط ملف الإخراج الرئيسي
+  // إعدادات الملفات
   OUTPUT_FILE: path.join(__dirname, "./besoccer-complete-data.json"),
   
   // إعدادات الاتصال
   URL: "https://www.besoccer.com/",
-  TIMEOUT: 20000,
-  CONCURRENT_LIMIT: 5,
-  DELAY_BETWEEN_REQUESTS: 800,
-  MAX_RETRIES: 4,
+  TIMEOUT: 30000,
+  CONCURRENT_LIMIT: 2, // تقليل عدد الطلبات المتوازية
+  DELAY_BETWEEN_REQUESTS: 3000, // زيادة التأخير
+  MAX_RETRIES: 5,
   
   // إعدادات متقدمة
   CACHE_ENABLED: true,
   CACHE_DURATION: 30 * 60 * 1000,
   
-  // قائمة وكلاء المستخدمين المتعددة
+  // مكافحة الحظر
+  ANTI_DETECTION: {
+    ENABLED: true,
+    ROTATE_IPS: false, // فعّل إذا كان لديك Proxy
+    RANDOM_DELAY: true,
+    MIN_DELAY: 2000,
+    MAX_DELAY: 5000,
+    USE_BROWSER_HEADERS: true,
+    ROTATE_ACCEPT_LANGUAGE: true,
+    USE_CHROME_VERSION_ROTATION: true
+  },
+  
+  // قائمة وكلاء المستخدمين المتعددة - محدثة
   USER_AGENTS: [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1"
+  ],
+  
+  // قائمة Accept-Languages المتعددة
+  ACCEPT_LANGUAGES: [
+    'en-US,en;q=0.9,ar;q=0.8',
+    'en-GB,en;q=0.9,fr;q=0.8,ar;q=0.7',
+    'en;q=0.9,es;q=0.8,ar;q=0.7',
+    'fr-FR,fr;q=0.9,en;q=0.8,ar;q=0.7',
+    'ar-SA,ar;q=0.9,en;q=0.8,fr;q=0.7'
+  ],
+  
+  // قائمة Accept
+  ACCEPT_VARIANTS: [
+    'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+  ],
+  
+  // قائمة Proxies (اختياري - يمكنك إضافة Proxies من Webshare أو غيره)
+  PROXY_LIST: [
+    // مثال: 'http://user:pass@ip:port',
+    // 'socks5://user:pass@ip:port'
   ],
   
   // إعدادات التصفية
@@ -45,13 +84,14 @@ const CONFIG = {
 };
 
 console.log("\n" + "=".repeat(80));
-console.log("🔥 BeSoccer Complete API - الإصدار الاحترافي v2.0");
+console.log("🔥 BeSoccer Complete API - الإصدار الاحترافي v3.0 (Anti-Detection)");
 console.log("=".repeat(80));
 console.log(`📁 ملف الإخراج: ${CONFIG.OUTPUT_FILE}`);
 console.log(`⚡ طلبات متوازية: ${CONFIG.CONCURRENT_LIMIT}`);
+console.log(`🛡️  مكافحة الحظر: مفعلة`);
 console.log("=".repeat(80) + "\n");
 
-// ================= نظام التسجيل المبسط (console فقط) =================
+// ================= نظام التسجيل =================
 class Logger {
   static log(message, type = 'INFO') {
     const timestamp = new Date().toISOString();
@@ -72,6 +112,35 @@ class Logger {
   static warning(message) {
     this.log(message, 'WARNING');
   }
+  
+  static antiDetection(message) {
+    this.log(`🛡️ ${message}`, 'ANTI-DETECTION');
+  }
+}
+
+// ================= نظام التأخير الذكي =================
+class SmartDelay {
+  static async wait(ms) {
+    await new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+  static async randomDelay() {
+    if (!CONFIG.ANTI_DETECTION.RANDOM_DELAY) return;
+    
+    const delay = Math.floor(
+      Math.random() * (CONFIG.ANTI_DETECTION.MAX_DELAY - CONFIG.ANTI_DETECTION.MIN_DELAY) + 
+      CONFIG.ANTI_DETECTION.MIN_DELAY
+    );
+    
+    Logger.antiDetection(`تأخير عشوائي ${delay}ms`);
+    await this.wait(delay);
+  }
+  
+  static async exponentialBackoff(attempt) {
+    const delay = Math.min(1000 * Math.pow(2, attempt) + Math.random() * 1000, 30000);
+    Logger.antiDetection(`إنتظار ${Math.round(delay)}ms قبل إعادة المحاولة ${attempt}`);
+    await this.wait(delay);
+  }
 }
 
 // ================= نظام إعادة المحاولة المتقدم =================
@@ -81,13 +150,17 @@ class RetryHandler {
       retries = CONFIG.MAX_RETRIES,
       delay = 2000,
       backoff = true,
-      onRetry = null
+      onRetry = null,
+      isAntiDetection = true
     } = options;
     
     let lastError;
     
     for (let i = 0; i < retries; i++) {
       try {
+        if (isAntiDetection && i > 0) {
+          await SmartDelay.exponentialBackoff(i);
+        }
         return await fn();
       } catch (err) {
         lastError = err;
@@ -97,7 +170,9 @@ class RetryHandler {
         if (onRetry) onRetry(i + 1, retries, err, currentDelay);
         
         if (i < retries - 1) {
-          await new Promise(resolve => setTimeout(resolve, currentDelay));
+          if (!isAntiDetection) {
+            await new Promise(resolve => setTimeout(resolve, currentDelay));
+          }
         }
       }
     }
@@ -106,50 +181,161 @@ class RetryHandler {
   }
 }
 
-// ================= عميل HTTP ذكي =================
+// ================= مدير الـ Proxies =================
+class ProxyManager {
+  constructor() {
+    this.proxies = CONFIG.PROXY_LIST;
+    this.currentIndex = 0;
+    this.failedProxies = new Map(); // proxy -> failure count
+    this.maxFailsPerProxy = 3;
+  }
+  
+  getNextProxy() {
+    if (this.proxies.length === 0) return null;
+    
+    // تجاوز الـ proxies الفاشلة
+    let attempts = 0;
+    while (attempts < this.proxies.length) {
+      const proxy = this.proxies[this.currentIndex];
+      this.currentIndex = (this.currentIndex + 1) % this.proxies.length;
+      
+      const fails = this.failedProxies.get(proxy) || 0;
+      if (fails < this.maxFailsPerProxy) {
+        return proxy;
+      }
+      attempts++;
+    }
+    
+    // إذا كل الـ proxies فاشلة، نعيد تعيين الفشل
+    this.failedProxies.clear();
+    return this.proxies[0];
+  }
+  
+  markProxyFailed(proxy) {
+    const fails = (this.failedProxies.get(proxy) || 0) + 1;
+    this.failedProxies.set(proxy, fails);
+    Logger.antiDetection(`Proxy ${proxy} فشل (${fails}/${this.maxFailsPerProxy})`);
+  }
+  
+  getAgent(proxy) {
+    if (!proxy) return null;
+    
+    try {
+      if (proxy.startsWith('socks')) {
+        return new SocksProxyAgent(proxy);
+      } else {
+        return new HttpsProxyAgent(proxy);
+      }
+    } catch (err) {
+      Logger.error('خطأ في إنشاء Proxy Agent', err);
+      return null;
+    }
+  }
+}
+
+const proxyManager = new ProxyManager();
+
+// ================= عميل HTTP ذكي مع مكافحة الحظر =================
 class SmartHttpClient {
   constructor() {
     this.session = axios.create({
       timeout: CONFIG.TIMEOUT,
       httpsAgent: new https.Agent({ 
         keepAlive: true,
-        maxSockets: 25,
-        maxFreeSockets: 10
+        maxSockets: 10,
+        maxFreeSockets: 5,
+        keepAliveMsecs: 3000
       }),
       maxRedirects: 5,
-      decompress: true
+      decompress: true,
+      validateStatus: function (status) {
+        return status >= 200 && status < 300; // فقط النجاح
+      }
     });
     
     this.cache = new Map();
     this.requestCount = 0;
+    this.lastRequestTime = 0;
+    this.minRequestInterval = 1000; // ثانية واحدة بين الطلبات
     
     this.setupInterceptors();
   }
   
   setupInterceptors() {
-    this.session.interceptors.request.use(config => {
+    this.session.interceptors.request.use(async config => {
       this.requestCount++;
-      config.headers = this.getRandomHeaders();
+      
+      // تأخير بين الطلبات
+      const now = Date.now();
+      const timeSinceLastRequest = now - this.lastRequestTime;
+      if (timeSinceLastRequest < this.minRequestInterval) {
+        await SmartDelay.wait(this.minRequestInterval - timeSinceLastRequest);
+      }
+      
+      config.headers = this.getAdvancedHeaders();
+      
+      // إضافة Proxy إذا كان متاحاً
+      if (CONFIG.ANTI_DETECTION.ROTATE_IPS) {
+        const proxy = proxyManager.getNextProxy();
+        if (proxy) {
+          config.httpsAgent = proxyManager.getAgent(proxy);
+          config.proxy = false; // تعطيل proxy الافتراضي
+          Logger.antiDetection(`استخدام Proxy: ${proxy.substring(0, 20)}...`);
+        }
+      }
+      
+      this.lastRequestTime = Date.now();
       return config;
     });
+    
+    // معالجة الأخطاء
+    this.session.interceptors.response.use(
+      response => response,
+      async error => {
+        if (error.config && CONFIG.ANTI_DETECTION.ROTATE_IPS) {
+          const proxy = error.config.httpsAgent?.proxy?.href;
+          if (proxy) {
+            proxyManager.markProxyFailed(proxy);
+          }
+        }
+        return Promise.reject(error);
+      }
+    );
   }
   
-  getRandomHeaders() {
+  getAdvancedHeaders() {
     const userAgent = CONFIG.USER_AGENTS[Math.floor(Math.random() * CONFIG.USER_AGENTS.length)];
+    const acceptLanguage = CONFIG.ACCEPT_LANGUAGES[Math.floor(Math.random() * CONFIG.ACCEPT_LANGUAGES.length)];
+    const accept = CONFIG.ACCEPT_VARIANTS[Math.floor(Math.random() * CONFIG.ACCEPT_VARIANTS.length)];
     
-    return {
+    // إنشاء بصمة متصفح عشوائية
+    const secChUa = `"Not_A Brand";v="8", "Chromium";v="${Math.floor(Math.random() * 20) + 110}", "Google Chrome";v="${Math.floor(Math.random() * 20) + 110}"`;
+    const platform = ['"Windows"', '"macOS"', '"Linux"'][Math.floor(Math.random() * 3)];
+    
+    const headers = {
       'User-Agent': userAgent,
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'en-US,en;q=0.9,ar;q=0.8',
+      'Accept': accept,
+      'Accept-Language': acceptLanguage,
       'Accept-Encoding': 'gzip, deflate, br',
       'Connection': 'keep-alive',
       'Upgrade-Insecure-Requests': '1',
       'Sec-Fetch-Dest': 'document',
       'Sec-Fetch-Mode': 'navigate',
       'Sec-Fetch-Site': 'none',
-      'Pragma': 'no-cache',
-      'Cache-Control': 'no-cache'
+      'Sec-Fetch-User': '?1',
+      'Cache-Control': 'max-age=0',
+      'sec-ch-ua': secChUa,
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': platform,
+      'DNT': '1'
     };
+    
+    // إضافة Headers عشوائية إضافية
+    if (Math.random() > 0.5) {
+      headers['X-Requested-With'] = 'XMLHttpRequest';
+    }
+    
+    return headers;
   }
   
   async get(url, useCache = CONFIG.CACHE_ENABLED) {
@@ -166,13 +352,39 @@ class SmartHttpClient {
     }
     
     try {
+      // تأخير عشوائي قبل الطلب
+      await SmartDelay.randomDelay();
+      
       const response = await RetryHandler.execute(
-        () => this.session.get(url),
+        async () => {
+          try {
+            const res = await this.session.get(url, {
+              // إضافة Cookies عشوائية أحياناً
+              headers: {
+                ...this.getAdvancedHeaders(),
+                ...(Math.random() > 0.7 ? { 'Cookie': `session_${Math.random()}=${Math.random()}` } : {})
+              }
+            });
+            return res;
+          } catch (err) {
+            // إذا كان الخطأ 406 أو 429، نستخدم تأخير أطول
+            if (err.response?.status === 406 || err.response?.status === 429) {
+              Logger.antiDetection(`تم حظر الطلب (${err.response.status})، زيادة التأخير`);
+              await SmartDelay.wait(10000);
+            }
+            throw err;
+          }
+        },
         {
           retries: CONFIG.MAX_RETRIES,
-          delay: 2000,
+          delay: 3000,
           onRetry: (attempt, total, error) => {
-            Logger.warning(`⚠️ إعادة محاولة ${url.substring(0, 50)}... (${attempt}/${total})`);
+            Logger.warning(`⚠️ إعادة محاولة ${url.substring(0, 50)}... (${attempt}/${total}) - ${error.message}`);
+            
+            // تغيير الـ User-Agent في كل محاولة
+            if (error.config?.headers) {
+              error.config.headers['User-Agent'] = CONFIG.USER_AGENTS[Math.floor(Math.random() * CONFIG.USER_AGENTS.length)];
+            }
           }
         }
       );
@@ -186,7 +398,7 @@ class SmartHttpClient {
       
       return response.data;
     } catch (error) {
-      Logger.error(`❌ فشل جلب ${url}`, error);
+      Logger.error(`❌ فشل جلب ${url} بعد ${CONFIG.MAX_RETRIES} محاولات`, error);
       throw error;
     }
   }
@@ -206,7 +418,7 @@ class SmartHttpClient {
 
 const httpClient = new SmartHttpClient();
 
-// ================= أدوات معالجة البيانات =================
+// ================= أدوات معالجة البيانات (نفس الكود السابق) =================
 class DataProcessor {
   static normalizeUrl(url) {
     if (!url) return null;
@@ -288,7 +500,7 @@ class DataProcessor {
   }
 }
 
-// ================= مستخرج البيانات الرئيسي =================
+// ================= مستخرج البيانات الرئيسي (نفس الكود السابق) =================
 class MatchDataExtractor {
   constructor($, url) {
     this.$ = $;
@@ -896,7 +1108,7 @@ class MatchDataExtractor {
   }
 }
 
-// ================= استخراج المباريات الأساسية من الصفحة الرئيسية =================
+// ================= استخراج المباريات الأساسية (نفس الكود) =================
 function extractBasicMatches($, panelEl) {
   const $panel = $(panelEl);
   const matches = [];
@@ -987,7 +1199,7 @@ function extractBasicMatches($, panelEl) {
   return matches;
 }
 
-// ================= استخراج بيانات البطولة من الصفحة الرئيسية =================
+// ================= استخراج بيانات البطولة (نفس الكود) =================
 function extractCompetition($, panelEl) {
   const $panel = $(panelEl);
   
@@ -1021,7 +1233,7 @@ function extractCompetition($, panelEl) {
   return competition;
 }
 
-// ================= جلب تفاصيل مباراة كاملة =================
+// ================= جلب تفاصيل مباراة كاملة (معدل مع مكافحة الحظر) =================
 async function fetchMatchDetails(match) {
   if (!match.url) return match;
   
@@ -1032,11 +1244,13 @@ async function fetchMatchDetails(match) {
   Logger.log(`📥 جلب تفاصيل: ${match.homeTeam.name || '?'} vs ${match.awayTeam.name || '?'}`);
   
   try {
-    const limit = pLimit(2);
+    const limit = pLimit(1); // تقليل التوازي إلى 1 لمزيد من الأمان
     const promises = [];
     
     promises.push(limit(async () => {
       try {
+        // تأخير عشوائي قبل كل طلب
+        await SmartDelay.randomDelay();
         const html = await httpClient.get(previewUrl);
         const $ = cheerio.load(html);
         const extractor = new MatchDataExtractor($, previewUrl);
@@ -1049,6 +1263,8 @@ async function fetchMatchDetails(match) {
     
     promises.push(limit(async () => {
       try {
+        // تأخير عشوائي قبل كل طلب
+        await SmartDelay.randomDelay();
         const html = await httpClient.get(eventsUrl);
         const $ = cheerio.load(html);
         const extractor = new MatchDataExtractor($, eventsUrl);
@@ -1070,12 +1286,13 @@ async function fetchMatchDetails(match) {
     Logger.error(`   ❌ فشل كامل`, err);
   }
   
-  await new Promise(resolve => setTimeout(resolve, CONFIG.DELAY_BETWEEN_REQUESTS));
+  // تأخير أطول بين المباريات
+  await SmartDelay.wait(CONFIG.DELAY_BETWEEN_REQUESTS);
   
   return match;
 }
 
-// ================= معالجة البيانات النهائية =================
+// ================= معالجة البيانات النهائية (نفس الكود) =================
 function processFinalData(data) {
   Logger.log('🧹 معالجة البيانات النهائية...');
   
@@ -1135,12 +1352,16 @@ function processFinalData(data) {
   return data;
 }
 
-// ================= الدالة الرئيسية =================
+// ================= الدالة الرئيسية (معدلة) =================
 async function main() {
   const startTime = Date.now();
   
   try {
     Logger.log('🌐 جلب الصفحة الرئيسية...');
+    
+    // محاولة جلب الصفحة الرئيسية مع تأخير أولي
+    await SmartDelay.wait(5000); // انتظار 5 ثواني قبل البدء
+    
     const mainHtml = await httpClient.get(CONFIG.URL);
     
     Logger.log('🔍 تحليل الصفحة...');
@@ -1241,11 +1462,28 @@ async function main() {
     
   } catch (err) {
     Logger.error('💥 خطأ غير متوقع', err);
+    
+    // محاولة حفظ أي بيانات جزئية
+    try {
+      const partialData = {
+        error: err.message,
+        timestamp: new Date().toISOString(),
+        partial: true
+      };
+      fs.writeFileSync(CONFIG.OUTPUT_FILE.replace('.json', '-error.json'), JSON.stringify(partialData, null, 2));
+      Logger.log('💾 تم حفظ تقرير الخطأ');
+    } catch (e) {
+      // تجاهل
+    }
+    
     process.exit(1);
   }
 }
 
-main();
+// تشغيل السكريبت مع تأخير أولي
+setTimeout(() => {
+  main();
+}, 3000);
 
 process.on('SIGINT', () => {
   Logger.warning('\n⚠️ تم إيقاف السكريبت بواسطة المستخدم');

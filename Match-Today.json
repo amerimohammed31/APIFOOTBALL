@@ -24,14 +24,14 @@
         "broadcasts": [
           "https://assets-fr.imgfoot.com/media/cache/150x150/ligue-1-plus.png"
         ],
-        "rawHTML": "\n    <a href=\"/live/1045857947208585955-strasbourg-vs-lens\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png\" alt=\"Logo Strasbourg\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Strasbourg</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lens.png\" alt=\"Logo Lens\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Lens</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-27T19:45:00+00:00\">\n                                20:45\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/ligue-1-plus.png\" alt=\"Logo Ligue 1+\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n            <a class=\"matchOddsInline matchOddsInline--betclic\" href=\"https://wlbetclicfr.adsrv.eacdn.com/C.ashx?btag=a_8826b_597c_&amp;affid=3221&amp;siteid=8826&amp;adid=597&amp;c=\" target=\"_blank\" rel=\"sponsored\" data-track-click=\"bet_link\" data-track-label=\"betclic\">\n    <div class=\"matchOddsInline__imageContainer\">\n            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2018%2018'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/bookmaker/logo-betclic.png\" alt=\"betclic\" class=\"matchOddsInline__image\" width=\"18\" height=\"18\">\n\n    </div>\n\n    <span class=\"matchOddsInline__values\">\n        <span class=\"matchOddsInline__value\">\n            <span>1</span> <strong>2.25</strong>\n        </span>\n        <span class=\"matchOddsInline__value\">\n            <span>N</span> <strong>3.55</strong>\n        </span>\n        <span class=\"matchOddsInline__value\">\n            <span>2</span> <strong>2.90</strong>\n        </span>\n    </span>\n\n    <span class=\"matchOddsInline__buttonContainer\">\n        <span class=\"matchOddsInline__button\">Bonus 100€</span>\n    </span>\n</a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/1045857947208585955-strasbourg-vs-lens\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/strasbourg.png\" alt=\"Logo Strasbourg\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Strasbourg</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/lens.png\" alt=\"Logo Lens\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Lens</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-27T19:45:00+00:00\">\n                                20:45\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/ligue-1-plus.png\" alt=\"Logo Ligue 1+\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n            <a class=\"matchOddsInline matchOddsInline--betclic\" href=\"https://wlbetclicfr.adsrv.eacdn.com/C.ashx?btag=a_8826b_597c_&amp;affid=3221&amp;siteid=8826&amp;adid=597&amp;c=\" target=\"_blank\" rel=\"sponsored\" data-track-click=\"bet_link\" data-track-label=\"betclic\">\n    <div class=\"matchOddsInline__imageContainer\">\n            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2018%2018'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/bookmaker/logo-betclic.png\" alt=\"betclic\" class=\"matchOddsInline__image\" width=\"18\" height=\"18\">\n\n    </div>\n\n    <span class=\"matchOddsInline__values\">\n        <span class=\"matchOddsInline__value\">\n            <span>1</span> <strong>2.28</strong>\n        </span>\n        <span class=\"matchOddsInline__value\">\n            <span>N</span> <strong>3.53</strong>\n        </span>\n        <span class=\"matchOddsInline__value\">\n            <span>2</span> <strong>2.88</strong>\n        </span>\n    </span>\n\n    <span class=\"matchOddsInline__buttonContainer\">\n        <span class=\"matchOddsInline__button\">Bonus 100€</span>\n    </span>\n</a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "1045857947208585955",
           "data-live-value": "fixture000",
           "data-live": "0"
         },
-        "rawText": "Strasbourg\n\n\n                \n                \n                    \n        \n\n\n    Lens\n\n\n                \n            \n                \n                            \n                            \n                                20:45\n                            \n                        \n                                    \n                            \n\n\n                                            \n                                    \n    \n\n            \n    \n            \n\n    \n\n    \n        \n            1 2.25\n        \n        \n            N 3.55\n        \n        \n            2 2.90\n        \n    \n\n    \n        Bonus 100€",
+        "rawText": "Strasbourg\n\n\n                \n                \n                    \n        \n\n\n    Lens\n\n\n                \n            \n                \n                            \n                            \n                                20:45\n                            \n                        \n                                    \n                            \n\n\n                                            \n                                    \n    \n\n            \n    \n            \n\n    \n\n    \n        \n            1 2.28\n        \n        \n            N 3.53\n        \n        \n            2 2.88\n        \n    \n\n    \n        Bonus 100€",
         "stats": {
           "faceToFace": [],
           "goalStats": [
@@ -5046,7 +5046,7 @@
           "name": "Banfield",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png"
         },
-        "score": "2 - 1",
+        "score": "3 - 1",
         "status": "live",
         "isLive": true,
         "goals": {
@@ -5058,6 +5058,10 @@
             {
               "player": "S. Driussi",
               "minute": "46'"
+            },
+            {
+              "player": "J. Freitas",
+              "minute": "58'"
             }
           ],
           "away": [
@@ -5068,14 +5072,14 @@
           ]
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/3755574376812642923-river-plate-vs-banfield\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River Plate\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">River</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">2</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">13'</span>\n                                <span class=\"matchFull__strikerName\">L. Martínez Quarta</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">46'</span>\n                                <span class=\"matchFull__strikerName\">S. Driussi</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png\" alt=\"Logo Banfield\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Banfield</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">45'</span>\n                                <span class=\"matchFull__strikerName\">M. Méndez</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">48'</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/3755574376812642923-river-plate-vs-banfield\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/river-plate.png\" alt=\"Logo River Plate\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">River</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">3</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">13'</span>\n                                <span class=\"matchFull__strikerName\">L. Martínez Quarta</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">46'</span>\n                                <span class=\"matchFull__strikerName\">S. Driussi</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">58'</span>\n                                <span class=\"matchFull__strikerName\">J. Freitas</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/banfield.png\" alt=\"Logo Banfield\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Banfield</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">45'</span>\n                                <span class=\"matchFull__strikerName\">M. Méndez</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">82'</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "3755574376812642923",
-          "data-live-value": "playing210048'1",
+          "data-live-value": "playing310082'1",
           "data-live": "1"
         },
-        "rawText": "River\n2\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                13'\n                                L. Martínez Quarta\n                            \n                                                    \n                                46'\n                                S. Driussi\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Banfield\n1\n                        \n\n                                    \n                                                    \n                                45'\n                                M. Méndez\n                            \n                                            \n                \n            \n                \n                            48'",
+        "rawText": "River\n3\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                13'\n                                L. Martínez Quarta\n                            \n                                                    \n                                46'\n                                S. Driussi\n                            \n                                                    \n                                58'\n                                J. Freitas\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Banfield\n1\n                        \n\n                                    \n                                                    \n                                45'\n                                M. Méndez\n                            \n                                            \n                \n            \n                \n                            82'",
         "stats": {
           "faceToFace": [],
           "goalStats": [
@@ -5181,14 +5185,14 @@
               "title": "Précision des passes",
               "homeMain": "82%",
               "homeAdd": "",
-              "awayMain": "69%",
+              "awayMain": "70%",
               "awayAdd": ""
             },
             {
               "title": "Précision des centres",
               "homeMain": "19%",
               "homeAdd": "",
-              "awayMain": "24%",
+              "awayMain": "23%",
               "awayAdd": ""
             },
             {
@@ -5235,23 +5239,23 @@
             },
             {
               "title": "Possession",
-              "homeMain": "68%",
+              "homeMain": "66%",
               "homeAdd": "",
-              "awayMain": "32%",
+              "awayMain": "34%",
               "awayAdd": ""
             },
             {
               "title": "Duels gagnés",
-              "homeMain": "45%",
+              "homeMain": "44%",
               "homeAdd": "",
-              "awayMain": "55%",
+              "awayMain": "56%",
               "awayAdd": ""
             },
             {
               "title": "Passes réussies",
-              "homeMain": "81%",
+              "homeMain": "82%",
               "homeAdd": "",
-              "awayMain": "62%",
+              "awayMain": "64%",
               "awayAdd": ""
             },
             {
@@ -5291,23 +5295,30 @@
             },
             {
               "title": "Grosses occasions créées",
-              "homeMain": "1",
+              "homeMain": "2",
               "homeAdd": "",
               "awayMain": "1",
               "awayAdd": ""
             },
             {
               "title": "Tirs bloqués",
-              "homeMain": "2",
+              "homeMain": "3",
               "homeAdd": "",
               "awayMain": "0",
               "awayAdd": ""
             },
             {
-              "title": "Touches",
-              "homeMain": "7",
+              "title": "Hors-jeux",
+              "homeMain": "0",
               "homeAdd": "",
-              "awayMain": "16",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Touches",
+              "homeMain": "16",
+              "homeAdd": "",
+              "awayMain": "24",
               "awayAdd": ""
             },
             {
@@ -5319,79 +5330,79 @@
             },
             {
               "title": "Corners joués",
-              "homeMain": "4",
+              "homeMain": "5",
               "homeAdd": "",
               "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Corners et centres réussis",
-              "homeMain": "1",
+              "homeMain": "2",
               "homeAdd": "",
-              "awayMain": "1",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Centres et corners",
-              "homeMain": "5",
-              "homeAdd": "",
-              "awayMain": "7",
-              "awayAdd": ""
-            },
-            {
-              "title": "Passes",
-              "homeMain": "286",
-              "homeAdd": "",
-              "awayMain": "133",
-              "awayAdd": ""
-            },
-            {
-              "title": "Tacles réussis",
-              "homeMain": "11",
-              "homeAdd": "",
-              "awayMain": "6",
-              "awayAdd": ""
-            },
-            {
-              "title": "Dégagements",
-              "homeMain": "8",
-              "homeAdd": "",
-              "awayMain": "11",
-              "awayAdd": ""
-            },
-            {
-              "title": "Tacles",
-              "homeMain": "15",
-              "homeAdd": "",
-              "awayMain": "13",
-              "awayAdd": ""
-            },
-            {
-              "title": "Interceptions réussies",
-              "homeMain": "10",
-              "homeAdd": "",
-              "awayMain": "6",
-              "awayAdd": ""
-            },
-            {
-              "title": "Duels aériens gagnés",
               "homeMain": "6",
               "homeAdd": "",
               "awayMain": "11",
               "awayAdd": ""
             },
             {
-              "title": "Duels gagnés",
-              "homeMain": "29",
+              "title": "Passes",
+              "homeMain": "477",
               "homeAdd": "",
-              "awayMain": "36",
+              "awayMain": "238",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles réussis",
+              "homeMain": "15",
+              "homeAdd": "",
+              "awayMain": "14",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dégagements",
+              "homeMain": "12",
+              "homeAdd": "",
+              "awayMain": "17",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles",
+              "homeMain": "21",
+              "homeAdd": "",
+              "awayMain": "24",
+              "awayAdd": ""
+            },
+            {
+              "title": "Interceptions réussies",
+              "homeMain": "16",
+              "homeAdd": "",
+              "awayMain": "8",
+              "awayAdd": ""
+            },
+            {
+              "title": "Duels aériens gagnés",
+              "homeMain": "11",
+              "homeAdd": "",
+              "awayMain": "13",
+              "awayAdd": ""
+            },
+            {
+              "title": "Duels gagnés",
+              "homeMain": "44",
+              "homeAdd": "",
+              "awayMain": "55",
               "awayAdd": ""
             },
             {
               "title": "Arrêts",
               "homeMain": "1",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "5",
               "awayAdd": ""
             }
           ],
@@ -5486,14 +5497,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png\" alt=\"Logo Estudiantes Río Cuarto\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Estudiantes RC</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">32'</span>\n                                <span class=\"matchFull__strikerName\">M. Bajamich</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png\" alt=\"Logo Huracán\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Huracán</span><span class=\"matchTeam__card\">\n            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" class=\"colorRedCardSvg\">\n    <path d=\"M15 1.5H9a3 3 0 0 0-3 3v15a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-15a3 3 0 0 0-3-3Z\"></path>\n</svg>\n\n\n        </span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">53'</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/8989553813711241754-estudiantes-rio-cuarto-vs-huracan\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/estudiantes-rio-cuarto.png\" alt=\"Logo Estudiantes Río Cuarto\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Estudiantes RC</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">32'</span>\n                                <span class=\"matchFull__strikerName\">M. Bajamich</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/huracan.png\" alt=\"Logo Huracán\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Huracán</span><span class=\"matchTeam__card\">\n            \n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" class=\"colorRedCardSvg\">\n    <path d=\"M15 1.5H9a3 3 0 0 0-3 3v15a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-15a3 3 0 0 0-3-3Z\"></path>\n</svg>\n\n\n        </span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">87'</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "8989553813711241754",
-          "data-live-value": "playing100153'1",
+          "data-live-value": "playing100187'1",
           "data-live": "1"
         },
-        "rawText": "Estudiantes RC\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                32'\n                                M. Bajamich\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Huracán\n            \n\n    \n\n\n\n        \n0\n                        \n\n                \n            \n                \n                            53'",
+        "rawText": "Estudiantes RC\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                32'\n                                M. Bajamich\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Huracán\n            \n\n    \n\n\n\n        \n0\n                        \n\n                \n            \n                \n                            87'",
         "stats": {
           "faceToFace": [],
           "goalStats": [
@@ -5548,7 +5559,7 @@
             },
             {
               "title": "Précision des centres",
-              "homeMain": "21%",
+              "homeMain": "22%",
               "homeAdd": "",
               "awayMain": "16%",
               "awayAdd": ""
@@ -5597,23 +5608,23 @@
             },
             {
               "title": "Possession",
-              "homeMain": "39%",
+              "homeMain": "36%",
               "homeAdd": "",
-              "awayMain": "61%",
+              "awayMain": "64%",
               "awayAdd": ""
             },
             {
               "title": "Duels gagnés",
-              "homeMain": "46%",
+              "homeMain": "45%",
               "homeAdd": "",
-              "awayMain": "54%",
+              "awayMain": "55%",
               "awayAdd": ""
             },
             {
               "title": "Passes réussies",
-              "homeMain": "66%",
+              "homeMain": "70%",
               "homeAdd": "",
-              "awayMain": "80%",
+              "awayMain": "82%",
               "awayAdd": ""
             },
             {
@@ -5653,14 +5664,14 @@
             },
             {
               "title": "Grosses occasions créées",
-              "homeMain": "2",
+              "homeMain": "3",
               "homeAdd": "",
-              "awayMain": "0",
+              "awayMain": "1",
               "awayAdd": ""
             },
             {
               "title": "Tirs bloqués",
-              "homeMain": "1",
+              "homeMain": "2",
               "homeAdd": "",
               "awayMain": "1",
               "awayAdd": ""
@@ -5669,14 +5680,14 @@
               "title": "Hors-jeux",
               "homeMain": "0",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Touches",
-              "homeMain": "11",
+              "homeMain": "17",
               "homeAdd": "",
-              "awayMain": "10",
+              "awayMain": "18",
               "awayAdd": ""
             },
             {
@@ -5688,65 +5699,65 @@
             },
             {
               "title": "Corners et centres réussis",
-              "homeMain": "3",
-              "homeAdd": "",
-              "awayMain": "2",
-              "awayAdd": ""
-            },
-            {
-              "title": "Centres et corners",
-              "homeMain": "10",
-              "homeAdd": "",
-              "awayMain": "10",
-              "awayAdd": ""
-            },
-            {
-              "title": "Corners joués",
-              "homeMain": "3",
+              "homeMain": "5",
               "homeAdd": "",
               "awayMain": "4",
               "awayAdd": ""
             },
             {
-              "title": "Passes",
-              "homeMain": "143",
+              "title": "Centres et corners",
+              "homeMain": "18",
               "homeAdd": "",
-              "awayMain": "231",
+              "awayMain": "17",
+              "awayAdd": ""
+            },
+            {
+              "title": "Corners joués",
+              "homeMain": "7",
+              "homeAdd": "",
+              "awayMain": "5",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes",
+              "homeMain": "225",
+              "homeAdd": "",
+              "awayMain": "411",
               "awayAdd": ""
             },
             {
               "title": "Interceptions réussies",
-              "homeMain": "4",
+              "homeMain": "8",
               "homeAdd": "",
               "awayMain": "3",
               "awayAdd": ""
             },
             {
               "title": "Tacles réussis",
-              "homeMain": "2",
+              "homeMain": "6",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "6",
               "awayAdd": ""
             },
             {
               "title": "Tacles",
-              "homeMain": "6",
+              "homeMain": "11",
               "homeAdd": "",
-              "awayMain": "7",
+              "awayMain": "13",
               "awayAdd": ""
             },
             {
               "title": "Duels aériens gagnés",
-              "homeMain": "5",
+              "homeMain": "8",
               "homeAdd": "",
-              "awayMain": "8",
+              "awayMain": "11",
               "awayAdd": ""
             },
             {
               "title": "Duels gagnés",
-              "homeMain": "19",
+              "homeMain": "31",
               "homeAdd": "",
-              "awayMain": "22",
+              "awayMain": "38",
               "awayAdd": ""
             },
             {
@@ -5758,16 +5769,16 @@
             },
             {
               "title": "Dégagements",
-              "homeMain": "17",
+              "homeMain": "23",
               "homeAdd": "",
-              "awayMain": "11",
+              "awayMain": "16",
               "awayAdd": ""
             },
             {
               "title": "Arrêts",
-              "homeMain": "1",
+              "homeMain": "2",
               "homeAdd": "",
-              "awayMain": "2",
+              "awayMain": "4",
               "awayAdd": ""
             }
           ],
@@ -10483,6 +10494,260 @@
             }
           ]
         }
+      },
+      {
+        "liveId": "1221633425966173405",
+        "statsLink": "https://www.footmercato.net/live/1221633425966173405/stats",
+        "homeTeam": {
+          "name": "Wolverhampton",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/wolverhampton-wanderers.png"
+        },
+        "awayTeam": {
+          "name": "Aston Villa",
+          "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/aston-villa.png"
+        },
+        "score": null,
+        "status": "scheduled",
+        "isLive": false,
+        "goals": {
+          "home": [],
+          "away": []
+        },
+        "broadcasts": [
+          "https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png"
+        ],
+        "rawHTML": "\n    <a href=\"/live/1221633425966173405-wolverhampton-vs-aston-villa\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/wolverhampton-wanderers.png\" alt=\"Logo Wolverhampton\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Wolverhampton</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/aston-villa.png\" alt=\"Logo Aston Villa\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Aston Villa</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-27T20:00:00+00:00\">\n                                21:00\n                            </time>\n                        </span></span>\n                                    <span class=\"matchFull__broadcasts\">\n                            <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/150x150/canal-plus-foot-671b925747f0f.png\" alt=\"Logo Canal + Foot\" class=\"matchFull__broadcastImage\" width=\"40\" height=\"40\">\n\n\n                                            </span>\n                                    </span>\n    </a>\n\n    ",
+        "attributes": {
+          "class": "matchFull",
+          "data-live-id": "1221633425966173405",
+          "data-live-value": "fixture000",
+          "data-live": "0"
+        },
+        "rawText": "Wolverhampton\n\n\n                \n                \n                    \n        \n\n\n    Aston Villa\n\n\n                \n            \n                \n                            \n                            \n                                21:00",
+        "stats": {
+          "faceToFace": [],
+          "goalStats": [
+            {
+              "title": "Répartition des 68 buts",
+              "homeMain": "46%",
+              "homeAdd": "(31)",
+              "awayMain": "54%",
+              "awayAdd": "(37)"
+            },
+            {
+              "title": "Buts par match",
+              "homeMain": "1.15",
+              "homeAdd": "",
+              "awayMain": "1.37",
+              "awayAdd": ""
+            },
+            {
+              "title": "Aucun but marqué",
+              "homeMain": "22%",
+              "homeAdd": "(6)",
+              "awayMain": "30%",
+              "awayAdd": "(8)"
+            },
+            {
+              "title": "Au moins 1 but marqué",
+              "homeMain": "78%",
+              "homeAdd": "(21)",
+              "awayMain": "70%",
+              "awayAdd": "(19)"
+            },
+            {
+              "title": "Plus de 1.5 buts marqués",
+              "homeMain": "33%",
+              "homeAdd": "(9)",
+              "awayMain": "41%",
+              "awayAdd": "(11)"
+            },
+            {
+              "title": "Plus de 2.5 buts marqués",
+              "homeMain": "4%",
+              "homeAdd": "(1)",
+              "awayMain": "19%",
+              "awayAdd": "(5)"
+            },
+            {
+              "title": "Plus de 3.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "(2)",
+              "awayMain": "7%",
+              "awayAdd": "(2)"
+            },
+            {
+              "title": "Plus de 4.5 buts marqués",
+              "homeMain": "0%",
+              "homeAdd": "",
+              "awayMain": "0%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Matchs",
+              "homeMain": "28",
+              "homeAdd": "",
+              "awayMain": "27",
+              "awayAdd": ""
+            },
+            {
+              "title": "Victoires",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "15",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nuls",
+              "homeMain": "7",
+              "homeAdd": "",
+              "awayMain": "6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Défaites",
+              "homeMain": "20",
+              "homeAdd": "",
+              "awayMain": "6",
+              "awayAdd": ""
+            },
+            {
+              "title": "Buts",
+              "homeMain": "18",
+              "homeAdd": "",
+              "awayMain": "38",
+              "awayAdd": ""
+            },
+            {
+              "title": "Possession",
+              "homeMain": "43%",
+              "homeAdd": "",
+              "awayMain": "53%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Précision des passes",
+              "homeMain": "79%",
+              "homeAdd": "",
+              "awayMain": "84%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Précision des centres",
+              "homeMain": "27%",
+              "homeAdd": "",
+              "awayMain": "22%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but marqué en moyenne",
+              "homeMain": "43'",
+              "homeAdd": "",
+              "awayMain": "46'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but marqué en moyenne",
+              "homeMain": "53'",
+              "homeAdd": "",
+              "awayMain": "70'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but marqué",
+              "homeMain": "13",
+              "homeAdd": "",
+              "awayMain": "19",
+              "awayAdd": ""
+            },
+            {
+              "title": "Premier but encaissé en moyenne",
+              "homeMain": "39'",
+              "homeAdd": "",
+              "awayMain": "36'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dernier but encaissé en moyenne",
+              "homeMain": "63'",
+              "homeAdd": "",
+              "awayMain": "47'",
+              "awayAdd": ""
+            },
+            {
+              "title": "Nb de matchs - au moins 1 but concédé",
+              "homeMain": "25",
+              "homeAdd": "",
+              "awayMain": "19",
+              "awayAdd": ""
+            }
+          ],
+          "extraStats": [],
+          "timeline": [],
+          "cards": [],
+          "rawDataAttributes": [
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-4690629992383971210"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0010"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-1791560221114455263"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0020"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-6972555149222804337"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0031"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-2808810074858585812"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé0020"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            },
+            {
+              "key": "data-live-id",
+              "value": "matchSlim-3687757551067314246"
+            },
+            {
+              "key": "data-live-value",
+              "value": "playedterminé1011"
+            },
+            {
+              "key": "data-live",
+              "value": "0"
+            }
+          ]
+        }
       }
     ]
   },
@@ -11071,7 +11336,7 @@
           "name": "Nacional",
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png"
         },
-        "score": "1 - 0",
+        "score": "2 - 1",
         "status": "live",
         "isLive": true,
         "goals": {
@@ -11079,19 +11344,28 @@
             {
               "player": "K. Parzajuk",
               "minute": "12' (sp)"
+            },
+            {
+              "player": "A. González",
+              "minute": "13'"
             }
           ],
-          "away": []
+          "away": [
+            {
+              "player": "A. Samudio",
+              "minute": "18'"
+            }
+          ]
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/5181612591360072132-recoleta-vs-nacional-asuncion\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Recoleta</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">12' (sp)</span>\n                                <span class=\"matchFull__strikerName\">K. Parzajuk</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional Asunción\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Nacional</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">12'</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/5181612591360072132-recoleta-vs-nacional-asuncion\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/deportivo-recoleta-paraguay.png\" alt=\"Logo Recoleta\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Recoleta</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">2</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">12' (sp)</span>\n                                <span class=\"matchFull__strikerName\">K. Parzajuk</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">13'</span>\n                                <span class=\"matchFull__strikerName\">A. González</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/nacional-asuncion.png\" alt=\"Logo Nacional Asunción\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Nacional</span></span>\n<span class=\"matchFull__score \">1</span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--away\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">18'</span>\n                                <span class=\"matchFull__strikerName\">A. Samudio</span>\n                            </span>\n                                            </span>\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">45+3'</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "5181612591360072132",
-          "data-live-value": "playing100012'1",
+          "data-live-value": "playing210045+3'1",
           "data-live": "1"
         },
-        "rawText": "Recoleta\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                12' (sp)\n                                K. Parzajuk\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Nacional\n0\n                        \n\n                \n            \n                \n                            12'",
+        "rawText": "Recoleta\n2\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                12' (sp)\n                                K. Parzajuk\n                            \n                                                    \n                                13'\n                                A. González\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Nacional\n1\n                        \n\n                                    \n                                                    \n                                18'\n                                A. Samudio\n                            \n                                            \n                \n            \n                \n                            45+3'",
         "stats": {
           "faceToFace": [],
           "goalStats": [
@@ -11217,9 +11491,9 @@
             {
               "title": "Formations",
               "homeMain": "442",
-              "homeAdd": "(4 fois)",
+              "homeAdd": "(5 fois)",
               "awayMain": "442",
-              "awayAdd": "(1 fois)"
+              "awayAdd": "(2 fois)"
             }
           ],
           "extraStats": [],
@@ -15306,25 +15580,48 @@
           "name": "Defence",
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
-        "score": null,
+        "score": "2 - 0",
         "status": "live",
         "isLive": true,
         "goals": {
-          "home": [],
+          "home": [
+            {
+              "player": "G. Martínez",
+              "minute": "7'"
+            },
+            {
+              "player": "J. Lukić",
+              "minute": "10' (sp)"
+            }
+          ],
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/5826061125256303984-philadelphie-union-vs-defence-force\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/philadelphie-union.png\" alt=\"Logo Philadelphie Union\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Philadelphie</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Defence Force\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Defence</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-27T00:00:00+00:00\">\n                                01:00\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/5826061125256303984-philadelphie-union-vs-defence-force\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/philadelphie-union.png\" alt=\"Logo Philadelphie Union\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Philadelphie</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">2</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">7'</span>\n                                <span class=\"matchFull__strikerName\">G. Martínez</span>\n                            </span>\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">10' (sp)</span>\n                                <span class=\"matchFull__strikerName\">J. Lukić</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Defence Force\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Defence</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">11'</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "5826061125256303984",
-          "data-live-value": "fixture001",
+          "data-live-value": "playing200011'1",
           "data-live": "1"
         },
-        "rawText": "Philadelphie\n\n\n                \n                \n                    \n        \n\n\n    Defence\n\n\n                \n            \n                \n                            \n                            \n                                01:00",
+        "rawText": "Philadelphie\n2\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                7'\n                                G. Martínez\n                            \n                                                    \n                                10' (sp)\n                                J. Lukić\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Defence\n0\n                        \n\n                \n            \n                \n                            11'",
         "stats": {
           "faceToFace": [],
           "goalStats": [
+            {
+              "title": "Possession",
+              "homeMain": "79%",
+              "homeAdd": "",
+              "awayMain": "21%",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes réussies",
+              "homeMain": "86%",
+              "homeAdd": "",
+              "awayMain": "67%",
+              "awayAdd": ""
+            },
             {
               "title": "Âge moyen",
               "homeMain": "23.76",
@@ -15352,6 +15649,69 @@
               "homeAdd": "(3 fois)",
               "awayMain": "4231",
               "awayAdd": "(2 fois)"
+            },
+            {
+              "title": "",
+              "homeMain": "",
+              "homeAdd": "",
+              "awayMain": "",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tirs bloqués",
+              "homeMain": "2",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Touches",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Corners joués",
+              "homeMain": "1",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Passes",
+              "homeMain": "88",
+              "homeAdd": "",
+              "awayMain": "24",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles réussis",
+              "homeMain": "4",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Tacles",
+              "homeMain": "7",
+              "homeAdd": "",
+              "awayMain": "0",
+              "awayAdd": ""
+            },
+            {
+              "title": "Penalties concédés",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
+            },
+            {
+              "title": "Dégagements",
+              "homeMain": "0",
+              "homeAdd": "",
+              "awayMain": "1",
+              "awayAdd": ""
             }
           ],
           "extraStats": [],
@@ -15612,8 +15972,8 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/deportivo-tachira.png"
         },
         "score": null,
-        "status": "scheduled",
-        "isLive": false,
+        "status": "live",
+        "isLive": true,
         "goals": {
           "home": [],
           "away": []
@@ -15623,8 +15983,8 @@
         "attributes": {
           "class": "matchFull",
           "data-live-id": "7087749136680104329",
-          "data-live-value": "fixture000",
-          "data-live": "0"
+          "data-live-value": "fixture001",
+          "data-live": "1"
         },
         "rawText": "Tolima\n\n\n                \n                \n                    \n        \n\n\n    Táchira\n\n\n                \n            \n                \n                            \n                            \n                                01:30",
         "stats": {
@@ -15813,14 +16173,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/3024704614412333339-ceara-vs-primavera\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/ceara.png\" alt=\"Logo Ceará\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Ceará</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">11'</span>\n                                <span class=\"matchFull__strikerName\">Lucas Lima</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Primavera\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Primavera</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">42'</span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/3024704614412333339-ceara-vs-primavera\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://assets-fr.imgfoot.com/media/cache/60x60/club/ceara.png\" alt=\"Logo Ceará\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Ceará</span></span>\n<span class=\"matchFull__score matchFull__score--highlight\">1</span>\n                                                    <span class=\"matchFull__winIndicator\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m13.098 10.902 9.09-4.759A1.238 1.238 0 0 1 24 7.24v9.522c0 .928-.99 1.529-1.813 1.096l-9.09-4.759a1.236 1.236 0 0 1 0-2.19v-.006Z\"></path></svg>\n\n                            </span>\n                        </span>\n\n                                    <span class=\"matchFull__strikers matchFull__strikers--home\">\n                                                    <span class=\"matchFull__striker hidden\" data-strikers=\"1\">\n                                <span class=\"matchFull__strikerTime\">11'</span>\n                                <span class=\"matchFull__strikerName\">Lucas Lima</span>\n                            </span>\n                                            </span>\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Primavera\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Primavera</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">55'</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "3024704614412333339",
-          "data-live-value": "playing100042'1",
+          "data-live-value": "playing100055'1",
           "data-live": "1"
         },
-        "rawText": "Ceará\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                11'\n                                Lucas Lima\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Primavera\n0\n                        \n\n                \n            \n                \n                            42'",
+        "rawText": "Ceará\n1\n                                                    \n                                \n\n                            \n                        \n\n                                    \n                                                    \n                                11'\n                                Lucas Lima\n                            \n                                            \n                \n                \n                    \n        \n\n\n    Primavera\n0\n                        \n\n                \n            \n                \n                            55'",
         "stats": {
           "faceToFace": [],
           "goalStats": [],
@@ -15841,7 +16201,7 @@
           "name": "Porto Velho",
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
-        "score": null,
+        "score": "0 - 0",
         "status": "live",
         "isLive": true,
         "goals": {
@@ -15849,14 +16209,14 @@
           "away": []
         },
         "broadcasts": [],
-        "rawHTML": "\n    <a href=\"/live/8796170683641002642-ceov-operario-vs-porto-velho-ec\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo CEOV Operário\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">CEOV</span></span>\n</span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Porto Velho EC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Porto Velho</span></span>\n</span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosDate\">\n                            <time datetime=\"2026-02-27T00:00:00+00:00\">\n                                01:00\n                            </time>\n                        </span></span>\n                                    </span>\n    </a>\n\n    ",
+        "rawHTML": "\n    <a href=\"/live/8796170683641002642-ceov-operario-vs-porto-velho-ec\" class=\"matchFull__link\">\n                    <span class=\"matchFull__teams\">\n\n                <span class=\"matchFull__team\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo CEOV Operário\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">CEOV</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n                <span class=\"matchFull__team matchFull__team--away\">\n                    <span class=\"matchTeam \">\n        <img src=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E\" data-src=\"https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png\" alt=\"Logo Porto Velho EC\" class=\"matchTeam__logo\" width=\"16\" height=\"16\">\n\n\n    <span class=\"matchTeam__name\">Porto Velho</span></span>\n<span class=\"matchFull__score \">0</span>\n                        </span>\n\n                \n            </span>\n                <span class=\"matchFull__infos\">\n                            <span class=\"matchFull__dateTimeChrono\"><span class=\"matchFull__infosChrono\">14'</span></span>\n                                    </span>\n    </a>\n\n    ",
         "attributes": {
           "class": "matchFull",
           "data-live-id": "8796170683641002642",
-          "data-live-value": "fixture001",
+          "data-live-value": "playing000014'1",
           "data-live": "1"
         },
-        "rawText": "CEOV\n\n\n                \n                \n                    \n        \n\n\n    Porto Velho\n\n\n                \n            \n                \n                            \n                            \n                                01:00",
+        "rawText": "CEOV\n0\n                        \n\n                \n                \n                    \n        \n\n\n    Porto Velho\n0\n                        \n\n                \n            \n                \n                            14'",
         "stats": {
           "faceToFace": [],
           "goalStats": [],
@@ -15878,8 +16238,8 @@
           "logo": "https://www.footmercato.net/build/images/default_club_grey.27d27fcf.png"
         },
         "score": null,
-        "status": "scheduled",
-        "isLive": false,
+        "status": "live",
+        "isLive": true,
         "goals": {
           "home": [],
           "away": []
@@ -15889,8 +16249,8 @@
         "attributes": {
           "class": "matchFull",
           "data-live-id": "4938202024784576769",
-          "data-live-value": "fixture000",
-          "data-live": "0"
+          "data-live-value": "fixture001",
+          "data-live": "1"
         },
         "rawText": "Portuguesa\n\n\n                \n                \n                    \n        \n\n\n    Altos\n\n\n                \n            \n                \n                            \n                            \n                                01:30",
         "stats": {
@@ -15920,8 +16280,8 @@
           "logo": "https://assets-fr.imgfoot.com/media/cache/60x60/club/lanus.png"
         },
         "score": null,
-        "status": "scheduled",
-        "isLive": false,
+        "status": "live",
+        "isLive": true,
         "goals": {
           "home": [],
           "away": []
@@ -15931,8 +16291,8 @@
         "attributes": {
           "class": "matchFull",
           "data-live-id": "5256968658504708458",
-          "data-live-value": "fixture000",
-          "data-live": "0"
+          "data-live-value": "fixture001",
+          "data-live": "1"
         },
         "rawText": "Flamengo\n\n\n                \n                \n                    \n        \n\n\n    Lanús\n\n\n                \n            \n                \n                            \n                            \n                                01:30",
         "stats": {
@@ -16035,6 +16395,34 @@
               "homeAdd": "",
               "awayMain": "5",
               "awayAdd": ""
+            },
+            {
+              "title": "Âge moyen",
+              "homeMain": "29.27",
+              "homeAdd": "",
+              "awayMain": "30.03",
+              "awayAdd": ""
+            },
+            {
+              "title": "Taille moyenne",
+              "homeMain": "179.3",
+              "homeAdd": "",
+              "awayMain": "177.38",
+              "awayAdd": ""
+            },
+            {
+              "title": "Poids moyen",
+              "homeMain": "76",
+              "homeAdd": "",
+              "awayMain": "74.11",
+              "awayAdd": ""
+            },
+            {
+              "title": "Formations",
+              "homeMain": "4231",
+              "homeAdd": "(5 fois)",
+              "awayMain": "4231",
+              "awayAdd": "(7 fois)"
             }
           ],
           "extraStats": [],
