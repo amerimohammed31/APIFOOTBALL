@@ -226,7 +226,7 @@ wss.on("connection", (ws) => {
 server.listen(PORT, async () => {
   await loadFromDisk();
   await Promise.all([updateMatches(), updateStandings()]);
-  setInterval(updateLiveMatchesOnly, 60 * 1000); // Live كل دقيقة
-  setInterval(updateMatches, 5 * 60 * 1000);     // Full Update كل 5 دقائق
+  setInterval(updateLiveMatchesOnly, 50 * 60 * 1000); // Live كل دقيقة
+  setInterval(updateMatches, 50 * 60 * 1000);     // Full Update كل 5 دقائق
   setInterval(updateStandings, 10 * 60 * 1000);  // Standings كل 10 دقائق
 });
